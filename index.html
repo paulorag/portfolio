@@ -8,42 +8,108 @@
     <title>Portfólio</title>
     <link rel="stylesheet" href="assets/css/normalize.css">
     <link rel="stylesheet" href="assets/css/reset.css">
-    <link rel="stylesheet" href="assets/css/base.css">
-    <link rel="stylesheet" href="assets/css/menu/menu.css">
-    <link rel="stylesheet" href="assets/css/menu/menu-item.css">
-    <link rel="stylesheet" href="assets/css/menu/menu-link.css">
-    <link rel="stylesheet" href="assets/css/menu/menu-lista.css">
-    <link rel="stylesheet" href="assets/css/cabecalho/cabecalho.css">
-    <link rel="stylesheet" href="assets/css/cabecalho/cabecalho-nome.css">
-    <link rel="stylesheet" href="assets/css/cabecalho/cabecalho-email.css">
-    <link rel="stylesheet" href="assets/css/cabecalho/cabecalho-imagem.css">
-    <link rel="stylesheet" href="assets/css/cabecalho/cabecalho-titulo.css">
-    <link rel="stylesheet" href="assets/css/cabecalho/cabecalho-descricao.css">
 </head>
 
 <body>
-    <header class="container">
-        <div class="cabecalho">
-            <h1 class="cabecalho__nome">Paulo Roberto</h1>
-            <p class="cabecalho__email">paulo.roberto.skt8@gmail.com</p>
-        </div>
-        <img class="cabecalho__imagem" src="assets/img/profile.jpeg" alt="Minha foto">
-        <h2 class="cabecalho__titulo">Olá, meu nome é Paulo Roberto e sou um desenvolvedor Front-End!</h2>
-        <p class="cabecalho__descricao">Eu sou formado como Técnico em Informática e atualmente estou cursando superior em Análise e desenvolvimento de sistemas. Também conclui um curso de desenvolvimento fron-end pelo Senai-DF e estou participando do projeto Oracle One na Alura.</p>
-        <nav class="menu">
-            <ul class="menu__lista">
-                <li class="menu__item"><a class="menu__link" href="https://github.com/paulorag" target="_blank">GitHub<img src="assets/img/arrow.png" alt="Vetor de uma flecha"></a></li>
-                <li class="menu__item"><a class="menu__link" href="https://www.linkedin.com/in/paulorag/" target="_blank">Linkedin<img src="assets/img/arrow.png" alt="Vetor de uma flecha"></a></li>
+    <header>
+        <nav>
+            <h1>Paulo Roberto</h1>
+            <ul>
+                <li><a href="#">Sobre mim</a></li>
+                <li><a href="#">Skills</a></li>
+                <li><a href="#">Hobbies</a></li>
+                <li><a href="#">Formação</a></li>
+                <li><a href="#">Projetos</a></li>
+            </ul>
+            <p>paulo.roberto.skt8@gmail.com</p>
+        </nav>
+        <img src="assets/img/profile.jpeg" alt="Minha foto">
+        <h2>Olá, meu nome é Paulo Roberto e sou um desenvolvedor Front-End!</h2>
+        <p>Eu sou formado como Técnico em Informática e atualmente estou cursando superior em Análise e desenvolvimento
+            de sistemas. Também conclui um curso de desenvolvimento fron-end pelo Senai-DF e estou participando do
+            projeto Oracle One na Alura.</p>
+        <nav>
+            <ul>
+                <li><a href="https://github.com/paulorag" target="_blank">GitHub<img src="assets/img/arrow.png"
+                            alt="Vetor de uma flecha"></a></li>
+                <li><a href="https://www.linkedin.com/in/paulorag/" target="_blank">Linkedin<img
+                            src="assets/img/arrow.png" alt="Vetor de uma flecha"></a></li>
             </ul>
         </nav>
     </header>
-    
-    <main>
 
+    <main>
+        <section>
+            <h2>Sobre mim</h2>
+            <p>Falar sobre</p>
+        </section>
+        <section>
+            <h2>Skills</h2>
+            <ul>
+                <li><img src="assets/img/icons/html5-original.svg" alt="Icone Html">HTML</li>
+                <li><img src="assets/img/icons/css3-original.svg" alt="Icone CSS">CSS</li>
+                <li><img src="assets/img/icons/bootstrap-original.svg" alt="Icone BootStrap">BootStrap</li>
+                <li><img src="assets/img/icons/javascript-original.svg" alt="Icone JavaScript">JavaScript</li>
+                <li><img src="assets/img/icons/react-original.svg" alt="Icone ReactJs">ReactJs</li>
+                <li><img src="assets/img/icons/git-original.svg" alt="Icone Git">Git</li>
+            </ul>
+        </section>
+        <!-- <section>
+            <h2>Hobbies</h2>
+            <ul>
+                <li><img src="" alt=""></li>
+            </ul>
+        </section> -->
+        <section>
+            <h2>Formação Academica</h2>
+            <div>
+                <img src="assets/img/logo/logo-etb.jpg" alt="Logo da Escola Técnica de Brasília">
+                <h3>Técnico em Informática</h3>
+                <p>2020 - ETB</p>
+            </div>
+            <div>
+                <img src="assets/img/logo/logo-estacio.png" alt="Logo da Universidade Estácio de Sá">
+                <h3>Análise e desenvolvimento de sistemas</h3>
+                <p>Em Andamento - Estácio</p>
+            </div>
+            <div>
+                <img src="assets/img/logo/logo-alura.png" alt="Logo da Alura">
+                <h3>Oracle Next Education F2 T3</h3>
+                <p>Em Andamento - Alura</p>
+            </div>
+            <div>
+                <img src="assets/img/logo/logo-senai.svg" alt="Logo do Senai">
+                <h3>Desenvolvimento Front-End</h3>
+                <p>2022 - Senai-DF</p>
+            </div>
+        </section>
+        <section>
+            <h2>Experiência Profissional</h2>
+            <div>
+                <img src="" alt="">
+                <h3>Decodificador de texto criado com HTML, CSS e JavaScript</h3>
+                <p>Challenge Alura/Oracle Codificador</p>
+                <a href="#">Repositório</a>
+                <a href="#">Ver demo</a>
+            </div>
+            <div>
+                <img src="" alt="">
+                <h3>Jogo criado com HTML, CSS e JavaScript</h3>
+                <p>Challenge Alura/Oracle Jogo da velha</p>
+                <a href="#">Repositório</a>
+                <a href="#">Ver demo</a>
+            </div>
+        </section>
+        <section>
+            <h2>Contato</h2>
+            <p>Quer entrar em contato comigo?</p>
+            <p>Preencha o formulario e entrarei em contato o mais rapido possivel</p>
+            <!-- fomulario -->
+        </section>
     </main>
 
     <footer>
-
+        <p>Desenvolvido por Paulo Roberto - 2022</p>
     </footer>
 </body>
 
