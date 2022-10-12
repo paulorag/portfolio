@@ -1,0 +1,10 @@
+body {
+    background-color: #F5F5F5;
+    font-family: 'Raleway', sans-serif;
+    position: absolute;
+}
+
+.container {
+    margin: 0 1rem 0 2rem;
+    width: 95vw;
+}

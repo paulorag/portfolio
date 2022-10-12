@@ -6,39 +6,61 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfólio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/normalize.css">
     <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/base.css">
+    <link rel="stylesheet" href="assets/css/resumos.css">
+    <link rel="stylesheet" href="assets/css/menu/menu.css">
+    <link rel="stylesheet" href="assets/css/menu/menu-titulo.css">
+    <link rel="stylesheet" href="assets/css/menu/menu-lista.css">
+    <link rel="stylesheet" href="assets/css/menu/menu-item.css">
+    <link rel="stylesheet" href="assets/css/menu/menu-link.css">
+    <link rel="stylesheet" href="assets/css/resumo/resumo.css">
+    <link rel="stylesheet" href="assets/css/resumo/resumo-imagem.css">
+    <link rel="stylesheet" href="assets/css/resumo/resumo-titulo.css">
+    <link rel="stylesheet" href="assets/css/resumo/resumo-descricao.css">
+    <link rel="stylesheet" href="assets/css/resumo/resumo-lista.css">
+    <link rel="stylesheet" href="assets/css/resumo/resumo-item.css">
+    <link rel="stylesheet" href="assets/css/resumo/resumo-link.css">
 </head>
 
 <body>
-    <header>
-        <nav>
-            <h1>Paulo Roberto</h1>
-            <ul>
-                <li><a href="#">Sobre mim</a></li>
-                <li><a href="#">Skills</a></li>
-                <li><a href="#">Hobbies</a></li>
-                <li><a href="#">Formação</a></li>
-                <li><a href="#">Projetos</a></li>
-            </ul>
-            <p>paulo.roberto.skt8@gmail.com</p>
-        </nav>
-        <img src="assets/img/profile.jpeg" alt="Minha foto">
-        <h2>Olá, meu nome é Paulo Roberto e sou um desenvolvedor Front-End!</h2>
-        <p>Eu sou formado como Técnico em Informática e atualmente estou cursando superior em Análise e desenvolvimento
-            de sistemas. Também conclui um curso de desenvolvimento fron-end pelo Senai-DF e estou participando do
-            projeto Oracle One na Alura.</p>
-        <nav>
-            <ul>
-                <li><a href="https://github.com/paulorag" target="_blank">GitHub<img src="assets/img/arrow.png"
-                            alt="Vetor de uma flecha"></a></li>
-                <li><a href="https://www.linkedin.com/in/paulorag/" target="_blank">Linkedin<img
-                            src="assets/img/arrow.png" alt="Vetor de uma flecha"></a></li>
+    <header class="container">
+        <nav class="menu">
+            <h1 class="menu__titulo"><img src="assets/img/group.png" alt=""> Paulo Roberto</h1>
+            <ul class="menu__lista">
+                <li class="menu__item"><a class="menu__link" href="#">Sobre mim</a></li>
+                <li class="menu__item"><a class="menu__link" href="#">Skills</a></li>
+                <li class="menu__item"><a class="menu__link" href="#">Hobbies</a></li>
+                <li class="menu__item"><a class="menu__link" href="#">Formação</a></li>
+                <li class="menu__item"><a class="menu__link" href="#">Projetos</a></li>
+                <li class="menu__item"><a class="menu__link" href="#"><strong>paulo.roberto.skt8@gmail.com</strong></a>
+                </li>
             </ul>
         </nav>
+        <div class="resumos">
+            <div class="resumo">
+                <h2 class="resumo__titulo">Olá, meu nome é Paulo Roberto e sou um desenvolvedor Front-End!</h2>
+                <p class="resumo__descricao">Eu sou formado como Técnico em Informática e atualmente estou cursando
+                    superior
+                    em Análise e desenvolvimento de sistemas. Também conclui um curso de desenvolvimento fron-end pelo
+                    Senai-DF e estou participando do projeto Oracle One na Alura.</p>
+                <ul class="resumo__lista">
+                    <li class="resumo__item"><a class="resumo__link" href="https://github.com/paulorag"
+                            target="_blank">GitHub <img src="assets/img/arrow.png" alt="Vetor de uma flecha"></a></li>
+                    <li class="resumo__item"><a class="resumo__link" href="https://www.linkedin.com/in/paulorag/"
+                            target="_blank">Linkedin <img src="assets/img/arrow.png" alt="Vetor de uma flecha"></a></li>
+                </ul>
+            </div>
+            <img class="resumo__imagem" src="assets/img/profile.jpeg" alt="Minha foto">
+        </div>
+
     </header>
 
-    <main>
+    <main class="container">
         <section>
             <h2>Sobre mim</h2>
             <p>Falar sobre</p>
@@ -108,7 +130,7 @@
         </section>
     </main>
 
-    <footer>
+    <footer class="container">
         <p>Desenvolvido por Paulo Roberto - 2022</p>
     </footer>
 </body>

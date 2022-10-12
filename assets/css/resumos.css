@@ -1,0 +1,7 @@
+.resumos {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px;
+    gap: 208px;
+}
