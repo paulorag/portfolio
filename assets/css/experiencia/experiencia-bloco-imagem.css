@@ -1,0 +1,14 @@
+.experiencia__bloco_imagem {
+    width: 752px;
+    height: 406px;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    border-radius: 0px;
+}
+
+.experiencia__bloco_imagem--codificador{
+    background: url('../../img/projetos/');
+}
+
+.experiencia__bloco_imagem--jogoForca{
+    background: url('../../img/projetos/');
+}
