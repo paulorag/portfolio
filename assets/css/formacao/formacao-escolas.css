@@ -1,0 +1,6 @@
+.formacao__escolas{
+    display: flex;
+    flex-direction: row;
+    padding: 0px;
+    gap: 16px;
+}

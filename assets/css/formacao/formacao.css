@@ -1,0 +1,9 @@
+.formacao {
+    background: #EAF2FD;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5.1rem;
+    gap: 2rem;
+    width: 100%;
+}

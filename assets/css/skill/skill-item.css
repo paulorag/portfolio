@@ -1,0 +1,12 @@
+.skill__item {
+    color: #464646;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    font-size: 1rem;
+    font-weight: 700;
+    gap: 8px;
+    justify-content: flex-end;
+    line-height: 1.3rem;
+    padding: 16px;
+}

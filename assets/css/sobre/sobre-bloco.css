@@ -1,0 +1,4 @@
+.sobre__bloco {
+    display: flex;
+    flex-direction: column;
+}

@@ -1,0 +1,8 @@
+.formacao__bloco {
+    display: flex;
+    flex-direction: column;
+    padding: 0px;
+    gap: 2px;
+    width: 250px;
+    height: 300px;
+}
