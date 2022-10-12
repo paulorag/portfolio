@@ -1,0 +1,10 @@
+.criador {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    width: 96.5vw;
+    gap: 10px;
+    background: #ffffff;
+}

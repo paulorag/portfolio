@@ -1,0 +1,14 @@
+.contato__botao {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 16px;
+    gap: 10px;
+    background: #2A7AE4;
+}
+
+.contato__botao a{
+    color: white;
+    text-decoration: none;
+}

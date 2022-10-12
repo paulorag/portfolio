@@ -1,8 +1,7 @@
-.formacao {
-    background: #EAF2FD;
+.rodape {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 2rem;
-    padding: 5.2rem;
+    padding: 0px;
+    margin-top: 32px;
 }
