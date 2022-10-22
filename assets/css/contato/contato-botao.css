@@ -6,6 +6,7 @@
     padding: 16px;
     gap: 10px;
     background: #2A7AE4;
+    border: none;
 }
 
 .contato__botao a{
