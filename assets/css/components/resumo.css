@@ -1,0 +1,44 @@
+.resumo {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.resumo__titulo {
+    color: #464646;
+    font-weight: 700;
+    font-size: 3rem;
+}
+
+.resumo__descricao {
+    text-align: justify;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 26px;
+    color: #464646;
+    margin: 0;
+}
+
+.resumo__lista {
+    display: flex;
+    padding: 0px;
+    gap: 32px;
+    margin: 0;
+}
+
+.resumo__item {
+    list-style: none;
+}
+
+.resumo__link {
+    color: #464646;
+    font-weight: 500;
+    font-size: 1rem;
+    text-decoration: none;
+}
+
+.resumo__imagem {
+    width: 300px;
+    height: 300px;
+    border-radius: 100%;
+}

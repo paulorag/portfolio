@@ -1,0 +1,57 @@
+.formacao {
+    background: #eaf2fd;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    padding: 5.2rem;
+}
+
+.formacao__titulo {
+    color: #464646;
+    font-weight: 700;
+    font-size: 2rem;
+    line-height: 2.3rem;
+    text-align: center;
+}
+
+.formacao__escolas {
+    display: flex;
+    flex-direction: row;
+    padding: 0px;
+    gap: 16px;
+}
+
+.formacao__bloco {
+    display: flex;
+    flex-direction: column;
+    padding: 0px;
+    gap: 2px;
+    width: 250px;
+    height: 300px;
+}
+
+.formacao__bloco_imagem {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width: 250px;
+    height: 143px;
+    background: #ffffff;
+}
+
+.formacao__bloco_titulo {
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 26px;
+    color: #464646;
+}
+
+.formacao__bloco_descricao {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    color: #464646;
+}

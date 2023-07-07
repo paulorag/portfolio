@@ -1,0 +1,28 @@
+.sobre {
+    background: #eaf2fd;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    padding: 3rem;
+}
+
+.sobre__bloco {
+    display: flex;
+    flex-direction: column;
+}
+
+.sobre__titulo {
+    color: #464646;
+    font-weight: 700;
+    font-size: 2rem;
+    line-height: 2.1rem;
+}
+
+.sobre__descricao {
+    color: #464646;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.3rem;
+    text-align: justify;
+    width: 70vw;
+}
