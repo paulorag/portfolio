@@ -5,7 +5,7 @@
 }
 
 .resumo__titulo {
-    color: #464646;
+    color: var(--color-font-primaria);
     font-weight: 700;
     font-size: 3rem;
 }
@@ -15,7 +15,7 @@
     font-weight: 400;
     font-size: 22px;
     line-height: 26px;
-    color: #464646;
+    color: var(--color-font-primaria);
     margin: 0;
 }
 
@@ -31,7 +31,7 @@
 }
 
 .resumo__link {
-    color: #464646;
+    color: var(--color-font-primaria);
     font-weight: 500;
     font-size: 1rem;
     text-decoration: none;

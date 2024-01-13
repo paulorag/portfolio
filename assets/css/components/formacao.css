@@ -1,5 +1,5 @@
 .formacao {
-    background: #eaf2fd;
+    background-color: var(--background-section);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -8,7 +8,7 @@
 }
 
 .formacao__titulo {
-    color: #464646;
+    color: var(--color-font-primaria);
     font-weight: 700;
     font-size: 2rem;
     line-height: 2.3rem;
@@ -39,19 +39,19 @@
     gap: 10px;
     width: 250px;
     height: 143px;
-    background: #ffffff;
+    background-color: #ffffff;
 }
 
 .formacao__bloco_titulo {
     font-weight: 700;
     font-size: 22px;
     line-height: 26px;
-    color: #464646;
+    color: var(--color-font-primaria);
 }
 
 .formacao__bloco_descricao {
     font-weight: 500;
     font-size: 16px;
     line-height: 19px;
-    color: #464646;
+    color: var(--color-font-primaria);
 }

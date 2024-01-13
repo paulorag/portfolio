@@ -1,5 +1,5 @@
 .sobre {
-    background: #eaf2fd;
+    background-color: var(--background-section);
     align-items: center;
     display: flex;
     flex-direction: column;
@@ -12,14 +12,14 @@
 }
 
 .sobre__titulo {
-    color: #464646;
+    color: var(--color-font-primaria);
     font-weight: 700;
     font-size: 2rem;
     line-height: 2.1rem;
 }
 
 .sobre__descricao {
-    color: #464646;
+    color: var(--color-font-primaria);
     font-weight: 400;
     font-size: 1rem;
     line-height: 1.3rem;

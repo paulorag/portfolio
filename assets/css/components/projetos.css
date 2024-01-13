@@ -10,7 +10,7 @@
 }
 
 .experiencia__titulo {
-    color: #464646;
+    color: var(--color-font-primaria);
     font-size: 32px;
     font-weight: 700;
     line-height: 38px;
@@ -80,9 +80,10 @@
     align-items: center;
     padding: 16px;
     gap: 10px;
-    border: 1px solid #2a7ae4;
-    color: #2a7ae4;
+    border: 1px solid var(--borderColor-botao);
+    color: var(--color-font-primaria);
     text-decoration: none;
+    border-radius: 10px;
 }
 
 .experiencia__bloco_botao--fundoAzul {
@@ -92,21 +93,22 @@
     align-items: center;
     padding: 16px;
     gap: 10px;
-    color: white;
-    background: #2a7ae4;
+    color: var(--color-font-secundaria);
+    background-color: var(--background-botao);
     text-decoration: none;
+    border-radius: 10px;
 }
 
 .experiencia__bloco_titulo {
     font-weight: 700;
     font-size: 22px;
     line-height: 26px;
-    color: #464646;
+    color: var(--color-font-primaria);
 }
 
 .experiencia__bloco_descricao {
     font-weight: 500;
     font-size: 16px;
     line-height: 19px;
-    color: #464646;
+    color: var(--color-font-primaria);
 }
