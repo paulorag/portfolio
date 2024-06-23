@@ -2,7 +2,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 0px;
     gap: 2rem;
     margin-top: 2rem;
 }
@@ -11,35 +10,38 @@
     color: var(--color-font-principal);
     font-weight: 700;
     font-size: 2rem;
-    line-height: 2.2rem;
+    text-align: center;
+}
+
+.skill__subtitulo {
+    color: var(--color-font-principal);
+    font-weight: 700;
+    font-size: 1.3rem;
     text-align: center;
 }
 
 .skill__lista {
-    align-items: flex-start;
     display: flex;
-    flex-direction: row;
-    gap: 16px;
-    padding: 0px;
+    align-items: flex-start;
+    gap: 1rem;
 }
 
 .skill__item {
-    color: var(--color-font-primaria);
-    align-items: center;
     display: flex;
+    align-items: center;
     flex-direction: column;
+    justify-content: flex-end;
+    color: var(--color-font-primaria);
     font-size: 1rem;
     font-weight: 700;
-    gap: 8px;
-    justify-content: flex-end;
     line-height: 1.3rem;
-    padding: 16px;
+    padding: 1rem;
 }
 
 .skill__imagem {
-    align-items: center;
     display: flex;
-    height: 37px;
+    align-items: center;
+    height: 2.1rem;
     text-align: center;
-    width: 32px;
+    width: 2rem;
 }

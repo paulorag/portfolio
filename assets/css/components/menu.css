@@ -12,6 +12,9 @@
     font-weight: 700;
     line-height: 19px;
 }
+.menu__titulo img{
+    padding-right: .5rem;
+}
 
 .menu__lista {
     display: flex;

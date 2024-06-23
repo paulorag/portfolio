@@ -6,8 +6,14 @@
 
 .resumo__titulo {
     color: var(--color-font-primaria);
-    font-weight: 700;
+    font-weight: 900;
     font-size: 3rem;
+}
+
+.resumo__subtitulo {
+    color: var(--color-font-primaria);
+    font-weight: 700;
+    font-size: 1.7rem;
 }
 
 .resumo__descricao {

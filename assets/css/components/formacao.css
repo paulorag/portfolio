@@ -17,9 +17,7 @@
 
 .formacao__escolas {
     display: flex;
-    flex-direction: row;
-    padding: 0px;
-    gap: 16px;
+    gap: 1rem;
 }
 
 .formacao__bloco {
@@ -33,7 +31,6 @@
 
 .formacao__bloco_imagem {
     display: flex;
-    flex-direction: row;
     justify-content: center;
     align-items: center;
     gap: 10px;
