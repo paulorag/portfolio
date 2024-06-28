@@ -1,0 +1,19 @@
+.rodape {
+    display: flex;
+    justify-content: center;
+    padding: 0px;
+    margin-top: 2rem;
+    font-size: 0.7rem;
+}
+
+@media (min-width: 768px) {
+    .rodape {
+        font-size: 0.9rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .rodape {
+        font-size: 1.1rem;
+    }
+}

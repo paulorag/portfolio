@@ -3,7 +3,7 @@
     align-items: center;
     display: flex;
     flex-direction: column;
-    padding: 3rem;
+    padding: 2rem;
 }
 
 .sobre__bloco {
@@ -14,15 +14,37 @@
 .sobre__titulo {
     color: var(--color-font-primaria);
     font-weight: 700;
-    font-size: 2rem;
-    line-height: 2.1rem;
+    font-size: 1.5rem;
 }
 
 .sobre__descricao {
     color: var(--color-font-primaria);
     font-weight: 400;
-    font-size: 1rem;
-    line-height: 1.3rem;
+    font-size: 0.8rem;
+    line-height: 1rem;
     text-align: justify;
-    width: 70vw;
+    width: 90vw;
+}
+
+@media (min-width: 768px) {
+    .sobre__titulo {
+        font-size: 1.8rem;
+    }
+
+    .sobre__descricao {
+        font-size: 1rem;
+        line-height: 1.1rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .sobre__titulo {
+        font-size: 2rem;
+    }
+
+    .sobre__descricao {
+        font-size: 1rem;
+        line-height: 1.3rem;
+        width: 70vw;
+    }
 }

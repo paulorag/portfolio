@@ -10,45 +10,84 @@
 .formacao__titulo {
     color: var(--color-font-primaria);
     font-weight: 700;
-    font-size: 2rem;
-    line-height: 2.3rem;
+    font-size: 1.5rem;
     text-align: center;
+}
+
+.formacao__conjunto {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 2rem;
 }
 
 .formacao__escolas {
     display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.formacao__cursos {
+    display: flex;
+    flex-direction: column;
     gap: 1rem;
 }
 
 .formacao__bloco {
     display: flex;
     flex-direction: column;
-    padding: 0px;
-    gap: 2px;
-    width: 250px;
-    height: 300px;
-}
-
-.formacao__bloco_imagem {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    width: 250px;
-    height: 143px;
-    background-color: #ffffff;
+    width: 90vw;
+    height: 8vh;
 }
 
 .formacao__bloco_titulo {
     font-weight: 700;
-    font-size: 22px;
-    line-height: 26px;
+    font-size: 0.9rem;
     color: var(--color-font-primaria);
 }
 
 .formacao__bloco_descricao {
     font-weight: 500;
-    font-size: 16px;
-    line-height: 19px;
+    font-size: 0.8rem;
     color: var(--color-font-primaria);
+}
+
+@media (min-width: 768px) {
+    .formacao__titulo {
+        font-size: 1.7rem;
+    }
+
+    .formacao__conjunto {
+        gap: 5rem;
+    }
+
+    .formacao__escolas {
+        gap: 3rem;
+    }
+
+    .formacao__cursos {
+        gap: 3rem;
+    }
+
+    .formacao__bloco {
+        width: 30vw;
+    }
+
+    .formacao__bloco_titulo {
+        font-size: 1rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .formacao__titulo {
+        font-size: 2rem;
+    }
+
+    .formacao__bloco_titulo {
+        font-size: 1.1rem;
+    }
+
+    .formacao__bloco_descricao {
+        font-size: 0.9rem;
+    }
 }

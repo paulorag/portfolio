@@ -5,13 +5,6 @@ function getDistanceFromTheTop(element) {
     return document.querySelector(id).offsetTop;
 }
 
-// function nativeScroll(distanceFromTheTop){
-//     window.scrollTo({
-//         top: distanceFromTheTop,
-//         behavior: "smooth",
-//     })
-// }
-
 function scrollToSection(event) {
     event.preventDefault();
     const distanceFromTheTop = getDistanceFromTheTop(event.target) - 20;
@@ -45,4 +38,12 @@ function smoothScrollTo(endX, endY, duration) {
         }
         window.scroll(newX, newY);
     }, 1000 / 60);
+}
+
+function clickMenu() {
+    if (itens.style.display == "block") {
+        itens.style.display = "none ";
+    } else {
+        itens.style.display = "block";
+    }
 }
