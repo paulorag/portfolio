@@ -9,22 +9,11 @@
     align-items: center;
 }
 
-.cabecalho__titulo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.cabecalho__img {
-    width: 20px;
-    height: 25px;
-}
-
-.cabecalho__texto {
-    color: var(--color-font-primaria);
-    font-size: 1rem;
-    font-style: normal;
-    font-weight: 700;
+@media (min-width: 1024px) {
+    .cabecalho {
+        margin: 2rem;
+        width: 95vw;
+    }
 }
 
 @media (min-width: 768px) {
@@ -37,12 +26,5 @@
     .cabecalho_bloco {
         flex-direction: row;
         justify-content: space-between;
-    }
-}
-
-@media (min-width: 1024px) {
-    .cabecalho {
-        margin: 2rem;
-        width: 95vw;
     }
 }

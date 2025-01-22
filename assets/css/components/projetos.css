@@ -63,7 +63,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: .7rem;
+    padding: 0.7rem;
     gap: 0.7rem;
     border: 1px solid var(--borderColor-botao);
     color: var(--color-font-primaria);
@@ -75,7 +75,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: .7rem;
+    padding: 0.7rem;
     gap: 0.7rem;
     color: var(--color-font-secundaria);
     background-color: var(--background-botao);
@@ -92,53 +92,8 @@
 
 .experiencia__bloco_descricao {
     font-weight: 500;
-    font-size: .8rem;
+    font-size: 0.8rem;
     color: var(--color-font-primaria);
-}
-
-@media (min-width: 768px) {    
-    .experiencia__titulo {
-        font-size: 1.9rem;
-    }
-
-    .experiencia__projetos {
-        width: 70vw;
-    }
-    
-    .experiencia__bloco {
-        flex-direction: row;
-        align-items: center;
-    }
-    
-    .experiencia__bloco--reverse {
-        flex-direction: row-reverse;
-        align-items: center;
-    }
-
-    .experiencia__bloco_imagem {
-        width: 450px;
-        height: 230px;
-    }
-    
-    .experiencia__bloco_botao {
-        font-size: 1rem;
-    }
-    
-    .experiencia__bloco_botao--transparente {
-        padding: .9rem;
-    }
-    
-    .experiencia__bloco_botao--solido {
-        padding: .9rem;
-    }
-    
-    .experiencia__bloco_titulo {
-        font-size: 1.3rem;
-    }
-    
-    .experiencia__bloco_descricao {
-        font-size: 1rem;
-    }
 }
 
 @media (min-width: 1024px) {
@@ -150,20 +105,65 @@
         width: 660px;
         height: 340px;
     }
-    
+
     .experiencia__bloco_botao--transparente {
         padding: 1rem;
     }
-    
+
     .experiencia__bloco_botao--solido {
         padding: 1rem;
     }
-    
+
     .experiencia__bloco_titulo {
         font-size: 1.5rem;
     }
-    
+
     .experiencia__bloco_descricao {
         font-size: 1.2rem;
+    }
+}
+
+@media (min-width: 768px) {
+    .experiencia__titulo {
+        font-size: 1.9rem;
+    }
+
+    .experiencia__projetos {
+        width: 70vw;
+    }
+
+    .experiencia__bloco {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .experiencia__bloco--reverse {
+        flex-direction: row-reverse;
+        align-items: center;
+    }
+
+    .experiencia__bloco_imagem {
+        width: 450px;
+        height: 230px;
+    }
+
+    .experiencia__bloco_botao {
+        font-size: 1rem;
+    }
+
+    .experiencia__bloco_botao--transparente {
+        padding: 0.9rem;
+    }
+
+    .experiencia__bloco_botao--solido {
+        padding: 0.9rem;
+    }
+
+    .experiencia__bloco_titulo {
+        font-size: 1.3rem;
+    }
+
+    .experiencia__bloco_descricao {
+        font-size: 1rem;
     }
 }

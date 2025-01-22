@@ -26,17 +26,6 @@
     width: 90vw;
 }
 
-@media (min-width: 768px) {
-    .sobre__titulo {
-        font-size: 1.8rem;
-    }
-
-    .sobre__descricao {
-        font-size: 1rem;
-        line-height: 1.1rem;
-    }
-}
-
 @media (min-width: 1024px) {
     .sobre__titulo {
         font-size: 2rem;
@@ -46,5 +35,16 @@
         font-size: 1rem;
         line-height: 1.3rem;
         width: 70vw;
+    }
+}
+
+@media (min-width: 768px) {
+    .sobre__titulo {
+        font-size: 1.8rem;
+    }
+
+    .sobre__descricao {
+        font-size: 1rem;
+        line-height: 1.1rem;
     }
 }

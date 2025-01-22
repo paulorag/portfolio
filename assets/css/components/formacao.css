@@ -52,6 +52,20 @@
     color: var(--color-font-primaria);
 }
 
+@media (min-width: 1024px) {
+    .formacao__titulo {
+        font-size: 2rem;
+    }
+
+    .formacao__bloco_titulo {
+        font-size: 1.1rem;
+    }
+
+    .formacao__bloco_descricao {
+        font-size: 0.9rem;
+    }
+}
+
 @media (min-width: 768px) {
     .formacao__titulo {
         font-size: 1.7rem;
@@ -75,19 +89,5 @@
 
     .formacao__bloco_titulo {
         font-size: 1rem;
-    }
-}
-
-@media (min-width: 1024px) {
-    .formacao__titulo {
-        font-size: 2rem;
-    }
-
-    .formacao__bloco_titulo {
-        font-size: 1.1rem;
-    }
-
-    .formacao__bloco_descricao {
-        font-size: 0.9rem;
     }
 }

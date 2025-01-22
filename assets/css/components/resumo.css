@@ -49,6 +49,34 @@
     display: none;
 }
 
+@media (min-width: 1024px) {
+    .resumos {
+        gap: 8rem;
+    }
+
+    .resumo__titulo {
+        font-size: 3rem;
+    }
+
+    .resumo__subtitulo {
+        font-size: 1.7rem;
+    }
+
+    .resumo__descricao {
+        font-size: 1.2rem;
+        line-height: 1.7rem;
+    }
+
+    .resumo__link {
+        font-size: 1rem;
+    }
+
+    .resumos__imagem {
+        width: 300px;
+        height: 300px;
+    }
+}
+
 @media (min-width: 768px) {
     .resumos {
         display: flex;
@@ -79,33 +107,5 @@
         width: 200px;
         height: 200px;
         border-radius: 100%;
-    }
-}
-
-@media (min-width: 1024px) {
-    .resumos {
-        gap: 8rem;
-    }
-
-    .resumo__titulo {
-        font-size: 3rem;
-    }
-
-    .resumo__subtitulo {
-        font-size: 1.7rem;
-    }
-
-    .resumo__descricao {
-        font-size: 1.2rem;
-        line-height: 1.7rem;
-    }
-
-    .resumo__link {
-        font-size: 1rem;
-    }
-
-    .resumos__imagem {
-        width: 300px;
-        height: 300px;
     }
 }

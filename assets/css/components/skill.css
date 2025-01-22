@@ -47,20 +47,6 @@
     width: 2rem;
 }
 
-@media (min-width: 768px) {
-    .skill__titulo {
-        font-size: 1.8rem;
-    }
-
-    .skill__subtitulo {
-        font-size: 1.1rem;
-    }
-
-    .skill__item {
-        font-size: 0.9rem;
-    }
-}
-
 @media (min-width: 1024px) {
     .skill__titulo {
         font-size: 2rem;
@@ -72,5 +58,19 @@
 
     .skill__item {
         font-size: 1rem;
+    }
+}
+
+@media (min-width: 768px) {
+    .skill__titulo {
+        font-size: 1.8rem;
+    }
+
+    .skill__subtitulo {
+        font-size: 1.1rem;
+    }
+
+    .skill__item {
+        font-size: 0.9rem;
     }
 }
