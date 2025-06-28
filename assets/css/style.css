@@ -1,8 +1,14 @@
-@import url("global/reset.css");
-@import url("global/normalize.css");
+/* ================================
+   🌐 GLOBAL STYLES
+   ================================ */
+@import url("global/base.css");
 @import url("global/variaveis.css");
 @import url("global/font.css");
+@import url("global/utilidades.css");
 
+/* ================================
+   🧩 COMPONENT STYLES
+   ================================ */
 @import url("components/cabecalho.css");
 @import url("components/menu.css");
 @import url("components/resumo.css");
@@ -11,14 +17,4 @@
 @import url("components/formacao.css");
 @import url("components/projetos.css");
 @import url("components/rodape.css");
-
-body {
-    background-color: var(--background);
-}
-
-.atributos {
-    display: flex;
-    flex-direction: column;
-    padding: 0px;
-    gap: 2rem;
-}
+@import url("components/btnTop.css");
