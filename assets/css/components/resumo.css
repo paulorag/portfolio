@@ -30,8 +30,10 @@
 
 .resumo__lista {
     display: flex;
-    gap: 2rem;
-    margin: 0;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+    padding: 0;
 }
 
 .resumo__item {
@@ -39,10 +41,29 @@
 }
 
 .resumo__link {
-    color: var(--color-font-primaria);
-    font-weight: 500;
-    font-size: 0.8rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
     text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--color-font-secundaria);
+    background-color: var(--background-botao);
+    border: 1px solid var(--borderColor-botao);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.resumo__link:hover {
+    background-color: #1f1f1f;
+    transform: translateY(-2px);
+}
+
+.resumo__icon {
+    width: 16px;
+    height: 16px;
+    fill: currentColor;
 }
 
 .resumos__imagem {
