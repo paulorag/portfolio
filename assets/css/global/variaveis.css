@@ -1,15 +1,17 @@
 :root {
+    /* Tema Claro */
     --background: #f2f2f2;
     --background-section: #e6e6e6;
     --background-botao: #333333;
+    --background-botao-hover: #555555;
     --borderColor-botao: #1f1f1f;
     --color-font-primaria: #2e2e2e;
     --color-font-secundaria: #ffffff;
-
     --section-title-color: #000;
     --text-muted: #333;
     --shadow-color: rgba(0, 0, 0, 0.2);
 
+    /* Cores dos botões */
     --button-background-light: #bfbfbf;
     --button-background-dark: #444444;
     --button-hover-light: #8c8c8c;
@@ -17,10 +19,12 @@
 }
 
 [data-theme="dark"] {
+    /* Tema Escuro */
     --background: #121212;
     --background-section: #3b3b3b;
     --background-section-hover: #525252;
     --background-botao: #e1e1e1;
+    --background-botao-hover: #acacac;
     --borderColor-botao: #e1e1e1;
 
     --color-font-primaria: #e1e1e1;
@@ -30,6 +34,7 @@
     --text-muted: #bcbcbc;
     --shadow-color: rgba(255, 255, 255, 0.08);
 
+    /* Cores dos botões */
     --button-background-light: #666666;
     --button-background-dark: #bbbbbb;
     --button-hover-light: #888888;

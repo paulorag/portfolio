@@ -3,21 +3,21 @@
     bottom: 2rem;
     right: 2rem;
     z-index: 1000;
-    padding: 0.8rem;
+    padding: 0.8rem 1rem;
     background-color: var(--background-botao);
     color: var(--color-font-secundaria);
     border: none;
-    border-radius: 50%;
+    border-radius: 8px;
     cursor: pointer;
     display: none;
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.3s ease, transform 0.2s ease;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 2px 8px var(--shadow-color);
 }
 
 #btnTop:hover {
-    background-color: #1f1f1f;
+    background-color: var(--background-botao-hover);
     transform: translateY(-4px);
 }
 
@@ -28,18 +28,18 @@
 }
 
 .btnTop__icon {
-    width: 24px;
-    height: 24px;
+    width: 16px;
+    height: 16px;
     fill: currentColor;
 }
 
 @media (min-width: 768px) {
     #btnTop {
-        padding: 1rem;
+        padding: 1.2rem 0.8rem;
     }
 
     .btnTop__icon {
-        width: 28px;
-        height: 28px;
+        width: 18px;
+        height: 18px;
     }
 }

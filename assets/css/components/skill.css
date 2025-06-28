@@ -60,7 +60,6 @@
     fill: currentColor;
 }
 
-/* Responsividade */
 @media (min-width: 768px) {
     .skill__titulo {
         font-size: 1.8rem;
