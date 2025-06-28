@@ -1,8 +1,13 @@
 :root {
-    --background: #d9d9d9;
-    --background-section: #b3b3b3;
-    --background-botao: #343434;
-    --borderColor-botao: #343434;
-    --color-font-primaria: #4d4d4d;
-    --color-font-secundaria: #e1e1e1;
+    /* 🎨 Backgrounds */
+    --background: #f2f2f2;
+    --background-section: #e6e6e6;
+    --background-botao: #1f1f1f;
+
+    /* 🎯 Borders */
+    --borderColor-botao: #1f1f1f;
+
+    /* 📝 Typography */
+    --color-font-primaria: #2e2e2e;
+    --color-font-secundaria: #ffffff;
 }
