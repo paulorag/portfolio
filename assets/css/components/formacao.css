@@ -14,8 +14,8 @@
     color: var(--color-font-primaria);
     font-weight: 700;
     font-size: 1.5rem;
-    text-align: center; /* Centraliza o título */
-    width: 100%; /* Garante que ocupe toda a largura possível */
+    text-align: center;
+    width: 100%;
 }
 
 .formacao__conjunto {

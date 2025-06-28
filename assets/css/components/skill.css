@@ -41,13 +41,17 @@
     font-weight: 700;
     line-height: 1.5;
     padding: 1rem 0.8rem;
-    background-color: transparent;
-    border-radius: 6px;
-    transition: transform 0.2s ease;
+    background-color: var(--background-section);
+    border-radius: 8px;
+    width: 6rem;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .skill__item:hover {
     transform: scale(1.05);
+    background-color: var(--background-section-hover);
 }
 
 .skill__imagem {

@@ -2,9 +2,7 @@
     background: transparent;
     border: none;
     cursor: pointer;
-    color: var(
-        --color-font-primaria
-    ); /* Ajuste da cor do ícone de acordo com o tema */
+    color: var(--color-font-primaria);
     position: fixed;
     top: 1rem;
     right: 1rem;
@@ -14,19 +12,17 @@
 .theme-toggle__icon {
     width: 24px;
     height: 24px;
-    transition: transform 0.3s ease, color 0.3s ease; /* Adicionando transição de cor */
+    transition: transform 0.3s ease, color 0.3s ease;
 }
 
-/* Efeito de rotação no hover */
 #themeToggle:hover .theme-toggle__icon {
     transform: rotate(30deg);
 }
 
-/* Para o modo escuro */
 [data-theme="dark"] #themeToggle {
-    color: var(--color-font-primaria); /* Cor do ícone no modo escuro */
+    color: var(--color-font-primaria);
 }
 
 [data-theme="dark"] .theme-toggle__icon {
-    fill: var(--color-font-primaria); /* Garantir que o ícone fique visível */
+    fill: var(--color-font-primaria);
 }

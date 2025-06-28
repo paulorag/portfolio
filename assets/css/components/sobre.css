@@ -12,23 +12,21 @@
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
-    color: var(--color-font-primaria); /* Define cor do texto */
+    color: var(--color-font-primaria);
 }
 
 .sobre__titulo {
     font-size: 2rem;
     font-weight: 700;
     text-align: center;
-    color: var(
-        --section-title-color
-    ); /* Usa título destacado, adaptável ao tema */
+    color: var(--section-title-color);
 }
 
 .sobre__descricao {
     font-size: 1rem;
     line-height: 1.6;
     text-align: justify;
-    color: var(--color-font-primaria); /* Descrição normal */
+    color: var(--color-font-primaria);
 }
 
 @media (min-width: 768px) {

@@ -7,7 +7,7 @@
     display: block;
     text-align: right;
     cursor: pointer;
-    font-size: 2rem; /* Aumentando o ícone para melhorar a visibilidade */
+    font-size: 2rem;
 }
 
 .menu__lista {
@@ -25,15 +25,15 @@
 
 .menu__link {
     color: var(--color-font-primaria);
-    font-size: 1rem; /* Ajustando o tamanho da fonte para ser mais consistente */
+    font-size: 1rem;
     font-weight: 500;
     text-decoration: none;
-    transition: color 0.3s ease, transform 0.2s ease; /* Adicionando uma transição para o hover */
+    transition: color 0.3s ease, transform 0.2s ease;
 }
 
 .menu__link:hover {
     color: #000;
-    transform: scale(1.05); /* Efeito sutil de zoom no hover */
+    transform: scale(1.05);
 }
 
 @media (min-width: 768px) {
@@ -50,7 +50,7 @@
         justify-content: center;
         gap: 1.5rem;
         width: auto;
-        padding: 0 1rem; /* Adicionando espaçamento lateral */
+        padding: 0 1rem;
     }
 
     .menu__link {
