@@ -1,13 +1,27 @@
 :root {
-    /* 🎨 Backgrounds */
+    /* Tema Claro (default) */
     --background: #f2f2f2;
     --background-section: #e6e6e6;
     --background-botao: #1f1f1f;
-
-    /* 🎯 Borders */
     --borderColor-botao: #1f1f1f;
-
-    /* 📝 Typography */
     --color-font-primaria: #2e2e2e;
     --color-font-secundaria: #ffffff;
+
+    --section-title-color: #000;
+    --text-muted: #333;
+    --shadow-color: rgba(0, 0, 0, 0.2);
+}
+
+[data-theme="dark"] {
+    --background: #121212;
+    --background-section: #1e1e1e;
+    --background-botao: #e1e1e1;
+    --borderColor-botao: #e1e1e1;
+
+    --color-font-primaria: #e1e1e1;
+    --color-font-secundaria: #1a1a1a;
+
+    --section-title-color: #ffffff;
+    --text-muted: #bcbcbc;
+    --shadow-color: rgba(255, 255, 255, 0.08);
 }

@@ -9,6 +9,27 @@
     align-items: center;
 }
 
+.btnTheme {
+    background: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 0.3rem;
+    margin-left: auto;
+    color: var(--color-font-primaria);
+    transition: color 0.3s ease;
+}
+
+.btnTheme:hover {
+    color: #000;
+}
+
+.btnTheme__icon {
+    width: 24px;
+    height: 24px;
+    fill: currentColor;
+}
+
 @media (min-width: 1024px) {
     .cabecalho {
         margin: 2rem;
@@ -26,5 +47,10 @@
     .cabecalho_bloco {
         flex-direction: row;
         justify-content: space-between;
+    }
+
+    .btnTheme {
+        align-self: flex-end;
+        margin-top: 0.5rem;
     }
 }

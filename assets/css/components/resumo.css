@@ -1,6 +1,7 @@
 .resumos {
     margin: 2rem 0;
 }
+
 .resumo {
     display: flex;
     flex-direction: column;
@@ -9,23 +10,23 @@
 }
 
 .resumo__titulo {
-    color: var(--color-font-primaria);
+    color: var(--color-font-primaria); /* Usa variável para suportar temas */
+    font-size: 2rem;
     font-weight: 900;
-    font-size: 1.7rem;
 }
 
 .resumo__subtitulo {
     color: var(--color-font-primaria);
-    font-weight: 700;
-    font-size: 1rem;
+    font-size: 1.2rem;
+    font-weight: 600;
 }
 
 .resumo__descricao {
-    text-align: justify;
+    color: var(--color-font-primaria);
     font-weight: 400;
     font-size: 0.8rem;
     line-height: 1rem;
-    color: var(--color-font-primaria);
+    text-align: justify;
 }
 
 .resumo__lista {
@@ -49,21 +50,23 @@
     text-decoration: none;
     font-size: 0.9rem;
     font-weight: 600;
-    color: var(--color-font-secundaria);
-    background-color: var(--background-botao);
-    border: 1px solid var(--borderColor-botao);
+
+    color: var(--color-font-secundaria); /* Texto */
+    background-color: var(--background-botao); /* Fundo */
+    border: 1px solid var(--borderColor-botao); /* Borda */
+
     transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .resumo__link:hover {
-    background-color: #1f1f1f;
+    background-color: var(--background-section); /* Mudança sutil no hover */
     transform: translateY(-2px);
 }
 
 .resumo__icon {
     width: 16px;
     height: 16px;
-    fill: currentColor;
+    fill: currentColor; /* Herda cor do texto */
 }
 
 .resumos__imagem {
@@ -76,7 +79,7 @@
     }
 
     .resumo__titulo {
-        font-size: 3rem;
+        font-size: 2.8rem;
     }
 
     .resumo__subtitulo {
@@ -107,11 +110,11 @@
     }
 
     .resumo__titulo {
-        font-size: 2.2rem;
+        font-size: 2.4rem;
     }
 
     .resumo__subtitulo {
-        font-size: 1.4rem;
+        font-size: 1.5rem;
     }
 
     .resumo__descricao {

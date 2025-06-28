@@ -6,6 +6,15 @@ body {
     background-color: var(--background);
 }
 
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
 .atributos {
     display: flex;
     flex-direction: column;
@@ -23,4 +32,52 @@ body {
     clip: rect(0, 0, 0, 0) !important;
     white-space: nowrap !important;
     border: 0 !important;
+}
+/* Regras gerais e utilitárias */
+
+/* Suaviza a rolagem da página */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Define a cor de fundo do corpo da página */
+body {
+    background-color: var(--background);
+}
+
+/* Container geral com largura máxima */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+/* Estilo geral para as seções de atributos */
+.atributos {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    gap: 2rem;
+}
+
+/* Classe para esconder conteúdo visualmente (usada para acessibilidade) */
+.sr-only {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+}
+
+/* Aplique a cor atual no ícones SVG */
+svg,
+.menu svg {
+    fill: currentColor;
 }

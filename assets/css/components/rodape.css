@@ -1,19 +1,26 @@
 .rodape {
+    background-color: var(--background-section); /* Cor de fundo mais suave */
+    color: var(--color-font-primaria); /* Cor do texto */
     display: flex;
     justify-content: center;
-    padding: 0px;
+    align-items: center; /* Alinhando verticalmente */
+    padding: 1rem 0; /* Ajuste no padding para um melhor espaçamento */
     margin-top: 2rem;
-    font-size: 0.5rem;
+    font-size: 0.9rem; /* Ajuste no tamanho da fonte */
+    width: 100%; /* Garantir que o rodapé ocupe toda a largura */
+    box-sizing: border-box;
 }
 
 @media (min-width: 1024px) {
     .rodape {
-        font-size: 1.1rem;
+        font-size: 1.1rem; /* Tamanho maior para telas grandes */
+        padding: 1.5rem 0; /* Aumentar o padding nas telas grandes */
     }
 }
 
 @media (min-width: 768px) {
     .rodape {
-        font-size: 0.9rem;
+        font-size: 0.9rem; /* Ajuste do tamanho da fonte para telas médias */
+        padding: 1rem 0; /* Padding ajustado para telas médias */
     }
 }

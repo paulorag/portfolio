@@ -3,7 +3,7 @@
     bottom: 2rem;
     right: 2rem;
     z-index: 1000;
-    padding: 0.6rem;
+    padding: 0.8rem; /* Aumentei o padding para tornar o botão mais visível */
     background-color: var(--background-botao);
     color: var(--color-font-secundaria);
     border: none;
@@ -12,13 +12,15 @@
     display: none;
     opacity: 0;
     pointer-events: none;
-    transition: opacity 0.4s ease, transform 0.3s ease;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    transition: opacity 0.3s ease, transform 0.2s ease; /* Tornando a transição mais fluida */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25); /* Melhorando a sombra */
 }
 
 #btnTop:hover {
     background-color: #1f1f1f;
-    transform: translateY(-3px);
+    transform: translateY(
+        -4px
+    ); /* Aumento no efeito do hover para um pequeno deslocamento */
 }
 
 #btnTop.show {
@@ -28,7 +30,18 @@
 }
 
 .btnTop__icon {
-    width: 20px;
-    height: 20px;
+    width: 24px; /* Aumentei o tamanho do ícone para torná-lo mais visível */
+    height: 24px;
     fill: currentColor;
+}
+
+@media (min-width: 768px) {
+    #btnTop {
+        padding: 1rem; /* Aumentando o padding para telas maiores */
+    }
+
+    .btnTop__icon {
+        width: 28px; /* Tamanho maior para o ícone em telas maiores */
+        height: 28px;
+    }
 }
