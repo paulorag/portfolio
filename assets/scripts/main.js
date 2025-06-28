@@ -1,8 +1,8 @@
 // main.js
-import { initSmoothScroll } from "./smoothScroll.js";
-import { initMobileMenu } from "./menuMobile.js";
-import { initBackToTop } from "./backToTopButton.js";
-import { initThemeToggle } from "./themeToggle.js"; // Importando o tema
+import { initSmoothScroll } from "./functions/smoothScroll.js";
+import { initMobileMenu } from "./functions/menuMobile.js";
+import { initBackToTop } from "./functions/backToTopButton.js";
+import { initThemeToggle } from "./functions/themeToggle.js"; // Importando o tema
 
 document.addEventListener("DOMContentLoaded", () => {
     initThemeToggle();
