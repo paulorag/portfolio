@@ -15,7 +15,6 @@ export function initThemeToggle() {
             const prefersDarkScheme = window.matchMedia(
                 "(prefers-color-scheme: dark)"
             ).matches;
-
             // Define o tema de acordo com as preferências do sistema
             const theme = prefersDarkScheme ? "dark" : "light";
             document.documentElement.setAttribute("data-theme", theme);
