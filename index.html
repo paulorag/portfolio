@@ -27,9 +27,15 @@
                     </li>
                 </ul>
             </nav>
+            <button id="themeToggle" aria-label="Alternar tema" title="Alternar tema">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round" class="theme-toggle__icon">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                </svg>
+            </button>
         </section>
         <section class="resumos" aria-labelledby="resumo__titulo">
-            <div class="resumo">
+            <div class="resumo container">
                 <h1 class="resumo__titulo">Paulo Roberto A. Gomes</h1>
                 <h2 class="resumo__subtitulo">Desenvolvedor Full Stack | Java · Spring Boot · React</h2>
                 <p class="resumo__descricao">
@@ -75,20 +81,24 @@
 
     <main>
         <section class="sobre" id="sobre">
-            <div class="sobre__bloco">
-                <h2 class="sobre__titulo">Sobre mim</h2>
-                <p class="sobre__descricao">Comecei a estudar programação no meu curso técnico de informática. Lá,
-                    aprendi sobre algoritmos, lógica de programação e tecnologias web, como HTML, CSS e Bootstrap.
-                    Também mexi com linguagens de programação como JavaScript, Java e PHP, e estudei banco de dados
-                    relacional e SGBDs, como o MySQL. Depois do curso, foquei em desenvolvimento web, me aprofundando
-                    mais em HTML, CSS e JavaScript. Agora, voltei a estudar Java para seguir uma carreira FullStack.
-                    Também tenho criado projetos pessoais e acadêmicos, trabalhando com APIs e integrando front-end com
-                    back-end.</p>
+            <div class="container">
+                <div class="sobre__bloco">
+                    <h2 class="sobre__titulo">Sobre mim</h2>
+                    <p class="sobre__descricao">Comecei a estudar programação no meu curso técnico de informática. Lá,
+                        aprendi sobre algoritmos, lógica de programação e tecnologias web, como HTML, CSS e Bootstrap.
+                        Também mexi com linguagens de programação como JavaScript, Java e PHP, e estudei banco de dados
+                        relacional e SGBDs, como o MySQL. Depois do curso, foquei em desenvolvimento web, me
+                        aprofundando
+                        mais em HTML, CSS e JavaScript. Agora, voltei a estudar Java para seguir uma carreira FullStack.
+                        Também tenho criado projetos pessoais e acadêmicos, trabalhando com APIs e integrando front-end
+                        com
+                        back-end.</p>
+                </div>
             </div>
         </section>
 
         <section class="atributos">
-            <section class="skill" id="skills">
+            <section class="skill container" id="skills">
                 <h2 class="skill__titulo">Skills</h2>
                 <h3 class="skill__subtitulo">Linguagens</h3>
                 <ul class="skill__lista">
@@ -129,50 +139,53 @@
             </section>
 
             <section class="formacao" id="formacoes" aria-labelledby="formacao-titulo">
-                <h2 id="formacao-titulo" class="formacao__titulo">Formação Acadêmica</h2>
+                <div class="container">
+                    <h2 id="formacao-titulo" class="formacao__titulo">Formação Acadêmica</h2>
 
-                <div class="formacao__conjunto">
+                    <div class="formacao__conjunto">
 
-                    <section class="formacao__escolas" aria-labelledby="titulo-formacoes">
-                        <h3 id="titulo-formacoes" class="sr-only">Formações formais</h3>
+                        <section class="formacao__escolas" aria-labelledby="titulo-formacoes">
+                            <h3 id="titulo-formacoes" class="sr-only">Formações formais</h3>
 
-                        <article class="formacao__bloco" aria-labelledby="formacao-pos">
-                            <h4 id="formacao-pos" class="formacao__bloco_titulo">Pós-Graduação em Engenharia de Software
-                            </h4>
-                            <p class="formacao__bloco_descricao">Em Andamento - Estácio</p>
-                        </article>
+                            <article class="formacao__bloco" aria-labelledby="formacao-pos">
+                                <h4 id="formacao-pos" class="formacao__bloco_titulo">Pós-Graduação em Engenharia de
+                                    Software
+                                </h4>
+                                <p class="formacao__bloco_descricao">Em Andamento - Estácio</p>
+                            </article>
 
-                        <article class="formacao__bloco" aria-labelledby="formacao-graduacao">
-                            <h4 id="formacao-graduacao" class="formacao__bloco_titulo">Graduação em Análise e
-                                Desenvolvimento de Sistemas</h4>
-                            <p class="formacao__bloco_descricao">2025 - Estácio</p>
-                        </article>
+                            <article class="formacao__bloco" aria-labelledby="formacao-graduacao">
+                                <h4 id="formacao-graduacao" class="formacao__bloco_titulo">Graduação em Análise e
+                                    Desenvolvimento de Sistemas</h4>
+                                <p class="formacao__bloco_descricao">2025 - Estácio</p>
+                            </article>
 
-                        <article class="formacao__bloco" aria-labelledby="formacao-tecnico">
-                            <h4 id="formacao-tecnico" class="formacao__bloco_titulo">Técnico em Informática</h4>
-                            <p class="formacao__bloco_descricao">2020 - ETB</p>
-                        </article>
-                    </section>
+                            <article class="formacao__bloco" aria-labelledby="formacao-tecnico">
+                                <h4 id="formacao-tecnico" class="formacao__bloco_titulo">Técnico em Informática</h4>
+                                <p class="formacao__bloco_descricao">2020 - ETB</p>
+                            </article>
+                        </section>
 
-                    <section class="formacao__cursos" aria-labelledby="titulo-cursos">
-                        <h3 id="titulo-cursos" class="sr-only">Cursos complementares</h3>
+                        <section class="formacao__cursos" aria-labelledby="titulo-cursos">
+                            <h3 id="titulo-cursos" class="sr-only">Cursos complementares</h3>
 
-                        <article class="formacao__bloco" aria-labelledby="curso-one">
-                            <h4 id="curso-one" class="formacao__bloco_titulo">Oracle Next Education F2 T3</h4>
-                            <p class="formacao__bloco_descricao">2023 - Parceria Alura com a Oracle</p>
-                        </article>
+                            <article class="formacao__bloco" aria-labelledby="curso-one">
+                                <h4 id="curso-one" class="formacao__bloco_titulo">Oracle Next Education F2 T3</h4>
+                                <p class="formacao__bloco_descricao">2023 - Parceria Alura com a Oracle</p>
+                            </article>
 
-                        <article class="formacao__bloco" aria-labelledby="curso-senai">
-                            <h4 id="curso-senai" class="formacao__bloco_titulo">Desenvolvimento Front-End</h4>
-                            <p class="formacao__bloco_descricao">2022 - Senai-DF</p>
-                        </article>
-                    </section>
+                            <article class="formacao__bloco" aria-labelledby="curso-senai">
+                                <h4 id="curso-senai" class="formacao__bloco_titulo">Desenvolvimento Front-End</h4>
+                                <p class="formacao__bloco_descricao">2022 - Senai-DF</p>
+                            </article>
+                        </section>
 
+                    </div>
                 </div>
             </section>
         </section>
 
-        <section class="experiencia" id="projetos">
+        <section class="experiencia container" id="projetos">
             <h2 class="experiencia__titulo">Projetos</h2>
             <div class="experiencia__projetos">
 
