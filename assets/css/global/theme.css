@@ -3,11 +3,10 @@
     border: none;
     cursor: pointer;
     color: var(--color-font-primaria);
-    position: fixed; /* Fixando o botão */
+    position: absolute;
     top: 1rem; /* Fixo no topo */
     right: 1rem; /* Fixo à direita */
     z-index: 1000;
-    padding: 0.5rem; /* Ajuste para tornar o botão menor */
 }
 
 .theme-toggle__icon {
@@ -16,12 +15,10 @@
     transition: transform 0.3s ease, fill 0.3s ease;
 }
 
-/* Para o efeito de rotação */
 #themeToggle:hover .theme-toggle__icon {
     transform: rotate(30deg);
 }
 
-/* Estilos para o tema claro e escuro */
 [data-theme="dark"] #themeToggle .theme-toggle__icon {
     fill: var(--color-font-secundaria);
 }
