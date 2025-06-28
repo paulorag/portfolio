@@ -21,7 +21,7 @@ export function initThemeToggle() {
         }
     };
 
-    // Aplica o tema ao carregar
+    // Aplica o tema ao carregar a página
     updateTheme();
 
     // Verifica alterações nas preferências do sistema
