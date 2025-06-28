@@ -14,36 +14,63 @@
 <body>
     <header class="cabecalho">
         <section class="cabecalho_bloco">
-            <span class="material-symbols-outlined" onclick="clickMenu()">menu</span>
-            <nav class="menu" id="itens">
+            <span class="material-symbols-outlined" onclick="clickMenu()" aria-label="Abrir menu">menu</span>
+            <nav class="menu" id="itens" role="navigation" aria-label="Menu principal">
                 <ul class="menu__lista">
                     <li class="menu__item"><a class="menu__link" href="#sobre">Sobre mim</a></li>
                     <li class="menu__item"><a class="menu__link" href="#skills">Skills</a></li>
                     <li class="menu__item"><a class="menu__link" href="#formacoes">Formação</a></li>
                     <li class="menu__item"><a class="menu__link" href="#projetos">Projetos</a></li>
-                    <li class="menu__item"><a class="menu__link"><strong>devpaulorag@gmail.com</strong></a>
+                    <li class="menu__item">
+                        <a class="menu__link"
+                            href="mailto:devpaulorag@gmail.com"><strong>devpaulorag@gmail.com</strong></a>
                     </li>
                 </ul>
             </nav>
         </section>
-        <div class="resumos">
+        <section class="resumos" aria-labelledby="resumo__titulo">
             <div class="resumo">
-                <h1 class="resumo__titulo">Paulo Roberto</h1>
-                <h2 class="resumo__subtitulo">Desenvolvedor Full Stack!</h2>
-                <p class="resumo__descricao">Sou formado em Análise e Desenvolvimento de Sistemas e estou fazendo uma
-                    Pós-graduação em Engenharia de Software. Quero seguir carreira em desenvolvimento Back-End/Full
-                    Stack. Tenho experiência em projetos pessoais e acadêmicos, onde desenvolvi APIs, integrei
-                    aplicações com bancos de dados e apliquei conhecimentos básicos para consolidar meu aprendizado.</p>
+                <h1 class="resumo__titulo">Paulo Roberto A. Gomes</h1>
+                <h2 class="resumo__subtitulo">Desenvolvedor Full Stack | Java · Spring Boot · React</h2>
+                <p class="resumo__descricao">
+                    Sou Desenvolvedor Full Stack com experiência no desenvolvimento de aplicações web modernas, com foco
+                    em soluções robustas e bem estruturadas. Trabalho com Java e Spring Boot no back-end, React e
+                    Next.js no front-end, e utilizo bancos de dados relacionais como MySQL e PostgreSQL.
+                    Tenho experiência prática com APIs REST, controle de versão com Git e GitHub, integração de
+                    ambientes com Docker e automações com GitHub Actions. Já atuei em projetos reais envolvendo
+                    implantação de sistemas, suporte técnico e criação de documentos personalizados para sistemas
+                    hospitalares.
+                    Estou em constante evolução técnica, sempre buscando aplicar boas práticas de desenvolvimento, clean
+                    code, versionamento e colaboração em times ágeis.
+                </p>
                 <ul class="resumo__lista">
-                    <li class="resumo__item"><a class="resumo__link" href="https://github.com/paulorag"
-                            target="_blank">GitHub <img src="assets/image/arrow.png" alt="Vetor de uma flecha"></a></li>
-                    <li class="resumo__item"><a class="resumo__link" href="https://www.linkedin.com/in/paulorag/"
-                            target="_blank">Linkedin <img src="assets/image/arrow.png" alt="Vetor de uma flecha"></a>
+                    <li class="resumo__item">
+                        <a class="resumo__link" href="https://github.com/paulorag" target="_blank"
+                            rel="noopener noreferrer">
+                            <svg class="resumo__icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M12 0C5.372 0 0 5.373 0 12a12 12 0 008.21 11.386c.6.111.82-.26.82-.577v-2.262c-3.338.726-4.042-1.61-4.042-1.61-.546-1.387-1.334-1.756-1.334-1.756-1.09-.745.083-.73.083-.73 1.206.086 1.84 1.239 1.84 1.239 1.07 1.834 2.807 1.304 3.49.997.109-.775.418-1.304.762-1.603-2.665-.304-5.466-1.332-5.466-5.931 0-1.31.467-2.381 1.236-3.221-.124-.303-.536-1.524.118-3.176 0 0 1.008-.322 3.3 1.23a11.51 11.51 0 013.003-.403 11.5 11.5 0 013.003.403c2.291-1.552 3.297-1.23 3.297-1.23.656 1.652.244 2.873.12 3.176.77.84 1.235 1.911 1.235 3.221 0 4.61-2.804 5.625-5.475 5.921.43.371.814 1.102.814 2.222v3.293c0 .319.218.694.825.576A12.002 12.002 0 0024 12c0-6.627-5.373-12-12-12z" />
+                            </svg>
+                            GitHub
+                        </a>
+                    </li>
+                    <li class="resumo__item">
+                        <a class="resumo__link" href="https://www.linkedin.com/in/paulorag/" target="_blank"
+                            rel="noopener noreferrer">
+                            <svg class="resumo__icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11.75 20h-3v-10h3v10zm-1.5-11.2c-.97 0-1.75-.78-1.75-1.75s.78-1.75 1.75-1.75 1.75.78 1.75 1.75-.78 1.75-1.75 1.75zm13.25 11.2h-3v-5.6c0-1.34-.03-3.05-1.86-3.05-1.86 0-2.14 1.45-2.14 2.95v5.7h-3v-10h2.88v1.36h.04c.4-.76 1.38-1.56 2.84-1.56 3.04 0 3.6 2 3.6 4.59v5.61z" />
+                            </svg>
+                            LinkedIn
+                        </a>
                     </li>
                 </ul>
+
             </div>
             <img class="resumos__imagem" src="assets/image/profile.jpeg" alt="Minha foto">
-        </div>
+        </section>
     </header>
 
     <main>
@@ -66,68 +93,81 @@
                 <h3 class="skill__subtitulo">Linguagens</h3>
                 <ul class="skill__lista">
                     <li class="skill__item"><img class="skill__imagem" src="assets/image/icons/html5-original.svg"
-                            alt="Icone HTML">HTML</li>
+                            alt="Icone da tecnologia HTML">HTML</li>
                     <li class="skill__item"><img class="skill__imagem" src="assets/image/icons/css3-original.svg"
-                            alt="Icone CSS">CSS</li>
+                            alt="Icone da tecnologia CSS">CSS</li>
                     <li class="skill__item"><img class="skill__imagem" src="assets/image/icons/javascript-original.svg"
-                            alt="Icone JavaScript">JavaScript</li>
+                            alt="Icone da tecnologia JavaScript">JavaScript</li>
                     <li class="skill__item"><img class="skill__imagem" src="assets/image/icons/java-original.svg"
-                            alt="Icone Java">Java</li>
+                            alt="Icone da tecnologia Java">Java</li>
                 </ul>
                 <h3 class="skill__subtitulo">Frameworks e Bibliotecas</h3>
                 <ul class="skill__lista">
                     <li class="skill__item"><img class="skill__imagem" src="assets/image/icons/nextjs-original.svg"
-                            alt="Icone Spring">Next.JS</li>
+                            alt="Icone da tecnologia Next.JS">Next.JS</li>
                     <li class="skill__item"><img class="skill__imagem" src="assets/image/icons/nodejs-original.svg"
-                            alt="Icone Spring">Node.JS</li>
+                            alt="Icone da tecnologia Node.JS">Node.JS</li>
                     <li class="skill__item"><img class="skill__imagem" src="assets/image/icons/react-original.svg"
-                            alt="Icone Spring">React</li>
+                            alt="Icone da tecnologia React">React</li>
                     <li class="skill__item"><img class="skill__imagem" src="assets/image/icons/spring-original.svg"
-                            alt="Icone Spring">Spring Boot</li>
+                            alt="Icone da tecnologia Spring">Spring Boot</li>
                 </ul>
                 <h3 class="skill__subtitulo">Banco de Dados</h3>
                 <ul class="skill__lista">
                     <li class="skill__item"><img class="skill__imagem" src="assets/image/icons/postgresql-original.svg"
-                            alt="Icone Postgres">Postgres</li>
+                            alt="Icone da tecnologia Postgres">Postgres</li>
                     <li class="skill__item"><img class="skill__imagem" src="assets/image/icons/mysql-original.svg"
-                            alt="Icone MySQL">MySQL</li>
+                            alt="Icone da tecnologia MySQL">MySQL</li>
                 </ul>
                 <h3 class="skill__subtitulo">Ferramentas de Controle de Versão</h3>
                 <ul class="skill__lista">
                     <li class="skill__item"><img class="skill__imagem" src="assets/image/icons/git-original.svg"
-                            alt="Icone Git">Git</li>
+                            alt="Icone da tecnologia Git">Git</li>
                     <li class="skill__item"><img class="skill__imagem" src="assets/image/icons/github-original.svg"
-                            alt="Icone GitHub">GitHub</li>
+                            alt="Icone da tecnologia GitHub">GitHub</li>
                 </ul>
             </section>
 
-            <section class="formacao" id="formacoes">
-                <h2 class="formacao__titulo">Formação Academica</h2>
+            <section class="formacao" id="formacoes" aria-labelledby="formacao-titulo">
+                <h2 id="formacao-titulo" class="formacao__titulo">Formação Acadêmica</h2>
+
                 <div class="formacao__conjunto">
-                    <div class="formacao__escolas">
-                        <div class="formacao__bloco">
-                            <h3 class="formacao__bloco_titulo">Pós-Graduação em Engenharia de Software</h3>
+
+                    <section class="formacao__escolas" aria-labelledby="titulo-formacoes">
+                        <h3 id="titulo-formacoes" class="sr-only">Formações formais</h3>
+
+                        <article class="formacao__bloco" aria-labelledby="formacao-pos">
+                            <h4 id="formacao-pos" class="formacao__bloco_titulo">Pós-Graduação em Engenharia de Software
+                            </h4>
                             <p class="formacao__bloco_descricao">Em Andamento - Estácio</p>
-                        </div>
-                        <div class="formacao__bloco">
-                            <h3 class="formacao__bloco_titulo">Graduação em Análise e Desenvolvimento de Sistemas</h3>
+                        </article>
+
+                        <article class="formacao__bloco" aria-labelledby="formacao-graduacao">
+                            <h4 id="formacao-graduacao" class="formacao__bloco_titulo">Graduação em Análise e
+                                Desenvolvimento de Sistemas</h4>
                             <p class="formacao__bloco_descricao">2025 - Estácio</p>
-                        </div>
-                        <div class="formacao__bloco">
-                            <h3 class="formacao__bloco_titulo">Técnico em Informática</h3>
+                        </article>
+
+                        <article class="formacao__bloco" aria-labelledby="formacao-tecnico">
+                            <h4 id="formacao-tecnico" class="formacao__bloco_titulo">Técnico em Informática</h4>
                             <p class="formacao__bloco_descricao">2020 - ETB</p>
-                        </div>
-                    </div>
-                    <div class="formacao__cursos">
-                        <div class="formacao__bloco">
-                            <h3 class="formacao__bloco_titulo">Oracle Next Education F2 T3</h3>
+                        </article>
+                    </section>
+
+                    <section class="formacao__cursos" aria-labelledby="titulo-cursos">
+                        <h3 id="titulo-cursos" class="sr-only">Cursos complementares</h3>
+
+                        <article class="formacao__bloco" aria-labelledby="curso-one">
+                            <h4 id="curso-one" class="formacao__bloco_titulo">Oracle Next Education F2 T3</h4>
                             <p class="formacao__bloco_descricao">2023 - Parceria Alura com a Oracle</p>
-                        </div>
-                        <div class="formacao__bloco">
-                            <h3 class="formacao__bloco_titulo">Desenvolvimento Front-End</h3>
+                        </article>
+
+                        <article class="formacao__bloco" aria-labelledby="curso-senai">
+                            <h4 id="curso-senai" class="formacao__bloco_titulo">Desenvolvimento Front-End</h4>
                             <p class="formacao__bloco_descricao">2022 - Senai-DF</p>
-                        </div>
-                    </div>
+                        </article>
+                    </section>
+
                 </div>
             </section>
         </section>
@@ -135,7 +175,8 @@
         <section class="experiencia" id="projetos">
             <h2 class="experiencia__titulo">Projetos</h2>
             <div class="experiencia__projetos">
-                <div class="experiencia__bloco--reverse">
+
+                <article class="experiencia__bloco--reverse" aria-labelledby="projeto-optimustech">
                     <div class="experiencia__bloco_frame">
                         <img class="experiencia__bloco_imagem" src="assets/image/projetos/optimus-tech.png"
                             alt="Imagem do inicio da landingpage da empresa OptimusTech">
@@ -150,8 +191,9 @@
                                 target="_blank">Ver Demo</a>
                         </div>
                     </div>
-                </div>
-                <div class="experiencia__bloco">
+                </article>
+
+                <article class="experiencia__bloco" aria-labelledby="projeto-ecommerce">
                     <div class="experiencia__bloco_frame">
                         <img class="experiencia__bloco_imagem" src="assets/image/projetos/e-commerce.png"
                             alt="Imagem do inicio da página da loja">
@@ -167,8 +209,9 @@
                                 target="_blank">Ver Demo</a>
                         </div>
                     </div>
-                </div>
-                <div class="experiencia__bloco--reverse">
+                </article>
+
+                <article class="experiencia__bloco--reverse" aria-labelledby="projeto-codificador">
                     <div class="experiencia__bloco_frame">
                         <img class="experiencia__bloco_imagem" src="assets/image/projetos/codificador.png"
                             alt="Imagem do Jogo da Codificador de texto">
@@ -184,8 +227,9 @@
                                 href="https://paulorag.github.io/codificador-text/" target="_blank">Ver Demo</a>
                         </div>
                     </div>
-                </div>
-                <div class="experiencia__bloco">
+                </article>
+
+                <article class="experiencia__bloco" aria-labelledby="projeto-lanchonete">
                     <div class="experiencia__bloco_frame">
                         <img class="experiencia__bloco_imagem" src="assets/image/projetos/projeto-lanchonete.png"
                             alt="Imagem do projeto final do curso de desenvolvimento front-end do Senai-DF">
@@ -200,15 +244,20 @@
                                 href="https://paulorag.github.io/project_lanchonete/" target="_blank">Ver Demo</a>
                         </div>
                     </div>
-                </div>
+                </article>
             </div>
         </section>
     </main>
 
     <footer class="rodape">
-        <p>&copy;Copyright - Paulo Roberto</p>
+        <small>&copy; 2024 Paulo Roberto. Todos os direitos reservados.</small>
     </footer>
-    <script src="assets/scripts/app.js"></script>
+    <button id="btnTop" aria-label="Voltar ao topo" title="Voltar ao topo">
+        <svg class="btnTop__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path fill="currentColor" d="M12 4l-8 8h6v8h4v-8h6z" />
+        </svg>
+    </button>
+    <script type="module" src="assets/scripts/main.js"></script>
 </body>
 
 </html>
