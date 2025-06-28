@@ -1,5 +1,3 @@
-// themeToggle.js
-
 export function initThemeToggle() {
     const toggleBtn = document.getElementById("themeToggle");
 
@@ -10,27 +8,28 @@ export function initThemeToggle() {
         const savedTheme = localStorage.getItem("theme");
 
         if (savedTheme) {
-            document.documentElement.setAttribute("data-theme", savedTheme); // Aplica o tema salvo
+            // Aplica o tema salvo pelo usuário
+            document.documentElement.setAttribute("data-theme", savedTheme);
         } else {
-            // Verifica a preferência do sistema (dark ou light)
+            // Caso não tenha tema salvo, verifica as preferências do sistema
             const prefersDarkScheme = window.matchMedia(
                 "(prefers-color-scheme: dark)"
             ).matches;
-            document.documentElement.setAttribute(
-                "data-theme",
-                prefersDarkScheme ? "dark" : "light"
-            );
+
+            // Define o tema de acordo com as preferências do sistema
+            const theme = prefersDarkScheme ? "dark" : "light";
+            document.documentElement.setAttribute("data-theme", theme);
         }
     };
 
-    // Aplica o tema ao carregar a página
+    // Aplica o tema ao carregar
     updateTheme();
 
-    // Verifica se há alteração nas preferências de tema do sistema
+    // Verifica alterações nas preferências do sistema
     window
         .matchMedia("(prefers-color-scheme: dark)")
         .addEventListener("change", () => {
-            // Se o tema não foi manualmente salvo, atualiza com base nas preferências do sistema
+            // Verifica se o tema não foi definido manualmente pelo usuário
             const savedTheme = localStorage.getItem("theme");
             if (!savedTheme) {
                 updateTheme();
@@ -43,6 +42,6 @@ export function initThemeToggle() {
         const newTheme = current === "dark" ? "light" : "dark";
 
         document.documentElement.setAttribute("data-theme", newTheme);
-        localStorage.setItem("theme", newTheme);
+        localStorage.setItem("theme", newTheme); // Salva o tema selecionado pelo usuário
     });
 }
