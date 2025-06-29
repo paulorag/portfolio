@@ -1,6 +1,5 @@
 # 💼 Portfólio | Paulo Roberto A. Gomes
 
-[![Status](https://img.shields.io/badge/Status-Em%20Desenvolvimento-blue)]()  
 [![HTML5](https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=fff)]()
 [![CSS3](https://img.shields.io/badge/CSS3-1572B6?logo=css3&logoColor=fff)]()
 [![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=000)]()  
@@ -47,16 +46,6 @@ Este projeto representa meu portfólio profissional, desenvolvido com **HTML5**,
 -   CSS3 (Flexbox, Grid, Variáveis)
 -   JavaScript (Vanilla)
 -   Organização por componentes
-
----
-
-## 🚀 Como executar
-
-```bash
-git clone https://github.com/paulorag/portfolio.git
-cd portfolio
-# Abra o index.html no navegador ou use Live Server
-```
 
 ---
 
