@@ -1,5 +1,4 @@
 :root {
-    /* Tema Claro */
     --background: #f2f2f2;
     --background-section: #e6e6e6;
     --background-botao: #333333;
@@ -11,7 +10,6 @@
     --text-muted: #333;
     --shadow-color: rgba(0, 0, 0, 0.2);
 
-    /* Cores dos botões */
     --button-background-light: #bfbfbf;
     --button-background-dark: #444444;
     --button-hover-light: #8c8c8c;
@@ -19,7 +17,6 @@
 }
 
 [data-theme="dark"] {
-    /* Tema Escuro */
     --background: #121212;
     --background-section: #3b3b3b;
     --background-section-hover: #525252;
@@ -34,7 +31,6 @@
     --text-muted: #bcbcbc;
     --shadow-color: rgba(255, 255, 255, 0.08);
 
-    /* Cores dos botões */
     --button-background-light: #666666;
     --button-background-dark: #bbbbbb;
     --button-hover-light: #888888;

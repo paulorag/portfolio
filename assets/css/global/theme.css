@@ -4,8 +4,8 @@
     cursor: pointer;
     color: var(--color-font-primaria);
     position: absolute;
-    top: 1rem; /* Fixo no topo */
-    right: 1rem; /* Fixo à direita */
+    top: 1rem;
+    right: 1rem;
     z-index: 1000;
 }
 

@@ -1,13 +1,9 @@
 .experiencia {
     display: flex;
-    align-items: center;
     flex-direction: column;
+    align-items: center;
     gap: 2rem;
     margin-top: 2rem;
-    width: 100%;
-    max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
 }
 
 .experiencia__titulo {
@@ -15,32 +11,29 @@
     font-size: 1.7rem;
     font-weight: 700;
     text-align: center;
-    width: 100%;
 }
 
 .experiencia__projetos {
     display: flex;
     flex-direction: column;
+    width: 95vw;
     gap: 4rem;
-    width: 100%;
-    padding: 0 1rem;
-    box-sizing: border-box;
+    justify-content: center; /* Alinha os itens ao centro */
+    align-items: center; /* Alinha os itens ao centro */
 }
 
 .experiencia__bloco {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
     padding: 0px;
-    width: 100%;
+    gap: 1rem;
 }
 
 .experiencia__bloco--reverse {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
     padding: 0px;
-    width: 100%;
+    gap: 1rem;
 }
 
 .experiencia__bloco_frame {
@@ -53,7 +46,6 @@
     width: 300px;
     height: 150px;
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-    object-fit: cover;
 }
 
 .experiencia__bloco_info {
