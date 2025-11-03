@@ -35,7 +35,7 @@ Este projeto representa meu portfólio profissional, desenvolvido com **HTML5**,
 
 -   **Bilíngue (i18n):** Internacionalização PT/EN implementada com JavaScript puro, com a preferência do usuário salva no `localStorage`.
 -   **Tema Claro/Escuro:** Suporte a modo claro e escuro.
--   **Design Responsivo:** Layout *mobile-first* para todos os tamanhos de tela.
+-   **Design Responsivo:** Layout _mobile-first_ para todos os tamanhos de tela.
 -   **Código Modularizado:** CSS e JS organizados em módulos para manutenção.
 -   **Navegação Suave (scroll):** Navegação fluida entre as seções.
 -   **Seções:** Sobre, Formação, Skills, Projetos.
@@ -53,7 +53,7 @@ Este projeto representa meu portfólio profissional, desenvolvido com **HTML5**,
 
 ## 📷 Preview
 
-![Preview do Portfólio](./assets/image/preview.png)
+![Preview do Portfólio](./assets/image/preview-pt.png)
 
 ---
 
