@@ -2,10 +2,12 @@ import { initSmoothScroll } from "./functions/smoothScroll.js";
 import { initMobileMenu } from "./functions/menuMobile.js";
 import { initBackToTop } from "./functions/backToTopButton.js";
 import { initThemeToggle } from "./functions/themeToggle.js";
+import { initLanguageSwitcher } from "./functions/languageSwitcher.js";
 
 document.addEventListener("DOMContentLoaded", () => {
     initThemeToggle();
     initSmoothScroll();
     initMobileMenu();
     initBackToTop();
+    initLanguageSwitcher();
 });
