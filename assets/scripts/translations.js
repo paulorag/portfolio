@@ -62,10 +62,13 @@ export const translations = {
         // Seção Projetos
         projects_title: "Projetos",
 
-        proj1_title: "Landingpage OptimusTech",
-        proj1_desc: "7DaysOfCode - HTML, CSS e JavaScript",
+        proj0_title: "Sistema Full Stack (Arquitetura Poliglota)",
+        proj0_desc: "Monorepo com Node.js, Java Spring Boot, React e Docker.",
         proj_btn_repo: "Repositório",
         proj_btn_demo: "Ver Demo",
+
+        proj1_title: "Landingpage OptimusTech",
+        proj1_desc: "7DaysOfCode - HTML, CSS e JavaScript",
 
         proj2_title: "E-commerce Geek",
         proj2_desc:
@@ -144,10 +147,14 @@ export const translations = {
         // Projects Section
         projects_title: "My Projects",
 
-        proj1_title: "OptimusTech Landing Page",
-        proj1_desc: "7DaysOfCode - HTML, CSS, and JavaScript",
+        proj0_title: "Full Stack System (Polyglot Arch)",
+        proj0_desc:
+            "Monorepo with Node.js, Java Spring Boot, React, and Docker.",
         proj_btn_repo: "Repository",
         proj_btn_demo: "View Demo",
+
+        proj1_title: "OptimusTech Landing Page",
+        proj1_desc: "7DaysOfCode - HTML, CSS, and JavaScript",
 
         proj2_title: "Geek E-commerce",
         proj2_desc:
