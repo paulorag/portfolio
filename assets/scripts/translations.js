@@ -49,10 +49,13 @@ export const translations = {
 
         edu_postgrad_title: "Pós-Graduação em Engenharia de Software",
         edu_postgrad_desc: "Em Andamento - Estácio",
+        edu_bach_title: "Bacharelado em Engenharia de Software",
+        edu_bach_desc:
+            "Em Andamento (2ª Graduação) - Estácio | Previsão: Jul 2028",
         edu_grad_title: "Graduação em Análise e Desenvolvimento de Sistemas",
-        edu_grad_desc: "2025 - Estácio",
+        edu_grad_desc: "Concluído em 2025 - Estácio",
         edu_tech_title: "Técnico em Informática",
-        edu_tech_desc: "2020 - ETB",
+        edu_tech_desc: "Concluído em 2020 - ETB",
 
         course_one_title: "Oracle Next Education F2 T3",
         course_one_desc: "2023 - Parceria Alura com a Oracle",
@@ -134,10 +137,13 @@ export const translations = {
 
         edu_postgrad_title: "Postgraduate Diploma in Software Engineering",
         edu_postgrad_desc: "In Progress - Estácio",
+        edu_bach_title: "Bachelor's Degree in Software Engineering",
+        edu_bach_desc:
+            "In Progress (2nd Degree) - Estácio | Expected: Jul 2028",
         edu_grad_title: "Technologist in Systems Analysis and Development",
-        edu_grad_desc: "2025 - Estácio",
+        edu_grad_desc: "Completed in 2025 - Estácio",
         edu_tech_title: "Technical Degree in Information Technology",
-        edu_tech_desc: "2020 - ETB",
+        edu_tech_desc: "Completed in 2020 - ETB",
 
         course_one_title: "Oracle Next Education (ONE)",
         course_one_desc: "2023 - Alura & Oracle Partnership",
