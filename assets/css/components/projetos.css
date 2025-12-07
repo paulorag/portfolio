@@ -122,6 +122,8 @@
 
     .experiencia__bloco_descricao {
         font-size: 1.2rem;
+        max-width: 20vw;
+        text-align: center;
     }
 }
 

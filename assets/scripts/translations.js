@@ -64,25 +64,28 @@ export const translations = {
 
         // Seção Projetos
         projects_title: "Projetos",
-
-        proj0_title: "Sistema Full Stack (Arquitetura Poliglota)",
-        proj0_desc: "Monorepo com Node.js, Java Spring Boot, React e Docker.",
         proj_btn_repo: "Repositório",
         proj_btn_demo: "Ver Demo",
 
-        proj1_title: "Landingpage OptimusTech",
-        proj1_desc: "7DaysOfCode - HTML, CSS e JavaScript",
+        proj0_title: "RoomScheduler - Sistema Corporativo (Java/Next.js)",
+        proj0_desc:
+            'Sistema de agendamento "enterprise-grade" com lógica complexa de prevenção de conflitos (stateful) e segurança RBAC via Spring Security + JWT. Arquitetura de deploy híbrido (Vercel/Render/Neon Tech) com Docker.',
 
-        proj2_title: "E-commerce Geek",
+        proj1_title: "Sistema Full Stack Poliglota (Monorepo)",
+        proj1_desc:
+            "Arquitetura de microsserviços em monorepo integrando backends em Java (Spring Boot) e Node.js com um frontend agnóstico em React/Next.js. Foco em Clean Code, TDD e orquestração com Docker Compose.",
+
+        proj2_title: "E-commerce Geek (Front-end)",
         proj2_desc:
-            "Challenge Alura/Oracle E-Commerce - HTML, CSS e JavaScript",
+            "Challenge Alura/Oracle. Simulação de e-commerce com foco em manipulação do DOM, gerenciamento de estado no front-end e design responsivo com CSS moderno.",
 
-        proj3_title: "Codificador e Decodificador de Texto",
+        proj3_title: "Codificador de Texto (Lógica JS)",
         proj3_desc:
-            "Challenge Alura/Oracle Codificador - HTML, CSS e JavaScript",
+            "Aplicação de criptografia desenvolvida com JavaScript puro (Vanilla JS). Foco na construção de algoritmos de manipulação de Strings e interação direta com o DOM.",
 
-        proj4_title: "Lanchonete da Larica",
-        proj4_desc: "Projeto final/Senai-DF - HTML, CSS e JavaScript",
+        proj4_title: "Lanchonete da Larica (UI Design)",
+        proj4_desc:
+            "Projeto final (Senai-DF). Landing page gastronômica focada em HTML Semântico e CSS avançado (Flexbox/Grid) para garantir fidelidade ao design e responsividade total em mobile.",
 
         // Rodapé
         footer_text: "© 2025 Paulo Roberto. Todos os direitos reservados.",
@@ -152,26 +155,28 @@ export const translations = {
 
         // Projects Section
         projects_title: "My Projects",
-
-        proj0_title: "Full Stack System (Polyglot Arch)",
-        proj0_desc:
-            "Monorepo with Node.js, Java Spring Boot, React, and Docker.",
         proj_btn_repo: "Repository",
         proj_btn_demo: "View Demo",
 
-        proj1_title: "OptimusTech Landing Page",
-        proj1_desc: "7DaysOfCode - HTML, CSS, and JavaScript",
+        proj0_title: "RoomScheduler - Enterprise System (Java/Next.js)",
+        proj0_desc:
+            "Enterprise-grade booking system featuring complex stateful double-booking prevention logic and advanced RBAC security via Spring Security + JWT. Hybrid cloud deployment (Vercel/Render/Neon Tech) with Docker.",
 
-        proj2_title: "Geek E-commerce",
+        proj1_title: "Polyglot Full Stack System (Monorepo)",
+        proj1_desc:
+            "Microservices architecture within a monorepo integrating Java (Spring Boot) and Node.js backends with an agnostic React/Next.js frontend. Focus on Clean Code, TDD, and Docker Compose orchestration.",
+
+        proj2_title: "Geek E-commerce (Front-end)",
         proj2_desc:
-            "Challenge Alura/Oracle E-Commerce - HTML, CSS, and JavaScript",
+            "Alura/Oracle Challenge. E-commerce simulation focusing on DOM manipulation, front-end state management, and responsive design with modern CSS.",
 
-        proj3_title: "Text Encoder and Decoder",
+        proj3_title: "Text Encoder (JS Logic)",
         proj3_desc:
-            "Challenge Alura/Oracle Encoder - HTML, CSS, and JavaScript",
+            "Encryption application built with Vanilla JavaScript. Focused on building String manipulation algorithms and direct DOM interaction without frameworks.",
 
-        proj4_title: "Larica's Diner",
-        proj4_desc: "Final Project/Senai-DF - HTML, CSS, and JavaScript",
+        proj4_title: "Lanchonete Landing Page (UI Design)",
+        proj4_desc:
+            "Final Project (Senai-DF). Gastronomic landing page focusing on Semantic HTML and advanced CSS (Flexbox/Grid) to ensure design fidelity and full mobile responsiveness.",
 
         // Footer
         footer_text: "© 2025 Paulo Roberto. All rights reserved.",
