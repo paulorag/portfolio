@@ -10,6 +10,9 @@ export function Header() {
     const [isOpen, setIsOpen] = useState(false);
     const { dict, toggleLanguage, language } = useLanguage();
 
+    const languageButtonStyles =
+        "group cursor-pointer flex items-center gap-2 rounded-full bg-white/5 hover:bg-white/10 border border-white/5 hover:border-blue-500/30 transition-all duration-300 active:scale-95 font-medium text-gray-300 hover:text-white";
+
     return (
         <header className="fixed top-0 w-full z-50 bg-[#0a0a0a]/80 backdrop-blur-xl border-b border-white/5 supports-[backdrop-filter]:bg-[#0a0a0a]/60">
             <div className="container mx-auto flex h-16 items-center justify-between px-4 md:px-6">
@@ -43,24 +46,33 @@ export function Header() {
 
                     <button
                         onClick={toggleLanguage}
-                        className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 hover:bg-white/10 text-gray-300 transition-colors text-sm font-medium border border-white/5"
+                        className={`${languageButtonStyles} px-3 py-1.5 text-sm`}
                     >
-                        <Globe size={16} />
+                        <Globe
+                            size={16}
+                            className="text-gray-400 group-hover:text-blue-400 transition-colors"
+                        />
                         <span>{language === "pt" ? "EN" : "PT"}</span>
                     </button>
                 </nav>
 
-                {/* Área Mobile */}
-                <div className="flex items-center gap-4 md:hidden">
+                <div className="flex items-center gap-3 md:hidden">
                     <button
                         onClick={toggleLanguage}
-                        className="p-2 text-gray-300 hover:text-white font-bold text-sm"
+                        className={`${languageButtonStyles} py-1 px-2.5 text-xs`}
+                        aria-label="Alternar idioma"
                     >
+                        <Globe
+                            size={14}
+                            className="text-gray-400 group-hover:text-blue-400 transition-colors"
+                        />
                         {language === "pt" ? "EN" : "PT"}
                     </button>
 
+                    <div className="h-6 w-[1px] bg-white/10"></div>
+
                     <button
-                        className="p-2 text-gray-400 hover:text-white transition-colors z-50 relative"
+                        className="cursor-pointer p-1.5 text-gray-400 hover:text-white hover:bg-white/5 rounded-md transition-colors z-50 relative active:scale-95"
                         onClick={() => setIsOpen(!isOpen)}
                         aria-label="Alternar menu"
                     >
@@ -76,7 +88,7 @@ export function Header() {
                         animate={{ opacity: 1, height: "auto" }}
                         exit={{ opacity: 0, height: 0 }}
                         transition={{ duration: 0.3, ease: "easeInOut" }}
-                        className="absolute top-16 left-0 w-full md:hidden overflow-hidden border-b border-white/10"
+                        className="absolute top-16 left-0 w-full md:hidden overflow-hidden border-b border-white/10 shadow-xl"
                     >
                         <div className="bg-[#0a0a0a]/95 backdrop-blur-2xl p-4 flex flex-col gap-2">
                             {dict.header.items.map((item) => (
@@ -84,13 +96,12 @@ export function Header() {
                                     key={item.name}
                                     href={item.href}
                                     onClick={() => setIsOpen(false)}
-                                    className="block w-full p-4 text-center text-lg font-medium text-gray-300 hover:text-white hover:bg-white/5 rounded-xl transition-all border border-transparent hover:border-white/5"
+                                    className="block w-full p-4 text-center text-lg font-medium text-gray-300 hover:text-white hover:bg-white/5 rounded-xl transition-all border border-transparent hover:border-white/5Active:scale-[0.98]"
                                 >
                                     {item.name}
                                 </Link>
                             ))}
-
-                            <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-blue-500/20 to-transparent mt-2"></div>
+                            <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-blue-500/20 to-transparent mt-2 shadow-sm"></div>
                         </div>
                     </motion.div>
                 )}
