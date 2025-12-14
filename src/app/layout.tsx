@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     openGraph: {
         type: "website",
         locale: "pt_BR",
-        url: "https://paulorag.vercel.app/",
+        url: "https://pauloragdev.vercel.app",
         title: "Paulo Gomes | Full-Stack Developer",
         description:
             "Confira meu portfólio com projetos em Java, Spring Boot e Next.js.",

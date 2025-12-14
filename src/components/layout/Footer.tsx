@@ -19,8 +19,6 @@ export function Footer() {
     return (
         <footer
             id="contato"
-            // REMOVIDO: "border-t border-white/5"
-            // O visual agora será contínuo com a seção anterior
             className="bg-[#0a0a0a] text-white py-16 scroll-mt-28 relative overflow-hidden"
         >
             <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[500px] h-[300px] bg-blue-600/10 rounded-full blur-[100px] -z-10" />

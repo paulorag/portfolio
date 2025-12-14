@@ -24,7 +24,6 @@ export const dictionary = {
         about: {
             title: "Sobre",
             me: "Mim",
-            // AQUI ESTÁ A MÁGICA: Usamos <>...</> para permitir HTML
             description1: (
                 <>
                     Sou um desenvolvedor focado em transformar desafios de
@@ -82,7 +81,7 @@ export const dictionary = {
                     title: "Lanchonete da Larica",
                     description:
                         "Plataforma digital de autoatendimento para fast-food. Focada em UX/UI moderna para agilizar o fluxo de pedidos.",
-                    tags: ["Next.js", "React", "Tailwind CSS", "UX/UI"],
+                    tags: ["JavaScript", "CSS", "HTML"],
                     image: "/projects/projeto-lanchonete.png",
                     github: "https://github.com/paulorag/lanchoneteLarica",
                     demo: "https://lanchonete-larica.vercel.app/",
@@ -91,7 +90,13 @@ export const dictionary = {
                     title: "Sistema Full Stack Poliglota",
                     description:
                         "Arquitetura Monorepo desafiadora que integra ecossistemas distintos. Demonstra a comunicação eficiente entre serviços.",
-                    tags: ["Monorepo", "Java", "Spring Boot", "Next.js"],
+                    tags: [
+                        "Monorepo",
+                        "Java",
+                        "Spring Boot",
+                        "Node.js",
+                        "Next.js",
+                    ],
                     image: "/projects/polyglot-user-system.png",
                     github: "https://github.com/paulorag/polyglot-user-system",
                     demo: "https://polyglot-user-system.vercel.app/",
@@ -100,12 +105,7 @@ export const dictionary = {
                     title: "Room Scheduler",
                     description:
                         "Solução corporativa para gestão de espaços. Implementa lógicas complexas de validação para evitar conflitos de horários.",
-                    tags: [
-                        "TypeScript",
-                        "Regras de Negócio",
-                        "React",
-                        "Node.js",
-                    ],
+                    tags: ["TypeScript", "Regras de Negócio", "React", "Java"],
                     image: "/projects/roomScheduler.png",
                     github: "https://github.com/paulorag/roomScheduler",
                     demo: "https://room-scheduler-gold.vercel.app/",
@@ -201,7 +201,7 @@ export const dictionary = {
                     title: "Larica's Snack Bar",
                     description:
                         "Digital self-service platform for fast food. Focused on modern UX/UI to streamline the ordering flow.",
-                    tags: ["Next.js", "React", "Tailwind CSS", "UX/UI"],
+                    tags: ["JavaScript", "CSS", "HTML"],
                     image: "/projects/projeto-lanchonete.png",
                     github: "https://github.com/paulorag/lanchoneteLarica",
                     demo: "https://lanchonete-larica.vercel.app/",
@@ -210,7 +210,13 @@ export const dictionary = {
                     title: "Polyglot Full Stack System",
                     description:
                         "Challenging Monorepo architecture integrating distinct ecosystems. Demonstrates efficient service communication.",
-                    tags: ["Monorepo", "Java", "Spring Boot", "Next.js"],
+                    tags: [
+                        "Monorepo",
+                        "Java",
+                        "Spring Boot",
+                        "Node.js",
+                        "Next.js",
+                    ],
                     image: "/projects/polyglot-user-system.png",
                     github: "https://github.com/paulorag/polyglot-user-system",
                     demo: "https://polyglot-user-system.vercel.app/",
@@ -219,7 +225,7 @@ export const dictionary = {
                     title: "Room Scheduler",
                     description:
                         "Corporate solution for space management. Implements complex validation logic to avoid schedule conflicts.",
-                    tags: ["TypeScript", "Business Logic", "React", "Node.js"],
+                    tags: ["TypeScript", "Regras de Negócio", "React", "Java"],
                     image: "/projects/roomScheduler.png",
                     github: "https://github.com/paulorag/roomScheduler",
                     demo: "https://room-scheduler-gold.vercel.app/",

@@ -4,15 +4,13 @@
 
 ![Project Preview](assets/preview.png)
 
-> _Note: This portfolio is designed to showcase my skills in Java, Spring Boot, and Next.js._
-
 A modern, high-performance developer portfolio built to showcase my projects and skills as a **Full-Stack Developer**. Designed with a focus on **User Experience**, **Accessibility**, and **Clean Code**.
 
 ---
 
 ## 🌐 Live Demo
 
-[Click here to visit the live site](https://paulorag.vercel.app/)
+[Click here to visit the live site](https://pauloragdev.vercel.app)
 
 ---
 
@@ -92,7 +90,7 @@ Make sure you have **Node.js** (v18 or higher) installed.
 
 ## 📫 Contact
 
-Developed with ❤️ by **Paulo Gomes**.
+Developed by **Paulo Gomes**.
 
 -   **LinkedIn:** [Paulo Gomes](https://linkedin.com/in/paulorag)
 -   **GitHub:** [paulorag](https://github.com/paulorag)

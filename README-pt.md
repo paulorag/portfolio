@@ -10,7 +10,7 @@ Um portfólio moderno e de alta performance desenvolvido para apresentar meus pr
 
 ## 🌐 Demonstração Online
 
-[Clique aqui para visitar](https://paulorag.vercel.app/)
+[Clique aqui para visitar](https://pauloragdev.vercel.app)
 
 ---
 
@@ -72,7 +72,7 @@ Certifique-se de ter o **Node.js** (v18 ou superior) instalado.
 
 ## 📫 Contato
 
-Desenvolvido com ❤️ por **Paulo Gomes**.
+Desenvolvido por **Paulo Gomes**.
 
 -   **LinkedIn:** [Paulo Gomes](https://linkedin.com/in/paulorag)
 -   **GitHub:** [paulorag](https://github.com/paulorag)
