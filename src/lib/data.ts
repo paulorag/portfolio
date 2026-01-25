@@ -1,26 +1,9 @@
 export const projects = [
     {
-        title: "Lanchonete da Larica",
-        description:
-            "Plataforma digital de autoatendimento para fast-food. Focada em UX/UI moderna para agilizar o fluxo de pedidos, com interface responsiva e interativa.",
-        tags: ["JavaScript", "CSS", "HTML"],
-        image: "/projects/projeto-lanchonete.png",
-        github: "https://github.com/paulorag/lanchoneteLarica",
-        demo: "https://lanchonete-larica.vercel.app/",
-    },
-    {
         title: "Game Deals Radar",
         description:
-            "Monitoramento inteligente de preços da Steam. Utiliza Web Scraping (Jsoup) e Jobs agendados para gerar histórico detalhado e identificar ofertas reais.",
-        tags: [
-            "Java",
-            "Spring Boot",
-            "TypeScript",
-            "React",
-            "Next",
-            "Docker",
-            "PostgreSQL",
-        ],
+            "Rastreador de preços da Steam com automação em background. Utiliza Web Scraping (Jsoup) e Spring Scheduler para monitorar variações de valor periodicamente, gerando um histórico visual de ofertas reais.",
+        tags: ["Spring Boot", "Jsoup", "Next.js"],
         image: "/projects/game-deals-radar.png",
         github: "https://github.com/paulorag/game-deals-radar",
         demo: "https://game-deals-radar.vercel.app/",
@@ -28,18 +11,19 @@ export const projects = [
     {
         title: "Room Scheduler",
         description:
-            "Solução corporativa para gestão de espaços. Implementa lógicas complexas de validação para evitar conflitos de horários e garantir a integridade dos agendamentos.",
-        tags: [
-            "Java",
-            "Spring Boot",
-            "TypeScript",
-            "React",
-            "Next",
-            "Docker",
-            "PostgreSQL",
-        ],
+            "Plataforma completa para aluguel e gestão de salas. Garante a integridade das reservas (prevenção de conflitos) com lógica robusta no Spring Boot e oferece controle de acesso seguro (Admin/User) via RBAC e JWT.",
+        tags: ["Spring Boot", "Spring Security", "Next.js"],
         image: "/projects/roomScheduler.png",
         github: "https://github.com/paulorag/roomScheduler",
         demo: "https://room-scheduler-gold.vercel.app/",
+    },
+    {
+        title: "Lanchonete da Larica",
+        description:
+            "Aplicação de e-commerce desenvolvida com Vanilla JavaScript puro. Foca na manipulação avançada do DOM e gerenciamento de estado do carrinho (CRUD de itens e cálculo de totais) sem dependência de frameworks.",
+        tags: ["Vanilla JS", "CSS3", "HTML5"],
+        image: "/projects/projeto-lanchonete.png",
+        github: "https://github.com/paulorag/lanchoneteLarica",
+        demo: "https://lanchonete-larica.vercel.app/",
     },
 ];
