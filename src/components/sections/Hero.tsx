@@ -86,13 +86,16 @@ export function Hero() {
                                 <span className="text-blue-400">profile</span> ={" "}
                                 <span className="text-yellow-400">{"{"}</span>
                             </p>
+
                             <p className="pl-4">
-                                nome:{" "}
+                                {dict.hero.codeProfile.nameLabel}:{" "}
                                 <span className="text-green-400">
-                                    &quot;Paulo Gomes&quot;
+                                    &quot;{dict.hero.codeProfile.nameValue}
+                                    &quot;
                                 </span>
                                 ,
                             </p>
+
                             <p className="pl-4">
                                 {dict.hero.codeProfile.roleLabel}:{" "}
                                 <span className="text-green-400">
@@ -101,14 +104,55 @@ export function Hero() {
                                 </span>
                                 ,
                             </p>
+
                             <p className="pl-4">
-                                stack:{" "}
+                                {dict.hero.codeProfile.stackLabel || "stack"}:{" "}
                                 <span className="text-yellow-400">
-                                    [&quot;Java&quot;, &quot;Spring&quot;,
-                                    &quot;React&quot;, &quot;Next.js&quot;]
+                                    [
+                                    {Array.isArray(
+                                        dict.hero.codeProfile.stackValue,
+                                    ) &&
+                                        dict.hero.codeProfile.stackValue.map(
+                                            (item, index) => (
+                                                <span key={index}>
+                                                    &quot;{item}&quot;
+                                                    {index <
+                                                        dict.hero.codeProfile
+                                                            .stackValue.length -
+                                                            1 && ", "}
+                                                </span>
+                                            ),
+                                        )}
+                                    ]
                                 </span>
                                 ,
                             </p>
+
+                            <p className="pl-4">
+                                {dict.hero.codeProfile.educationLabel}:{" "}
+                                <span className="text-yellow-400">
+                                    [
+                                    {Array.isArray(
+                                        dict.hero.codeProfile.educationValue,
+                                    )
+                                        ? dict.hero.codeProfile.educationValue.map(
+                                              (item: string, index: number) => (
+                                                  <span key={index}>
+                                                      &quot;{item}&quot;
+                                                      {index <
+                                                          dict.hero.codeProfile
+                                                              .educationValue
+                                                              .length -
+                                                              1 && ", "}
+                                                  </span>
+                                              ),
+                                          )
+                                        : `"${dict.hero.codeProfile.educationValue}"`}
+                                    ]
+                                </span>
+                                ,
+                            </p>
+
                             <p className="pl-4">
                                 {dict.hero.codeProfile.focusLabel}:{" "}
                                 <span className="text-green-400">

@@ -11,7 +11,14 @@ export function About() {
         {
             icon: <Server className="w-6 h-6 text-red-500" />,
             title: dict.about.stackBackend,
-            techs: ["Java", "Spring Boot", "Node.js", "API REST", "JUnit"],
+            techs: [
+                "Java",
+                "Spring Boot",
+                "Maven",
+                "Node.js",
+                "API REST",
+                "JUnit",
+            ],
         },
         {
             icon: <Layout className="w-6 h-6 text-blue-500" />,
@@ -20,6 +27,7 @@ export function About() {
                 "React.js",
                 "Next.js",
                 "JavaScript",
+                "Jest",
                 "HTML5/CSS3",
                 "Tailwind",
             ],
@@ -27,7 +35,13 @@ export function About() {
         {
             icon: <Database className="w-6 h-6 text-purple-500" />,
             title: dict.about.stackData,
-            techs: ["Oracle SQL", "PostgreSQL", "Docker", "Git", "CI/CD"],
+            techs: [
+                "Oracle SQL",
+                "PostgreSQL",
+                "Docker",
+                "Git",
+                "GitHub Actions",
+            ],
         },
     ];
 
