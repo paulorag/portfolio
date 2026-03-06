@@ -18,6 +18,15 @@ export const projects = [
         demo: "https://room-scheduler-gold.vercel.app/",
     },
     {
+        title: "Autoflex - Planejamento de Produção",
+        description:
+            "Sistema Full Stack para gerenciamento de recursos fabris e planejamento de linha de produção. Conta com algoritmo automatizado para cálculo de capacidade produtiva baseado em estoque (relações N:N) e arquitetura validada por testes E2E (Cypress).",
+        tags: ["React", "Spring Boot", "Cypress", "Docker"],
+        image: "/projects/autoflex.png",
+        github: "https://github.com/paulorag/autoflex-test",
+        demo: "https://autoflex-test.vercel.app/",
+    },
+    {
         title: "Lanchonete da Larica",
         description:
             "Aplicação de e-commerce desenvolvida com Vanilla JavaScript puro. Foca na manipulação avançada do DOM e gerenciamento de estado do carrinho (CRUD de itens e cálculo de totais) sem dependência de frameworks.",

@@ -13,7 +13,7 @@ export function Projects() {
             id="projetos"
             className="py-20 px-4 md:px-6 bg-[#0a0a0a] scroll-mt-28"
         >
-            <div className="container mx-auto max-w-6xl">
+            <div className="container mx-auto max-w-[95%] 2xl:max-w-[1500px]">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -32,7 +32,7 @@ export function Projects() {
                     </p>
                 </motion.div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8">
                     {dict.projects.items.map((project, index) => (
                         <motion.div
                             key={index}
