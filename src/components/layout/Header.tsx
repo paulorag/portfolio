@@ -53,14 +53,14 @@ export function Header() {
     }, [isHomePage]);
 
     const languageButtonStyles =
-        "group cursor-pointer flex items-center gap-2 rounded-full bg-white/5 hover:bg-white/10 border border-white/5 hover:border-blue-500/30 transition-all duration-300 active:scale-95 font-medium text-gray-300 hover:text-white";
+        "group cursor-pointer flex items-center gap-2 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20 transition-all duration-300 active:scale-95 font-medium text-zinc-300 hover:text-white";
 
     return (
         <header
             className={`fixed top-0 w-full z-50 transition-all duration-300 ${
                 isScrolled
-                    ? "bg-[#0a0a0a]/90 backdrop-blur-xl border-b border-white/10 shadow-lg shadow-black/40"
-                    : "bg-[#0a0a0a]/60 backdrop-blur-md border-b border-white/5"
+                    ? "bg-[#12131a]/90 backdrop-blur-xl border-b border-white/10 shadow-lg shadow-black/40"
+                    : "bg-[#12131a]/60 backdrop-blur-md border-b border-white/5"
             }`}
         >
             <div className="container mx-auto flex h-16 items-center justify-between px-4 md:px-6">
@@ -71,12 +71,12 @@ export function Header() {
                     onClick={() => setIsOpen(false)}
                 >
                     <TerminalSquare
-                        className="text-blue-500 group-hover:text-purple-500 transition-colors"
-                        size={26}
+                        className="text-zinc-300 group-hover:text-white transition-colors"
+                        size={24}
                         strokeWidth={2}
                     />
-                    <span className="text-gray-200">
-                        Paulo<span className="text-blue-500">.dev</span>
+                    <span className="text-zinc-100">
+                        Paulo<span className="text-zinc-400">.dev</span>
                     </span>
                 </Link>
 
@@ -92,12 +92,12 @@ export function Header() {
                                 className={`relative text-[15px] font-medium transition-colors group py-2 ${
                                     isActive
                                         ? "text-white"
-                                        : "text-gray-400 hover:text-white"
+                                        : "text-zinc-400 hover:text-white"
                                 }`}
                             >
                                 {item.name}
                                 <span
-                                    className={`absolute left-0 bottom-0 h-[2px] bg-gradient-to-r from-blue-500 to-purple-600 transition-all duration-300 ${
+                                    className={`absolute left-0 bottom-0 h-[2px] bg-gradient-to-r from-white via-zinc-200 to-zinc-400 transition-all duration-300 ${
                                         isActive
                                             ? "w-full"
                                             : "w-0 group-hover:w-full"
@@ -114,8 +114,8 @@ export function Header() {
                         title={language === "pt" ? "Mudar para Inglês" : "Change to Portuguese"}
                     >
                         <Globe
-                            size={16}
-                            className="text-gray-400 group-hover:text-blue-400 transition-colors"
+                            size={15}
+                            className="text-zinc-400 group-hover:text-white transition-colors"
                         />
                         <span>{language === "pt" ? "EN" : "PT"}</span>
                     </button>
@@ -129,7 +129,7 @@ export function Header() {
                     >
                         <Globe
                             size={14}
-                            className="text-gray-400 group-hover:text-blue-400 transition-colors"
+                            className="text-zinc-400 group-hover:text-white transition-colors"
                         />
                         {language === "pt" ? "EN" : "PT"}
                     </button>
@@ -137,7 +137,7 @@ export function Header() {
                     <div className="h-6 w-[1px] bg-white/10" />
 
                     <button
-                        className="cursor-pointer p-1.5 text-gray-400 hover:text-white hover:bg-white/5 rounded-md transition-colors z-50 relative active:scale-95"
+                        className="cursor-pointer p-1.5 text-zinc-400 hover:text-white hover:bg-white/5 rounded-md transition-colors z-50 relative active:scale-95"
                         onClick={() => setIsOpen(!isOpen)}
                         aria-label="Alternar menu"
                     >
@@ -155,18 +155,18 @@ export function Header() {
                         transition={{ duration: 0.3, ease: "easeInOut" }}
                         className="absolute top-16 left-0 w-full md:hidden overflow-hidden border-b border-white/10 shadow-xl"
                     >
-                        <div className="bg-[#0a0a0a]/95 backdrop-blur-2xl p-4 flex flex-col gap-2">
+                        <div className="bg-[#12131a]/95 backdrop-blur-2xl p-4 flex flex-col gap-2">
                             {dict.header.items.map((item) => (
                                 <Link
                                     key={item.name}
                                     href={item.href}
                                     onClick={() => setIsOpen(false)}
-                                    className="block w-full p-4 text-center text-lg font-medium text-gray-300 hover:text-white hover:bg-white/5 rounded-xl transition-all border border-transparent hover:border-white/5 active:scale-[0.98]"
+                                    className="block w-full p-4 text-center text-lg font-medium text-zinc-300 hover:text-white hover:bg-white/5 rounded-xl transition-all border border-transparent hover:border-white/5 active:scale-[0.98]"
                                 >
                                     {item.name}
                                 </Link>
                             ))}
-                            <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-blue-500/20 to-transparent mt-2 shadow-sm" />
+                            <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent mt-2 shadow-sm" />
                         </div>
                     </motion.div>
                 )}

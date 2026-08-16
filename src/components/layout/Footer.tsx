@@ -53,9 +53,9 @@ export function Footer() {
         >
             <div className="container mx-auto max-w-5xl">
                 {/* Engineering Action Dock */}
-                <div className="relative rounded-3xl bg-[#0e1017]/90 border border-white/10 p-7 sm:p-10 backdrop-blur-2xl shadow-2xl overflow-hidden">
+                <div className="relative rounded-3xl bg-[#181a24]/90 border border-white/10 p-7 sm:p-10 backdrop-blur-2xl shadow-2xl overflow-hidden">
                     {/* Subtle Ambient Glow Inside Dock */}
-                    <div className="absolute -top-24 right-0 w-96 h-96 bg-blue-600/[0.07] rounded-full blur-[140px] pointer-events-none -z-10" />
+                    <div className="absolute -top-24 right-0 w-96 h-96 bg-white/[0.02] rounded-full blur-[140px] pointer-events-none -z-10" />
 
                     <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
                         {/* Left Column: Identity & Direct Statement */}
@@ -64,12 +64,12 @@ export function Footer() {
                                 <h3 className="text-2xl sm:text-3xl font-bold tracking-tight text-white">
                                     {dict.footer.name}
                                 </h3>
-                                <p className="text-sm font-mono font-medium text-blue-400">
+                                <p className="text-sm font-mono font-medium text-zinc-400">
                                     {dict.footer.role}
                                 </p>
                             </div>
 
-                            <p className="text-gray-300 text-sm sm:text-base leading-relaxed max-w-md">
+                            <p className="text-zinc-400 text-sm sm:text-base leading-relaxed max-w-md">
                                 {dict.footer.tagline}
                             </p>
                         </div>
@@ -79,7 +79,7 @@ export function Footer() {
                             {/* Row 1: Copy Email Button (Full Width of Right Column) */}
                             <button
                                 onClick={handleCopyEmail}
-                                className="group cursor-pointer select-none flex items-center justify-between gap-3 px-4 sm:px-5 py-3 rounded-xl bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 hover:border-blue-500/40 transition-all duration-200 active:scale-[0.99] shadow-sm w-full"
+                                className="group cursor-pointer select-none flex items-center justify-between gap-3 px-4 sm:px-5 py-3 rounded-xl bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 hover:border-white/20 transition-all duration-200 active:scale-[0.99] shadow-sm w-full"
                                 title={
                                     language === "pt"
                                         ? "Clique para copiar o e-mail"
@@ -87,15 +87,15 @@ export function Footer() {
                                 }
                             >
                                 <div className="flex items-center gap-3 min-w-0">
-                                    <div className="p-1.5 rounded-lg bg-blue-500/10 text-blue-400 group-hover:text-blue-300 transition-colors shrink-0">
+                                    <div className="p-1.5 rounded-lg bg-white/5 text-zinc-300 border border-white/10 group-hover:text-white transition-colors shrink-0">
                                         <Mail size={15} />
                                     </div>
-                                    <span className="text-gray-200 font-mono text-xs sm:text-sm font-medium truncate">
+                                    <span className="text-zinc-200 font-mono text-xs sm:text-sm font-medium truncate">
                                         {email}
                                     </span>
                                 </div>
 
-                                <div className="flex items-center gap-1.5 text-xs text-gray-400 group-hover:text-white transition-colors shrink-0 pl-2">
+                                <div className="flex items-center gap-1.5 text-xs text-zinc-400 group-hover:text-white transition-colors shrink-0 pl-2">
                                     {copied ? (
                                         <>
                                             <Check size={14} className="text-emerald-400" />
@@ -106,7 +106,7 @@ export function Footer() {
                                     ) : (
                                         <>
                                             <Copy size={13} />
-                                            <span className="text-[11px] font-medium hidden sm:inline text-gray-400">
+                                            <span className="text-[11px] font-medium hidden sm:inline text-zinc-400">
                                                 {dict.footer.copyEmail}
                                             </span>
                                         </>
@@ -121,14 +121,14 @@ export function Footer() {
                                     href={whatsappUrl}
                                     target="_blank"
                                     rel="noreferrer"
-                                    className="group flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-white/[0.04] hover:bg-emerald-500/10 border border-white/10 hover:border-emerald-500/40 text-gray-200 hover:text-emerald-300 text-xs sm:text-sm font-medium transition-all duration-200 active:scale-[0.99]"
+                                    className="group flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-white/[0.04] hover:bg-emerald-500/10 border border-white/10 hover:border-emerald-500/40 text-zinc-200 hover:text-emerald-300 text-xs sm:text-sm font-medium transition-all duration-200 active:scale-[0.99]"
                                     aria-label="WhatsApp de Paulo Gomes"
                                 >
                                     <div className="p-1 rounded-md bg-emerald-500/10 text-emerald-400 group-hover:bg-emerald-500/20 transition-colors">
                                         <MessageCircle size={14} />
                                     </div>
                                     <span>WhatsApp</span>
-                                    <ArrowUpRight size={13} className="text-gray-500 group-hover:text-emerald-400 transition-colors" />
+                                    <ArrowUpRight size={13} className="text-zinc-500 group-hover:text-emerald-400 transition-colors" />
                                 </a>
 
                                 {/* Download Resume Action */}
@@ -137,9 +137,9 @@ export function Footer() {
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     download={cvFileName}
-                                    className="group flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-white/[0.04] hover:bg-blue-500/10 border border-white/10 hover:border-blue-500/40 text-gray-200 hover:text-white text-xs sm:text-sm font-medium transition-all duration-200 active:scale-[0.99]"
+                                    className="group flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 hover:border-white/20 text-zinc-200 hover:text-white text-xs sm:text-sm font-medium transition-all duration-200 active:scale-[0.99]"
                                 >
-                                    <div className="p-1 rounded-md bg-blue-500/10 text-blue-400 group-hover:bg-blue-500/20 transition-colors">
+                                    <div className="p-1 rounded-md bg-white/5 text-zinc-300 border border-white/10 group-hover:text-white transition-colors">
                                         <FileDown size={14} />
                                     </div>
                                     <span>{dict.footer.btnCv}</span>
@@ -152,24 +152,24 @@ export function Footer() {
                                     href="https://github.com/paulorag"
                                     target="_blank"
                                     rel="noreferrer"
-                                    className="group flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 hover:border-white/20 text-gray-300 hover:text-white text-xs font-medium transition-all"
+                                    className="group flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 hover:border-white/20 text-zinc-300 hover:text-white text-xs font-medium transition-all"
                                     aria-label="GitHub de Paulo Gomes"
                                 >
                                     <Github size={14} />
                                     <span>GitHub</span>
-                                    <ArrowUpRight size={12} className="text-gray-500 group-hover:text-white transition-colors" />
+                                    <ArrowUpRight size={12} className="text-zinc-500 group-hover:text-white transition-colors" />
                                 </a>
 
                                 <a
                                     href="https://linkedin.com/in/paulorag"
                                     target="_blank"
                                     rel="noreferrer"
-                                    className="group flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-white/[0.04] hover:bg-blue-500/10 border border-white/10 hover:border-blue-500/30 text-gray-300 hover:text-blue-400 text-xs font-medium transition-all"
+                                    className="group flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 hover:border-white/20 text-zinc-300 hover:text-white text-xs font-medium transition-all"
                                     aria-label="LinkedIn de Paulo Gomes"
                                 >
                                     <Linkedin size={14} />
                                     <span>LinkedIn</span>
-                                    <ArrowUpRight size={12} className="text-gray-500 group-hover:text-blue-400 transition-colors" />
+                                    <ArrowUpRight size={12} className="text-zinc-500 group-hover:text-white transition-colors" />
                                 </a>
                             </div>
                         </div>

@@ -22,7 +22,7 @@ export function Timeline() {
                     ? "Desenvolvedor Full Stack"
                     : "Full Stack Developer",
             institution: "Game Deals Radar (Projeto Independente)",
-            icon: <Code2 className="w-4 h-4 text-blue-400" />,
+            icon: <Code2 className="w-4 h-4 text-zinc-300" />,
             badge: language === "pt" ? "Projeto Ativo" : "Active Project",
             description:
                 language === "pt"
@@ -37,7 +37,7 @@ export function Timeline() {
                     ? "Analista Desenvolvedor (Consultor de Sistemas)"
                     : "Systems Developer Analyst",
             institution: "NOXTEC",
-            icon: <Building2 className="w-4 h-4 text-blue-400" />,
+            icon: <Building2 className="w-4 h-4 text-zinc-300" />,
             badge: language === "pt" ? "Atuação Corporativa" : "Corporate Role",
             description:
                 language === "pt"
@@ -52,7 +52,7 @@ export function Timeline() {
                     ? "Analista de Operações de TI (NOC)"
                     : "IT Operations Analyst (NOC)",
             institution: "Vert Integradora de TI",
-            icon: <Network className="w-4 h-4 text-blue-400" />,
+            icon: <Network className="w-4 h-4 text-zinc-300" />,
             badge: language === "pt" ? "Missão Crítica" : "Mission Critical",
             description:
                 language === "pt"
@@ -103,7 +103,7 @@ export function Timeline() {
             id="trajetoria"
             className="py-12 sm:py-16 px-4 md:px-6 scroll-mt-28 relative overflow-hidden"
         >
-            <div className="absolute bottom-10 right-0 w-80 h-80 bg-blue-500/[0.04] rounded-full blur-[150px] pointer-events-none -z-10" />
+            <div className="absolute bottom-10 right-0 w-80 h-80 bg-white/[0.02] rounded-full blur-[150px] pointer-events-none -z-10" />
             <div className="container mx-auto max-w-5xl space-y-12">
                 {/* Section Header */}
                 <motion.div
@@ -112,19 +112,19 @@ export function Timeline() {
                     viewport={{ once: true }}
                     transition={{ duration: 0.4 }}
                 >
-                    <span className="text-xs font-semibold uppercase tracking-wider text-blue-400 font-mono">
+                    <span className="text-xs font-semibold uppercase tracking-wider text-zinc-400 font-mono">
                         {language === "pt" ? "// trajetória & experiência" : "// career & experience"}
                     </span>
                     <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-white mt-1.5">
                         {language === "pt" ? "Trajetória" : "Professional"}{" "}
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-500">
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-zinc-100 to-zinc-400">
                             {language === "pt" ? "Profissional" : "Journey"}
                         </span>
                     </h2>
                 </motion.div>
 
                 {/* Vertical Timeline Experiences */}
-                <div className="relative border-l border-blue-500/20 ml-4 sm:ml-6 pl-6 sm:pl-8 space-y-8">
+                <div className="relative border-l border-white/10 ml-4 sm:ml-6 pl-6 sm:pl-8 space-y-8">
                     {experiences.map((item, index) => (
                         <motion.div
                             key={index}
@@ -135,32 +135,32 @@ export function Timeline() {
                             className="relative"
                         >
                             {/* Point Node on Timeline Line */}
-                            <div className="absolute -left-[31px] sm:-left-[39px] top-4 p-1.5 rounded-full bg-[#111] border border-blue-500/40 text-blue-400 shadow-sm shadow-blue-500/20">
+                            <div className="absolute -left-[31px] sm:-left-[39px] top-4 p-1.5 rounded-full bg-[#181a24] border border-white/20 text-zinc-300 shadow-sm">
                                 {item.icon}
                             </div>
 
                             {/* Experience Card */}
-                            <div className="p-5 sm:p-6 rounded-2xl bg-[#111] border border-white/10 hover:border-blue-500/30 transition-all duration-300 shadow-sm space-y-3">
+                            <div className="p-5 sm:p-6 rounded-2xl bg-[#181a24]/90 border border-white/10 hover:border-white/20 transition-all duration-300 shadow-sm space-y-3">
                                 <div className="flex flex-wrap items-center justify-between gap-2">
                                     <div>
-                                        <span className="text-xs font-mono text-blue-400 font-medium block mb-0.5">
+                                        <span className="text-xs font-mono text-zinc-400 font-medium block mb-0.5">
                                             {item.period}
                                         </span>
                                         <h3 className="text-base sm:text-lg font-bold text-white">
                                             {item.role}
                                         </h3>
-                                        <p className="text-xs sm:text-sm font-medium text-gray-400 flex items-center gap-1.5 mt-0.5">
-                                            <Briefcase size={13} className="text-gray-500" />
+                                        <p className="text-xs sm:text-sm font-medium text-zinc-400 flex items-center gap-1.5 mt-0.5">
+                                            <Briefcase size={13} className="text-zinc-500" />
                                             <span>{item.institution}</span>
                                         </p>
                                     </div>
 
-                                    <span className="text-xs font-medium px-2.5 py-0.5 rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/20">
+                                    <span className="text-xs font-medium px-2.5 py-0.5 rounded-full bg-white/5 text-zinc-300 border border-white/10">
                                         {item.badge}
                                     </span>
                                 </div>
 
-                                <p className="text-sm text-gray-300 leading-relaxed">
+                                <p className="text-sm text-zinc-300 leading-relaxed">
                                     {item.description}
                                 </p>
 
@@ -168,7 +168,7 @@ export function Timeline() {
                                     {item.tags.map((tag) => (
                                         <span
                                             key={tag}
-                                            className="text-xs font-medium px-2 py-0.5 rounded bg-white/5 text-gray-400 border border-white/5"
+                                            className="text-xs font-mono px-2 py-0.5 rounded bg-white/[0.04] text-zinc-400 border border-white/5"
                                         >
                                             {tag}
                                         </span>
@@ -188,7 +188,7 @@ export function Timeline() {
                     className="space-y-4 pt-4 border-t border-white/5"
                 >
                     <div className="flex items-center gap-2">
-                        <GraduationCap className="text-blue-400" size={20} />
+                        <GraduationCap className="text-zinc-300" size={20} />
                         <h3 className="text-lg sm:text-xl font-bold text-white tracking-tight">
                             {language === "pt" ? "Formação Acadêmica" : "Academic Education"}
                         </h3>
@@ -198,21 +198,21 @@ export function Timeline() {
                         {academicEducation.map((edu, idx) => (
                             <div
                                 key={idx}
-                                className="p-4 rounded-xl bg-[#111] border border-white/10 hover:border-blue-500/30 transition-all duration-200 flex flex-col justify-between gap-3 shadow-sm"
+                                className="p-4 rounded-xl bg-[#181a24]/90 border border-white/10 hover:border-white/20 transition-all duration-200 flex flex-col justify-between gap-3 shadow-sm"
                             >
                                 <div className="space-y-1">
-                                    <span className="text-[11px] font-mono font-semibold uppercase tracking-wider text-blue-400">
+                                    <span className="text-[11px] font-mono font-semibold uppercase tracking-wider text-zinc-400">
                                         {edu.type}
                                     </span>
-                                    <h4 className="text-sm sm:text-base font-bold text-gray-100 leading-snug">
+                                    <h4 className="text-sm sm:text-base font-bold text-zinc-100 leading-snug">
                                         {edu.title}
                                     </h4>
-                                    <p className="text-xs text-gray-400 font-medium">
+                                    <p className="text-xs text-zinc-400 font-medium">
                                         {edu.institution}
                                     </p>
                                 </div>
 
-                                <span className="text-xs text-gray-500 font-mono border-t border-white/5 pt-2">
+                                <span className="text-xs text-zinc-500 font-mono border-t border-white/5 pt-2">
                                     {edu.status}
                                 </span>
                             </div>
@@ -229,7 +229,7 @@ export function Timeline() {
                     className="space-y-4 pt-2"
                 >
                     <div className="flex items-center gap-2">
-                        <BookOpen className="text-indigo-400" size={19} />
+                        <BookOpen className="text-zinc-300" size={19} />
                         <h3 className="text-lg sm:text-xl font-bold text-white tracking-tight">
                             {language === "pt" ? "Cursos Complementares" : "Complementary Courses"}
                         </h3>
@@ -239,21 +239,21 @@ export function Timeline() {
                         {complementaryCourses.map((course, idx) => (
                             <div
                                 key={idx}
-                                className="p-4 rounded-xl bg-[#111] border border-white/10 hover:border-indigo-500/30 transition-all duration-200 flex flex-col justify-between gap-3 shadow-sm"
+                                className="p-4 rounded-xl bg-[#181a24]/90 border border-white/10 hover:border-white/20 transition-all duration-200 flex flex-col justify-between gap-3 shadow-sm"
                             >
                                 <div className="space-y-1">
-                                    <span className="text-[11px] font-mono font-semibold uppercase tracking-wider text-indigo-400">
+                                    <span className="text-[11px] font-mono font-semibold uppercase tracking-wider text-zinc-400">
                                         {course.type}
                                     </span>
-                                    <h4 className="text-sm sm:text-base font-bold text-gray-100 leading-snug">
+                                    <h4 className="text-sm sm:text-base font-bold text-zinc-100 leading-snug">
                                         {course.title}
                                     </h4>
-                                    <p className="text-xs text-gray-400 font-medium">
+                                    <p className="text-xs text-zinc-400 font-medium">
                                         {course.institution}
                                     </p>
                                 </div>
 
-                                <span className="text-xs text-gray-500 font-mono border-t border-white/5 pt-2">
+                                <span className="text-xs text-zinc-500 font-mono border-t border-white/5 pt-2">
                                     {course.status}
                                 </span>
                             </div>

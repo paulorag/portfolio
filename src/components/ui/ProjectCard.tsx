@@ -35,7 +35,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95 }}
             transition={{ duration: 0.35, delay: index * 0.05 }}
-            className="group relative rounded-2xl overflow-hidden bg-[#111] border border-white/10 transition-all duration-300 hover:border-blue-500/40 hover:shadow-xl hover:shadow-blue-500/5 flex flex-col cursor-pointer"
+            className="group relative rounded-2xl overflow-hidden bg-[#181a24]/90 border border-white/10 transition-all duration-300 hover:border-white/25 hover:shadow-xl flex flex-col cursor-pointer"
             ref={cardRef}
             onMouseMove={handleMouseMove}
         >
@@ -43,7 +43,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
             <div
                 className="pointer-events-none absolute -inset-px rounded-2xl opacity-0 transition-opacity duration-300 group-hover:opacity-100"
                 style={{
-                    background: `radial-gradient(400px circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(59, 130, 246, 0.12), transparent 40%)`,
+                    background: `radial-gradient(400px circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(255, 255, 255, 0.08), transparent 40%)`,
                 }}
             />
 
@@ -55,8 +55,8 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
             />
 
             {/* Compact Project Image Thumbnail */}
-            <div className="relative w-full h-44 sm:h-48 overflow-hidden bg-[#0d0d0d]">
-                <div className="absolute inset-0 bg-gradient-to-t from-[#111] via-transparent to-black/20 z-[1]" />
+            <div className="relative w-full h-48 sm:h-52 md:h-56 overflow-hidden bg-[#0d0d0d]">
+                <div className="absolute inset-0 bg-gradient-to-t from-[#181a24] via-transparent to-black/20 z-[1]" />
 
                 <Image
                     src={project.image}
@@ -72,16 +72,16 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
             <div className="p-4 sm:p-5 flex flex-col justify-between flex-grow relative z-[2] gap-4">
                 <div className="space-y-1">
                     <div className="flex items-center justify-between gap-2">
-                        <h3 className="text-base sm:text-lg font-bold text-gray-100 group-hover:text-blue-400 transition-colors tracking-tight">
+                        <h3 className="text-base sm:text-lg font-bold text-zinc-100 group-hover:text-white transition-colors tracking-tight">
                             {project.title}
                         </h3>
-                        <span className="text-[11px] font-mono text-gray-500">
+                        <span className="text-[11px] font-mono text-zinc-500">
                             {project.releaseYear}
                         </span>
                     </div>
 
                     {project.tagline && (
-                        <p className="text-xs text-gray-400 font-medium line-clamp-2">
+                        <p className="text-xs text-zinc-400 font-medium line-clamp-2">
                             {project.tagline}
                         </p>
                     )}
@@ -93,7 +93,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
                         {project.tags.map((tag) => (
                             <span
                                 key={tag}
-                                className="text-[11px] font-medium px-2.5 py-0.5 rounded-md bg-white/5 text-gray-300 border border-white/5 group-hover:border-blue-500/20 transition-colors"
+                                className="text-[11px] font-mono px-2 py-0.5 rounded-md bg-white/[0.04] text-zinc-300 border border-white/5 group-hover:border-white/15 transition-colors"
                             >
                                 {tag}
                             </span>
@@ -101,7 +101,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
                     </div>
 
                     {/* View Case Study CTA Link */}
-                    <div className="flex items-center text-xs font-semibold text-blue-400 group-hover:text-blue-300 transition-colors gap-1 pt-2.5 border-t border-white/5">
+                    <div className="flex items-center text-xs font-semibold text-zinc-300 group-hover:text-white transition-colors gap-1 pt-2.5 border-t border-white/5">
                         <span>{dict.projects.viewCaseStudy || "Ver Estudo de Caso"}</span>
                         <ArrowRight
                             size={14}
