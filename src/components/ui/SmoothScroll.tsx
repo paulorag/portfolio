@@ -23,16 +23,21 @@ function AnchorHandler() {
             if (!link) return;
 
             const href = link.getAttribute("href");
+            if (!href) return;
 
-            if (href?.startsWith("#")) {
-                e.preventDefault();
+            const isDirectHash = href.startsWith("#");
+            const isRootHash = href.startsWith("/#") && window.location.pathname === "/";
 
-                const element = document.querySelector(href) as HTMLElement;
+            if (isDirectHash || isRootHash) {
+                const targetId = isRootHash ? href.substring(1) : href;
+                const element = document.querySelector(targetId) as HTMLElement;
 
                 if (element && lenis) {
+                    e.preventDefault();
+                    window.history.pushState({}, "", href);
                     lenis.scrollTo(element, {
-                        offset: 0,
-                        duration: 2.0,
+                        offset: -80,
+                        duration: 1.5,
                         easing: (t) =>
                             Math.min(1, 1.001 - Math.pow(2, -10 * t)),
                     });

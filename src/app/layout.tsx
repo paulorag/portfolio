@@ -18,33 +18,97 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+    metadataBase: new URL("https://pauloragdev.vercel.app"),
     title: {
-        default: "Paulo Gomes | Full-Stack Developer",
+        default: "Paulo Gomes | Full-Stack Software Engineer",
         template: "%s | Paulo Gomes",
     },
     description:
-        "Desenvolvedor Full-Stack unindo a robustez do Java (Spring Boot) com a agilidade do React & Next.js. Transformando desafios de negócio em software eficiente.",
+        "Desenvolvedor Full Stack com forte foco em arquitetura Back-End (Java 21 e Spring Boot 3) e interfaces dinâmicas e responsivas no Front-End (Next.js 15 e React). Sólida vivência em Oracle SQL e operações de missão crítica.",
     keywords: [
-        "Full-Stack Developer",
-        "Java",
-        "Spring Boot",
-        "React",
-        "Next.js",
+        "Paulo Roberto A. Gomes",
         "Paulo Gomes",
+        "Full-Stack Developer",
+        "Engenheiro de Software",
+        "Java 21",
+        "Spring Boot 3",
+        "Next.js 15",
+        "React",
+        "Oracle SQL",
+        "PostgreSQL",
+        "Docker",
         "Portfolio",
-        "Software Engineer",
     ],
-    authors: [{ name: "Paulo Gomes" }],
-    creator: "Paulo Gomes",
+    authors: [{ name: "Paulo Roberto A. Gomes" }],
+    creator: "Paulo Roberto A. Gomes",
     openGraph: {
         type: "website",
         locale: "pt_BR",
         url: "https://pauloragdev.vercel.app",
-        title: "Paulo Gomes | Full-Stack Developer",
+        title: "Paulo Gomes | Full-Stack Software Engineer",
         description:
-            "Confira meu portfólio com projetos em Java, Spring Boot e Next.js.",
+            "Portfólio de Engenharia de Software Full-Stack: Java 21, Spring Boot 3, Next.js 15, Oracle SQL e PostgreSQL.",
         siteName: "Paulo Gomes Portfolio",
     },
+    twitter: {
+        card: "summary_large_image",
+        title: "Paulo Gomes | Full-Stack Software Engineer",
+        description:
+            "Desenvolvedor Full Stack: Java 21, Spring Boot 3, Next.js 15, Oracle SQL e PostgreSQL.",
+    },
+    robots: {
+        index: true,
+        follow: true,
+        googleBot: {
+            index: true,
+            follow: true,
+            "max-video-preview": -1,
+            "max-image-preview": "large",
+            "max-snippet": -1,
+        },
+    },
+};
+
+const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+        {
+            "@type": "Person",
+            "@id": "https://pauloragdev.vercel.app/#person",
+            name: "Paulo Roberto A. Gomes",
+            alternateName: "Paulo Gomes",
+            jobTitle: "Desenvolvedor de Software Full Stack",
+            url: "https://pauloragdev.vercel.app",
+            sameAs: [
+                "https://github.com/paulorag",
+                "https://linkedin.com/in/paulorag",
+            ],
+            knowsAbout: [
+                "Java",
+                "Spring Boot",
+                "Next.js",
+                "React",
+                "TypeScript",
+                "Oracle SQL",
+                "PostgreSQL",
+                "Docker",
+            ],
+            alumniOf: {
+                "@type": "EducationalOrganization",
+                name: "Estácio",
+            },
+        },
+        {
+            "@type": "WebSite",
+            "@id": "https://pauloragdev.vercel.app/#website",
+            url: "https://pauloragdev.vercel.app",
+            name: "Paulo Gomes Portfolio",
+            publisher: {
+                "@id": "https://pauloragdev.vercel.app/#person",
+            },
+            inLanguage: ["pt-BR", "en-US"],
+        },
+    ],
 };
 
 export default function RootLayout({
@@ -54,6 +118,12 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="pt-BR" className="scroll-smooth">
+            <head>
+                <script
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+                />
+            </head>
             <body
                 className={`${geistSans.variable} ${geistMono.variable} antialiased`}
             >

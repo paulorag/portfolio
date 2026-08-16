@@ -1,101 +1,55 @@
-# 🚀 Paulo Gomes | Full-Stack Developer Portfolio
+# 🚀 Paulo Roberto A. Gomes | Software Engineering & Full-Stack Portfolio
 
-[Read this document in Portuguese (Leia em Português)](README-pt.md)
+[Read this document in Portuguese (Versão em Português)](README-pt.md)
 
-![Project Preview](assets/preview.png)
-
-A modern, high-performance developer portfolio built to showcase my projects and skills as a **Full-Stack Developer**. Designed with a focus on **User Experience**, **Accessibility**, and **Clean Code**.
+> A modern, high-performance web platform designed to present my professional career journey, technical engineering skills, and in-depth full-stack software case studies.
 
 ---
 
-## 🌐 Live Demo
+## 🌐 Live Demonstration
 
-[Click here to visit the live site](https://pauloragdev.vercel.app)
-
----
-
-## ✨ Features
-
--   **🎨 Modern UI/UX:** Dark mode aesthetic with glassmorphism effects and smooth animations using **Framer Motion**.
--   **🌍 Internationalization (i18n):** Built-in support for **Portuguese (PT-BR)** and **English (EN)** using React Context API (no external heavy libraries).
--   **⚡ Performance:** Built on **Next.js 15** (App Router) for server-side rendering and optimized performance.
--   **📱 Fully Responsive:** Adaptive layout that works perfectly on desktops, tablets, and mobile devices via **Tailwind CSS**.
--   **🖱️ Smooth Scroll:** Integrated with **Lenis** for a premium scrolling experience.
--   **📋 Interactive Elements:** Copy-to-clipboard functionality for contact info and dynamic project cards.
+🔗 **Access the live production portfolio:** [pauloragdev.vercel.app](https://pauloragdev.vercel.app)
 
 ---
 
-## 🛠️ Tech Stack
+## 🎯 Purpose & Platform Vision
 
-This project harnesses the power of the latest web technologies:
-
--   **Framework:** Next.js 15 (App Router)
--   **Language:** TypeScript
--   **Styling:** Tailwind CSS
--   **Animations:** Framer Motion
--   **Icons:** Lucide React
--   **Scrolling:** Lenis
--   **Deployment:** Vercel
+This portfolio is engineered to go beyond a standard visual showcase: it functions as a comprehensive technical platform where each project is detailed as a **Software Engineering Case Study**. The platform documents business rules, architectural trade-offs, concurrency and resilience challenges, database modeling, and stack specifications for both open-source repositories and proprietary enterprise applications.
 
 ---
 
-## 🚀 Getting Started
+## ✨ Key Platform Highlights
 
-To run this project locally, follow these steps:
-
-### Prerequisites
-
-Make sure you have **Node.js** (v18 or higher) installed.
-
-### Installation
-
-1. Clone the repository:
-
-    git clone https://github.com/paulorag/portfolio.git
-
-2. Navigate to the project directory:
-
-    cd portfolio
-
-3. Install dependencies:
-
-    npm install
-
-    # or
-
-    yarn install
-
-4. Run the development server:
-
-    npm run dev
-
-5. Open your browser:
-   Visit http://localhost:3000 to see the application running.
+- **📑 In-Depth Technical Case Studies (`/projetos/[slug]`):** Statically generated (SSG) dynamic pages detailing real-world problems, engineering solutions, layered architectures, and resolved technical challenges.
+- **🔒 Public & Proprietary Project Support:** Clean visual presentation with contextual status badges, live demo links, and indicators for private enterprise codebases.
+- **🧭 Professional Career Timeline:** Career narrative connecting Full-Stack development (Java 21 / Spring Boot 3 / Next.js), enterprise automation, mission-critical systems support, and academic degrees.
+- **🌍 Native Internationalization (i18n):** Instant switching between **English (EN)** and **Portuguese (PT-BR)** with persisted state via Context API.
+- **🎨 Design System & Micro-Interactions:** Modern dark-theme UI with Tailwind CSS, visual feedback with Toast notifications, and smooth Framer Motion transitions.
+- **📄 Direct Resume Download:** 1-click access to up-to-date PDF resumes in English and Portuguese.
+- **🔍 Advanced SEO & Structured Data:** Dynamic `sitemap.xml`, `robots.txt`, Open Graph, Twitter Cards, and JSON-LD schema (`Schema.org: Person & WebSite`).
+- **⚙️ Continuous Integration (CI):** Automated GitHub Actions pipeline validating TypeScript type checking, data integrity tests, and static export builds.
 
 ---
 
-## 📂 Project Structure
+## 🛠️ Technology Stack
 
-    src/
-    ├── app/              # App Router pages and layout
-    ├── components/       # Reusable UI components
-    │   ├── layout/       # Header, Footer
-    │   ├── sections/     # Hero, About, Projects
-    │   └── ui/           # Buttons, Scroll wrappers
-    ├── context/          # React Context (Language/i18n)
-    ├── lib/              # Utilities and Dictionary data
-    └── public/           # Static assets (images, icons)
-
----
-
-## 📫 Contact
-
-Developed by **Paulo Gomes**.
-
--   **LinkedIn:** [Paulo Gomes](https://linkedin.com/in/paulorag)
--   **GitHub:** [paulorag](https://github.com/paulorag)
--   **Email:** devpaulorag@gmail.com
+| Layer                        | Technologies                                                 |
+| :--------------------------- | :----------------------------------------------------------- |
+| **Core & Framework**         | Next.js 16 (App Router with Turbopack), React 19, TypeScript |
+| **Styling & UI**             | Tailwind CSS, Lucide React                                   |
+| **Animations & Transitions** | Framer Motion, Lenis Smooth Scroll                           |
+| **Data Visualization**       | Recharts (interactive time-series graphs in case studies)    |
+| **Quality & CI/CD**          | Automated integrity test suite, ESLint, GitHub Actions       |
+| **Infrastructure**           | Vercel Serverless Platform                                   |
 
 ---
 
-© 2025 Paulo Gomes. All rights reserved.
+## 📬 Contact & Connect
+
+- **LinkedIn:** [linkedin.com/in/paulorag](https://linkedin.com/in/paulorag)
+- **GitHub:** [github.com/paulorag](https://github.com/paulorag)
+- **Email:** [devpaulorag@gmail.com](mailto:devpaulorag@gmail.com)
+
+---
+
+© 2026 **Paulo Roberto A. Gomes**. All rights reserved.

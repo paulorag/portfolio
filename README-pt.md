@@ -1,83 +1,55 @@
-# 🚀 Paulo Gomes | Portfólio Desenvolvedor Full-Stack
+# 🚀 Paulo Roberto A. Gomes | Portfólio de Engenharia de Software & Full-Stack
 
-[Read this document in English (Leia em Inglês)](README.md)
+[Read this document in English (Versão em Inglês)](README.md)
 
-![Prévia do Projeto](assets/preview-pt.png)
-
-Um portfólio moderno e de alta performance desenvolvido para apresentar meus projetos e habilidades como **Desenvolvedor Full-Stack** (Java/Spring Boot + React/Next.js). Projetado com foco em **Experiência do Usuário**, **Acessibilidade** e **Código Limpo**.
+> Plataforma web moderna e de alta performance desenvolvida para apresentar minha trajetória, competências técnicas e estudos de caso aprofundados de engenharia de software full-stack.
 
 ---
 
 ## 🌐 Demonstração Online
 
-[Clique aqui para visitar](https://pauloragdev.vercel.app)
+🔗 **Acesse o portfólio em produção:** [pauloragdev.vercel.app](https://pauloragdev.vercel.app)
 
 ---
 
-## ✨ Funcionalidades
+## 🎯 Proposta & Visão do Projeto
 
--   **🎨 UI/UX Moderna:** Estética "Dark Mode" com efeitos de vidro (glassmorphism) e animações fluidas usando **Framer Motion**.
--   **🌍 Internacionalização (i18n):** Suporte nativo para **Português (PT-BR)** e **Inglês (EN)** utilizando React Context API (sem bibliotecas pesadas).
--   **⚡ Performance:** Construído sobre o **Next.js 15** (App Router) para renderização otimizada e SEO.
--   **📱 Totalmente Responsivo:** Layout adaptável que funciona perfeitamente em desktops, tablets e celulares via **Tailwind CSS**.
--   **🖱️ Smooth Scroll:** Integrado com **Lenis** para uma experiência de rolagem premium.
--   **📋 Elementos Interativos:** Funcionalidade de copiar e-mail e cards de projetos dinâmicos.
+Este portfólio foi concebido para ir além de uma vitrine visual básica: ele funciona como uma plataforma técnica completa onde cada projeto é apresentado como um **Estudo de Caso de Engenharia**. A aplicação detalha regras de negócio, decisões arquiteturais, desafios técnicos de concorrência e resiliência, modelos de dados e especificações de stack tanto para repositórios públicos quanto para soluções corporativas/proprietárias.
 
 ---
 
-## 🛠️ Tecnologias Utilizadas
+## ✨ Principais Destaques da Plataforma
 
-Este projeto utiliza as tecnologias web mais recentes:
-
--   **Framework:** Next.js 15 (App Router)
--   **Linguagem:** TypeScript
--   **Estilização:** Tailwind CSS
--   **Animações:** Framer Motion
--   **Ícones:** Lucide React
--   **Scroll:** Lenis
--   **Deploy:** Vercel
-
----
-
-## 🚀 Como Rodar o Projeto
-
-Para executar este projeto localmente, siga os passos abaixo:
-
-### Pré-requisitos
-
-Certifique-se de ter o **Node.js** (v18 ou superior) instalado.
-
-### Instalação
-
-1. Clone o repositório:
-
-    git clone https://github.com/paulorag/portfolio.git
-
-2. Entre na pasta do projeto:
-
-    cd portfolio
-
-3. Instale as dependências:
-
-    npm install
-
-4. Rode o servidor de desenvolvimento:
-
-    npm run dev
-
-5. Abra no navegador:
-   Acesse http://localhost:3000 para ver a aplicação rodando.
+- **📑 Estudos de Caso Dedicados (`/projetos/[slug]`):** Páginas dinâmicas renderizadas estaticamente (SSG) com detalhamento de problemas reais, soluções de engenharia, arquitetura em camadas e desafios superados.
+- **🔒 Suporte a Projetos Públicos e Proprietários:** Exibição elegante com badges de status, links diretos para deploys ativos e indicadores para repositórios privados.
+- **🧭 Linha do Tempo Profissional:** Narrativa de carreira conectando desenvolvimento Full-Stack (Java 21 / Spring Boot 3 / Next.js), automação corporativa, sustentação de missão crítica e formação acadêmica.
+- **🌍 Internacionalização Nativa (i18n):** Alternador instantâneo entre **Português (PT-BR)** e **Inglês (EN)** com persistência de preferência via Context API.
+- **🎨 Design System & Microinterações:** Interface Dark Mode refinada com Tailwind CSS, feedback visual com Toasts e transições com Framer Motion.
+- **📄 Download Direto de Currículo:** Acesso rápido ao currículo atualizado em PDF em ambos os idiomas.
+- **🔍 SEO Avançado & Metadados:** Geração dinâmica de `sitemap.xml`, `robots.txt`, Open Graph, Twitter Cards e marcação estruturada JSON-LD (`Schema.org: Person & WebSite`).
+- **⚙️ Integração Contínua (CI):** Pipeline automatizado via GitHub Actions validando tipagem TypeScript, testes de integridade e build estático.
 
 ---
 
-## 📫 Contato
+## 🛠️ Stack Tecnológica
 
-Desenvolvido por **Paulo Gomes**.
-
--   **LinkedIn:** [Paulo Gomes](https://linkedin.com/in/paulorag)
--   **GitHub:** [paulorag](https://github.com/paulorag)
--   **E-mail:** devpaulorag@gmail.com
+| Camada                    | Tecnologias Utilizadas                                      |
+| :------------------------ | :---------------------------------------------------------- |
+| **Core & Framework**      | Next.js 16 (App Router com Turbopack), React 19, TypeScript |
+| **Estilização & UI**      | Tailwind CSS, Lucide React                                  |
+| **Animações & Efeitos**   | Framer Motion, Lenis Smooth Scroll                          |
+| **Visualização de Dados** | Recharts (gráficos interativos nos estudos de caso)         |
+| **Qualidade & CI/CD**     | Testes automatizados de integridade, ESLint, GitHub Actions |
+| **Infraestrutura**        | Vercel Serverless Platform                                  |
 
 ---
 
-© 2025 Paulo Gomes. Todos os direitos reservados.
+## 📬 Contato & Conexões
+
+- **LinkedIn:** [linkedin.com/in/paulorag](https://linkedin.com/in/paulorag)
+- **GitHub:** [github.com/paulorag](https://github.com/paulorag)
+- **E-mail:** [devpaulorag@gmail.com](mailto:devpaulorag@gmail.com)
+
+---
+
+© 2026 **Paulo Roberto A. Gomes**. Todos os direitos reservados.
