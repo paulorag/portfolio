@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo } from "react";
+import { useMemo, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
@@ -36,6 +36,10 @@ export function ProjectDetailView({ slug }: ProjectDetailViewProps) {
     const prevProject = projectIndex > 0 ? projectList[projectIndex - 1] : null;
     const nextProject =
         projectIndex < projectList.length - 1 ? projectList[projectIndex + 1] : null;
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [slug]);
 
     const t = useMemo(() => {
         if (language === "en") {

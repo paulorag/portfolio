@@ -2,14 +2,34 @@
 
 import { ReactLenis, useLenis } from "lenis/react";
 import { useEffect } from "react";
+import { usePathname } from "next/navigation";
 
 export function SmoothScroll({ children }: { children: React.ReactNode }) {
     return (
-        <ReactLenis root options={{ lerp: 0.1, duration: 1.5 }}>
+        <ReactLenis root options={{ lerp: 0.1, duration: 1.2, autoRaf: true }}>
+            <RouteScrollHandler />
             <AnchorHandler />
             {children}
         </ReactLenis>
     );
+}
+
+function RouteScrollHandler() {
+    const pathname = usePathname();
+    const lenis = useLenis();
+
+    useEffect(() => {
+        // When navigating between pages (e.g. from Home to a project page),
+        // reset the scroll position immediately to the top if there is no anchor hash
+        if (!window.location.hash) {
+            if (lenis) {
+                lenis.scrollTo(0, { immediate: true });
+            }
+            window.scrollTo({ top: 0, left: 0, behavior: "instant" as ScrollBehavior });
+        }
+    }, [pathname, lenis]);
+
+    return null;
 }
 
 function AnchorHandler() {
