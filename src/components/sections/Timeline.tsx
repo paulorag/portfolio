@@ -101,9 +101,10 @@ export function Timeline() {
     return (
         <section
             id="trajetoria"
-            className="py-16 sm:py-20 px-4 md:px-6 scroll-mt-28 bg-[#0a0a0a] relative overflow-hidden"
+            className="py-12 sm:py-16 px-4 md:px-6 scroll-mt-28 relative overflow-hidden"
         >
-            <div className="container mx-auto max-w-5xl space-y-14">
+            <div className="absolute bottom-10 right-0 w-80 h-80 bg-blue-500/[0.04] rounded-full blur-[150px] pointer-events-none -z-10" />
+            <div className="container mx-auto max-w-5xl space-y-12">
                 {/* Section Header */}
                 <motion.div
                     initial={{ opacity: 0, y: 15 }}

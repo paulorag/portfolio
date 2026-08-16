@@ -13,7 +13,7 @@ export function Hero() {
     return (
         <section
             id="inicio"
-            className="pt-28 pb-12 sm:pt-36 sm:pb-16 px-4 md:px-6 scroll-mt-28 relative overflow-hidden"
+            className="pt-28 pb-10 sm:pt-32 sm:pb-12 px-4 md:px-6 scroll-mt-28 relative overflow-hidden"
         >
             {/* Ambient Lighting */}
             <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-[140px] -z-10 pointer-events-none" />

@@ -53,8 +53,9 @@ export function About() {
     return (
         <section
             id="sobre"
-            className="py-16 sm:py-20 px-4 md:px-6 scroll-mt-28 bg-[#0a0a0a] relative overflow-hidden"
+            className="py-12 sm:py-16 px-4 md:px-6 scroll-mt-28 relative overflow-hidden"
         >
+            <div className="absolute top-1/2 -right-24 w-80 h-80 bg-blue-600/[0.04] rounded-full blur-[140px] pointer-events-none -z-10" />
             <div className="container mx-auto max-w-5xl">
                 {/* Section Header */}
                 <motion.div

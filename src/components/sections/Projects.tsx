@@ -52,8 +52,9 @@ export function Projects() {
     return (
         <section
             id="projetos"
-            className="py-16 sm:py-20 px-4 md:px-6 bg-[#0a0a0a] scroll-mt-28 relative overflow-hidden"
+            className="py-12 sm:py-16 px-4 md:px-6 scroll-mt-28 relative overflow-hidden"
         >
+            <div className="absolute top-1/3 -left-28 w-96 h-96 bg-indigo-600/[0.04] rounded-full blur-[160px] pointer-events-none -z-10" />
             <div className="container mx-auto max-w-5xl">
                 {/* Section Header */}
                 <motion.div

@@ -97,10 +97,11 @@ export function ProjectDetailView({ slug }: ProjectDetailViewProps) {
     }, [language, project.isPrivate]);
 
     return (
-        <article className="min-h-screen bg-[#0a0a0a] text-white pt-24 pb-20 px-4 md:px-6 relative overflow-hidden">
+        <article className="min-h-screen bg-[#08090d] text-white pt-24 pb-14 sm:pb-18 px-4 md:px-6 relative overflow-hidden">
             {/* Ambient Background Glows */}
-            <div className="absolute top-20 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-blue-600/10 rounded-full blur-[140px] pointer-events-none -z-10" />
-            <div className="absolute top-[60%] right-[-10%] w-[500px] h-[400px] bg-purple-600/10 rounded-full blur-[160px] pointer-events-none -z-10" />
+            <div className="absolute top-20 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-blue-600/[0.05] rounded-full blur-[160px] pointer-events-none -z-10" />
+            <div className="absolute top-[50%] -right-20 w-[500px] h-[450px] bg-indigo-600/[0.05] rounded-full blur-[170px] pointer-events-none -z-10" />
+            <div className="absolute top-[80%] -left-20 w-[450px] h-[450px] bg-blue-500/[0.04] rounded-full blur-[160px] pointer-events-none -z-10" />
 
             <div className="container mx-auto max-w-5xl">
                 {/* Top Nav Bar & Action Links */}
