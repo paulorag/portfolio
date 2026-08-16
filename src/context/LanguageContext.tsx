@@ -3,8 +3,8 @@
 import React, {
     createContext,
     useContext,
-    useState,
-    useEffect,
+    useCallback,
+    useSyncExternalStore,
     ReactNode,
 } from "react";
 import { dictionary } from "@/lib/dictionaries";
@@ -24,44 +24,45 @@ const LanguageContext = createContext<LanguageContextType | undefined>(
 
 const STORAGE_KEY = "paulorag_portfolio_language";
 
+function subscribe(callback: () => void) {
+    if (typeof window === "undefined") return () => {};
+    window.addEventListener("storage", callback);
+    return () => window.removeEventListener("storage", callback);
+}
+
+function getSnapshot(): Language {
+    if (typeof window === "undefined") return "pt";
+    try {
+        const saved = localStorage.getItem(STORAGE_KEY);
+        if (saved === "pt" || saved === "en") return saved;
+        const browserLang = navigator.language?.toLowerCase() || "";
+        return browserLang.startsWith("pt") ? "pt" : "en";
+    } catch {
+        return "pt";
+    }
+}
+
+function getServerSnapshot(): Language {
+    return "pt";
+}
+
 export function LanguageProvider({ children }: { children: ReactNode }) {
-    const [language, setLanguageState] = useState<Language>("pt");
-    const [isMounted, setIsMounted] = useState(false);
+    const language = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
 
-    useEffect(() => {
-        setIsMounted(true);
-        try {
-            const savedLanguage = localStorage.getItem(STORAGE_KEY) as Language | null;
-            if (savedLanguage && (savedLanguage === "pt" || savedLanguage === "en")) {
-                setLanguageState(savedLanguage);
-                document.documentElement.lang = savedLanguage === "pt" ? "pt-BR" : "en";
-            } else {
-                // Auto-detect browser language
-                const browserLang = navigator.language.toLowerCase();
-                const defaultLang: Language = browserLang.startsWith("pt") ? "pt" : "en";
-                setLanguageState(defaultLang);
-                document.documentElement.lang = defaultLang === "pt" ? "pt-BR" : "en";
-                localStorage.setItem(STORAGE_KEY, defaultLang);
-            }
-        } catch {
-            // LocalStorage might be disabled in private browsing or restricted environments
-        }
-    }, []);
-
-    const setLanguage = (lang: Language) => {
-        setLanguageState(lang);
+    const setLanguage = useCallback((lang: Language) => {
         try {
             localStorage.setItem(STORAGE_KEY, lang);
             document.documentElement.lang = lang === "pt" ? "pt-BR" : "en";
+            window.dispatchEvent(new Event("storage"));
         } catch {
             // Ignore storage errors
         }
-    };
+    }, []);
 
-    const toggleLanguage = () => {
+    const toggleLanguage = useCallback(() => {
         const nextLang: Language = language === "pt" ? "en" : "pt";
         setLanguage(nextLang);
-    };
+    }, [language, setLanguage]);
 
     return (
         <LanguageContext.Provider
@@ -69,7 +70,7 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
                 language,
                 setLanguage,
                 toggleLanguage,
-                dict: dictionary[language],
+                dict: dictionary[language] || dictionary.pt,
             }}
         >
             {children}
