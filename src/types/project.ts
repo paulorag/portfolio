@@ -29,6 +29,7 @@ export interface ProjectDetail {
     demo?: string;
     isPrivate?: boolean;
     releaseYear?: string;
+    coldStartNotice?: string;
     architecture?: {
         frontend?: string;
         backend?: string;

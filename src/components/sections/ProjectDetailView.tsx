@@ -18,6 +18,7 @@ import {
     ArrowRight,
     Sparkles,
     Lock,
+    Clock,
 } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 import { projectsData } from "@/lib/data";
@@ -216,6 +217,23 @@ export function ProjectDetailView({ slug }: ProjectDetailViewProps) {
                             </span>
                         ))}
                     </div>
+
+                    {/* Cold Start Notice Banner (Free Tier Cloud Hosting) */}
+                    {project.coldStartNotice && (
+                        <div className="p-4 sm:p-5 rounded-2xl bg-amber-500/[0.06] border border-amber-500/20 text-zinc-300 backdrop-blur-xl shadow-sm flex items-start gap-3.5 mt-2">
+                            <div className="p-2 rounded-xl bg-amber-500/10 text-amber-400 shrink-0 mt-0.5">
+                                <Clock size={16} />
+                            </div>
+                            <div className="space-y-1">
+                                <span className="text-xs font-mono font-semibold uppercase tracking-wider text-amber-400 block">
+                                    {language === "pt" ? "Aviso de Inicialização (Cold Start)" : "Server Cold Start Notice"}
+                                </span>
+                                <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed">
+                                    {project.coldStartNotice}
+                                </p>
+                            </div>
+                        </div>
+                    )}
                 </motion.header>
 
                 {/* Main Hero Image Screen */}
@@ -374,15 +392,23 @@ export function ProjectDetailView({ slug }: ProjectDetailViewProps) {
                                 {/* Quick Links within sidebar */}
                                 <div className="pt-2 flex flex-col gap-2.5">
                                     {project.demo && (
-                                        <a
-                                            href={project.demo}
-                                            target="_blank"
-                                            rel="noreferrer"
-                                            className="w-full flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-white hover:bg-zinc-200 text-black font-semibold text-sm transition-all active:scale-95 shadow-md"
-                                        >
-                                            <ExternalLink size={16} />
-                                            <span>{t.liveDemo}</span>
-                                        </a>
+                                        <>
+                                            <a
+                                                href={project.demo}
+                                                target="_blank"
+                                                rel="noreferrer"
+                                                className="w-full flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-white hover:bg-zinc-200 text-black font-semibold text-sm transition-all active:scale-95 shadow-md"
+                                            >
+                                                <ExternalLink size={16} />
+                                                <span>{t.liveDemo}</span>
+                                            </a>
+                                            {project.coldStartNotice && (
+                                                <span className="text-[11px] text-amber-400/90 font-mono text-center flex items-center justify-center gap-1.5 px-2 -mt-1">
+                                                    <Clock size={12} className="shrink-0" />
+                                                    <span>{language === "pt" ? "Cold start: 30s – 120s" : "Cold start: 30s – 120s"}</span>
+                                                </span>
+                                            )}
+                                        </>
                                     )}
 
                                     {project.github ? (
@@ -449,6 +475,13 @@ export function ProjectDetailView({ slug }: ProjectDetailViewProps) {
                             </a>
                         )}
                     </div>
+
+                    {project.coldStartNotice && (
+                        <p className="text-xs text-amber-400/90 font-mono flex items-center justify-center gap-1.5 pt-1">
+                            <Clock size={13} className="shrink-0" />
+                            <span>{language === "pt" ? "Nota: Back-End no Render Free Tier (pode levar 30s–120s na primeira requisição)" : "Note: Back-End on Render Free Tier (may take 30s–120s on initial cold start)"}</span>
+                        </p>
+                    )}
                 </motion.section>
 
                 {/* Prev / Next Project Navigation Bar */}

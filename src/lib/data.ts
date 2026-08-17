@@ -48,6 +48,8 @@ export const projectsData: Record<"pt" | "en", ProjectDetail[]> = {
             demo: "https://game-deals-radar.vercel.app/",
             isPrivate: true,
             releaseYear: "2025",
+            coldStartNotice:
+                "O Back-End desta aplicação está hospedado no plano gratuito do Render. Caso o serviço esteja em repouso (cold start), a primeira inicialização pode levar de 30 a 120 segundos para carregar os dados.",
             architecture: {
                 frontend: "Next.js 16 (App Router), React 19, TypeScript, Tailwind CSS, Recharts",
                 backend: "Java 21 LTS, Spring Boot 3.4.5, Spring Security 6, JWT, Jsoup, Caffeine Cache",
@@ -246,6 +248,8 @@ export const projectsData: Record<"pt" | "en", ProjectDetail[]> = {
             demo: "https://game-deals-radar.vercel.app/",
             isPrivate: true,
             releaseYear: "2025",
+            coldStartNotice:
+                "The Back-End for this application is hosted on Render's free tier. If the service is currently sleeping (cold start), the initial request may take between 30 and 120 seconds to respond.",
             architecture: {
                 frontend: "Next.js 16 (App Router), React 19, TypeScript, Tailwind CSS, Recharts",
                 backend: "Java 21 LTS, Spring Boot 3.4.5, Spring Security 6, JWT, Jsoup, Caffeine Cache",
