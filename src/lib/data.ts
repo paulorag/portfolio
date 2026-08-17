@@ -148,40 +148,54 @@ export const projectsData: Record<"pt" | "en", ProjectDetail[]> = {
         {
             slug: "lanchonete-da-larica",
             title: "Lanchonete da Larica",
-            tagline: "E-commerce interativo desenvolvido em Vanilla JavaScript puro (DOM API)",
+            tagline: "Cardápio digital interativo e gestão de pedidos com checkout inteligente no WhatsApp",
             description:
-                "Aplicação de e-commerce desenvolvida com Vanilla JavaScript puro. Foca na manipulação avançada do DOM e gerenciamento de estado do carrinho (CRUD de itens e cálculo de totais) sem dependência de frameworks.",
+                "Aplicação Web Full Stack para digitalização de pedidos, catálogo em tempo real, painel administrativo mobile-first (JWT) e checkout estruturado integrado ao WhatsApp.",
             overview:
-                "A Lanchonete da Larica é um projeto demonstrativo focado nos fundamentos da web moderna. Desenvolvido 100% em Vanilla JavaScript, HTML5 semântico e CSS3, o projeto implementa toda a lógica de um e-commerce sem o uso de bibliotecas externas.",
+                "A Lanchonete da Larica é uma solução digital completa desenvolvida para modernizar a operação de atendimento e vendas de uma hamburgueria artesanal. O sistema elimina atritos de pedidos manuais por mensagem e as altas taxas de marketplaces, entregando uma experiência web fluida com carregamento instantâneo, painel administrativo seguro e geração de comandas prontas diretamente no WhatsApp do estabelecimento.",
             problem:
-                "Compreender a fundo o funcionamento do DOM, fluxo de eventos, propagação e gerenciamento de estado na memória do navegador é fundamental para construir aplicações web performáticas.",
+                "Lanchonetes e negócios gastronômicos locais frequentemente sofrem com atendimento lento por mensagem (trocas manuais de fotos, PDFs e preços desatualizados), dependência de marketplaces com comissões de até 27% e complexidade para atualizar itens e valores em tempo real no balcão.",
             solution:
-                "Estruturação modular do código JavaScript com separação de responsabilidades entre manipulação do DOM, armazenamento em localStorage e cálculo de totais do carrinho.",
+                "Arquitetura de uma aplicação Web Full Stack de alta performance. O Front-End foi construído em JavaScript Moderno (ES6+) com Design Tokens CSS modulares, carrinho reativo com persistência local e gerador de comandas codificadas para a API do WhatsApp. O Back-End em Node.js e Express fornece uma API RESTful segura com autenticação JWT, hash bcrypt e persistência relacional no PostgreSQL (Neon Cloud) com Prisma ORM e armazenamento adaptativo de imagens.",
             features: [
-                "Carrinho de compras reativo com CRUD completo",
-                "Cálculo dinâmico de subtotais, taxas e valores finais",
-                "Manipulação avançada e performática da árvore do DOM",
-                "Layout responsivo com CSS moderno (Grid e Flexbox)",
-                "Zero dependências externas",
+                "Experiência do Cliente Fluida: Cardápio interativo com busca em tempo real (debounce) e filtros por categoria",
+                "Modal de Detalhes & Personalização: Visualização de ingredientes, fotos em alta resolução e ajuste de quantidades",
+                "Carrinho Reativo (Cart Drawer): Sincronização em tempo real, cálculo automático em BRL (R$) e persistência no localStorage",
+                "Checkout Inteligente via WhatsApp: Escolha entre Delivery ou Retirada, validação de endereço e geração de mensagem estruturada",
+                "Painel Administrativo Mobile-First: Backoffice seguro com JWT e bcrypt para gerenciamento rápido de produtos pelo smartphone",
+                "Armazenamento de Imagens Adaptativo: Processamento multipart em memória com suporte a Base64 no PostgreSQL para Vercel Serverless",
+                "Status Dinâmico da Cozinha: Cálculo em tempo real informando horários de abertura e fechamento do estabelecimento",
+                "Qualidade & Testes Automatizados: Suíte com 29 testes automatizados (Jest e Supertest) cobrindo autenticação, CRUD e checkout",
             ],
             challenges: [
                 {
-                    title: "Gerenciamento de Estado sem Frameworks",
+                    title: "Design System Customizado sem Frameworks",
                     description:
-                        "Sincronização manual entre os dados em memória e a representação visual na tela sem causar renderizações desnecessárias.",
+                        "Desenvolvimento de um ecossistema coeso de tokens CSS (:root) e componentes modulares, alcançando máxima pontuação no Lighthouse e performance instantânea sem o overhead de bibliotecas pesadas.",
+                },
+                {
+                    title: "Persistência de Uploads em Ambiente Serverless",
+                    description:
+                        "Superação das limitações de sistema de arquivos efêmero e somente leitura da Vercel através de buffer multipart em memória e serialização em Data URI diretamente no PostgreSQL.",
+                },
+                {
+                    title: "Engenharia de Payload e Comanda para WhatsApp",
+                    description:
+                        "Estruturação de mensagens com codificação URI que geram comandas completas (itens, preços, endereço com complemento e troco), eliminando digitação manual da equipe da cozinha.",
                 },
             ],
-            tags: ["JavaScript (ES6+)", "HTML5", "CSS3", "DOM API"],
-            category: "frontend",
+            tags: ["Node.js", "Express", "PostgreSQL", "Prisma ORM", "JavaScript (ES6+)", "JWT", "Jest", "Vercel"],
+            category: "fullstack",
             featured: false,
             image: "/projects/projeto-lanchonete.png",
-            github: "https://github.com/paulorag/lanchoneteLarica",
-            demo: "https://lanchonete-larica.vercel.app/",
-            releaseYear: "2023",
+            demo: "https://lanchonetelarica.vercel.app/",
+            isPrivate: true,
+            releaseYear: "2024",
             architecture: {
-                frontend: "Vanilla JavaScript (ES6+), HTML5 Semântico, CSS3",
-                backend: "Client-side only",
-                devops: "Vercel",
+                frontend: "HTML5 Semântico, CSS3 Modular (Design Tokens), JavaScript Moderno (ES6+), LocalStorage",
+                backend: "Node.js, Express.js, REST API, JWT, bcryptjs, Multer",
+                database: "PostgreSQL 16 (Neon Cloud Database), Prisma ORM",
+                devops: "Vercel (Edge CDN & Serverless Functions), Jest, Supertest (29 testes)",
             },
         },
     ],
@@ -331,41 +345,55 @@ export const projectsData: Record<"pt" | "en", ProjectDetail[]> = {
         },
         {
             slug: "lanchonete-da-larica",
-            title: "Larica's Snack Bar",
-            tagline: "Interactive e-commerce web app built with pure Vanilla JavaScript (DOM API)",
+            title: "Lanchonete da Larica",
+            tagline: "Interactive digital menu and real-time order management with automated WhatsApp checkout",
             description:
-                "E-commerce application built with pure Vanilla JavaScript. Focuses on advanced DOM manipulation and cart state management (CRUD items, total calculation) with zero framework dependencies.",
+                "Full-Stack web application for digital ordering, real-time catalog management, mobile-first administrative backoffice (JWT), and structured WhatsApp checkout.",
             overview:
-                "Larica's Snack Bar is a showcase project focusing on core modern web foundations. Built entirely in Vanilla JavaScript (ES6+), semantic HTML5, and CSS3, it implements full e-commerce mechanics with zero external libraries.",
+                "Lanchonete da Larica is an end-to-end digital ordering and menu management platform engineered for an artisan burger restaurant. The system eliminates manual chat overhead and steep marketplace commissions, delivering an instant-loading web experience, secure JWT-authenticated mobile backoffice, and automated direct-to-kitchen WhatsApp order generation.",
             problem:
-                "Deeply mastering DOM operations, the browser event loop, event delegation, and in-memory state management is critical for building high-performance web applications.",
+                "Local restaurants frequently grapple with slow order intake via chat (outdated PDF menus, back-and-forth price confirmations), heavy dependency on delivery marketplaces charging up to 27% commissions, and operational friction when updating catalog items on the fly.",
             solution:
-                "Designed a clean modular architecture in JavaScript separating DOM manipulation, state mutations, and shopping cart calculation routines.",
+                "Engineered a high-performance Full Stack Web Application. The Front-End is built with Modern JavaScript (ES6+) and modular CSS Design Tokens, featuring a persistent reactive cart and encoded ticket generator for the WhatsApp API. The Node.js and Express RESTful Back-End provides JWT authentication, bcrypt password hashing, and PostgreSQL persistence (Neon Cloud) managed via Prisma ORM with adaptive serverless image storage.",
             features: [
-                "Reactive shopping cart with full item CRUD capabilities",
-                "Dynamic computation of subtotals, delivery fees, and grand totals",
-                "Efficient and performant direct DOM manipulation",
-                "Responsive layout using modern CSS Grid and Flexbox",
-                "Zero external runtime dependencies",
+                "Frictionless Customer Experience: Interactive catalog with real-time debounced search and category filters",
+                "Interactive Customization Modal: High-resolution image inspection, ingredient lists, and granular quantity controls",
+                "Reactive Cart Drawer: Real-time badge syncing, automatic BRL (R$) formatting, and localStorage persistence",
+                "Intelligent WhatsApp Checkout Engine: Delivery vs. Takeout selector, address validation, and structured ticket formatting",
+                "Mobile-First Administrative Backoffice: Secure JWT and bcrypt dashboard optimized for quick counter management on smartphones",
+                "Adaptive Serverless Asset Storage: In-memory multipart file handling with Base64 PostgreSQL storage for Vercel Serverless",
+                "Live Kitchen Operational Engine: Dynamic business-hours computation computing open and closed badges in real time",
+                "Automated Quality Assurance: 29 unit and integration test suites using Jest and Supertest across auth, CRUD, and checkout",
             ],
             challenges: [
                 {
-                    title: "State Management Without Frameworks",
+                    title: "Pure CSS Design System Architecture",
                     description:
-                        "Synchronizing in-memory cart states with DOM UI nodes cleanly without triggering redundant DOM reflows.",
+                        "Created a cohesive CSS custom property token system (:root) and lightweight modular components, achieving near-perfect Lighthouse performance with zero framework bloat.",
+                },
+                {
+                    title: "Serverless Asset Persistence Strategy",
+                    description:
+                        "Overcame Vercel's ephemeral read-only filesystem constraints by ingesting multipart streams in memory via Multer and persisting them as Base64 Data URIs in PostgreSQL.",
+                },
+                {
+                    title: "Structured WhatsApp Ticket Payload Engineering",
+                    description:
+                        "Formatted multi-item orders, modifier breakdown, delivery addresses, and change calculations into a single encoded payload ready for instant kitchen processing.",
                 },
             ],
-            tags: ["JavaScript (ES6+)", "HTML5", "CSS3", "DOM API"],
-            category: "frontend",
+            tags: ["Node.js", "Express", "PostgreSQL", "Prisma ORM", "JavaScript (ES6+)", "JWT", "Jest", "Vercel"],
+            category: "fullstack",
             featured: false,
             image: "/projects/projeto-lanchonete.png",
-            github: "https://github.com/paulorag/lanchoneteLarica",
-            demo: "https://lanchonete-larica.vercel.app/",
-            releaseYear: "2023",
+            demo: "https://lanchonetelarica.vercel.app/",
+            isPrivate: true,
+            releaseYear: "2024",
             architecture: {
-                frontend: "Vanilla JavaScript (ES6+), Semantic HTML5, CSS3",
-                backend: "Client-side only",
-                devops: "Vercel",
+                frontend: "Semantic HTML5, Modular CSS3 (Design Tokens), Modern JavaScript (ES6+), LocalStorage",
+                backend: "Node.js, Express.js, REST API, JWT, bcryptjs, Multer",
+                database: "PostgreSQL 16 (Neon Cloud Database), Prisma ORM",
+                devops: "Vercel (Edge CDN & Serverless Functions), Jest, Supertest (29 tests)",
             },
         },
     ],
