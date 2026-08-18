@@ -150,46 +150,83 @@ export const projectsData: Record<"pt" | "en", ProjectDetail[]> = {
         {
             slug: "lanchonete-da-larica",
             title: "Lanchonete da Larica",
-            tagline: "Cardápio digital interativo e gestão de pedidos com checkout inteligente no WhatsApp",
+            tagline: "Cardápio digital, gestão de comandas (KDS) e dashboard de analytics com checkout no WhatsApp",
             description:
-                "Aplicação Web Full Stack para digitalização de pedidos, catálogo em tempo real, painel administrativo mobile-first (JWT) e checkout estruturado integrado ao WhatsApp.",
+                "Aplicação Web Full Stack para digitalização de pedidos, catálogo em tempo real, painel de comandas (KDS), dashboard de analytics e checkout estruturado integrado ao WhatsApp.",
             overview:
-                "A Lanchonete da Larica é uma solução digital completa desenvolvida para modernizar a operação de atendimento e vendas de uma hamburgueria artesanal. O sistema elimina atritos de pedidos manuais por mensagem e as altas taxas de marketplaces, entregando uma experiência web fluida com carregamento instantâneo, painel administrativo seguro e geração de comandas prontas diretamente no WhatsApp do estabelecimento.",
+                "A Lanchonete da Larica é uma solução digital completa (SaaS-like) desenvolvida para modernizar ponta a ponta a operação de atendimento, cozinha e inteligência de vendas de uma hamburgueria artesanal. O sistema elimina atritos de pedidos manuais por mensagem e as altas taxas de comissão de marketplaces (como iFood), entregando uma experiência web fluida com fechamento no WhatsApp, esteira de produção para cozinha (KDS) e controle operacional e comercial em tempo real no painel administrativo.",
             problem:
-                "Lanchonetes e negócios gastronômicos locais frequentemente sofrem com atendimento lento por mensagem (trocas manuais de fotos, PDFs e preços desatualizados), dependência de marketplaces com comissões de até 27% e complexidade para atualizar itens e valores em tempo real no balcão.",
+                "Lanchonetes e negócios gastronômicos locais frequentemente sofrem com atendimento lento por mensagem (trocas manuais de fotos, PDFs e preços desatualizados), dependência de marketplaces com comissões de até 27%, falta de controle de fila e pedidos perdidos na cozinha, além da ausência total de dados sobre faturamento diário, ticket médio e produtos campeões de venda.",
             solution:
-                "Arquitetura de uma aplicação Web Full Stack de alta performance. O Front-End foi construído em JavaScript Moderno (ES6+) com Design Tokens CSS modulares, carrinho reativo com persistência local e gerador de comandas codificadas para a API do WhatsApp. O Back-End em Node.js e Express fornece uma API RESTful segura com autenticação JWT, hash bcrypt e persistência relacional no PostgreSQL (Neon Cloud) com Prisma ORM e armazenamento adaptativo de imagens.",
+                "Arquitetura de uma plataforma Web Full Stack integrada. O Front-End foi construído em JavaScript Moderno (ES6+) com Design Tokens CSS modulares, carrinho reativo com persistência local e gerador de comandas codificadas para a API do WhatsApp com registro assíncrono automático no banco. O Back-End em Node.js e Express fornece uma API RESTful modular com autenticação JWT, hash bcrypt, motor de agregação analítica de vendas e esteira de comandas com 4 status de preparo, persistindo dados no PostgreSQL (Neon Cloud) via Prisma ORM.",
             features: [
                 "Experiência do Cliente Fluida: Cardápio interativo com busca em tempo real (debounce) e filtros por categoria",
-                "Modal de Detalhes & Personalização: Visualização de ingredientes, fotos em alta resolução e ajuste de quantidades",
+                "Modal de Detalhes & Personalização: Visualização de ingredientes, fotos em alta resolução e ajuste fino de quantidades",
                 "Carrinho Reativo (Cart Drawer): Sincronização em tempo real, cálculo automático em BRL (R$) e persistência no localStorage",
-                "Checkout Inteligente via WhatsApp: Escolha entre Delivery ou Retirada, validação de endereço e geração de mensagem estruturada",
-                "Painel Administrativo Mobile-First: Backoffice seguro com JWT e bcrypt para gerenciamento rápido de produtos pelo smartphone",
-                "Armazenamento de Imagens Adaptativo: Processamento multipart em memória com suporte a Base64 no PostgreSQL para Vercel Serverless",
-                "Status Dinâmico da Cozinha: Cálculo em tempo real informando horários de abertura e fechamento do estabelecimento",
-                "Qualidade & Testes Automatizados: Suíte com 29 testes automatizados (Jest e Supertest) cobrindo autenticação, CRUD e checkout",
+                "Checkout Inteligente com Registro Automático: Escolha entre Delivery ou Retirada, validação de endereço, registro no banco e envio estruturado ao WhatsApp",
+                "Painel de Comandas em Tempo Real (KDS): Esteira de produção com 4 status (A Confirmar, Em Fila, Na Chapa e Concluído) e link direto para contato",
+                "Dashboard de Vendas & Business Intelligence: KPIs de faturamento, ticket médio, total de pedidos, ranking Top 5 mais vendidos e gráficos de canais/pagamentos",
+                "Painel Administrativo Mobile-First: Backoffice seguro com JWT e bcrypt para gerenciamento e edição rápida de produtos pelo smartphone",
+                "Qualidade & Testes Automatizados: Suíte com 41 testes automatizados (Jest e Supertest) cobrindo autenticação, CRUD, pedidos e métricas",
             ],
             challenges: [
                 {
-                    title: "Design System Customizado sem Frameworks",
+                    title: "Arquitetura KDS & Ciclo de Vida do Pedido",
                     description:
-                        "Desenvolvimento de um ecossistema coeso de tokens CSS (:root) e componentes modulares, alcançando máxima pontuação no Lighthouse e performance instantânea sem o overhead de bibliotecas pesadas.",
+                        "Implementação de uma esteira de produção de pedidos com confirmação explícita no balcão e transição atômica de status (Aguardando Confirmação -> Pendente -> Em Preparo -> Concluído), sincronizando o fluxo da cozinha com os pedidos recebidos no WhatsApp.",
                 },
                 {
-                    title: "Persistência de Uploads em Ambiente Serverless",
+                    title: "Business Intelligence & Agregação sem Overhead",
                     description:
-                        "Superação das limitações de sistema de arquivos efêmero e somente leitura da Vercel através de buffer multipart em memória e serialização em Data URI diretamente no PostgreSQL.",
+                        "Estruturação de consultas relacionais otimizadas no Prisma ORM para calcular faturamento diário, ticket médio, distribuição de pagamentos e ranking de vendas com filtragem por período dinâmico sem sobrecarregar o banco.",
                 },
                 {
-                    title: "Engenharia de Payload e Comanda para WhatsApp",
+                    title: "Design System Customizado & Mobile-First",
                     description:
-                        "Estruturação de mensagens com codificação URI que geram comandas completas (itens, preços, endereço com complemento e troco), eliminando digitação manual da equipe da cozinha.",
+                        "Criação de tokens CSS (:root) e tipografia fluida com clamp(), garantindo adaptação perfeita e responsividade em smartphones (360px) até monitores ultra-wide sem o overhead de bibliotecas pesadas.",
                 },
             ],
-            tags: ["Node.js", "Express", "PostgreSQL", "Prisma ORM", "JavaScript (ES6+)", "JWT", "Jest", "Vercel"],
+            tags: ["Node.js", "Express", "PostgreSQL", "Prisma ORM", "JavaScript (ES6+)", "JWT", "Jest", "KDS", "Analytics", "Vercel"],
             category: "fullstack",
             featured: false,
             image: "/projects/projeto-lanchonete.png",
+            gallery: [
+                {
+                    title: "Dashboard de Vendas & Analytics",
+                    image: "/projects/lanchonete/dashboard-vendas.png",
+                    description: "KPIs em tempo real (Faturamento, Ticket Médio, Total de Pedidos), Ranking dos Top 5 mais vendidos e distribuição de canais e pagamentos.",
+                },
+                {
+                    title: "Painel de Comandas & KDS em Tempo Real",
+                    image: "/projects/lanchonete/comandas.png",
+                    description: "Esteira de produção da cozinha com 4 status (Aguardando Confirmação, Em Fila, Na Chapa e Concluído) e link direto para WhatsApp.",
+                },
+                {
+                    title: "Gestão do Cardápio & Cadastro de Produtos",
+                    image: "/projects/lanchonete/cadastro-produto.png",
+                    description: "Interface mobile-first para cadastro e edição rápida de produtos com upload de fotos e modais bottom-sheet.",
+                },
+                {
+                    title: "Autenticação Administrativa Segura (JWT)",
+                    image: "/projects/lanchonete/login-admin.png",
+                    description: "Tela de login restrita para administradores com validação de credenciais, hash bcrypt e emissão de token JWT.",
+                },
+                {
+                    title: "Cardápio Digital & Modal de Ingredientes",
+                    image: "/projects/lanchonete/cardapio.png",
+                    description: "Catálogo interativo com busca em tempo real (debounce), filtros por categoria e modal de ingredientes e quantidades.",
+                },
+                {
+                    title: "Landing Page 'Dark Burger Bar'",
+                    image: "/projects/lanchonete/home.png",
+                    description: "Identidade visual temática e acolhedora com produto em destaque e atalho direto para personalização e pedidos.",
+                },
+                {
+                    title: "Localização, Horários & Contato",
+                    image: "/projects/lanchonete/contato.png",
+                    description: "Informações institucionais, cálculo dinâmico de status da cozinha aberta/fechada e canais diretos de atendimento.",
+                },
+            ],
             demo: "https://lanchonetelarica.vercel.app/",
             isPrivate: true,
             releaseYear: "2024",
@@ -197,7 +234,7 @@ export const projectsData: Record<"pt" | "en", ProjectDetail[]> = {
                 frontend: "HTML5 Semântico, CSS3 Modular (Design Tokens), JavaScript Moderno (ES6+), LocalStorage",
                 backend: "Node.js, Express.js, REST API, JWT, bcryptjs, Multer",
                 database: "PostgreSQL 16 (Neon Cloud Database), Prisma ORM",
-                devops: "Vercel (Edge CDN & Serverless Functions), Jest, Supertest (29 testes)",
+                devops: "Vercel (Edge CDN & Serverless Functions), Neon Cloud, Jest, Supertest (41 testes)",
             },
         },
     ],
@@ -350,46 +387,83 @@ export const projectsData: Record<"pt" | "en", ProjectDetail[]> = {
         {
             slug: "lanchonete-da-larica",
             title: "Lanchonete da Larica",
-            tagline: "Interactive digital menu and real-time order management with automated WhatsApp checkout",
+            tagline: "Digital menu, Kitchen Display System (KDS) & sales analytics with automated WhatsApp checkout",
             description:
-                "Full-Stack web application for digital ordering, real-time catalog management, mobile-first administrative backoffice (JWT), and structured WhatsApp checkout.",
+                "Full-Stack web application for digital ordering, real-time catalog management, Kitchen Display System (KDS), sales analytics dashboard, and structured WhatsApp checkout.",
             overview:
-                "Lanchonete da Larica is an end-to-end digital ordering and menu management platform engineered for an artisan burger restaurant. The system eliminates manual chat overhead and steep marketplace commissions, delivering an instant-loading web experience, secure JWT-authenticated mobile backoffice, and automated direct-to-kitchen WhatsApp order generation.",
+                "Lanchonete da Larica is an end-to-end digital ordering and operations management platform (SaaS-like) engineered for an artisan burger restaurant. The platform eliminates manual chat overhead and steep delivery marketplace commissions (up to 27%), providing a frictionless web experience with automated direct-to-WhatsApp order dispatching, a 4-stage kitchen order lifecycle (KDS), and live backoffice analytics.",
             problem:
-                "Local restaurants frequently grapple with slow order intake via chat (outdated PDF menus, back-and-forth price confirmations), heavy dependency on delivery marketplaces charging up to 27% commissions, and operational friction when updating catalog items on the fly.",
+                "Local food businesses frequently grapple with slow order intake via chat (outdated PDF menus, back-and-forth price confirmations), heavy dependency on delivery marketplaces charging up to 27% commissions, kitchen operational chaos with lost orders, and zero real-time visibility into daily revenue, average ticket per customer, and best-selling item rankings.",
             solution:
-                "Engineered a high-performance Full Stack Web Application. The Front-End is built with Modern JavaScript (ES6+) and modular CSS Design Tokens, featuring a persistent reactive cart and encoded ticket generator for the WhatsApp API. The Node.js and Express RESTful Back-End provides JWT authentication, bcrypt password hashing, and PostgreSQL persistence (Neon Cloud) managed via Prisma ORM with adaptive serverless image storage.",
+                "Engineered a high-performance Full Stack Web Application. The Front-End is built with Modern JavaScript (ES6+) and modular CSS Design Tokens, featuring a persistent reactive cart and encoded ticket generator for the WhatsApp API with automatic background order ingestion. The Node.js and Express RESTful Back-End provides JWT authentication, bcrypt password hashing, a real-time sales aggregation engine, and a Kitchen Display System (KDS) with 4 preparation stages, persisting data in PostgreSQL (Neon Cloud) via Prisma ORM.",
             features: [
                 "Frictionless Customer Experience: Interactive catalog with real-time debounced search and category filters",
                 "Interactive Customization Modal: High-resolution image inspection, ingredient lists, and granular quantity controls",
                 "Reactive Cart Drawer: Real-time badge syncing, automatic BRL (R$) formatting, and localStorage persistence",
-                "Intelligent WhatsApp Checkout Engine: Delivery vs. Takeout selector, address validation, and structured ticket formatting",
+                "Intelligent WhatsApp Checkout Engine: Delivery vs. Takeout selector, address validation, automatic DB ingestion, and structured ticket formatting",
+                "Real-Time Kitchen Display System (KDS): 4-stage order pipeline (Awaiting Confirmation, In Queue, In Prep, and Completed) with 1-click WhatsApp messaging",
+                "Sales Analytics & Business Intelligence: Real-time KPIs (Revenue, Average Ticket, Order Volume), Top 5 Best-Sellers leaderboard, and payment breakdown",
                 "Mobile-First Administrative Backoffice: Secure JWT and bcrypt dashboard optimized for quick counter management on smartphones",
-                "Adaptive Serverless Asset Storage: In-memory multipart file handling with Base64 PostgreSQL storage for Vercel Serverless",
-                "Live Kitchen Operational Engine: Dynamic business-hours computation computing open and closed badges in real time",
-                "Automated Quality Assurance: 29 unit and integration test suites using Jest and Supertest across auth, CRUD, and checkout",
+                "Automated Quality Assurance: 41 unit and integration test suites using Jest and Supertest across auth, CRUD, orders, and analytics",
             ],
             challenges: [
                 {
-                    title: "Pure CSS Design System Architecture",
+                    title: "Real-Time KDS Architecture & Order Lifecycle",
                     description:
-                        "Created a cohesive CSS custom property token system (:root) and lightweight modular components, achieving near-perfect Lighthouse performance with zero framework bloat.",
+                        "Engineered a practical restaurant order pipeline supporting explicit kitchen acceptance and atomic status transitions (Awaiting Confirmation -> In Queue -> In Prep -> Completed), ensuring the kitchen staff stays synchronized with orders coming through WhatsApp.",
                 },
                 {
-                    title: "Serverless Asset Persistence Strategy",
+                    title: "Lightweight Business Intelligence Aggregation",
                     description:
-                        "Overcame Vercel's ephemeral read-only filesystem constraints by ingesting multipart streams in memory via Multer and persisting them as Base64 Data URIs in PostgreSQL.",
+                        "Optimized relational SQL queries via Prisma ORM yielding real-time commercial KPIs (Revenue, Average Ticket, Top Products, Payment Breakdown) with dynamic period filtering without third-party library bloat.",
                 },
                 {
-                    title: "Structured WhatsApp Ticket Payload Engineering",
+                    title: "Fluid Mobile-First Design System Architecture",
                     description:
-                        "Formatted multi-item orders, modifier breakdown, delivery addresses, and change calculations into a single encoded payload ready for instant kitchen processing.",
+                        "Created a cohesive CSS custom property token system (:root) and fluid typography with clamp(), ensuring full responsiveness from 320px smartphones up to ultra-wide monitors with zero framework overhead.",
                 },
             ],
-            tags: ["Node.js", "Express", "PostgreSQL", "Prisma ORM", "JavaScript (ES6+)", "JWT", "Jest", "Vercel"],
+            tags: ["Node.js", "Express", "PostgreSQL", "Prisma ORM", "JavaScript (ES6+)", "JWT", "Jest", "KDS", "Analytics", "Vercel"],
             category: "fullstack",
             featured: false,
             image: "/projects/projeto-lanchonete.png",
+            gallery: [
+                {
+                    title: "Sales Analytics & Business Intelligence",
+                    image: "/projects/lanchonete/dashboard-vendas.png",
+                    description: "Real-time KPIs (Revenue, Average Ticket, Order Volume), Top 5 Best-Sellers leaderboard, and payment method distribution.",
+                },
+                {
+                    title: "Kitchen Display System (KDS)",
+                    image: "/projects/lanchonete/comandas.png",
+                    description: "4-stage kitchen order pipeline (Awaiting Confirmation, In Queue, In Prep, and Completed) with 1-click WhatsApp messaging.",
+                },
+                {
+                    title: "Catalog Management & Product Editor",
+                    image: "/projects/lanchonete/cadastro-produto.png",
+                    description: "Mobile-first backoffice for rapid product creation and editing with image uploads and slide-up bottom-sheets.",
+                },
+                {
+                    title: "Secure Admin Authentication (JWT)",
+                    image: "/projects/lanchonete/login-admin.png",
+                    description: "Restricted administrative login screen with credential validation, bcrypt hashing, and JWT token issuance.",
+                },
+                {
+                    title: "Digital Menu & Customization Modal",
+                    image: "/projects/lanchonete/cardapio.png",
+                    description: "Interactive catalog with real-time debounced search, category filters, and ingredient inspection modal.",
+                },
+                {
+                    title: "Landing Page 'Dark Burger Bar'",
+                    image: "/projects/lanchonete/home.png",
+                    description: "Thematic and immersive visual identity with featured burger callout and direct ordering flow.",
+                },
+                {
+                    title: "Location, Business Hours & Contact",
+                    image: "/projects/lanchonete/contato.png",
+                    description: "Operational info, real-time dynamic kitchen open/closed status, and direct contact channels.",
+                },
+            ],
             demo: "https://lanchonetelarica.vercel.app/",
             isPrivate: true,
             releaseYear: "2024",
@@ -397,7 +471,7 @@ export const projectsData: Record<"pt" | "en", ProjectDetail[]> = {
                 frontend: "Semantic HTML5, Modular CSS3 (Design Tokens), Modern JavaScript (ES6+), LocalStorage",
                 backend: "Node.js, Express.js, REST API, JWT, bcryptjs, Multer",
                 database: "PostgreSQL 16 (Neon Cloud Database), Prisma ORM",
-                devops: "Vercel (Edge CDN & Serverless Functions), Jest, Supertest (29 tests)",
+                devops: "Vercel (Edge CDN & Serverless Functions), Neon Cloud, Jest, Supertest (41 tests)",
             },
         },
     ],

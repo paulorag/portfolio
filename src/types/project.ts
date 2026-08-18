@@ -10,6 +10,12 @@ export interface ProjectChallenge {
     description: string;
 }
 
+export interface ProjectGalleryItem {
+    title: string;
+    image: string;
+    description?: string;
+}
+
 export interface ProjectDetail {
     slug: string;
     title: string;
@@ -25,6 +31,7 @@ export interface ProjectDetail {
     featured?: boolean;
     image: string;
     screenshots?: string[];
+    gallery?: ProjectGalleryItem[];
     github?: string;
     demo?: string;
     isPrivate?: boolean;

@@ -19,6 +19,8 @@ import {
     Sparkles,
     Lock,
     Clock,
+    LayoutGrid,
+    Flame,
 } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 import { projectsData } from "@/lib/data";
@@ -52,22 +54,27 @@ export function ProjectDetailView({ slug }: ProjectDetailViewProps) {
                 privateRepoBadge: "Proprietary Code",
                 privateRepoNote: "Proprietary Codebase (Private Repository)",
                 overviewTitle: "Overview",
-                problemTitle: "The Problem",
+                problemTitle: "The Business Challenge",
                 solutionTitle: "Engineering Solution",
-                featuresTitle: "Key Features",
-                architectureTitle: "System Architecture",
-                challengesTitle: "Technical Challenges & Solutions",
-                techStackTitle: "Technologies",
-                frontend: "Frontend",
-                backend: "Backend & API",
-                database: "Database",
-                devops: "DevOps & Testing",
-                ctaTitle: "Explore the Project in Action",
+                featuresTitle: "Core Features & Capabilities",
+                architectureTitle: "System Architecture & Stack Blueprint",
+                galleryTitle: "Interface & Screen Showcase",
+                gallerySubtitle:
+                    "Explore the complete user journey: customer catalog, Kitchen Display System (KDS), analytics dashboard, and mobile-first backoffice.",
+                challengesTitle: "Technical Challenges & Engineering Decisions",
+                frontend: "Frontend & UI",
+                backend: "Backend & Business Logic",
+                database: "Database & Persistence",
+                devops: "DevOps, CI/CD & Testing",
+                ctaTitle: "Experience the Application Live",
                 ctaSubtitle: project.isPrivate
                     ? "Test the live production deployment online or explore the complete system architecture in this case study."
                     : "Test the live deployment or inspect the clean, well-architected codebase on GitHub.",
                 prevProject: "Previous Project",
                 nextProject: "Next Project",
+                coldStartTitle: "Server Cold Start Notice",
+                coldStartBadge: "Cold Start: 30s – 120s",
+                coldStartCtaNote: "Note: Back-End on Render Free Tier (may take 30s–120s on initial cold start)",
             };
         }
         return {
@@ -78,14 +85,16 @@ export function ProjectDetailView({ slug }: ProjectDetailViewProps) {
             privateRepoBadge: "Código Proprietário",
             privateRepoNote: "Código Proprietário (Repositório Privado)",
             overviewTitle: "Visão Geral",
-            problemTitle: "O Problema",
+            problemTitle: "O Desafio de Negócio",
             solutionTitle: "A Solução de Engenharia",
-            featuresTitle: "Principais Recursos",
-            architectureTitle: "Arquitetura do Sistema",
-            challengesTitle: "Desafios Técnicos & Soluções",
-            techStackTitle: "Tecnologias Utilizadas",
+            featuresTitle: "Principais Recursos & Regras de Negócio",
+            architectureTitle: "Blueprint de Arquitetura & Stack Técnica",
+            galleryTitle: "Galeria de Telas & Fluxos do Sistema",
+            gallerySubtitle:
+                "Explore a jornada completa da aplicação: cardápio do cliente, esteira de comandas da cozinha (KDS), dashboard de analytics e painel administrativo mobile-first.",
+            challengesTitle: "Desafios de Engenharia & Decisões Técnicas",
             frontend: "Interface / Frontend",
-            backend: "Back-end & Regras de Negócio",
+            backend: "Back-End & Regras de Negócio",
             database: "Banco de Dados & Persistência",
             devops: "DevOps, Testes & Deploy",
             ctaTitle: "Experimente a Aplicação na Prática",
@@ -94,6 +103,9 @@ export function ProjectDetailView({ slug }: ProjectDetailViewProps) {
                 : "Acesse a versão em produção online ou explore o código-fonte e arquitetura no repositório oficial.",
             prevProject: "Projeto Anterior",
             nextProject: "Próximo Projeto",
+            coldStartTitle: "Aviso de Inicialização (Cold Start)",
+            coldStartBadge: "Cold Start: 30s – 120s",
+            coldStartCtaNote: "Nota: Back-End no Render Free Tier (pode levar 30s–120s na primeira requisição)",
         };
     }, [language, project.isPrivate]);
 
@@ -101,8 +113,8 @@ export function ProjectDetailView({ slug }: ProjectDetailViewProps) {
         <article className="min-h-screen bg-[#12131a] text-white pt-24 pb-14 sm:pb-18 px-4 md:px-6 relative overflow-hidden">
             {/* Ambient Background Glows */}
             <div className="absolute top-20 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-white/[0.02] rounded-full blur-[160px] pointer-events-none -z-10" />
-            <div className="absolute top-[50%] -right-20 w-[500px] h-[450px] bg-white/[0.02] rounded-full blur-[170px] pointer-events-none -z-10" />
-            <div className="absolute top-[80%] -left-20 w-[450px] h-[450px] bg-white/[0.02] rounded-full blur-[160px] pointer-events-none -z-10" />
+            <div className="absolute top-[40%] -right-20 w-[500px] h-[450px] bg-white/[0.02] rounded-full blur-[170px] pointer-events-none -z-10" />
+            <div className="absolute top-[75%] -left-20 w-[450px] h-[450px] bg-white/[0.02] rounded-full blur-[160px] pointer-events-none -z-10" />
 
             <div className="container mx-auto max-w-5xl">
                 {/* Top Nav Bar & Action Links */}
@@ -157,7 +169,7 @@ export function ProjectDetailView({ slug }: ProjectDetailViewProps) {
                     </div>
                 </motion.div>
 
-                {/* Project Header & Hero */}
+                {/* 1. Executive Hero Header */}
                 <motion.header
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -168,7 +180,7 @@ export function ProjectDetailView({ slug }: ProjectDetailViewProps) {
                         {project.featured && (
                             <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 text-white border border-white/20 text-xs font-semibold">
                                 <Sparkles size={12} />
-                                Projeto em Destaque
+                                {language === "pt" ? "Projeto em Destaque" : "Featured Project"}
                             </span>
                         )}
 
@@ -192,7 +204,7 @@ export function ProjectDetailView({ slug }: ProjectDetailViewProps) {
                         </span>
                     </div>
 
-                    <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold tracking-tight text-white">
+                    <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-white via-zinc-100 to-zinc-400">
                         {project.title}
                     </h1>
 
@@ -220,13 +232,13 @@ export function ProjectDetailView({ slug }: ProjectDetailViewProps) {
 
                     {/* Cold Start Notice Banner (Free Tier Cloud Hosting) */}
                     {project.coldStartNotice && (
-                        <div className="p-4 sm:p-5 rounded-2xl bg-amber-500/[0.06] border border-amber-500/20 text-zinc-300 backdrop-blur-xl shadow-sm flex items-start gap-3.5 mt-2">
+                        <div className="p-4 sm:p-5 rounded-2xl bg-amber-500/[0.06] border border-amber-500/20 text-zinc-300 backdrop-blur-xl shadow-sm flex items-start gap-3.5 mt-4">
                             <div className="p-2 rounded-xl bg-amber-500/10 text-amber-400 shrink-0 mt-0.5">
                                 <Clock size={16} />
                             </div>
                             <div className="space-y-1">
                                 <span className="text-xs font-mono font-semibold uppercase tracking-wider text-amber-400 block">
-                                    {language === "pt" ? "Aviso de Inicialização (Cold Start)" : "Server Cold Start Notice"}
+                                    {t.coldStartTitle}
                                 </span>
                                 <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed">
                                     {project.coldStartNotice}
@@ -236,7 +248,7 @@ export function ProjectDetailView({ slug }: ProjectDetailViewProps) {
                     )}
                 </motion.header>
 
-                {/* Main Hero Image Screen */}
+                {/* 2. Main Hero Image Screen */}
                 <motion.div
                     initial={{ opacity: 0, scale: 0.98 }}
                     animate={{ opacity: 1, scale: 1 }}
@@ -254,186 +266,250 @@ export function ProjectDetailView({ slug }: ProjectDetailViewProps) {
                     <div className="absolute inset-0 bg-gradient-to-t from-[#12131a]/80 via-transparent to-transparent pointer-events-none" />
                 </motion.div>
 
-                {/* Detailed Technical Content Grid */}
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 mb-16">
-                    {/* Left Column: Problem, Solution & Features (2 cols on lg) */}
-                    <div className="lg:col-span-2 space-y-12">
-                        {/* Problem Section */}
-                        <section className="p-7 sm:p-8 rounded-2xl bg-[#181a24]/90 border border-white/10 space-y-4">
-                            <div className="flex items-center gap-2.5 text-red-400 font-semibold text-lg">
-                                <ShieldAlert size={22} />
-                                <h2>{t.problemTitle}</h2>
+                {/* 3. Challenge vs. Solution (Split 2-Columns Side-by-Side) */}
+                <motion.section
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5 }}
+                    className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16"
+                >
+                    {/* The Business Challenge */}
+                    <div className="p-7 sm:p-8 rounded-2xl bg-[#181a24]/90 border border-white/10 space-y-4 hover:border-white/20 transition-colors flex flex-col justify-between">
+                        <div className="space-y-4">
+                            <div className="flex items-center gap-2.5 text-zinc-100 font-semibold text-lg">
+                                <div className="p-2 rounded-xl bg-red-500/10 text-red-400 shrink-0">
+                                    <ShieldAlert size={20} />
+                                </div>
+                                <h2 className="text-white font-bold">{t.problemTitle}</h2>
                             </div>
-                            <p className="text-zinc-300 leading-relaxed text-base sm:text-lg">
+                            <p className="text-zinc-300 leading-relaxed text-sm sm:text-base">
                                 {project.problem}
                             </p>
-                        </section>
+                        </div>
+                    </div>
 
-                        {/* Solution Section */}
-                        <section className="p-7 sm:p-8 rounded-2xl bg-[#181a24]/90 border border-white/10 space-y-4">
+                    {/* Engineering Solution */}
+                    <div className="p-7 sm:p-8 rounded-2xl bg-[#181a24]/90 border border-white/10 space-y-4 hover:border-white/20 transition-colors flex flex-col justify-between">
+                        <div className="space-y-4">
                             <div className="flex items-center gap-2.5 text-zinc-100 font-semibold text-lg">
-                                <Cpu size={22} />
-                                <h2>{t.solutionTitle}</h2>
+                                <div className="p-2 rounded-xl bg-white/10 text-white shrink-0">
+                                    <Cpu size={20} />
+                                </div>
+                                <h2 className="text-white font-bold">{t.solutionTitle}</h2>
                             </div>
-                            <p className="text-zinc-300 leading-relaxed text-base sm:text-lg">
+                            <p className="text-zinc-300 leading-relaxed text-sm sm:text-base">
                                 {project.solution}
                             </p>
-                        </section>
+                        </div>
+                    </div>
+                </motion.section>
 
-                        {/* Key Features Section */}
-                        <section className="space-y-6">
-                            <h2 className="text-2xl font-bold text-white tracking-tight">
-                                {t.featuresTitle}
+                {/* 4. Interactive Interface & Screenshots Showcase Gallery */}
+                {project.gallery && project.gallery.length > 0 && (
+                    <motion.section
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5 }}
+                        className="mb-16 space-y-8"
+                    >
+                        <div className="space-y-2">
+                            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-white flex items-center gap-3">
+                                <LayoutGrid size={24} className="text-zinc-300" />
+                                <span>{t.galleryTitle}</span>
                             </h2>
-                            <div className="grid grid-cols-1 gap-3.5">
-                                {project.features.map((feature, idx) => (
-                                    <div
-                                        key={idx}
-                                        className="flex items-start gap-3.5 p-4 rounded-xl bg-white/[0.03] border border-white/5"
-                                    >
-                                        <CheckCircle2
-                                            size={20}
-                                            className="text-emerald-400 shrink-0 mt-0.5"
+                            <p className="text-zinc-400 text-sm sm:text-base max-w-3xl leading-relaxed">
+                                {t.gallerySubtitle}
+                            </p>
+                        </div>
+
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            {project.gallery.map((item, idx) => (
+                                <div
+                                    key={idx}
+                                    className="group rounded-2xl bg-[#181a24]/90 border border-white/10 overflow-hidden hover:border-white/20 transition-all duration-300 flex flex-col"
+                                >
+                                    <div className="relative w-full h-56 sm:h-64 md:h-72 bg-[#12131a] overflow-hidden border-b border-white/10">
+                                        <Image
+                                            src={item.image}
+                                            alt={item.title}
+                                            fill
+                                            className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
+                                            sizes="(max-width: 768px) 100vw, 50vw"
                                         />
-                                        <span className="text-zinc-200 text-sm sm:text-base leading-relaxed">
-                                            {feature}
-                                        </span>
+                                        <div className="absolute inset-0 bg-gradient-to-t from-[#181a24]/80 via-transparent to-transparent opacity-30 group-hover:opacity-10 transition-opacity pointer-events-none" />
                                     </div>
-                                ))}
+                                    <div className="p-5 sm:p-6 space-y-2 flex-1 flex flex-col justify-between">
+                                        <h3 className="text-base sm:text-lg font-bold text-white group-hover:text-zinc-100 transition-colors flex items-center gap-2">
+                                            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 shrink-0" />
+                                            <span>{item.title}</span>
+                                        </h3>
+                                        {item.description && (
+                                            <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed">
+                                                {item.description}
+                                            </p>
+                                        )}
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </motion.section>
+                )}
+
+                {/* 5. System Architecture & Stack Blueprint (4-Quadrant Grid) */}
+                {project.architecture && (
+                    <motion.section
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5 }}
+                        className="mb-16 space-y-6"
+                    >
+                        <div className="space-y-2">
+                            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-white flex items-center gap-3">
+                                <Layers size={24} className="text-zinc-300" />
+                                <span>{t.architectureTitle}</span>
+                            </h2>
+                        </div>
+
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                            {/* Frontend Quadrant */}
+                            {project.architecture.frontend && (
+                                <div className="p-6 rounded-2xl bg-[#181a24]/90 border border-white/10 hover:border-white/20 transition-colors space-y-3">
+                                    <div className="p-2.5 rounded-xl bg-white/[0.04] border border-white/10 w-fit text-zinc-300">
+                                        <Cpu size={18} />
+                                    </div>
+                                    <div>
+                                        <span className="text-xs font-semibold uppercase tracking-wider text-zinc-400 font-mono block">
+                                            {t.frontend}
+                                        </span>
+                                        <p className="text-sm font-medium text-zinc-200 mt-1 leading-relaxed">
+                                            {project.architecture.frontend}
+                                        </p>
+                                    </div>
+                                </div>
+                            )}
+
+                            {/* Backend Quadrant */}
+                            {project.architecture.backend && (
+                                <div className="p-6 rounded-2xl bg-[#181a24]/90 border border-white/10 hover:border-white/20 transition-colors space-y-3">
+                                    <div className="p-2.5 rounded-xl bg-white/[0.04] border border-white/10 w-fit text-zinc-300">
+                                        <Database size={18} />
+                                    </div>
+                                    <div>
+                                        <span className="text-xs font-semibold uppercase tracking-wider text-zinc-400 font-mono block">
+                                            {t.backend}
+                                        </span>
+                                        <p className="text-sm font-medium text-zinc-200 mt-1 leading-relaxed">
+                                            {project.architecture.backend}
+                                        </p>
+                                    </div>
+                                </div>
+                            )}
+
+                            {/* Database Quadrant */}
+                            {project.architecture.database && (
+                                <div className="p-6 rounded-2xl bg-[#181a24]/90 border border-white/10 hover:border-white/20 transition-colors space-y-3">
+                                    <div className="p-2.5 rounded-xl bg-white/[0.04] border border-white/10 w-fit text-zinc-300">
+                                        <Database size={18} />
+                                    </div>
+                                    <div>
+                                        <span className="text-xs font-semibold uppercase tracking-wider text-zinc-400 font-mono block">
+                                            {t.database}
+                                        </span>
+                                        <p className="text-sm font-medium text-zinc-200 mt-1 leading-relaxed">
+                                            {project.architecture.database}
+                                        </p>
+                                    </div>
+                                </div>
+                            )}
+
+                            {/* DevOps & Testing Quadrant */}
+                            {project.architecture.devops && (
+                                <div className="p-6 rounded-2xl bg-[#181a24]/90 border border-white/10 hover:border-white/20 transition-colors space-y-3">
+                                    <div className="p-2.5 rounded-xl bg-white/[0.04] border border-white/10 w-fit text-zinc-300">
+                                        <Cloud size={18} />
+                                    </div>
+                                    <div>
+                                        <span className="text-xs font-semibold uppercase tracking-wider text-zinc-400 font-mono block">
+                                            {t.devops}
+                                        </span>
+                                        <p className="text-sm font-medium text-zinc-200 mt-1 leading-relaxed">
+                                            {project.architecture.devops}
+                                        </p>
+                                    </div>
+                                </div>
+                            )}
+                        </div>
+                    </motion.section>
+                )}
+
+                {/* 6. Core Features & Capabilities */}
+                <motion.section
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5 }}
+                    className="mb-16 space-y-6"
+                >
+                    <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight flex items-center gap-3">
+                        <CheckCircle2 size={24} className="text-emerald-400" />
+                        <span>{t.featuresTitle}</span>
+                    </h2>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        {project.features.map((feature, idx) => (
+                            <div
+                                key={idx}
+                                className="flex items-start gap-3.5 p-5 rounded-2xl bg-[#181a24]/90 border border-white/10 hover:border-white/20 transition-colors"
+                            >
+                                <CheckCircle2
+                                    size={20}
+                                    className="text-emerald-400 shrink-0 mt-0.5"
+                                />
+                                <span className="text-zinc-200 text-sm sm:text-base leading-relaxed">
+                                    {feature}
+                                </span>
                             </div>
-                        </section>
-
-                        {/* Challenges and Solutions */}
-                        {project.challenges && project.challenges.length > 0 && (
-                            <section className="space-y-6">
-                                <h2 className="text-2xl font-bold text-white tracking-tight">
-                                    {t.challengesTitle}
-                                </h2>
-                                <div className="space-y-4">
-                                    {project.challenges.map((challenge, idx) => (
-                                        <div
-                                            key={idx}
-                                            className="p-6 rounded-xl bg-[#181a24]/90 border border-white/10 space-y-2 hover:border-white/20 transition-colors"
-                                        >
-                                            <h3 className="text-base sm:text-lg font-bold text-zinc-100 flex items-center gap-2">
-                                                <span className="w-2 h-2 rounded-full bg-zinc-400" />
-                                                {challenge.title}
-                                            </h3>
-                                            <p className="text-zinc-400 text-sm leading-relaxed pl-4">
-                                                {challenge.description}
-                                            </p>
-                                        </div>
-                                    ))}
-                                </div>
-                            </section>
-                        )}
+                        ))}
                     </div>
+                </motion.section>
 
-                    {/* Right Column: Architecture & Stack Specification */}
-                    <div className="space-y-8">
-                        {/* Architecture Box */}
-                        {project.architecture && (
-                            <section className="p-6 sm:p-7 rounded-2xl bg-[#181a24]/90 border border-white/10 space-y-6 sticky top-24">
-                                <h2 className="text-xl font-bold text-white tracking-tight flex items-center gap-2">
-                                    <Layers className="text-zinc-300" size={20} />
-                                    <span>{t.architectureTitle}</span>
-                                </h2>
+                {/* 7. Technical Challenges & Engineering Trade-offs */}
+                {project.challenges && project.challenges.length > 0 && (
+                    <motion.section
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5 }}
+                        className="mb-16 space-y-6"
+                    >
+                        <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight flex items-center gap-3">
+                            <Flame size={24} className="text-zinc-300" />
+                            <span>{t.challengesTitle}</span>
+                        </h2>
 
-                                <div className="space-y-5">
-                                    {project.architecture.frontend && (
-                                        <div className="space-y-1.5 pb-4 border-b border-white/5">
-                                            <span className="text-xs font-semibold uppercase tracking-wider text-zinc-400 flex items-center gap-1.5 font-mono">
-                                                <Cpu size={14} className="text-zinc-300" />
-                                                {t.frontend}
-                                            </span>
-                                            <p className="text-sm font-medium text-zinc-200">
-                                                {project.architecture.frontend}
-                                            </p>
-                                        </div>
-                                    )}
-
-                                    {project.architecture.backend && (
-                                        <div className="space-y-1.5 pb-4 border-b border-white/5">
-                                            <span className="text-xs font-semibold uppercase tracking-wider text-zinc-400 flex items-center gap-1.5 font-mono">
-                                                <Database size={14} className="text-zinc-300" />
-                                                {t.backend}
-                                            </span>
-                                            <p className="text-sm font-medium text-zinc-200">
-                                                {project.architecture.backend}
-                                            </p>
-                                        </div>
-                                    )}
-
-                                    {project.architecture.database && (
-                                        <div className="space-y-1.5 pb-4 border-b border-white/5">
-                                            <span className="text-xs font-semibold uppercase tracking-wider text-zinc-400 flex items-center gap-1.5 font-mono">
-                                                <Database size={14} className="text-zinc-300" />
-                                                {t.database}
-                                            </span>
-                                            <p className="text-sm font-medium text-zinc-200">
-                                                {project.architecture.database}
-                                            </p>
-                                        </div>
-                                    )}
-
-                                    {project.architecture.devops && (
-                                        <div className="space-y-1.5">
-                                            <span className="text-xs font-semibold uppercase tracking-wider text-zinc-400 flex items-center gap-1.5 font-mono">
-                                                <Cloud size={14} className="text-zinc-300" />
-                                                {t.devops}
-                                            </span>
-                                            <p className="text-sm font-medium text-zinc-200">
-                                                {project.architecture.devops}
-                                            </p>
-                                        </div>
-                                    )}
+                        <div className="grid grid-cols-1 gap-4">
+                            {project.challenges.map((challenge, idx) => (
+                                <div
+                                    key={idx}
+                                    className="p-6 sm:p-7 rounded-2xl bg-[#181a24]/90 border border-white/10 space-y-2.5 hover:border-white/20 transition-colors"
+                                >
+                                    <h3 className="text-base sm:text-lg font-bold text-white flex items-center gap-2.5">
+                                        <span className="w-2 h-2 rounded-full bg-zinc-400 shrink-0" />
+                                        <span>{challenge.title}</span>
+                                    </h3>
+                                    <p className="text-zinc-300 text-sm sm:text-base leading-relaxed pl-4.5">
+                                        {challenge.description}
+                                    </p>
                                 </div>
+                            ))}
+                        </div>
+                    </motion.section>
+                )}
 
-                                {/* Quick Links within sidebar */}
-                                <div className="pt-2 flex flex-col gap-2.5">
-                                    {project.demo && (
-                                        <>
-                                            <a
-                                                href={project.demo}
-                                                target="_blank"
-                                                rel="noreferrer"
-                                                className="w-full flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-white hover:bg-zinc-200 text-black font-semibold text-sm transition-all active:scale-95 shadow-md"
-                                            >
-                                                <ExternalLink size={16} />
-                                                <span>{t.liveDemo}</span>
-                                            </a>
-                                            {project.coldStartNotice && (
-                                                <span className="text-[11px] text-amber-400/90 font-mono text-center flex items-center justify-center gap-1.5 px-2 -mt-1">
-                                                    <Clock size={12} className="shrink-0" />
-                                                    <span>{language === "pt" ? "Cold start: 30s – 120s" : "Cold start: 30s – 120s"}</span>
-                                                </span>
-                                            )}
-                                        </>
-                                    )}
-
-                                    {project.github ? (
-                                        <a
-                                            href={project.github}
-                                            target="_blank"
-                                            rel="noreferrer"
-                                            className="w-full flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 text-zinc-300 hover:text-white font-medium text-sm transition-all active:scale-95"
-                                        >
-                                            <Github size={16} />
-                                            <span>{t.viewCode}</span>
-                                        </a>
-                                    ) : (
-                                        <div className="w-full flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl bg-white/5 border border-white/5 text-zinc-400 text-xs text-center font-medium">
-                                            <Lock size={14} className="text-amber-400 shrink-0" />
-                                            <span>{t.privateRepoNote}</span>
-                                        </div>
-                                    )}
-                                </div>
-                            </section>
-                        )}
-                    </div>
-                </div>
-
-                {/* Bottom Call to Action Box */}
+                {/* 8. Bottom Call to Action Box */}
                 <motion.section
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -463,7 +539,7 @@ export function ProjectDetailView({ slug }: ProjectDetailViewProps) {
                             </a>
                         )}
 
-                        {project.github && (
+                        {project.github ? (
                             <a
                                 href={project.github}
                                 target="_blank"
@@ -473,18 +549,23 @@ export function ProjectDetailView({ slug }: ProjectDetailViewProps) {
                                 <Github size={18} />
                                 <span>{t.viewCode}</span>
                             </a>
+                        ) : (
+                            <div className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-white/5 border border-white/10 text-zinc-400 text-sm font-medium">
+                                <Lock size={16} className="text-amber-400 shrink-0" />
+                                <span>{t.privateRepoNote}</span>
+                            </div>
                         )}
                     </div>
 
                     {project.coldStartNotice && (
                         <p className="text-xs text-amber-400/90 font-mono flex items-center justify-center gap-1.5 pt-1">
                             <Clock size={13} className="shrink-0" />
-                            <span>{language === "pt" ? "Nota: Back-End no Render Free Tier (pode levar 30s–120s na primeira requisição)" : "Note: Back-End on Render Free Tier (may take 30s–120s on initial cold start)"}</span>
+                            <span>{t.coldStartCtaNote}</span>
                         </p>
                     )}
                 </motion.section>
 
-                {/* Prev / Next Project Navigation Bar */}
+                {/* 9. Prev / Next Project Navigation Bar */}
                 <nav className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-8 border-t border-white/10">
                     {prevProject ? (
                         <Link
