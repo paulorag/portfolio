@@ -16,6 +16,7 @@ test("Project Data Integrity Tests", async () => {
     const slugs = getAllProjectSlugs();
     assert.equal(slugs.includes("game-deals-radar"), true, "Slugs must include game-deals-radar");
     assert.equal(slugs.includes("room-scheduler"), true, "Slugs must include room-scheduler");
+    assert.equal(slugs.includes("orderly"), true, "Slugs must include orderly");
 
     // 3. Test getProjectBySlug
     const project = getProjectBySlug("game-deals-radar", "pt");
