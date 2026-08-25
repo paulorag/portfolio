@@ -71,14 +71,9 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
             {/* Content Section: Focus on Stack & Direct Access */}
             <div className="p-4 sm:p-5 flex flex-col justify-between flex-grow relative z-[2] gap-4">
                 <div className="space-y-1">
-                    <div className="flex items-center justify-between gap-2">
-                        <h3 className="text-base sm:text-lg font-bold text-zinc-100 group-hover:text-white transition-colors tracking-tight">
-                            {project.title}
-                        </h3>
-                        <span className="text-[11px] font-mono text-zinc-500">
-                            {project.releaseYear}
-                        </span>
-                    </div>
+                    <h3 className="text-base sm:text-lg font-bold text-zinc-100 group-hover:text-white transition-colors tracking-tight">
+                        {project.title}
+                    </h3>
 
                     {project.tagline && (
                         <p className="text-xs text-zinc-400 font-medium line-clamp-2">

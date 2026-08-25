@@ -30,12 +30,6 @@ export function ProjectListRow({ project, index }: ProjectListRowProps) {
             />
 
             <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-6 flex-grow">
-                {project.releaseYear && (
-                    <span className="text-xs font-mono text-zinc-500 min-w-[45px]">
-                        {project.releaseYear}
-                    </span>
-                )}
-
                 <div className="min-w-[200px]">
                     <h3 className="text-lg font-bold text-zinc-100 group-hover:text-white transition-colors">
                         {project.title}
