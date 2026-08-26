@@ -24,4 +24,10 @@ test("Project Data Integrity Tests", async () => {
     assert.equal(project.title, "Game Deals Radar");
     assert.ok(project.tags.length > 0, "Project should have tags");
     assert.ok(project.architecture, "Project should have architecture defined");
+
+    const roomScheduler = getProjectBySlug("room-scheduler", "pt");
+    assert.ok(roomScheduler, "Room Scheduler should be found by slug");
+    assert.equal(roomScheduler.isPrivate, false, "Room Scheduler is a public repository");
+    assert.ok(roomScheduler.coldStartNotice, "Room Scheduler should have coldStartNotice");
+    assert.equal(roomScheduler.gallery?.length, 5, "Room Scheduler should have 5 gallery images");
 });

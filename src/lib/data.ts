@@ -181,46 +181,86 @@ export const projectsData: Record<"pt" | "en", ProjectDetail[]> = {
         {
             slug: "room-scheduler",
             title: "Room Scheduler",
-            tagline: "Plataforma de gestão e aluguel de salas com controle de concorrência e RBAC",
+            tagline: "Sistema corporativo de gestão de salas com prevenção de conflitos, RBAC, auditoria JPA & iCalendar",
             description:
-                "Plataforma corporativa para aluguel e gestão de salas. Garante a integridade das reservas (prevenção de conflitos) com lógica transacional no Spring Boot e oferece controle de acesso seguro (Admin/User) via RBAC e JWT.",
+                "Plataforma corporativa Full-Stack (Java 21 / Spring Boot & Next.js 16) com prevenção matemática de double booking, segurança RBAC, auditoria JPA, exportação RFC 5545 iCalendar e analytics de ocupação.",
             overview:
-                "O Room Scheduler é um sistema full-stack corporativo projetado para empresas e espaços compartilhados que necessitam de governança rigorosa sobre salas e recursos. A plataforma elimina conflitos de agendamento através de validações atômicas e oferece controle de perfis de usuário (Admin e Usuário padrão).",
+                "O Room Scheduler é um sistema corporativo completo para gestão e agendamento de salas de reunião projetado para eliminar sobreposições de horários. Diferente de um CRUD comum, o sistema implementa uma lógica transacional stateful com algoritmo matemático de prevenção de conflitos (StartA < EndB && EndA > StartB) diretamente no banco relacional, garantindo integridade mesmo sob alta concorrência. A solução inclui segurança RBAC estrita, auditoria automática JPA, exportação de convites para calendário (.ics RFC 5545), notificações por e-mail e dashboard analítico de ocupação.",
             problem:
-                "Conflitos de agendamento em ambientes compartilhados geram atritos e perda de produtividade. Planilhas e sistemas descentralizados não garantem controle de concorrência nem auditoria de quem reservou cada espaço.",
+                "Conflitos de agendamento e sobreposição de horários (Double Booking) em empresas e coworkings geram atritos e perda de produtividade. Ferramentas descentralizadas e planilhas não oferecem validação atômica de horários, carecem de regras de SLA de cancelamento (ex: antecedência mínima de 24h), não registram trilha de auditoria e não disponibilizam métricas claras sobre a taxa de ocupação dos espaços.",
             solution:
-                "Implementação de uma API REST com Java, Spring Boot 3 e Spring Security com autenticação JWT. A lógica de reserva utiliza transações atômicas com validação de intervalos de horário no banco de dados, prevenindo conflitos mesmo com requisições concorrentes.",
+                "Engenharia de uma plataforma Web Full-Stack desacoplada. A API RESTful em Java 21 LTS e Spring Boot implementa arquitetura em camadas (Controller -> Service -> Repository) com isolamento rigoroso por DTOs, autenticação Stateless via Spring Security + JWT, controle de acesso baseado em papéis (USER vs ADMIN), auditoria JPA com @EnableJpaAuditing, versionamento Flyway com índices otimizados, serviço de e-mails assíncronos e gerador de arquivos .ics RFC 5545 (Google Calendar, Apple, Outlook). O Front-End em Next.js 16 (App Router) e React 19 oferece grade diária interativa de ocupação por sala, validação de senha em tempo real com 5 critérios de segurança, Next.js Edge Middleware para proteção de rotas, gráficos de uso e exportação CSV.",
             features: [
-                "Autenticação e autorização robusta via JWT (JSON Web Tokens)",
-                "Controle de acesso baseado em papéis (RBAC: Admin e Usuário)",
-                "Validação atômica de conflitos de horário em tempo real",
-                "Painel administrativo para cadastro e gerenciamento de salas",
-                "Interface moderna e responsiva com Next.js e Tailwind CSS",
+                "Prevenção Matemática de Conflitos (Double Booking): Bloqueio atômico de sobreposição de horários (StartA < EndB && EndA > StartB) no PostgreSQL",
+                "Segurança & RBAC Estrito: Autenticação JWT Stateless, controle de perfis (USER vs ADMIN) e proteção de rotas no Next.js Edge Middleware",
+                "Regras de Negócio & SLA de Cancelamento: Cancelamento permitido a usuários comuns apenas com 24h de antecedência e override irrestrito para Admins",
+                "Integração iCalendar (.ics RFC 5545): Exportação direta de convites padronizados para sincronização no Google Agenda, Apple Calendar e Outlook",
+                "Grade Diária Interativa de Ocupação: Visualização em linha do tempo das salas com seletor de datas e status visual em tempo real",
+                "Auditoria JPA & Lifecycle Hooks: Registro determinístico de created_at e updated_at com @EnableJpaAuditing e callbacks @PrePersist/@PreUpdate",
+                "Notificações por E-mail (JavaMailSender): Disparo automático de confirmações e cancelamentos de reservas com fallback resiliente",
+                "Validador Dinâmico de Força de Senha: Checklist interativo com 5 requisitos de segurança e feedback visual instantâneo no formulário",
+                "Painel Administrativo & Métricas de Ocupação: Indicadores de uso por sala, total de horas reservadas, gestão de usuários e exportação CSV",
+                "Documentação Interativa Swagger / OpenAPI 3: Testes de endpoints ao vivo via interface /swagger-ui.html com 25 testes no backend",
             ],
             challenges: [
                 {
-                    title: "Prevenção de Race Conditions",
+                    title: "Algoritmo de Prevenção de Conflitos & Isolamento Transacional",
                     description:
-                        "Garantir que duas requisições simultâneas para o mesmo horário e sala não resultem em agendamento duplo através de bloqueio transacional e constraints no banco.",
+                        "Implementação da validação matemática de intervalos no banco relacional com índices compostos (idx_bookings_room_time) para garantir integridade atômica e performance mesmo sob rajadas de requisições simultâneas.",
                 },
                 {
-                    title: "Segurança Granular",
+                    title: "Arquitetura RBAC & Edge Route Guards",
                     description:
-                        "Configuração de filtros do Spring Security para proteger rotas administrativas e garantir que usuários gerenciem apenas suas próprias reservas.",
+                        "Estruturação de segurança em múltiplas camadas: validação de claims e roles no Spring Security e interceptação preventiva no Edge Middleware do Next.js antes da renderização de páginas administrativas.",
+                },
+                {
+                    title: "Padrão RFC 5545 iCalendar & Compatibilidade Multiplataforma",
+                    description:
+                        "Desenvolvimento do motor de serialização de eventos de calendário no formato MIME text/calendar, assegurando compatibilidade nativa com Google Agenda, Apple e Outlook.",
                 },
             ],
-            tags: ["Java 21", "Spring Boot 3", "Spring Security", "JWT", "PostgreSQL", "Next.js"],
+            tags: ["Java 21", "Spring Boot 3", "Next.js 16", "PostgreSQL", "Spring Security", "JWT", "Swagger OpenAPI", "Flyway", "Docker", "iCalendar"],
             category: "fullstack",
             featured: true,
             image: "/projects/roomScheduler.png",
+            gallery: [
+                {
+                    title: "Grade Diária de Ocupação & Timeline",
+                    image: "/projects/roomScheduler/home.png",
+                    description: "Visualização interativa da disponibilidade das salas por horário com seletor de datas e status em tempo real.",
+                },
+                {
+                    title: "Catálogo & Gestão de Salas",
+                    image: "/projects/roomScheduler/salas.png",
+                    description: "Interface para visualização e gerenciamento de salas com capacidade, recursos disponíveis e restrições.",
+                },
+                {
+                    title: "Minhas Reservas & Exportação iCalendar",
+                    image: "/projects/roomScheduler/reservas.png",
+                    description: "Painel do usuário para acompanhar agendamentos, aplicar cancelamento dentro da regra de SLA e baixar convites .ics.",
+                },
+                {
+                    title: "Dashboard de Analytics & Métricas",
+                    image: "/projects/roomScheduler/metricas.png",
+                    description: "Indicadores em tempo real de distribuição de ocupação por sala e volume total de horas agendadas.",
+                },
+                {
+                    title: "Painel Administrativo de Usuários & RBAC",
+                    image: "/projects/roomScheduler/usuarios.png",
+                    description: "Controle de perfis (USER / ADMIN), permissões de acesso, auditoria e exportação de relatórios CSV.",
+                },
+            ],
             github: "https://github.com/paulorag/roomScheduler",
             demo: "https://room-scheduler-gold.vercel.app/",
+            isPrivate: false,
             releaseYear: "2025",
+            coldStartNotice:
+                "O Back-End desta aplicação está hospedado no plano gratuito do Render. Caso o serviço esteja em repouso (cold start), a primeira inicialização pode levar de 30 a 60 segundos para carregar os dados.",
             architecture: {
-                frontend: "Next.js, TypeScript, Tailwind CSS, React Hooks",
-                backend: "Java 21, Spring Boot 3, Spring Data JPA, Spring Security",
-                database: "PostgreSQL",
-                devops: "Docker, Vercel",
+                frontend: "Next.js 16 (App Router), React 19, TypeScript, Tailwind CSS, Edge Middleware",
+                backend: "Java 21 LTS, Spring Boot 3, Spring Security 6, JWT, JavaMailSender, Swagger OpenAPI 3, Actuator",
+                database: "PostgreSQL 15, Spring Data JPA, Hibernate, Flyway Migrations",
+                devops: "Docker, Docker Compose, GitHub Actions (CI), Vercel, JUnit 5, Mockito",
             },
         },
         {
@@ -449,46 +489,86 @@ export const projectsData: Record<"pt" | "en", ProjectDetail[]> = {
         {
             slug: "room-scheduler",
             title: "Room Scheduler",
-            tagline: "Smart room booking and management platform with concurrency control and RBAC",
+            tagline: "Enterprise space management system with conflict prevention, RBAC, JPA auditing & iCalendar",
             description:
-                "Complete enterprise platform for room rental and management. Ensures booking integrity (conflict prevention) with atomic transactions in Spring Boot and offers secure access control (Admin/User) via RBAC and JWT.",
+                "Enterprise Full-Stack platform (Java 21 / Spring Boot & Next.js 16) featuring mathematical double booking prevention, RBAC security, JPA Auditing, RFC 5545 iCalendar export, and occupancy analytics.",
             overview:
-                "Room Scheduler is an enterprise full-stack system designed for companies and coworking spaces requiring seamless room reservation management. It provides secure authentication, distinct user permission tiers, and strict business logic to eliminate overlapping bookings.",
+                "Room Scheduler is a complete enterprise solution engineered for corporate space and meeting room scheduling designed to prevent booking overlaps. Unlike standard CRUD applications, the system implements stateful transactional scheduling logic with a mathematical conflict prevention algorithm (StartA < EndB && EndA > StartB) executed directly in PostgreSQL, ensuring atomic integrity under concurrent booking attempts. Features strict RBAC security, automatic JPA auditing, iCalendar (.ics RFC 5545) invitations, asynchronous email notifications, and an occupancy analytics dashboard.",
             problem:
-                "Scheduling conflicts in shared workspaces cause friction and lost productivity. Spreadsheets and decentralized tools fail to enforce concurrency control or accountability.",
+                "Meeting room scheduling overlaps and double bookings in corporate and coworking environments lead to lost productivity and friction. Spreadsheets and decentralized tools lack atomic conflict prevention, fail to enforce cancellation SLAs (e.g. minimum 24-hour advance notice), lack auditing trails, and provide zero visibility into room utilization metrics.",
             solution:
-                "Built a RESTful API with Java 21, Spring Boot 3, and Spring Security using JWT authentication. Booking logic leverages atomic database transactions to validate timeslot boundaries and prevent overlaps under high concurrency.",
+                "Engineered a decoupled Full-Stack Web Platform. The RESTful API in Java 21 LTS and Spring Boot leverages layered architecture (Controller -> Service -> Repository) with strict DTO isolation, Stateless Spring Security + JWT authentication, Role-Based Access Control (USER vs ADMIN), JPA Auditing via @EnableJpaAuditing, Flyway database migrations with performance indexes, asynchronous email delivery, and an RFC 5545 .ics calendar generator compatible with Google Calendar, Apple Calendar, and Outlook. The Next.js 16 / React 19 Front-End features an interactive daily timeline grid, 5-point real-time password strength validation, Next.js Edge Middleware route guards, utilization analytics, and CSV report export.",
             features: [
-                "Authentication and authorization via JWT (JSON Web Tokens)",
-                "Role-Based Access Control (RBAC: Admin and Standard User)",
-                "Real-time atomic booking overlap validation",
-                "Admin dashboard for room and inventory management",
-                "Modern Next.js interface with clear visual feedback",
+                "Mathematical Double Booking Prevention: Atomic overlapping validation (StartA < EndB && EndA > StartB) executed at database level in PostgreSQL",
+                "Strict RBAC & Security: Stateless JWT authentication, role tiers (USER vs ADMIN), and Next.js Edge Middleware server-side route guards",
+                "Business Logic & 24-Hour SLA: Standard users can only cancel bookings with at least 24h notice, with unrestricted override for Admins",
+                "iCalendar Integration (.ics RFC 5545): 1-click export of RFC-compliant meeting invitations for Google Calendar, Apple, and Outlook",
+                "Interactive Daily Timeline Grid: Visual room availability grid with live date filtering and real-time occupancy status indicators",
+                "JPA Auditing & Lifecycle Hooks: Automatic created_at and updated_at tracking via @EnableJpaAuditing and @PrePersist/@PreUpdate callbacks",
+                "Asynchronous Email Notifications: Automated booking confirmation and cancellation emails via JavaMailSender with fallback logging",
+                "Real-Time Password Strength Engine: Interactive 5-rule security checklist providing instant visual feedback on registration forms",
+                "Admin Dashboard & Occupancy Metrics: Real-time charts showing utilization share by room, cumulative meeting hours, user roles, and CSV export",
+                "Interactive Swagger OpenAPI 3 Docs: Live API testing interface available at /swagger-ui.html with 25 automated backend tests",
             ],
             challenges: [
                 {
-                    title: "Race Condition Prevention",
+                    title: "Conflict Prevention Algorithm & Transactional Integrity",
                     description:
-                        "Guaranteeing that concurrent booking requests for the same room and timeslot never cause double-booking through database constraints and transactional locks.",
+                        "Engineered database-level interval validation with composite indexes (idx_bookings_room_time) ensuring atomic integrity and zero race conditions under concurrent reservation spikes.",
                 },
                 {
-                    title: "Granular Security Rules",
+                    title: "Layered RBAC Security & Edge Route Guards",
                     description:
-                        "Configuring Spring Security filter chains to safeguard administrative routes while enabling users to manage only their own reservations.",
+                        "Structured multi-tier access control: claims and roles verification in Spring Security paired with predictive interception in Next.js Edge Middleware before rendering protected admin views.",
+                },
+                {
+                    title: "RFC 5545 iCalendar Standard & Cross-Platform Sync",
+                    description:
+                        "Developed a compliant MIME text/calendar serialization engine ensuring universal compatibility across Google Calendar, Apple Calendar, and Microsoft Outlook.",
                 },
             ],
-            tags: ["Java 21", "Spring Boot 3", "Spring Security", "JWT", "PostgreSQL", "Next.js"],
+            tags: ["Java 21", "Spring Boot 3", "Next.js 16", "PostgreSQL", "Spring Security", "JWT", "Swagger OpenAPI", "Flyway", "Docker", "iCalendar"],
             category: "fullstack",
             featured: true,
             image: "/projects/roomScheduler.png",
+            gallery: [
+                {
+                    title: "Daily Timeline Grid & Room Availability",
+                    image: "/projects/roomScheduler/home.png",
+                    description: "Interactive timeline showing real-time room availability by hour with date filtering.",
+                },
+                {
+                    title: "Room Catalog & Space Management",
+                    image: "/projects/roomScheduler/salas.png",
+                    description: "Catalog and administration interface for meeting rooms with capacity, amenities, and restrictions.",
+                },
+                {
+                    title: "My Bookings & iCalendar Export",
+                    image: "/projects/roomScheduler/reservas.png",
+                    description: "User dashboard to track reservations, manage SLA-compliant cancellations, and download .ics calendar invites.",
+                },
+                {
+                    title: "Analytics & Utilization Dashboard",
+                    image: "/projects/roomScheduler/metricas.png",
+                    description: "Real-time metrics and charts displaying room occupancy distribution and total booked hours.",
+                },
+                {
+                    title: "User Administration & RBAC Management",
+                    image: "/projects/roomScheduler/usuarios.png",
+                    description: "Role management (USER / ADMIN), permission enforcement, auditing, and one-click CSV report exports.",
+                },
+            ],
             github: "https://github.com/paulorag/roomScheduler",
             demo: "https://room-scheduler-gold.vercel.app/",
+            isPrivate: false,
             releaseYear: "2025",
+            coldStartNotice:
+                "The Back-End for this application is hosted on Render's free tier. If the service is currently sleeping (cold start), the initial request may take between 30 and 60 seconds to respond.",
             architecture: {
-                frontend: "Next.js, TypeScript, Tailwind CSS, React Hooks",
-                backend: "Java 21, Spring Boot 3, Spring Data JPA, Spring Security",
-                database: "PostgreSQL",
-                devops: "Docker, Vercel",
+                frontend: "Next.js 16 (App Router), React 19, TypeScript, Tailwind CSS, Edge Middleware",
+                backend: "Java 21 LTS, Spring Boot 3, Spring Security 6, JWT, JavaMailSender, Swagger OpenAPI 3, Actuator",
+                database: "PostgreSQL 15, Spring Data JPA, Hibernate, Flyway Migrations",
+                devops: "Docker, Docker Compose, GitHub Actions (CI), Vercel, JUnit 5, Mockito",
             },
         },
         {
