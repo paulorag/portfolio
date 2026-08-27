@@ -265,47 +265,87 @@ export const projectsData: Record<"pt" | "en", ProjectDetail[]> = {
         },
         {
             slug: "autoflex-planejamento-producao",
-            title: "Autoflex - Planejamento de Produção",
-            tagline: "Sistema de manufatura industrial com algoritmo de capacidade produtiva e testes E2E",
+            title: "Autoflex PCP",
+            tagline: "Sistema de Planejamento e Controle da Produção com algoritmo guloso de otimização, baixa atômica e rastreabilidade",
             description:
-                "Sistema Full Stack para gerenciamento de recursos fabris e planejamento de linha de produção. Conta com algoritmo automatizado para cálculo de capacidade produtiva baseado em estoque (relações N:N) e arquitetura validada por testes E2E (Cypress).",
+                "Sistema Full-Stack de PCP/MRP industrial (Java 21 / Spring Boot 3.4 & React 19 / TypeScript). Maximiza o faturamento da fábrica através de um algoritmo guloso de otimização sobre matérias-primas e fichas técnicas (BOM), com baixa atômica no estoque físico e histórico de ordens.",
             overview:
-                "O Autoflex é um sistema industrial desenvolvido para auxiliar gestores de manufatura a planejarem sua produção com base na disponibilidade real de insumos. O sistema calcula automaticamente a quantidade máxima de itens prontos que podem ser fabricados a partir das matérias-primas em estoque.",
+                "O Autoflex PCP é uma solução Full-Stack moderna de Planejamento e Controle da Produção (PCP / MRP) desenvolvida para ambientes industriais e linhas de manufatura. O sistema gerencia o estoque de matérias-primas e o catálogo de produtos com fichas técnicas de múltiplos ingredientes (BOM em relacionamentos N:N). Seu motor de planejamento aplica um algoritmo guloso de otimização que avalia o estoque em tempo real e calcula o melhor mix produtivo para maximizar o faturamento financeiro da fábrica. Ao disparar a fabricação, o sistema realiza a baixa atômica (@Transactional) nas matérias-primas e gera uma ordem de produção com rastreabilidade completa.",
             problem:
-                "Linhas de produção frequentemente sofrem paralisações por falta de insumos específicos ou erros de cálculo em fórmulas de produtos com dezenas de matérias-primas compartilhadas.",
+                "Fábricas e linhas de montagem sofrem frequentemente com paralisações inesperadas devido à falta de insumos específicos ou erros humanos no cálculo de fórmulas de produtos compartilhadas. Além disso, decidir manualmente quais produtos fabricar primeiro para maximizar a receita sem gerar sobras ociosas de matéria-prima é um processo lento, propenso a falhas e sem histórico auditável de ordens.",
             solution:
-                "Criação de um algoritmo em Spring Boot que processa grafos de relacionamento N:N entre produtos e insumos, identificando o 'fator limitante' do estoque. A confiabilidade do sistema é garantida por uma suíte completa de testes automatizados E2E com Cypress.",
+                "Engenharia de uma arquitetura limpa em camadas (Clean Layered Architecture). A API RESTful em Java 21 LTS e Spring Boot 3.4.3 conta com isolamento estrito por Records DTO imutáveis, validação Jakarta Bean Validation (@Valid), migrações versionadas com Flyway (V1 a V4), consultas otimizadas (@EntityGraph anti-N+1), documentação viva OpenAPI 3/Swagger UI e cobertura de 37 testes automatizados (JUnit 5 + Mockito + MockMvc). O Front-End construído em React 19, TypeScript 5.9 e Vite possui dashboard com KPIs industriais, barras visuais de nível de estoque, formulários com proteção anti-duplicidade em receitas e testes E2E automatizados com Cypress.",
             features: [
-                "Cálculo automatizado de capacidade produtiva por matéria-prima",
-                "Gestão de estoque de insumos e catálogo de produtos finais",
-                "Mapeamento de relações N:N entre insumos e produtos",
-                "Suíte de testes de ponta a ponta (E2E) com Cypress",
-                "Ambiente dockerizado para fácil execução e deploy",
+                "Algoritmo Guloso de Otimização Produtiva: Calcula o mix ideal de fabricação priorizando itens de maior valor agregado para maximizar a receita",
+                "Fichas Técnicas de Produtos (BOM N:N): Gestão dinâmica de receitas com múltiplos insumos e bloqueio em tempo real contra ingredientes duplicados",
+                "Controle de Estoque & Alertas de Nível Crítico: Monitoramento com barras de progresso visual e integridade referencial impedindo exclusão de insumos vinculados",
+                "Efetivação Atômica de Produção (@Transactional): Débito automático e seguro no estoque físico de matérias-primas ao confirmar ordens de produção",
+                "Rastreabilidade & Histórico de Ordens: Linha do tempo auditável de todas as fabricações executadas com accordion detalhando quantidades e subtotais",
+                "Painel de KPIs Industriais (Dashboard): Métricas em tempo real de Faturamento Projetado, Saúde do Estoque, Itens Ativos e Ordens Concluídas",
+                "Documentação Interativa Swagger / OpenAPI 3: Endpoints REST documentados e testáveis ao vivo através da interface /swagger-ui.html",
+                "Suíte Completa de Qualidade (37 Testes + E2E): Testes unitários/integração no backend (JUnit 5, Mockito) e testes ponta a ponta com Cypress",
+                "Ambiente Dockerizado & Multi-Container: Orquestração completa via docker compose (PostgreSQL 16 + Spring Boot + React/Nginx)",
+                "Pipeline Automatizado de CI/CD: Validação contínua de builds e suítes de testes no GitHub Actions a cada push",
             ],
             challenges: [
                 {
-                    title: "Complexidade Algorítmica",
+                    title: "Algoritmo de Alocação Gulosa & Análise de Gargalos",
                     description:
-                        "Otimização do cálculo de dependência de múltiplos insumos para recalcular projeções de estoque sem degradação de desempenho.",
+                        "Construção de um algoritmo em Spring Boot capaz de avaliar grafos de relacionamento N:N entre produtos e insumos em estoque, ordenando produtos por maior margem de receita e alocando matérias-primas sem divisão por zero ou estoque negativo.",
                 },
                 {
-                    title: "Cobertura de Testes E2E",
+                    title: "Integridade Transacional & Baixa Atômica de Insumos",
                     description:
-                        "Criação de cenários de teste automatizados em Cypress que simulam fluxos complexos de entrada de insumos e ordens de fabricação.",
+                        "Garantia de que a efetivação de uma ordem de produção execute a dedução exata de cada componente do estoque em uma transação atômica (@Transactional), impedindo inconsistências físicas e financeiras.",
+                },
+                {
+                    title: "Otimização de Consultas JPA & Prevenção de N+1",
+                    description:
+                        "Uso de anotações @EntityGraph e DTO projection para carregar relacionamentos complexos de receitas (Product <-> ProductRawMaterial <-> RawMaterial) com mínimo consumo de memória e I/O de banco.",
                 },
             ],
-            tags: ["React", "Spring Boot", "Docker", "PostgreSQL", "Cypress"],
+            tags: ["Java 21", "Spring Boot 3", "React 19", "TypeScript", "PostgreSQL", "Flyway", "Docker", "Swagger OpenAPI", "Cypress", "MRP/PCP"],
             category: "fullstack",
             featured: false,
             image: "/projects/autoflex.png",
-            github: "https://github.com/paulorag/autoflex-test",
-            demo: "https://autoflex-test.vercel.app/",
+            gallery: [
+                {
+                    title: "Painel Geral de PCP (Dashboard)",
+                    image: "/projects/autoflex-pcp/home.png",
+                    description: "Resumo industrial com KPIs de faturamento projetado, saúde de estoque, sugestão de produção em 1 clique e ordens recentes.",
+                },
+                {
+                    title: "Controle de Estoque de Matérias-Primas",
+                    image: "/projects/autoflex-pcp/materia-prima.png",
+                    description: "Gestão completa de insumos com busca instantânea, indicadores visuais de nível de estoque e proteção de integridade referencial.",
+                },
+                {
+                    title: "Catálogo de Produtos & Fichas Técnicas (BOM)",
+                    image: "/projects/autoflex-pcp/produtos.png",
+                    description: "Cadastro de receitas com múltiplos ingredientes (N:N), validação anti-duplicidade e chips de composição.",
+                },
+                {
+                    title: "Planejamento Otimizado de Produção",
+                    image: "/projects/autoflex-pcp/planejamento.png",
+                    description: "Execução do algoritmo guloso que maximiza a receita com base no estoque disponível e botão de efetivação atômica.",
+                },
+                {
+                    title: "Histórico & Rastreabilidade de Ordens",
+                    image: "/projects/autoflex-pcp/historico-orders.png",
+                    description: "Linha do tempo auditável de todas as produções realizadas na fábrica com detalhamento de insumos e valores.",
+                },
+            ],
+            github: "https://github.com/paulorag/autoflex-pcp",
+            demo: "https://autoflex-pcp.vercel.app/",
+            isPrivate: false,
             releaseYear: "2026",
+            coldStartNotice:
+                "O Back-End desta aplicação está hospedado no plano gratuito do Render. Caso o serviço esteja em repouso (cold start), a primeira inicialização pode levar de 30 a 50 segundos para carregar os dados.",
             architecture: {
-                frontend: "React, TypeScript, CSS Modules",
-                backend: "Java, Spring Boot, Spring Data JPA",
-                database: "PostgreSQL",
-                devops: "Docker, Cypress, Vercel",
+                frontend: "React 19, TypeScript 5.9, Vite, Bootstrap 5, Axios, Lucide Icons, Cypress E2E",
+                backend: "Java 21 LTS, Spring Boot 3.4.3, Spring Data JPA, Jakarta Validation, Swagger OpenAPI 3, Actuator",
+                database: "PostgreSQL 16, Spring Data JPA, Hibernate, Flyway Migrations (V1..V4)",
+                devops: "Docker, Docker Compose, Nginx Alpine, GitHub Actions (CI), JUnit 5, Mockito, MockMvc, Vercel",
             },
         },
     ],
@@ -573,47 +613,87 @@ export const projectsData: Record<"pt" | "en", ProjectDetail[]> = {
         },
         {
             slug: "autoflex-planejamento-producao",
-            title: "Autoflex - Production Planning",
-            tagline: "Manufacturing resource management system with automated capacity algorithms & E2E tests",
+            title: "Autoflex PCP",
+            tagline: "Industrial Production Planning & Control System with greedy optimization, atomic stock deduction & traceability",
             description:
-                "Full Stack system for manufacturing resource management and production line planning. Features an automated algorithm to calculate production capacity based on current stock (N:N relationships) and an architecture validated by E2E tests (Cypress).",
+                "Full-Stack industrial PCP/MRP platform (Java 21 / Spring Boot 3.4 & React 19 / TypeScript). Maximizes factory revenue through a greedy optimization algorithm over raw material inventories and Bill of Materials (BOM), with atomic stock deductions and order auditing.",
             overview:
-                "Autoflex is an industrial web system engineered to help plant managers plan production runs based on real inventory availability. It automatically computes the maximum possible batch size for finished products according to raw material stock.",
+                "Autoflex PCP is a modern Full-Stack Production Planning and Control (PCP / MRP) solution engineered for manufacturing plants and assembly lines. The platform manages raw material stock and product catalogs with multi-ingredient Bill of Materials (BOM in N:N relationships). Its planning engine applies a greedy optimization algorithm that evaluates inventory levels in real-time and computes the optimal production mix to maximize overall sales revenue. When executing a production run, the system automatically performs an atomic deduction (@Transactional) from raw material stock and logs a traceable production order.",
             problem:
-                "Factory production lines frequently stall due to unexpected stockouts or human calculation errors in multi-ingredient bills of materials.",
+                "Manufacturing facilities and assembly lines frequently face unplanned downtime due to material stockouts or human calculation errors in shared ingredient formulas. Furthermore, deciding manually which products to prioritize to maximize revenue without stranding idle inventory is a slow, error-prone process that lacks audit trails.",
             solution:
-                "Created an algorithmic engine in Spring Boot evaluating N:N relational graphs between products and raw ingredients. Complete end-to-end reliability is guaranteed with automated Cypress E2E test suites.",
+                "Engineered a Clean Layered Architecture. The Java 21 LTS and Spring Boot 3.4.3 RESTful API implements strict immutable Record DTO isolation, Jakarta Bean Validation (@Valid), Flyway versioned migrations (V1 to V4), optimized queries (@EntityGraph preventing N+1 queries), interactive OpenAPI 3/Swagger UI documentation, and 37 automated tests (JUnit 5 + Mockito + MockMvc). The Front-End built with React 19, TypeScript 5.9, and Vite features industrial KPI cards, visual inventory health indicators, recipe validation preventing duplicate components, and automated Cypress E2E tests.",
             features: [
-                "Automated production capacity calculation based on bottleneck stock",
-                "Raw materials inventory & finished product catalog management",
-                "N:N relational mapping between ingredients and products",
-                "Comprehensive end-to-end (E2E) test suite with Cypress",
-                "Dockerized environment for effortless deployment and execution",
+                "Greedy Production Planning Algorithm: Computes the optimal manufacturing mix prioritizing high-value products to maximize revenue",
+                "Product Bill of Materials (BOM N:N): Dynamic multi-ingredient recipe management with real-time prevention of duplicate components",
+                "Raw Materials Inventory & Low-Stock Alerts: Visual stock progress meters with referential integrity protection preventing deletion of active ingredients",
+                "Atomic Production Execution (@Transactional): Immediate and safe physical stock deduction upon executing suggested production runs",
+                "Production Orders History & Traceability: Comprehensive audit trail of all completed manufacturing batches with expandable cost breakdowns",
+                "Industrial PCP Dashboard: Real-time KPIs showing Projected Revenue, Stock Health, Catalog Items, and Total Completed Orders",
+                "Interactive Swagger / OpenAPI 3 Documentation: Live REST API testing interface available at /swagger-ui.html",
+                "Comprehensive Test Suite (37 Tests + E2E): Unit/integration testing in backend (JUnit 5, Mockito) and automated end-to-end testing with Cypress",
+                "Dockerized Multi-Container Environment: Full containerized stack via docker compose (PostgreSQL 16 + Spring Boot + React/Nginx)",
+                "Automated CI/CD Pipeline: Continuous integration on GitHub Actions validating builds and test suites on every pull request",
             ],
             challenges: [
                 {
-                    title: "Algorithmic Efficiency",
+                    title: "Greedy Allocation Algorithm & Bottleneck Analysis",
                     description:
-                        "Optimizing multi-ingredient dependency calculations to recompute stock projections instantly without degrading server response times.",
+                        "Designed a Spring Boot algorithm evaluating N:N relational graphs between products and available stock, ranking items by sales price and greedily allocating bottleneck ingredients without division-by-zero or negative inventories.",
                 },
                 {
-                    title: "E2E Test Suite Automation",
+                    title: "Transactional Integrity & Atomic Stock Deduction",
                     description:
-                        "Building automated Cypress test scenarios simulating complex warehouse workflows and manufacturing orders.",
+                        "Ensured production batch executions perform atomic stock deductions across all recipe ingredients within a single @Transactional boundary, preventing stock discrepancies.",
+                },
+                {
+                    title: "JPA Query Optimization & N+1 Prevention",
+                    description:
+                        "Leveraged @EntityGraph annotations and record projection to fetch complex nested recipe structures (Product <-> ProductRawMaterial <-> RawMaterial) with minimal query overhead.",
                 },
             ],
-            tags: ["React", "Spring Boot", "Docker", "PostgreSQL", "Cypress"],
+            tags: ["Java 21", "Spring Boot 3", "React 19", "TypeScript", "PostgreSQL", "Flyway", "Docker", "Swagger OpenAPI", "Cypress", "MRP/PCP"],
             category: "fullstack",
             featured: false,
             image: "/projects/autoflex.png",
-            github: "https://github.com/paulorag/autoflex-test",
-            demo: "https://autoflex-test.vercel.app/",
+            gallery: [
+                {
+                    title: "Industrial PCP Dashboard",
+                    image: "/projects/autoflex-pcp/home.png",
+                    description: "Industrial overview with projected revenue KPIs, stock health progress bars, 1-click production execution, and recent orders.",
+                },
+                {
+                    title: "Raw Materials Inventory Management",
+                    image: "/projects/autoflex-pcp/materia-prima.png",
+                    description: "Full stock management with instant search, visual volume meters, and active ingredient referential integrity protection.",
+                },
+                {
+                    title: "Product Catalog & Bill of Materials (BOM)",
+                    image: "/projects/autoflex-pcp/produtos.png",
+                    description: "Multi-ingredient recipe configuration (N:N), duplicate ingredient prevention, and composition chips.",
+                },
+                {
+                    title: "Optimized Production Planning",
+                    image: "/projects/autoflex-pcp/planejamento.png",
+                    description: "Real-time greedy optimization algorithm prioritizing high-revenue products with atomic execution trigger.",
+                },
+                {
+                    title: "Production Orders History & Traceability",
+                    image: "/projects/autoflex-pcp/historico-orders.png",
+                    description: "Auditable manufacturing timeline detailing manufactured quantities, unit values, and subtotals.",
+                },
+            ],
+            github: "https://github.com/paulorag/autoflex-pcp",
+            demo: "https://autoflex-pcp.vercel.app/",
+            isPrivate: false,
             releaseYear: "2026",
+            coldStartNotice:
+                "The Back-End for this application is hosted on Render's free tier. If the service is currently sleeping (cold start), the initial request may take between 30 and 50 seconds to respond.",
             architecture: {
-                frontend: "React, TypeScript, CSS Modules",
-                backend: "Java, Spring Boot, Spring Data JPA",
-                database: "PostgreSQL",
-                devops: "Docker, Cypress, Vercel",
+                frontend: "React 19, TypeScript 5.9, Vite, Bootstrap 5, Axios, Lucide Icons, Cypress E2E",
+                backend: "Java 21 LTS, Spring Boot 3.4.3, Spring Data JPA, Jakarta Validation, Swagger OpenAPI 3, Actuator",
+                database: "PostgreSQL 16, Spring Data JPA, Hibernate, Flyway Migrations (V1..V4)",
+                devops: "Docker, Docker Compose, Nginx Alpine, GitHub Actions (CI), JUnit 5, Mockito, MockMvc, Vercel",
             },
         },
     ],

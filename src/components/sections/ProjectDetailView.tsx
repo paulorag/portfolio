@@ -1,9 +1,9 @@
 "use client";
 
-import { useMemo, useEffect } from "react";
+import { useMemo, useEffect, useState, useCallback } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import {
     ArrowLeft,
     ExternalLink,
@@ -21,6 +21,10 @@ import {
     Clock,
     LayoutGrid,
     Flame,
+    Maximize2,
+    X,
+    ChevronLeft,
+    ChevronRight,
 } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 import { projectsData } from "@/lib/data";
@@ -40,9 +44,45 @@ export function ProjectDetailView({ slug }: ProjectDetailViewProps) {
     const nextProject =
         projectIndex < projectList.length - 1 ? projectList[projectIndex + 1] : null;
 
+    // Lightbox modal state
+    const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+
     useEffect(() => {
         window.scrollTo(0, 0);
     }, [slug]);
+
+    // Keyboard navigation for lightbox
+    const handleKeyDown = useCallback(
+        (e: KeyboardEvent) => {
+            if (lightboxIndex === null || !project.gallery) return;
+
+            if (e.key === "Escape") {
+                setLightboxIndex(null);
+            } else if (e.key === "ArrowLeft") {
+                setLightboxIndex((prev) =>
+                    prev !== null && prev > 0 ? prev - 1 : project.gallery!.length - 1
+                );
+            } else if (e.key === "ArrowRight") {
+                setLightboxIndex((prev) =>
+                    prev !== null && prev < project.gallery!.length - 1 ? prev + 1 : 0
+                );
+            }
+        },
+        [lightboxIndex, project.gallery]
+    );
+
+    useEffect(() => {
+        if (lightboxIndex !== null) {
+            document.body.style.overflow = "hidden";
+            window.addEventListener("keydown", handleKeyDown);
+        } else {
+            document.body.style.overflow = "";
+        }
+        return () => {
+            document.body.style.overflow = "";
+            window.removeEventListener("keydown", handleKeyDown);
+        };
+    }, [lightboxIndex, handleKeyDown]);
 
     const t = useMemo(() => {
         if (language === "en") {
@@ -60,7 +100,7 @@ export function ProjectDetailView({ slug }: ProjectDetailViewProps) {
                 architectureTitle: "System Architecture & Stack Blueprint",
                 galleryTitle: "Interface & Screen Showcase",
                 gallerySubtitle:
-                    "Explore the complete user journey: customer catalog, Kitchen Display System (KDS), analytics dashboard, and mobile-first backoffice.",
+                    "Explore the complete system interface, workflows, real-time dashboards, and data architecture.",
                 challengesTitle: "Technical Challenges & Engineering Decisions",
                 frontend: "Frontend & UI",
                 backend: "Backend & Business Logic",
@@ -75,6 +115,8 @@ export function ProjectDetailView({ slug }: ProjectDetailViewProps) {
                 coldStartTitle: "Server Cold Start Notice",
                 coldStartBadge: "Cold Start: 30s – 120s",
                 coldStartCtaNote: "Note: Back-End on Render Free Tier (may take 30s–120s on initial cold start)",
+                expandImage: "Expand Screen",
+                clickToEnlarge: "Click to inspect in fullscreen",
             };
         }
         return {
@@ -91,7 +133,7 @@ export function ProjectDetailView({ slug }: ProjectDetailViewProps) {
             architectureTitle: "Blueprint de Arquitetura & Stack Técnica",
             galleryTitle: "Galeria de Telas & Fluxos do Sistema",
             gallerySubtitle:
-                "Explore a jornada completa da aplicação: cardápio do cliente, esteira de comandas da cozinha (KDS), dashboard de analytics e painel administrativo mobile-first.",
+                "Explore as telas completas da aplicação, fluxos operacionais, dashboards em tempo real e painéis administrativos.",
             challengesTitle: "Desafios de Engenharia & Decisões Técnicas",
             frontend: "Interface / Frontend",
             backend: "Back-End & Regras de Negócio",
@@ -106,6 +148,8 @@ export function ProjectDetailView({ slug }: ProjectDetailViewProps) {
             coldStartTitle: "Aviso de Inicialização (Cold Start)",
             coldStartBadge: "Cold Start: 30s – 120s",
             coldStartCtaNote: "Nota: Back-End no Render Free Tier (pode levar 30s–120s na primeira requisição)",
+            expandImage: "Expandir Tela",
+            clickToEnlarge: "Clique para inspecionar em tela cheia",
         };
     }, [language, project.isPrivate]);
 
@@ -248,22 +292,57 @@ export function ProjectDetailView({ slug }: ProjectDetailViewProps) {
                     )}
                 </motion.header>
 
-                {/* 2. Main Hero Image Screen */}
+                {/* 2. Main Hero Image Screen with Browser Frame Mockup */}
                 <motion.div
                     initial={{ opacity: 0, scale: 0.98 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.5, delay: 0.2 }}
-                    className="relative w-full h-64 sm:h-96 md:h-[480px] rounded-2xl overflow-hidden border border-white/10 bg-[#181a24] shadow-2xl mb-16"
+                    className="group rounded-2xl overflow-hidden border border-white/10 bg-[#151722] shadow-2xl mb-16"
                 >
-                    <Image
-                        src={project.image}
-                        alt={project.title}
-                        fill
-                        className="object-cover object-top"
-                        sizes="(max-width: 1024px) 100vw, 1024px"
-                        priority
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#12131a]/80 via-transparent to-transparent pointer-events-none" />
+                    {/* Window Header Bar */}
+                    <div className="px-4 py-3 bg-[#181a24] border-b border-white/10 flex items-center justify-between gap-4">
+                        <div className="flex items-center gap-2">
+                            <span className="w-3 h-3 rounded-full bg-white/10 border border-white/10" />
+                            <span className="w-3 h-3 rounded-full bg-white/10 border border-white/10" />
+                            <span className="w-3 h-3 rounded-full bg-white/10 border border-white/10" />
+                        </div>
+                        {project.gallery && project.gallery.length > 0 ? (
+                            <button
+                                type="button"
+                                onClick={() => setLightboxIndex(0)}
+                                className="flex items-center gap-1.5 text-xs text-zinc-400 hover:text-white transition-colors px-2.5 py-1 rounded-md bg-white/5 hover:bg-white/10 cursor-pointer"
+                                aria-label={t.expandImage}
+                            >
+                                <Maximize2 size={13} />
+                                <span className="hidden sm:inline">{t.expandImage}</span>
+                            </button>
+                        ) : null}
+                    </div>
+
+                    {/* Responsive Canvas with no cropping / zoom cut-off */}
+                    <div
+                        onClick={() => project.gallery && project.gallery.length > 0 && setLightboxIndex(0)}
+                        className="relative w-full aspect-[16/9] sm:aspect-[16/8] min-h-[260px] max-h-[520px] bg-[#0c0d14] flex items-center justify-center p-2 sm:p-4 cursor-pointer"
+                    >
+                        <div className="relative w-full h-full">
+                            <Image
+                                src={project.image}
+                                alt={project.title}
+                                fill
+                                className="object-contain object-center rounded-lg transition-transform duration-500 group-hover:scale-[1.01]"
+                                sizes="(max-width: 1024px) 100vw, 1024px"
+                                priority
+                            />
+                        </div>
+
+                        {/* Subtle hover overlay hint */}
+                        <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-center justify-center pointer-events-none">
+                            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-black/80 border border-white/20 text-white text-xs font-semibold shadow-2xl backdrop-blur-md">
+                                <Maximize2 size={14} className="text-emerald-400" />
+                                {t.clickToEnlarge}
+                            </span>
+                        </div>
+                    </div>
                 </motion.div>
 
                 {/* 3. Challenge vs. Solution (Split 2-Columns Side-by-Side) */}
@@ -328,18 +407,30 @@ export function ProjectDetailView({ slug }: ProjectDetailViewProps) {
                             {project.gallery.map((item, idx) => (
                                 <div
                                     key={idx}
-                                    className="group rounded-2xl bg-[#181a24]/90 border border-white/10 overflow-hidden hover:border-white/20 transition-all duration-300 flex flex-col"
+                                    onClick={() => setLightboxIndex(idx)}
+                                    className="group rounded-2xl bg-[#181a24]/90 border border-white/10 overflow-hidden hover:border-white/25 transition-all duration-300 flex flex-col cursor-pointer shadow-lg hover:shadow-2xl"
                                 >
-                                    <div className="relative w-full h-56 sm:h-64 md:h-72 bg-[#12131a] overflow-hidden border-b border-white/10">
-                                        <Image
-                                            src={item.image}
-                                            alt={item.title}
-                                            fill
-                                            className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
-                                            sizes="(max-width: 768px) 100vw, 50vw"
-                                        />
-                                        <div className="absolute inset-0 bg-gradient-to-t from-[#181a24]/80 via-transparent to-transparent opacity-30 group-hover:opacity-10 transition-opacity pointer-events-none" />
+                                    {/* Screen Canvas: aspect-ratio with object-contain so full UI is visible */}
+                                    <div className="relative w-full aspect-[16/9] sm:aspect-[16/10] bg-[#0c0d14] p-2.5 sm:p-3.5 flex items-center justify-center overflow-hidden border-b border-white/10">
+                                        <div className="relative w-full h-full">
+                                            <Image
+                                                src={item.image}
+                                                alt={item.title}
+                                                fill
+                                                className="object-contain object-center rounded-md transition-transform duration-500 group-hover:scale-[1.02]"
+                                                sizes="(max-width: 768px) 100vw, 50vw"
+                                            />
+                                        </div>
+
+                                        {/* Hover Zoom Prompt */}
+                                        <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-center justify-center pointer-events-none">
+                                            <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-black/80 border border-white/20 text-white text-xs font-semibold shadow-xl backdrop-blur-sm">
+                                                <Maximize2 size={13} className="text-emerald-400" />
+                                                {t.expandImage}
+                                            </span>
+                                        </div>
                                     </div>
+
                                     <div className="p-5 sm:p-6 space-y-2 flex-1 flex flex-col justify-between">
                                         <h3 className="text-base sm:text-lg font-bold text-white group-hover:text-zinc-100 transition-colors flex items-center gap-2">
                                             <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 shrink-0" />
@@ -596,6 +687,115 @@ export function ProjectDetailView({ slug }: ProjectDetailViewProps) {
                     ) : <div />}
                 </nav>
             </div>
+
+            {/* 10. Fullscreen Interactive Lightbox Modal */}
+            <AnimatePresence>
+                {lightboxIndex !== null && project.gallery && project.gallery[lightboxIndex] && (
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 0.2 }}
+                        className="fixed inset-0 z-50 bg-black/95 backdrop-blur-xl flex flex-col justify-between p-3 sm:p-6"
+                        onClick={() => setLightboxIndex(null)}
+                    >
+                        {/* Lightbox Top Header Bar */}
+                        <div
+                            className="flex items-center justify-between gap-4 w-full max-w-6xl mx-auto z-10"
+                            onClick={(e) => e.stopPropagation()}
+                        >
+                            <div className="space-y-0.5">
+                                <h3 className="text-sm sm:text-base font-bold text-white flex items-center gap-2">
+                                    <span className="w-2 h-2 rounded-full bg-emerald-400 shrink-0" />
+                                    <span>{project.gallery[lightboxIndex].title}</span>
+                                </h3>
+                                <span className="text-xs font-mono text-zinc-400">
+                                    {lightboxIndex + 1} / {project.gallery.length}
+                                </span>
+                            </div>
+
+                            <div className="flex items-center gap-2">
+                                <button
+                                    type="button"
+                                    onClick={() => setLightboxIndex(null)}
+                                    className="p-2.5 rounded-xl bg-white/10 hover:bg-white/20 border border-white/15 text-white transition-all active:scale-95 shadow-lg cursor-pointer"
+                                    aria-label="Fechar"
+                                >
+                                    <X size={20} />
+                                </button>
+                            </div>
+                        </div>
+
+                        {/* Lightbox Center Image Stage with Next/Prev Controls */}
+                        <div
+                            className="relative flex-1 w-full max-w-6xl mx-auto flex items-center justify-center my-3"
+                            onClick={(e) => e.stopPropagation()}
+                        >
+                            {/* Previous Button */}
+                            {project.gallery.length > 1 && (
+                                <button
+                                    type="button"
+                                    onClick={(e) => {
+                                        e.stopPropagation();
+                                        setLightboxIndex((prev) =>
+                                            prev !== null && prev > 0
+                                                ? prev - 1
+                                                : project.gallery!.length - 1
+                                        );
+                                    }}
+                                    className="absolute left-2 sm:left-4 z-20 p-3 rounded-full bg-black/70 hover:bg-black/90 border border-white/20 text-white transition-all active:scale-90 shadow-2xl backdrop-blur-md cursor-pointer"
+                                    aria-label="Imagem anterior"
+                                >
+                                    <ChevronLeft size={24} />
+                                </button>
+                            )}
+
+                            {/* Main Image */}
+                            <div className="relative w-full h-full max-h-[78vh] flex items-center justify-center">
+                                <Image
+                                    src={project.gallery[lightboxIndex].image}
+                                    alt={project.gallery[lightboxIndex].title}
+                                    fill
+                                    className="object-contain object-center rounded-xl"
+                                    sizes="(max-width: 1400px) 100vw, 1400px"
+                                    priority
+                                />
+                            </div>
+
+                            {/* Next Button */}
+                            {project.gallery.length > 1 && (
+                                <button
+                                    type="button"
+                                    onClick={(e) => {
+                                        e.stopPropagation();
+                                        setLightboxIndex((prev) =>
+                                            prev !== null && prev < project.gallery!.length - 1
+                                                ? prev + 1
+                                                : 0
+                                        );
+                                    }}
+                                    className="absolute right-2 sm:right-4 z-20 p-3 rounded-full bg-black/70 hover:bg-black/90 border border-white/20 text-white transition-all active:scale-90 shadow-2xl backdrop-blur-md cursor-pointer"
+                                    aria-label="Próxima imagem"
+                                >
+                                    <ChevronRight size={24} />
+                                </button>
+                            )}
+                        </div>
+
+                        {/* Lightbox Bottom Footer Caption */}
+                        {project.gallery[lightboxIndex].description && (
+                            <div
+                                className="w-full max-w-3xl mx-auto text-center z-10"
+                                onClick={(e) => e.stopPropagation()}
+                            >
+                                <p className="text-xs sm:text-sm text-zinc-300 bg-white/[0.06] border border-white/10 px-4 py-2.5 rounded-xl backdrop-blur-md shadow-lg leading-relaxed">
+                                    {project.gallery[lightboxIndex].description}
+                                </p>
+                            </div>
+                        )}
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </article>
     );
 }

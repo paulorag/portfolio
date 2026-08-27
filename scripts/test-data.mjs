@@ -30,4 +30,13 @@ test("Project Data Integrity Tests", async () => {
     assert.equal(roomScheduler.isPrivate, false, "Room Scheduler is a public repository");
     assert.ok(roomScheduler.coldStartNotice, "Room Scheduler should have coldStartNotice");
     assert.equal(roomScheduler.gallery?.length, 5, "Room Scheduler should have 5 gallery images");
+
+    const autoflex = getProjectBySlug("autoflex-planejamento-producao", "pt");
+    assert.ok(autoflex, "Autoflex should be found by slug");
+    assert.equal(autoflex.title, "Autoflex PCP");
+    assert.equal(autoflex.isPrivate, false, "Autoflex is a public repository");
+    assert.ok(autoflex.coldStartNotice, "Autoflex should have coldStartNotice");
+    assert.equal(autoflex.gallery?.length, 5, "Autoflex should have 5 gallery images");
+    assert.equal(autoflex.github, "https://github.com/paulorag/autoflex-pcp");
+    assert.equal(autoflex.demo, "https://autoflex-pcp.vercel.app/");
 });
