@@ -25,6 +25,11 @@ test("Project Data Integrity Tests", async () => {
     assert.ok(project.tags.length > 0, "Project should have tags");
     assert.ok(project.architecture, "Project should have architecture defined");
 
+    const orderly = getProjectBySlug("orderly", "pt");
+    assert.ok(orderly, "Orderly should be found by slug");
+    assert.equal(orderly.demo, "https://orderly-food.vercel.app/");
+    assert.equal(orderly.isPrivate, true, "Orderly is a private repository");
+
     const roomScheduler = getProjectBySlug("room-scheduler", "pt");
     assert.ok(roomScheduler, "Room Scheduler should be found by slug");
     assert.equal(roomScheduler.isPrivate, false, "Room Scheduler is a public repository");

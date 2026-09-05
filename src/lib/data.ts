@@ -168,7 +168,7 @@ export const projectsData: Record<"pt" | "en", ProjectDetail[]> = {
                     description: "Informações institucionais, cálculo dinâmico de status da cozinha aberta/fechada e canais diretos de atendimento.",
                 },
             ],
-            demo: "https://lanchonetelarica.vercel.app/",
+            demo: "https://orderly-food.vercel.app/",
             isPrivate: true,
             releaseYear: "2022",
             architecture: {
@@ -516,7 +516,7 @@ export const projectsData: Record<"pt" | "en", ProjectDetail[]> = {
                     description: "Operational info, real-time dynamic kitchen open/closed status, and direct contact channels.",
                 },
             ],
-            demo: "https://lanchonetelarica.vercel.app/",
+            demo: "https://orderly-food.vercel.app/",
             isPrivate: true,
             releaseYear: "2022",
             architecture: {
