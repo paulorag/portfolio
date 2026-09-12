@@ -179,6 +179,122 @@ export const projectsData: Record<"pt" | "en", ProjectDetail[]> = {
             },
         },
         {
+            slug: "automotive-build-logger",
+            title: "Automotive Build Logger",
+            tagline: "Sistema Operacional Full-Stack de Oficina & Engenharia Automotiva para Projetos de Alta Performance",
+            description:
+                "Bancada digital full-stack para preparadores de motores e track day (SvelteKit 2, Svelte 5 Runes & Fastify): motores de cálculo mecânico e fluidodinâmica, pinagem de ECU, controle de estoque com etiquetas físicas, guias de torque e book técnico em PDF.",
+            overview:
+                "O Automotive Build Logger é uma bancada digital completa e sistema operacional de oficina desenvolvido para preparadores de motores, projetistas de alta performance e pilotos de track day. Diferente de gerenciadores genéricos de tarefas ou planilhas avulsas, o sistema integra motores de cálculo mecânico e fluidodinâmico (vazão de linhas AN, taxa estática pós-usinagem, carga de molas e coil bind, bicos injetores), mapa de pinagem e chicote de injeções programáveis com importação/exportação CSV, controle de estoque com etiquetas físicas para caixas/saquinhos via @media print, guia interativo de aperto em espiral de cabeçotes, registro de puxadas de dinamômetro e geração de Book do Carro / Dossiê Técnico em PDF.",
+            problem:
+                "O desenvolvimento e montagem de motores preparados e carros de corrida envolve dezenas de medições críticas de retífica, dimensionamentos fluidodinâmicos complexos, tabelas de torque dispersas em manuais antigos e centenas de componentes e parafusos soltos em bancadas. Oficinas e preparadores frequentemente dependem de anotações em papel ou planilhas desorganizadas, resultando em erros catastróficos de montagem (flutuação de válvulas, cavitação de combustível, aperto incorreto de cabeçote), descontrole de custos e perda do histórico técnico do veículo.",
+            solution:
+                "Engenharia de uma plataforma full-stack moderna e reativa construída com SvelteKit 2 e Svelte 5 (Runes: $state, $derived, $effect) no frontend e Fastify 4 com Drizzle ORM no backend sobre Neon PostgreSQL serverless. O sistema centraliza calculadoras de engenharia automotiva com fórmulas físicas de precisão, guia visual interativo de aperto de cabeçote em caracol (VW AP, GM 250-S, V8 Small Block) com etapas angulares, matriz de pinagem de chicote elétrico com código de cores e importador CSV, gerador de etiquetas físicas para caixas e saquinhos de peças, modo oficina OLED com trava de tela ativada via Screen Wake Lock API (para uso contínuo com luvas de graxa) e suíte com 107 testes automatizados no Vitest garantindo precisão matemática e segurança de concorrência multi-tenant.",
+            features: [
+                "Calculadoras de Engenharia Automotiva: Dimensionamento de linhas de combustível e conexões AN (-6AN a -12AN) com validação de velocidade linear (< 2.5 m/s) para evitar cavitação",
+                "Análise de Cabeçote & Deck Clearance: Simulação exata de ganho de taxa de compressão estática pós-usinagem de bloco e cabeçote com precisão centesimal",
+                "Carga de Molas de Válvula & Coil Bind: Cálculo de altura montada, carga no assento e no levante máximo, margem de segurança de coil bind (≥ 1.5mm) e rotação limite segura",
+                "Guia Visual Interativo de Aperto de Cabeçote: Diagramas dinâmicos em espiral/caracol para motores VW AP 4cc, GM 6cc 250-S e V8 Small Block com etapas de torque e graus angulares",
+                "Tabela Universal de Torques & Conversor: Conversões instantâneas entre N·m, kgf·m, lb·ft, bar e psi para parafusos Métricos (8.8, 10.9, 12.9) e Polegadas SAE Grau 5 e 8",
+                "Chicote Elétrico & Matriz de Pinagem de ECU: Mapeamento de pinos, bitolas, cores de fios, tipos de sinal e importação/exportação bidirecional de planilhas CSV",
+                "Estoque de Peças & Gerador de Etiquetas: Rastreabilidade de componentes por status e impressão física de etiquetas padronizadas para identificação de caixas e saquinhos de bancada",
+                "Inteligência Financeira & Gestão de Custos: Contabilidade detalhada por categoria de investimento (motor, usinagem, suspensão, elétrica) com visão geral orçamentária",
+                "Modo Oficina OLED & Screen Wake Lock API: Interface de alto contraste escuro com bloqueio de descanso de tela para uso contínuo na bancada com luvas",
+                "Dossiê Técnico & Book do Carro em PDF: Geração instantânea de relatório técnico de alta resolução pronto para impressão com setup completo do motor e histórico de dyno",
+                "Quadro Kanban de Montagem & Checklist Pré-Pista: Gestão visual de tarefas da build e checklist operacional de segurança antes de puxadas de dinamômetro e track days",
+                "Qualidade & 107 Testes Automatizados: Suíte completa com Vitest cobrindo 100% das fórmulas de cálculo mecânico, validadores Zod e regras de concorrência",
+            ],
+            challenges: [
+                {
+                    title: "Modelagem Física & Precisão das Fórmulas de Engenharia",
+                    description:
+                        "Implementação e validação de equações matemáticas avançadas de fluidodinâmica (vazão e perda de carga em mangueiras AN), compressão estática e mecânica de molas, garantindo paridade total com dados laboratoriais e bancadas de fluxo através de testes com Vitest.",
+                },
+                {
+                    title: "Reatividade de Alta Performance com Svelte 5 Runes",
+                    description:
+                        "Arquitetura do frontend utilizando os novos conceitos de Runes ($state, $derived, $effect) para cálculos mecânicos instantâneos sem recarga, sincronizando estado complexo de tabelas de pinagem e diagramas de aperto de cabeçote com latência imperceptível.",
+                },
+                {
+                    title: "Isolamento Estrito Multi-Tenant & Segurança em Fastify",
+                    description:
+                        "Implementação de validação rigorosa de propriedade de dados a nível de query em Drizzle ORM, impedindo vazamento de dados entre preparadores distintos, combinado com cookies seguros HTTP-Only e proteção contra rate limiting de 600 req/min.",
+                },
+            ],
+            tags: ["SvelteKit 2", "Svelte 5 Runes", "TypeScript", "Fastify", "Drizzle ORM", "PostgreSQL", "Neon", "Vitest", "Tailwind CSS", "Zod", "JWT", "REST API"],
+            category: "fullstack",
+            featured: true,
+            image: "/projects/automotive-builder.png",
+            gallery: [
+                {
+                    title: "Quadro Kanban de Montagem da Build",
+                    image: "/projects/automotive-builder/build-board.png",
+                    description: "Gestão visual de etapas da montagem do veículo (A Fazer, Em Andamento, Concluído) com status e prioridades.",
+                },
+                {
+                    title: "Calculadoras Mecânicas & Fluidodinâmica",
+                    image: "/projects/automotive-builder/calculadoras.png",
+                    description: "Dimensionamento de linhas de combustível AN, vazão de bicos, cálculo de taxa de compressão e molas de válvulas.",
+                },
+                {
+                    title: "Ficha Técnica do Motor & Setup Sheet",
+                    image: "/projects/automotive-builder/ficha-tecnica.png",
+                    description: "Centralização de especificações do motor, folgas de retífica (bronzinas e anéis) e componentes forjados.",
+                },
+                {
+                    title: "Guia Visual de Aperto de Cabeçote & Torques",
+                    image: "/projects/automotive-builder/refs-partida.png",
+                    description: "Diagrama interativo em espiral/caracol com etapas de aperto em kgf·m/N·m e graus angulares para motores de alta performance.",
+                },
+                {
+                    title: "Chicote Elétrico & Pinagem de Injeção Eletrônica",
+                    image: "/projects/automotive-builder/ecu-wiring.png",
+                    description: "Matriz completa de pinagem da ECU com cores de fios, bitolas, tipos de sinal e importação/exportação CSV.",
+                },
+                {
+                    title: "Estoque de Peças & Etiquetas de Bancada",
+                    image: "/projects/automotive-builder/pecas-estoque.png",
+                    description: "Controle de peças adquiridas, códigos de fornecedores e impressão física de etiquetas para organização da oficina.",
+                },
+                {
+                    title: "Inteligência Financeira & Gestão de Custos",
+                    image: "/projects/automotive-builder/custos.png",
+                    description: "Acompanhamento orçamentário detalhado por categoria de investimento e total acumulado do projeto.",
+                },
+                {
+                    title: "Diário de Bordo & Linha do Tempo da Oficina",
+                    image: "/projects/automotive-builder/diario.png",
+                    description: "Registro cronológico de manutenções, fotos de montagem e comparador interativo Antes vs Depois.",
+                },
+                {
+                    title: "Log de Puxadas & Registros de Dinamômetro",
+                    image: "/projects/automotive-builder/acerto-dyno.png",
+                    description: "Histórico de mapas de injeção, pressão de turbo, potência/torque nas rodas e telemetria de pista.",
+                },
+                {
+                    title: "Checklist de Pré-Pista & Procedimentos de Segurança",
+                    image: "/projects/automotive-builder/teste-pista.png",
+                    description: "Verificações operacionais obrigatórias de fluidos, freios e segurança antes de sessões de track day.",
+                },
+                {
+                    title: "Navegação Global Spotlight (Ctrl+K)",
+                    image: "/projects/automotive-builder/navegacao.png",
+                    description: "Paleta de comandos instantânea para busca rápida entre calculadoras, pinagens e módulos de oficina.",
+                },
+            ],
+            demo: "https://automotive-build-logger-web.vercel.app/",
+            isPrivate: true,
+            releaseYear: "2026",
+            coldStartNotice:
+                "O Back-End desta aplicação está hospedado no plano gratuito do Render. Caso o serviço esteja em repouso (cold start), a primeira inicialização pode levar de 30 a 120 segundos para carregar os dados.",
+            architecture: {
+                frontend: "SvelteKit 2, Svelte 5 (Runes: $state, $derived, $props, $effect), TypeScript, Tailwind CSS, Vite, Screen Wake Lock API",
+                backend: "Node.js, Fastify 4.x, TypeScript, Zod, JWT, Cookies HTTP-Only, Helmet, Rate-Limit",
+                database: "PostgreSQL 16 (Neon Serverless com Connection Pooling) / SQLite, Drizzle ORM, Drizzle Kit",
+                devops: "Vercel Edge (Frontend), Render Web Service (Backend), Vitest (107 testes unitários e de integração), Svelte-Check, TypeScript Strict Mode",
+            },
+        },
+        {
             slug: "room-scheduler",
             title: "Room Scheduler",
             tagline: "Sistema corporativo de gestão de salas com prevenção de conflitos, RBAC, auditoria JPA & iCalendar",
@@ -524,6 +640,122 @@ export const projectsData: Record<"pt" | "en", ProjectDetail[]> = {
                 backend: "Node.js, Express.js, REST API, Swagger OpenAPI 3.0, JWT, bcryptjs, Helmet Security, Webhooks",
                 database: "PostgreSQL 16 (Neon Cloud Database), Prisma ORM",
                 devops: "Vercel (Edge CDN & Serverless Functions), Neon Cloud, Jest, Supertest (106 automated tests)",
+            },
+        },
+        {
+            slug: "automotive-build-logger",
+            title: "Automotive Build Logger",
+            tagline: "Full-Stack Race Engineering & Workshop Operating System for High-Performance Automotive Builds",
+            description:
+                "Full-stack digital workbench for engine tuners and trackday enthusiasts (SvelteKit 2, Svelte 5 Runes & Fastify): mechanical calculation engines, ECU wiring pinout matrix, parts stock with printable labels, torque guides, and PDF technical dossiers.",
+            overview:
+                "Automotive Build Logger is a precision-engineered digital workbench and workshop operating system designed for engine tuners, racecar builders, and trackday enthusiasts. Unlike generic project management software or disconnected spreadsheets, it unifies mechanical and fluid dynamic calculation engines (AN fuel line sizing, compression ratio after block/head milling, valve spring coil bind analysis, injector duty cycle), programmable ECU harness pinout matrix with bidirectional CSV import/export, physical workshop parts inventory with @media print label generation, interactive cylinder head spiral torque guides, dyno run logs, and automated A4 printable Car Book dossiers.",
+            problem:
+                "Engine building and racecar fabrication require hundreds of critical machine shop clearances, complex fluid dynamics sizing, fastener torque sequences scattered across outdated service manuals, and dozens of loose components on workshop benches. Builders frequently rely on paper notes or disconnected spreadsheets, leading to catastrophic engine failures (valve float, fuel cavitation, improper head bolt torque sequence), uncontrolled budget creeping, and the permanent loss of the vehicle's engineering build history.",
+            solution:
+                "Engineered a high-performance, reactive full-stack platform using SvelteKit 2 and Svelte 5 (modern Runes: $state, $derived, $effect) on the frontend, paired with Fastify 4 and Drizzle ORM on the backend powered by Neon serverless PostgreSQL. The system centralizes precision automotive engineering calculators with physical formulas, interactive cylinder head spiral torque sequence diagrams (VW AP, GM 250-S, Small Block V8) with angular stages, ECU wiring pinout matrix with color coding and CSV import, printable workshop parts tagging, high-contrast OLED Workshop Mode with Screen Wake Lock API (for continuous hands-free bench use with gloves), and a comprehensive test suite of 107 automated Vitest tests guaranteeing math accuracy and multi-tenant security.",
+            features: [
+                "Automotive Engineering Calculators: Sizing of fuel lines and AN fittings (-6AN to -12AN) with fluid velocity validation (< 2.5 m/s) to prevent fuel cavitation",
+                "Head Milling & Deck Clearance Simulation: Precise calculation of static compression ratio increases after block face skimming and chamber milling down to 0.01mm",
+                "Valve Spring & Coil Bind Analysis: Sizing of seat and open pressure at max cam lift, coil bind safety margin (≥ 1.5mm), and maximum safe redline RPM",
+                "Interactive Cylinder Head Spiral Torque Guide: Dynamic visual tightening sequence diagrams for VW AP 4-cyl, GM 250-S 6-cyl, and Small Block V8 with angular stages",
+                "Universal Fastener Torque Reference: Live unit converter across N·m, kgf·m, lb·ft, bar, and psi for ISO Metric (8.8, 10.9, 12.9) and SAE Grade 5/8 fasteners",
+                "ECU Wiring & Harness Pinout Matrix: Complete pin mapping, wire gauges, wire color codes, signal types, and bidirectional CSV spreadsheet import/export",
+                "Parts Stock & Physical Workshop Label Generator: Component lifecycle tracking with printable box and Ziploc bag stickers via @media print CSS",
+                "Financial Analytics & Cost Intelligence: Categorized breakdown of total invested capital across engine, machining, chassis, and electronics",
+                "OLED Workshop Mode & Screen Wake Lock API: Ultra-high contrast dark theme with automatic screen sleep prevention for greasy-gloved bench work",
+                "Printable 'Car Book' Technical Dossier: Instant generation of a comprehensive A4 technical document with full engine setup specs and dyno records",
+                "Kanban Build Board & Pre-Track Safety Checklist: Visual assembly pipeline and operational verification checklist prior to dyno pulls and track sessions",
+                "107 Automated Tests & Strict Type Safety: Comprehensive Vitest test suite verifying 100% of mathematical formulas, Zod schemas, and multi-tenant isolation",
+            ],
+            challenges: [
+                {
+                    title: "Physical Modeling & Precision Mechanical Formulas",
+                    description:
+                        "Implementation and verification of advanced fluid dynamics equations (flow rate and pressure drop across AN fuel lines), static compression geometry, and valve spring kinematics, thoroughly validated against engineering benchmarks with Vitest.",
+                },
+                {
+                    title: "High-Performance Reactivity with Svelte 5 Runes",
+                    description:
+                        "Frontend architecture leveraging Svelte 5 Runes ($state, $derived, $effect) for instant zero-latency calculations, synchronizing complex pinout matrices and interactive cylinder head torque sequences seamlessly.",
+                },
+                {
+                    title: "Strict Multi-Tenant Isolation & Fastify Hardening",
+                    description:
+                        "Enforcing query-level data ownership verification in Drizzle ORM to guarantee complete project isolation between workshops, combined with secure HTTP-only cookies and 600 req/min rate-limiting shields.",
+                },
+            ],
+            tags: ["SvelteKit 2", "Svelte 5 Runes", "TypeScript", "Fastify", "Drizzle ORM", "PostgreSQL", "Neon", "Vitest", "Tailwind CSS", "Zod", "JWT", "REST API"],
+            category: "fullstack",
+            featured: true,
+            image: "/projects/automotive-builder.png",
+            gallery: [
+                {
+                    title: "Kanban Build Board & Assembly Stages",
+                    image: "/projects/automotive-builder/build-board.png",
+                    description: "Visual lifecycle tracking of vehicle assembly stages (Backlog, In Progress, Complete) with task priorities.",
+                },
+                {
+                    title: "Mechanical & Fluid Dynamics Calculators",
+                    image: "/projects/automotive-builder/calculadoras.png",
+                    description: "AN fuel line sizing, injector flow calculation, compression ratio geometry, and valve spring rate simulation.",
+                },
+                {
+                    title: "Engine Setup Sheet & Clearances",
+                    image: "/projects/automotive-builder/ficha-tecnica.png",
+                    description: "Centralized engine configuration, bearing oil clearances (rod and main), ring gaps, and forged parts catalog.",
+                },
+                {
+                    title: "Interactive Cylinder Head Torque Guide",
+                    image: "/projects/automotive-builder/refs-partida.png",
+                    description: "Dynamic spiral torque diagram with multi-stage torque values (kgf·m/N·m) and angular passes for performance engines.",
+                },
+                {
+                    title: "ECU Wiring & Harness Pinout Matrix",
+                    image: "/projects/automotive-builder/ecu-wiring.png",
+                    description: "Full connector pinout table with color codes, wire gauges, signal types, and bidirectional CSV spreadsheet import/export.",
+                },
+                {
+                    title: "Parts Inventory & Physical Workshop Tags",
+                    image: "/projects/automotive-builder/pecas-estoque.png",
+                    description: "Lifecycle tracking of procured components, supplier codes, and printable bin/bag labels for shop organization.",
+                },
+                {
+                    title: "Cost Analytics & Build Budget Intelligence",
+                    image: "/projects/automotive-builder/custos.png",
+                    description: "Categorized investment tracking and cumulative cost breakdown across machining, engine parts, and chassis.",
+                },
+                {
+                    title: "Build Journal & Workshop Timeline",
+                    image: "/projects/automotive-builder/diario.png",
+                    description: "Chronological maintenance log, assembly milestones, and interactive Before vs After visual comparator slider.",
+                },
+                {
+                    title: "Dyno Run Tracking & Tuning Log",
+                    image: "/projects/automotive-builder/acerto-dyno.png",
+                    description: "Tuning map logs, boost levels, wheel horsepower/torque curves, and trackday telemetry records.",
+                },
+                {
+                    title: "Pre-Track & Dyno Safety Checklist",
+                    image: "/projects/automotive-builder/teste-pista.png",
+                    description: "Mandatory operational inspection checklist covering fluid levels, braking system, and trackday safety protocol.",
+                },
+                {
+                    title: "Global Command Palette Navigation (Ctrl+K)",
+                    image: "/projects/automotive-builder/navegacao.png",
+                    description: "Instant spotlight search across all calculators, pinouts, torque tables, and workshop modules.",
+                },
+            ],
+            demo: "https://automotive-build-logger-web.vercel.app/",
+            isPrivate: true,
+            releaseYear: "2026",
+            coldStartNotice:
+                "The Back-End for this application is hosted on Render's free tier. If the service is spinning up from inactivity (cold start), the initial request may take between 30 to 120 seconds.",
+            architecture: {
+                frontend: "SvelteKit 2, Svelte 5 (Runes: $state, $derived, $props, $effect), TypeScript, Tailwind CSS, Vite, Screen Wake Lock API",
+                backend: "Node.js, Fastify 4.x, TypeScript, Zod, JWT, Secure HTTP-Only Cookies, Helmet, Rate-Limit",
+                database: "PostgreSQL 16 (Neon Serverless with Connection Pooling) / SQLite, Drizzle ORM, Drizzle Kit",
+                devops: "Vercel Edge (Frontend), Render Web Service (Backend), Vitest (107 unit and integration tests), Svelte-Check, TypeScript Strict Mode",
             },
         },
         {

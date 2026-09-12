@@ -15,8 +15,10 @@ test("Project Data Integrity Tests", async () => {
 
     const slugs = getAllProjectSlugs();
     assert.equal(slugs.includes("game-deals-radar"), true, "Slugs must include game-deals-radar");
-    assert.equal(slugs.includes("room-scheduler"), true, "Slugs must include room-scheduler");
     assert.equal(slugs.includes("orderly"), true, "Slugs must include orderly");
+    assert.equal(slugs.includes("automotive-build-logger"), true, "Slugs must include automotive-build-logger");
+    assert.equal(slugs.includes("room-scheduler"), true, "Slugs must include room-scheduler");
+    assert.equal(slugs.includes("autoflex-planejamento-producao"), true, "Slugs must include autoflex-planejamento-producao");
 
     // 3. Test getProjectBySlug
     const project = getProjectBySlug("game-deals-radar", "pt");
@@ -29,6 +31,14 @@ test("Project Data Integrity Tests", async () => {
     assert.ok(orderly, "Orderly should be found by slug");
     assert.equal(orderly.demo, "https://orderly-food.vercel.app/");
     assert.equal(orderly.isPrivate, true, "Orderly is a private repository");
+
+    const autoBuilder = getProjectBySlug("automotive-build-logger", "pt");
+    assert.ok(autoBuilder, "Automotive Build Logger should be found by slug");
+    assert.equal(autoBuilder.title, "Automotive Build Logger");
+    assert.equal(autoBuilder.isPrivate, true, "Automotive Build Logger is a private repository");
+    assert.ok(autoBuilder.coldStartNotice, "Automotive Build Logger should have coldStartNotice");
+    assert.equal(autoBuilder.gallery?.length, 11, "Automotive Build Logger should have 11 gallery images");
+    assert.equal(autoBuilder.demo, "https://automotive-build-logger-web.vercel.app/");
 
     const roomScheduler = getProjectBySlug("room-scheduler", "pt");
     assert.ok(roomScheduler, "Room Scheduler should be found by slug");
