@@ -8,7 +8,7 @@
 
 ## 🌐 Demonstração Online
 
-🔗 **Acesse o portfólio em produção:** [pauloragdev.vercel.app](https://pauloragdev.vercel.app)
+🔗 **Acesse o portfólio em produção:** [devpaulorag.com.br](https://devpaulorag.com.br)
 
 ---
 

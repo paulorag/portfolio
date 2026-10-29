@@ -8,7 +8,7 @@
 
 ## 🌐 Live Demonstration
 
-🔗 **Access the live production portfolio:** [pauloragdev.vercel.app](https://pauloragdev.vercel.app)
+🔗 **Access the live production portfolio:** [devpaulorag.com.br](https://devpaulorag.com.br)
 
 ---
 
