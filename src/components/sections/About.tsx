@@ -52,7 +52,6 @@ export function About() {
                     >
                         <p>{dict.about.description1}</p>
                         <p>{dict.about.description2}</p>
-                        <p>{dict.about.description3}</p>
                     </motion.div>
 
                     {/* Right: Engineering Pillars (How I Think & Build) */}

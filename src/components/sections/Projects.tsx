@@ -139,9 +139,9 @@ export function Projects() {
                 </div>
 
                 {/* Main Split-View Interactive Showcase Console */}
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch">
-                    {/* Left Column: Compact Project Selector List (Desktop) */}
-                    <div className="hidden lg:flex lg:col-span-5 flex-col justify-between gap-2.5">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 items-center">
+                    {/* Left Column: Compact Project Selector List Centered Vertically (Desktop) */}
+                    <div className="hidden lg:flex lg:col-span-5 flex-col justify-center gap-2.5">
                         {projects.map((project, idx) => {
                             const isSelected = idx === activeIndex;
                             return (
@@ -149,7 +149,7 @@ export function Projects() {
                                     key={project.slug}
                                     type="button"
                                     onClick={() => setActiveIndex(idx)}
-                                    className={`group relative w-full text-left p-4 rounded-2xl border transition-all duration-200 cursor-pointer overflow-hidden ${
+                                    className={`group relative w-full text-left px-4 py-3.5 rounded-2xl border transition-all duration-200 cursor-pointer overflow-hidden ${
                                         isSelected
                                             ? "bg-[#1c1f2e] border-white/25 shadow-lg"
                                             : "bg-[#181a24]/60 border-white/8 hover:bg-[#181a24] hover:border-white/15"
@@ -157,69 +157,36 @@ export function Projects() {
                                 >
                                     {/* Active Left Indicator Bar */}
                                     <div
-                                        className={`absolute left-0 top-3 bottom-3 w-1 rounded-r-full transition-all duration-300 ${
+                                        className={`absolute left-0 top-2.5 bottom-2.5 w-1 rounded-r-full transition-all duration-300 ${
                                             isSelected
                                                 ? "bg-emerald-400 opacity-100"
                                                 : "bg-white/20 opacity-0 group-hover:opacity-50"
                                         }`}
                                     />
 
-                                    <div className="flex items-start justify-between gap-3 pl-2">
-                                        <div className="min-w-0 space-y-1">
-                                            <div className="flex items-center gap-2">
-                                                <span
-                                                    className={`font-mono text-xs font-semibold transition-colors ${
-                                                        isSelected
-                                                            ? "text-emerald-400"
-                                                            : "text-zinc-500 group-hover:text-zinc-400"
-                                                    }`}
-                                                >
-                                                    {String(idx + 1).padStart(2, "0")}.
-                                                </span>
-                                                <h3
-                                                    className={`text-sm sm:text-base font-bold truncate transition-colors ${
-                                                        isSelected
-                                                            ? "text-white"
-                                                            : "text-zinc-300 group-hover:text-white"
-                                                    }`}
-                                                >
-                                                    {project.title}
-                                                </h3>
-                                            </div>
-
-                                            <p
-                                                className={`text-xs line-clamp-1 transition-colors ${
+                                    <div className="flex items-center justify-between gap-3 pl-2">
+                                        <div className="flex items-center gap-2.5 min-w-0">
+                                            <span
+                                                className={`font-mono text-xs font-semibold transition-colors shrink-0 ${
                                                     isSelected
-                                                        ? "text-zinc-300"
+                                                        ? "text-emerald-400"
                                                         : "text-zinc-500 group-hover:text-zinc-400"
                                                 }`}
                                             >
-                                                {project.tagline}
-                                            </p>
-
-                                            {/* Mini Core Stack Preview */}
-                                            <div className="flex flex-wrap items-center gap-1 pt-1">
-                                                {project.tags.slice(0, 3).map((tag) => (
-                                                    <span
-                                                        key={tag}
-                                                        className={`text-[10px] font-mono px-1.5 py-0.5 rounded border transition-colors ${
-                                                            isSelected
-                                                                ? "bg-white/8 text-zinc-200 border-white/15"
-                                                                : "bg-white/3 text-zinc-400 border-white/5"
-                                                        }`}
-                                                    >
-                                                        {tag}
-                                                    </span>
-                                                ))}
-                                                {project.tags.length > 3 && (
-                                                    <span className="text-[10px] font-mono text-zinc-500 pl-0.5">
-                                                        +{project.tags.length - 3}
-                                                    </span>
-                                                )}
-                                            </div>
+                                                {String(idx + 1).padStart(2, "0")}.
+                                            </span>
+                                            <h3
+                                                className={`text-sm sm:text-base font-bold truncate transition-colors ${
+                                                    isSelected
+                                                        ? "text-white"
+                                                        : "text-zinc-300 group-hover:text-white"
+                                                }`}
+                                            >
+                                                {project.title}
+                                            </h3>
                                         </div>
 
-                                        <div className="flex flex-col items-end justify-between shrink-0 self-stretch">
+                                        <div className="flex items-center gap-2.5 shrink-0">
                                             {project.isPrivate ? (
                                                 <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-amber-500/10 border border-amber-500/20 text-[10px] font-mono text-amber-400">
                                                     <Lock size={9} />
@@ -302,7 +269,7 @@ export function Projects() {
                                     {/* Interactive Screenshot Canvas */}
                                     <Link
                                         href={`/projetos/${activeProject.slug}`}
-                                        className="group relative block w-full h-52 sm:h-64 bg-[#0c0d14] overflow-hidden border-b border-white/8"
+                                        className="group relative block w-full h-44 sm:h-48 bg-[#0c0d14] overflow-hidden border-b border-white/8"
                                         aria-label={
                                             language === "pt"
                                                 ? `Ver estudo de caso de ${activeProject.title}`
@@ -321,24 +288,24 @@ export function Projects() {
                                     </Link>
 
                                     {/* Project Details & Action Bar */}
-                                    <div className="p-5 sm:p-6 flex flex-col justify-between grow gap-4">
-                                        <div className="space-y-2">
-                                            <h3 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
+                                    <div className="p-5 flex flex-col justify-between grow gap-3.5">
+                                        <div className="space-y-1.5">
+                                            <h3 className="text-lg sm:text-xl font-bold text-white tracking-tight">
                                                 {activeProject.title}
                                             </h3>
 
-                                            <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed line-clamp-3">
+                                            <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed">
                                                 {activeProject.description}
                                             </p>
                                         </div>
 
-                                        <div className="space-y-4">
+                                        <div className="space-y-3">
                                             {/* Stack Tags */}
                                             <div className="flex flex-wrap items-center gap-1.5">
                                                 {visibleTags.map((tag) => (
                                                     <span
                                                         key={tag}
-                                                        className="text-[11px] font-mono px-2.5 py-0.5 rounded-md bg-white/4 text-zinc-300 border border-white/8"
+                                                        className="text-[11px] font-mono px-2 py-0.5 rounded-md bg-white/4 text-zinc-300 border border-white/8"
                                                     >
                                                         {tag}
                                                     </span>
@@ -351,13 +318,13 @@ export function Projects() {
                                             </div>
 
                                             {/* Action Buttons Footer */}
-                                            <div className="flex flex-wrap items-center justify-between gap-2.5 pt-3 border-t border-white/8">
+                                            <div className="flex flex-wrap items-center justify-between gap-2 pt-2.5 border-t border-white/8">
                                                 <Link
                                                     href={`/projetos/${activeProject.slug}`}
-                                                    className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white hover:bg-zinc-200 text-black font-semibold text-xs sm:text-sm transition-all active:scale-98 shadow-md"
+                                                    className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-white hover:bg-zinc-200 text-black font-semibold text-xs sm:text-sm transition-all active:scale-98 shadow-md"
                                                 >
                                                     <span>{dict.projects.viewCaseStudy}</span>
-                                                    <ArrowRight size={15} />
+                                                    <ArrowRight size={14} />
                                                 </Link>
 
                                                 <div className="flex items-center gap-2">
@@ -366,9 +333,9 @@ export function Projects() {
                                                             href={activeProject.github}
                                                             target="_blank"
                                                             rel="noreferrer"
-                                                            className="inline-flex items-center gap-1.5 px-3.5 py-2.5 rounded-xl bg-white/4 hover:bg-white/8 border border-white/10 hover:border-white/20 text-zinc-300 hover:text-white text-xs sm:text-sm font-medium transition-all"
+                                                            className="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-white/4 hover:bg-white/8 border border-white/10 hover:border-white/20 text-zinc-300 hover:text-white text-xs sm:text-sm font-medium transition-all"
                                                         >
-                                                            <Github size={15} />
+                                                            <Github size={14} />
                                                             <span>
                                                                 {dict.projects.viewCode}
                                                             </span>
@@ -380,9 +347,9 @@ export function Projects() {
                                                             href={activeProject.demo}
                                                             target="_blank"
                                                             rel="noreferrer"
-                                                            className="inline-flex items-center gap-1.5 px-3.5 py-2.5 rounded-xl bg-white/6 hover:bg-white/12 border border-white/15 hover:border-white/25 text-white text-xs sm:text-sm font-medium transition-all"
+                                                            className="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-white/6 hover:bg-white/12 border border-white/15 hover:border-white/25 text-white text-xs sm:text-sm font-medium transition-all"
                                                         >
-                                                            <ExternalLink size={15} />
+                                                            <ExternalLink size={14} />
                                                             <span>
                                                                 {dict.projects.liveDemo}
                                                             </span>

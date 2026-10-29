@@ -46,8 +46,35 @@ export function ProjectDetailView({ slug }: ProjectDetailViewProps) {
     const nextProject =
         projectIndex < projectList.length - 1 ? projectList[projectIndex + 1] : null;
 
-    // Lightbox modal state
+    // Interactive screen showcase & Lightbox modal state
+    const [selectedScreen, setSelectedScreen] = useState<{ slug: string; index: number }>({
+        slug,
+        index: 0,
+    });
     const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+
+    const gallery = project.gallery ?? [];
+    const activeScreen =
+        selectedScreen.slug === slug && selectedScreen.index < gallery.length
+            ? selectedScreen.index
+            : 0;
+
+    const setActiveScreen = useCallback(
+        (indexOrUpdater: number | ((prev: number) => number)) => {
+            setSelectedScreen((prev) => {
+                const currentIndex =
+                    prev.slug === slug && prev.index < gallery.length ? prev.index : 0;
+                const nextIndex =
+                    typeof indexOrUpdater === "function"
+                        ? indexOrUpdater(currentIndex)
+                        : indexOrUpdater;
+                return { slug, index: nextIndex };
+            });
+        },
+        [slug, gallery.length]
+    );
+
+    const currentGalleryItem = gallery.length > 0 ? gallery[activeScreen] : null;
 
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -297,42 +324,56 @@ export function ProjectDetailView({ slug }: ProjectDetailViewProps) {
                     )}
                 </motion.header>
 
-                {/* 2. Main Hero Image Screen with Browser Frame Mockup */}
-                <motion.div
+                {/* 2. Interactive Screen & Workflow Showcase (Browser Frame + Thumbnails) */}
+                <motion.section
                     initial={{ opacity: 0, scale: 0.98 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.5, delay: 0.2 }}
-                    className="group rounded-2xl overflow-hidden border border-white/10 bg-[#151722] shadow-2xl mb-16"
+                    className="rounded-2xl overflow-hidden border border-white/10 bg-[#151722] shadow-2xl mb-14"
                 >
                     {/* Window Header Bar */}
                     <div className="px-4 py-3 bg-[#181a24] border-b border-white/10 flex items-center justify-between gap-4">
-                        <div className="flex items-center gap-2">
-                            <span className="w-3 h-3 rounded-full bg-white/10 border border-white/10" />
-                            <span className="w-3 h-3 rounded-full bg-white/10 border border-white/10" />
-                            <span className="w-3 h-3 rounded-full bg-white/10 border border-white/10" />
+                        <div className="flex items-center gap-3 min-w-0">
+                            <div className="flex items-center gap-2 shrink-0">
+                                <span className="w-3 h-3 rounded-full bg-white/10 border border-white/10" />
+                                <span className="w-3 h-3 rounded-full bg-white/10 border border-white/10" />
+                                <span className="w-3 h-3 rounded-full bg-white/10 border border-white/10" />
+                            </div>
+                            <span className="hidden sm:block h-3.5 w-px bg-white/10 shrink-0" />
+                            <span className="hidden sm:inline-flex items-center gap-1.5 text-xs font-mono text-zinc-300 truncate">
+                                <LayoutGrid size={13} className="text-emerald-400 shrink-0" />
+                                <span className="truncate">{t.galleryTitle}</span>
+                            </span>
                         </div>
-                        {project.gallery && project.gallery.length > 0 ? (
-                            <button
-                                type="button"
-                                onClick={() => setLightboxIndex(0)}
-                                className="flex items-center gap-1.5 text-xs text-zinc-400 hover:text-white transition-colors px-2.5 py-1 rounded-md bg-white/5 hover:bg-white/10 cursor-pointer"
-                                aria-label={t.expandImage}
-                            >
-                                <Maximize2 size={13} />
-                                <span className="hidden sm:inline">{t.expandImage}</span>
-                            </button>
+
+                        {gallery.length > 0 ? (
+                            <div className="flex items-center gap-2 shrink-0">
+                                <span className="text-xs font-mono text-zinc-400 px-2 py-0.5 rounded-md bg-white/4 border border-white/8">
+                                    {String(activeScreen + 1).padStart(2, "0")} /{" "}
+                                    {String(gallery.length).padStart(2, "0")}
+                                </span>
+                                <button
+                                    type="button"
+                                    onClick={() => setLightboxIndex(activeScreen)}
+                                    className="flex items-center gap-1.5 text-xs text-zinc-300 hover:text-white transition-colors px-2.5 py-1 rounded-md bg-white/6 hover:bg-white/12 border border-white/10 cursor-pointer"
+                                    aria-label={t.expandImage}
+                                >
+                                    <Maximize2 size={13} className="text-emerald-400" />
+                                    <span className="hidden sm:inline">{t.expandImage}</span>
+                                </button>
+                            </div>
                         ) : null}
                     </div>
 
-                    {/* Responsive Canvas with no cropping / zoom cut-off */}
+                    {/* Responsive Interactive Canvas */}
                     <div
-                        onClick={() => project.gallery && project.gallery.length > 0 && setLightboxIndex(0)}
-                        className="relative w-full aspect-video sm:aspect-2/1 min-h-65 max-h-130 bg-[#0c0d14] flex items-center justify-center p-2 sm:p-4 cursor-pointer"
+                        onClick={() => gallery.length > 0 && setLightboxIndex(activeScreen)}
+                        className="group relative w-full aspect-video sm:aspect-2/1 min-h-65 max-h-125 bg-[#0c0d14] flex items-center justify-center p-2 sm:p-4 cursor-pointer select-none"
                     >
                         <div className="relative w-full h-full">
                             <Image
-                                src={project.image}
-                                alt={project.title}
+                                src={currentGalleryItem ? currentGalleryItem.image : project.image}
+                                alt={currentGalleryItem ? currentGalleryItem.title : project.title}
                                 fill
                                 className="object-contain object-center rounded-lg transition-transform duration-500 group-hover:scale-[1.01]"
                                 sizes="(max-width: 1024px) 100vw, 1024px"
@@ -340,15 +381,67 @@ export function ProjectDetailView({ slug }: ProjectDetailViewProps) {
                             />
                         </div>
 
+                        {/* Prev / Next Screen Controls */}
+                        {gallery.length > 1 && (
+                            <>
+                                <button
+                                    type="button"
+                                    onClick={(e) => {
+                                        e.stopPropagation();
+                                        setActiveScreen((prev) =>
+                                            prev > 0 ? prev - 1 : gallery.length - 1
+                                        );
+                                    }}
+                                    className="absolute left-2.5 sm:left-4 z-10 p-2 sm:p-2.5 rounded-full bg-black/75 hover:bg-black/95 border border-white/15 hover:border-white/30 text-white transition-all active:scale-90 shadow-xl backdrop-blur-md cursor-pointer"
+                                    aria-label={
+                                        language === "pt" ? "Tela anterior" : "Previous screen"
+                                    }
+                                >
+                                    <ChevronLeft size={18} />
+                                </button>
+
+                                <button
+                                    type="button"
+                                    onClick={(e) => {
+                                        e.stopPropagation();
+                                        setActiveScreen((prev) =>
+                                            prev < gallery.length - 1 ? prev + 1 : 0
+                                        );
+                                    }}
+                                    className="absolute right-2.5 sm:right-4 z-10 p-2 sm:p-2.5 rounded-full bg-black/75 hover:bg-black/95 border border-white/15 hover:border-white/30 text-white transition-all active:scale-90 shadow-xl backdrop-blur-md cursor-pointer"
+                                    aria-label={language === "pt" ? "Próxima tela" : "Next screen"}
+                                >
+                                    <ChevronRight size={18} />
+                                </button>
+                            </>
+                        )}
+
                         {/* Subtle hover overlay hint */}
-                        <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-center justify-center pointer-events-none">
-                            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-black/80 border border-white/20 text-white text-xs font-semibold shadow-2xl backdrop-blur-md">
+                        <div className="absolute inset-0 bg-black/35 opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-center justify-center pointer-events-none">
+                            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-black/85 border border-white/20 text-white text-xs font-semibold shadow-2xl backdrop-blur-md">
                                 <Maximize2 size={14} className="text-emerald-400" />
                                 {t.clickToEnlarge}
                             </span>
                         </div>
                     </div>
-                </motion.div>
+
+                    {/* Active Screen Description Footer */}
+                    {currentGalleryItem && (
+                        <div className="px-5 py-4 bg-[#161822] border-t border-white/10">
+                            <div className="space-y-1">
+                                <h3 className="text-sm sm:text-base font-bold text-white flex items-center gap-2">
+                                    <span className="w-2 h-2 rounded-full bg-emerald-400 shrink-0" />
+                                    <span>{currentGalleryItem.title}</span>
+                                </h3>
+                                {currentGalleryItem.description && (
+                                    <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed pl-4">
+                                        {currentGalleryItem.description}
+                                    </p>
+                                )}
+                            </div>
+                        </div>
+                    )}
+                </motion.section>
 
                 {/* 3. Challenge vs. Solution (Split 2-Columns Side-by-Side) */}
                 <motion.section
@@ -356,11 +449,11 @@ export function ProjectDetailView({ slug }: ProjectDetailViewProps) {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5 }}
-                    className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16"
+                    className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-14"
                 >
                     {/* The Business Challenge */}
-                    <div className="p-7 sm:p-8 rounded-2xl bg-[#181a24]/90 border border-white/10 space-y-4 hover:border-white/20 transition-colors flex flex-col justify-between">
-                        <div className="space-y-4">
+                    <div className="p-6 sm:p-7 rounded-2xl bg-[#181a24]/90 border border-white/10 space-y-3 hover:border-white/20 transition-colors flex flex-col justify-between">
+                        <div className="space-y-3">
                             <div className="flex items-center gap-2.5 text-zinc-100 font-semibold text-lg">
                                 <div className="p-2 rounded-xl bg-red-500/10 text-red-400 shrink-0">
                                     <ShieldAlert size={20} />
@@ -374,8 +467,8 @@ export function ProjectDetailView({ slug }: ProjectDetailViewProps) {
                     </div>
 
                     {/* Engineering Solution */}
-                    <div className="p-7 sm:p-8 rounded-2xl bg-[#181a24]/90 border border-white/10 space-y-4 hover:border-white/20 transition-colors flex flex-col justify-between">
-                        <div className="space-y-4">
+                    <div className="p-6 sm:p-7 rounded-2xl bg-[#181a24]/90 border border-white/10 space-y-3 hover:border-white/20 transition-colors flex flex-col justify-between">
+                        <div className="space-y-3">
                             <div className="flex items-center gap-2.5 text-zinc-100 font-semibold text-lg">
                                 <div className="p-2 rounded-xl bg-white/10 text-white shrink-0">
                                     <Cpu size={20} />
@@ -389,78 +482,14 @@ export function ProjectDetailView({ slug }: ProjectDetailViewProps) {
                     </div>
                 </motion.section>
 
-                {/* 4. Interactive Interface & Screenshots Showcase Gallery */}
-                {project.gallery && project.gallery.length > 0 && (
-                    <motion.section
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.5 }}
-                        className="mb-16 space-y-8"
-                    >
-                        <div className="space-y-2">
-                            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-white flex items-center gap-3">
-                                <LayoutGrid size={24} className="text-zinc-300" />
-                                <span>{t.galleryTitle}</span>
-                            </h2>
-                            <p className="text-zinc-400 text-sm sm:text-base max-w-3xl leading-relaxed">
-                                {t.gallerySubtitle}
-                            </p>
-                        </div>
-
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            {project.gallery.map((item, idx) => (
-                                <div
-                                    key={idx}
-                                    onClick={() => setLightboxIndex(idx)}
-                                    className="group rounded-2xl bg-[#181a24]/90 border border-white/10 overflow-hidden hover:border-white/25 transition-all duration-300 flex flex-col cursor-pointer shadow-lg hover:shadow-2xl"
-                                >
-                                    {/* Screen Canvas: aspect-ratio with object-contain so full UI is visible */}
-                                    <div className="relative w-full aspect-video sm:aspect-16/10 bg-[#0c0d14] p-2.5 sm:p-3.5 flex items-center justify-center overflow-hidden border-b border-white/10">
-                                        <div className="relative w-full h-full">
-                                            <Image
-                                                src={item.image}
-                                                alt={item.title}
-                                                fill
-                                                className="object-contain object-center rounded-md transition-transform duration-500 group-hover:scale-[1.02]"
-                                                sizes="(max-width: 768px) 100vw, 50vw"
-                                            />
-                                        </div>
-
-                                        {/* Hover Zoom Prompt */}
-                                        <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-center justify-center pointer-events-none">
-                                            <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-black/80 border border-white/20 text-white text-xs font-semibold shadow-xl backdrop-blur-sm">
-                                                <Maximize2 size={13} className="text-emerald-400" />
-                                                {t.expandImage}
-                                            </span>
-                                        </div>
-                                    </div>
-
-                                    <div className="p-5 sm:p-6 space-y-2 flex-1 flex flex-col justify-between">
-                                        <h3 className="text-base sm:text-lg font-bold text-white group-hover:text-zinc-100 transition-colors flex items-center gap-2">
-                                            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 shrink-0" />
-                                            <span>{item.title}</span>
-                                        </h3>
-                                        {item.description && (
-                                            <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed">
-                                                {item.description}
-                                            </p>
-                                        )}
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
-                    </motion.section>
-                )}
-
-                {/* 5. System Architecture & Stack Blueprint (4-Quadrant Grid) */}
+                {/* 4. System Architecture & Stack Blueprint (4-Quadrant Grid) */}
                 {project.architecture && (
                     <motion.section
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.5 }}
-                        className="mb-16 space-y-6"
+                        className="mb-14 space-y-5"
                     >
                         <div className="space-y-2">
                             <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-white flex items-center gap-3">
@@ -472,8 +501,8 @@ export function ProjectDetailView({ slug }: ProjectDetailViewProps) {
                         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                             {/* Frontend Quadrant */}
                             {project.architecture.frontend && (
-                                <div className="p-6 rounded-2xl bg-[#181a24]/90 border border-white/10 hover:border-white/20 transition-colors space-y-3">
-                                    <div className="p-2.5 rounded-xl bg-white/4 border border-white/10 w-fit text-zinc-300">
+                                <div className="p-5 rounded-2xl bg-[#181a24]/90 border border-white/10 hover:border-white/20 transition-colors space-y-2.5">
+                                    <div className="p-2 rounded-xl bg-white/4 border border-white/10 w-fit text-zinc-300">
                                         <Cpu size={18} />
                                     </div>
                                     <div>
@@ -489,8 +518,8 @@ export function ProjectDetailView({ slug }: ProjectDetailViewProps) {
 
                             {/* Backend Quadrant */}
                             {project.architecture.backend && (
-                                <div className="p-6 rounded-2xl bg-[#181a24]/90 border border-white/10 hover:border-white/20 transition-colors space-y-3">
-                                    <div className="p-2.5 rounded-xl bg-white/4 border border-white/10 w-fit text-zinc-300">
+                                <div className="p-5 rounded-2xl bg-[#181a24]/90 border border-white/10 hover:border-white/20 transition-colors space-y-2.5">
+                                    <div className="p-2 rounded-xl bg-white/4 border border-white/10 w-fit text-zinc-300">
                                         <Database size={18} />
                                     </div>
                                     <div>
@@ -506,8 +535,8 @@ export function ProjectDetailView({ slug }: ProjectDetailViewProps) {
 
                             {/* Database Quadrant */}
                             {project.architecture.database && (
-                                <div className="p-6 rounded-2xl bg-[#181a24]/90 border border-white/10 hover:border-white/20 transition-colors space-y-3">
-                                    <div className="p-2.5 rounded-xl bg-white/4 border border-white/10 w-fit text-zinc-300">
+                                <div className="p-5 rounded-2xl bg-[#181a24]/90 border border-white/10 hover:border-white/20 transition-colors space-y-2.5">
+                                    <div className="p-2 rounded-xl bg-white/4 border border-white/10 w-fit text-zinc-300">
                                         <Database size={18} />
                                     </div>
                                     <div>
@@ -523,8 +552,8 @@ export function ProjectDetailView({ slug }: ProjectDetailViewProps) {
 
                             {/* DevOps & Testing Quadrant */}
                             {project.architecture.devops && (
-                                <div className="p-6 rounded-2xl bg-[#181a24]/90 border border-white/10 hover:border-white/20 transition-colors space-y-3">
-                                    <div className="p-2.5 rounded-xl bg-white/4 border border-white/10 w-fit text-zinc-300">
+                                <div className="p-5 rounded-2xl bg-[#181a24]/90 border border-white/10 hover:border-white/20 transition-colors space-y-2.5">
+                                    <div className="p-2 rounded-xl bg-white/4 border border-white/10 w-fit text-zinc-300">
                                         <Cloud size={18} />
                                     </div>
                                     <div>
@@ -541,62 +570,78 @@ export function ProjectDetailView({ slug }: ProjectDetailViewProps) {
                     </motion.section>
                 )}
 
-                {/* 6. Core Features & Capabilities */}
+                {/* 5. Core Features & Capabilities */}
                 <motion.section
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5 }}
-                    className="mb-16 space-y-6"
+                    className="mb-14 space-y-5"
                 >
                     <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight flex items-center gap-3">
                         <CheckCircle2 size={24} className="text-emerald-400" />
                         <span>{t.featuresTitle}</span>
                     </h2>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        {project.features.map((feature, idx) => (
-                            <div
-                                key={idx}
-                                className="flex items-start gap-3.5 p-5 rounded-2xl bg-[#181a24]/90 border border-white/10 hover:border-white/20 transition-colors"
-                            >
-                                <CheckCircle2
-                                    size={20}
-                                    className="text-emerald-400 shrink-0 mt-0.5"
-                                />
-                                <span className="text-zinc-200 text-sm sm:text-base leading-relaxed">
-                                    {feature}
-                                </span>
-                            </div>
-                        ))}
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5">
+                        {project.features.map((feature, idx) => {
+                            const colonIdx = feature.indexOf(":");
+                            const title = colonIdx !== -1 ? feature.slice(0, colonIdx) : null;
+                            const description =
+                                colonIdx !== -1 ? feature.slice(colonIdx + 1).trim() : feature;
+
+                            return (
+                                <div
+                                    key={idx}
+                                    className="flex items-start gap-3 p-4 rounded-xl bg-[#181a24]/90 border border-white/10 hover:border-white/20 transition-colors"
+                                >
+                                    <CheckCircle2
+                                        size={18}
+                                        className="text-emerald-400 shrink-0 mt-0.5"
+                                    />
+                                    <p className="text-zinc-400 text-sm leading-relaxed">
+                                        {title ? (
+                                            <>
+                                                <strong className="text-white font-semibold">
+                                                    {title}:
+                                                </strong>{" "}
+                                                <span>{description}</span>
+                                            </>
+                                        ) : (
+                                            <span className="text-zinc-200">{description}</span>
+                                        )}
+                                    </p>
+                                </div>
+                            );
+                        })}
                     </div>
                 </motion.section>
 
-                {/* 7. Technical Challenges & Engineering Trade-offs */}
+                {/* 6. Technical Challenges & Engineering Trade-offs */}
                 {project.challenges && project.challenges.length > 0 && (
                     <motion.section
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.5 }}
-                        className="mb-16 space-y-6"
+                        className="mb-14 space-y-5"
                     >
                         <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight flex items-center gap-3">
                             <Flame size={24} className="text-zinc-300" />
                             <span>{t.challengesTitle}</span>
                         </h2>
 
-                        <div className="grid grid-cols-1 gap-4">
+                        <div className="grid grid-cols-1 gap-3.5">
                             {project.challenges.map((challenge, idx) => (
                                 <div
                                     key={idx}
-                                    className="p-6 sm:p-7 rounded-2xl bg-[#181a24]/90 border border-white/10 space-y-2.5 hover:border-white/20 transition-colors"
+                                    className="p-5 sm:p-6 rounded-2xl bg-[#181a24]/90 border border-white/10 space-y-2 hover:border-white/20 transition-colors"
                                 >
-                                    <h3 className="text-base sm:text-lg font-bold text-white flex items-center gap-2.5">
-                                        <span className="w-2 h-2 rounded-full bg-zinc-400 shrink-0" />
+                                    <h3 className="text-base font-bold text-white flex items-center gap-2.5">
+                                        <span className="w-2 h-2 rounded-full bg-emerald-400 shrink-0" />
                                         <span>{challenge.title}</span>
                                     </h3>
-                                    <p className="text-zinc-300 text-sm sm:text-base leading-relaxed pl-4.5">
+                                    <p className="text-zinc-300 text-sm leading-relaxed pl-4.5">
                                         {challenge.description}
                                     </p>
                                 </div>

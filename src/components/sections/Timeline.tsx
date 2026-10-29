@@ -29,9 +29,9 @@ export function Timeline() {
             badge: language === "pt" ? "Projetos & SaaS" : "Projects & SaaS",
             description:
                 language === "pt"
-                    ? "Arquitetura e desenvolvimento de APIs RESTful escaláveis com Java (Spring Boot) e Node.js (Express), implementando regras de negócio complexas como motores de cupons, web scraping e processamento assíncrono. Construção de aplicações web modernas e painéis administrativos com Next.js, React, SvelteKit e Tailwind CSS. Modelagem relacional e otimização de consultas em PostgreSQL (Prisma ORM), padronização de ambientes com Docker e estruturação de segurança com autenticação JWT e proteção de rotas."
-                    : "Architecting and developing scalable RESTful APIs using Java (Spring Boot) and Node.js (Express), implementing complex business logic such as coupon engines, web scraping, and asynchronous processing. Engineering modern web applications and administrative dashboards with Next.js, React, SvelteKit, and Tailwind CSS. Relational data modeling and query optimization in PostgreSQL (Prisma ORM), environment standardization with Docker, and robust JWT authentication and route protection.",
-            tags: ["Java 21", "Spring Boot 3", "Node.js", "Next.js 15", "React", "SvelteKit", "PostgreSQL", "Prisma", "Docker", "JWT"],
+                    ? "Arquitetura de APIs RESTful escaláveis em Java (Spring Boot) e Node.js (Express) e interfaces modernas com Next.js, React e SvelteKit. Modelagem e tuning em PostgreSQL (Prisma ORM), conteinerização com Docker e segurança com JWT."
+                    : "Architecting scalable RESTful APIs in Java (Spring Boot) and Node.js (Express) paired with modern web apps in Next.js, React, and SvelteKit. Relational modeling and query tuning in PostgreSQL (Prisma), Docker containerization, and JWT security.",
+            tags: ["Java 21", "Spring Boot 3", "Node.js", "Next.js", "React", "SvelteKit", "PostgreSQL", "Docker", "JWT"],
         },
         {
             period: language === "pt" ? "Ago. 2024 — Presente" : "Aug. 2024 — Present",
@@ -44,8 +44,8 @@ export function Timeline() {
             badge: language === "pt" ? "Atuação Corporativa" : "Corporate Role",
             description:
                 language === "pt"
-                    ? "Desenvolvimento de automações e documentos dinâmicos com fluxos condicionais complexos, gatilhos e integrações (como geração de códigos de barras para rastreabilidade de pacientes). Otimização de consultas críticas em Oracle SQL via refatoração e CTEs, reduzindo o tempo de processamento de relatórios em até 80%, além da estruturação de censos e KPIs clínicos. Depuração de erros web inspecionando tráfego de rede via DevTools (Network) para diagnóstico técnico junto aos fabricantes e condução de implantações on-site com validação de integridade e manipulação segura em produção (DML)."
-                    : "Developing workflow automations and dynamic documents with complex conditional flows, triggers, and integrations (such as barcode generation for patient traceability). Optimizing critical Oracle SQL queries through refactoring and CTEs—reducing report processing time by up to 80%—and structuring tabular clinical KPI reports and hospital censuses. Debugging web application errors by inspecting network traffic via DevTools (Network tab) to provide precise technical diagnostics to vendors, and leading on-site deployments with data integrity validation and safe production DML.",
+                    ? "Desenvolvimento de automações, fluxos condicionais e relatórios de KPIs clínicos. Otimização de queries críticas em Oracle SQL com CTEs (reduzindo o tempo de processamento em até 80%), depuração de tráfego web via DevTools e implantações on-site com DML seguro em produção."
+                    : "Developing workflow automations, conditional logic, and clinical KPI reports. Optimizing critical Oracle SQL queries with CTEs (reducing processing time by up to 80%), debugging web traffic via DevTools, and leading on-site deployments with safe production DML.",
             tags:
                 language === "pt"
                     ? ["Oracle SQL", "Tuning & CTEs", "Automação de Processos", "KPIs Clínicos", "Debugging Web", "Deploy On-Site"]
@@ -62,8 +62,8 @@ export function Timeline() {
             badge: language === "pt" ? "Missão Crítica" : "Mission Critical",
             description:
                 language === "pt"
-                    ? "Monitoramento de ecossistema hospitalar de alta disponibilidade, atuando na análise de telemetria, identificação de gargalos e mitigação ágil de incidentes utilizando Datadog, Grafana e Zabbix. Investigação de anomalias em infraestrutura e redes, realizando mapeamento técnico de problemas e análise de logs para escalar resoluções estruturadas às equipes de engenharia (N2/N3). Liderança na investigação de causa raiz (RCA) na depuração de incidentes sistêmicos complexos, orquestrando testes multidisciplinares e elaborando documentação técnica para melhoria contínua."
-                    : "Monitoring a high-availability hospital ecosystem, analyzing telemetry, identifying bottlenecks, and performing agile incident mitigation using Datadog, Grafana, and Zabbix. Investigating infrastructure and network anomalies, conducting technical problem mapping and log analysis to escalate structured resolutions to engineering teams (L2/L3). Leading Root Cause Analysis (RCA) for complex systemic incidents, orchestrating multidisciplinary tests and creating technical documentation for continuous improvement.",
+                    ? "Monitoramento de ecossistema hospitalar de alta disponibilidade e mitigação de incidentes com Datadog, Grafana e Zabbix. Análise de logs e diagnóstico de infraestrutura/redes para escalonamento N2/N3, liderando investigações de causa raiz (RCA)."
+                    : "Monitoring high-availability hospital ecosystems and mitigating incidents with Datadog, Grafana, and Zabbix. Log analysis and infrastructure/network diagnostics for L2/L3 escalation, leading Root Cause Analysis (RCA) for systemic failures.",
             tags:
                 language === "pt"
                     ? ["Observabilidade", "Datadog / Grafana", "Zabbix", "Análise de Logs", "Causa Raiz (RCA)", "Telemetria"]
@@ -107,8 +107,8 @@ export function Timeline() {
             institution: "Filipe Deschamps (2026)",
             status:
                 language === "pt"
-                    ? "Foco em fundamentos de engenharia, arquitetura, Next.js, Node.js, PostgreSQL, Docker, CI/CD e Testes Automatizados (TDD)."
-                    : "Focus on engineering fundamentals, architecture, Next.js, Node.js, PostgreSQL, Docker, CI/CD, and Automated Testing (TDD).",
+                    ? "Arquitetura, Next.js, Node.js, PostgreSQL, Docker, CI/CD & TDD"
+                    : "Architecture, Next.js, Node.js, PostgreSQL, Docker, CI/CD & TDD",
             type: language === "pt" ? "Formação • 81h" : "Training Track • 81h",
         },
         {
@@ -116,8 +116,8 @@ export function Timeline() {
             institution: "Alura & Oracle (Jan. 2023)",
             status:
                 language === "pt"
-                    ? "Programa intensivo focado em lógica de programação, ecossistema Java, Orientação a Objetos e desenvolvimento Web."
-                    : "Intensive program focused on programming logic, Java ecosystem, Object-Oriented Programming, and Web development.",
+                    ? "Lógica de Programação, Ecossistema Java, POO & Web"
+                    : "Programming Logic, Java Ecosystem, OOP & Web",
             type: language === "pt" ? "Programa Intensivo • 290h" : "Intensive Track • 290h",
         },
         {
@@ -128,8 +128,8 @@ export function Timeline() {
             institution: "Faculdade Descomplica (Jan. 2023)",
             status:
                 language === "pt"
-                    ? "Especialização em estruturação de interfaces modernas e desenvolvimento web."
-                    : "Specialization in modern interface structuring and web development.",
+                    ? "Estruturação de Interfaces Modernas & Desenvolvimento Web"
+                    : "Modern Interface Structuring & Web Development",
             type: language === "pt" ? "Especialização • 220h" : "Specialization • 220h",
         },
         {
@@ -137,8 +137,8 @@ export function Timeline() {
             institution: language === "pt" ? "SENAI/DF (Ago. 2022)" : "SENAI/DF (Aug. 2022)",
             status:
                 language === "pt"
-                    ? "Foco prático em Lógica de Programação, JavaScript, HTML5, CSS3, Bootstrap e manipulação de DOM."
-                    : "Practical focus on Programming Logic, JavaScript, HTML5, CSS3, Bootstrap, and DOM manipulation.",
+                    ? "Lógica, JavaScript, HTML5, CSS3, Bootstrap & Manipulação de DOM"
+                    : "Logic, JavaScript, HTML5, CSS3, Bootstrap & DOM Manipulation",
             type: language === "pt" ? "Curso de Formação • 200h" : "Professional Course • 200h",
         },
     ];

@@ -16,7 +16,7 @@ export const dictionary = {
             greeting: "Olá, eu sou",
             name: "Paulo Gomes",
             subtitle: "Desenvolvedor Full Stack",
-            description: "Uno a robustez do Back-End em Java 21, Spring Boot 3 e Node.js com a fluidez do Front-End em Next.js e React. Priorizo arquitetura limpa, regras de negócio bem estruturadas e software resiliente de ponta a ponta.",
+            description: "Construo aplicações escaláveis combinando Java 21, Spring Boot 3 e Node.js no Back-End com Next.js e React no Front-End — com foco em arquitetura limpa e estabilidade em produção.",
             console: {
                 systemStatus: "CORE ENGINE // RUNTIME",
                 runtimeBadge: "Java 21 • Node.js • Next.js",
@@ -33,17 +33,12 @@ export const dictionary = {
             me: "Mim",
             description1: (
                 <>
-                    Minha jornada na tecnologia não começou apenas escrevendo código, mas garantindo que <strong className="text-gray-100">sistemas críticos continuassem no ar</strong>. Começar minha carreira focado em operações, infraestrutura e monitoramento me deu uma perspectiva única: vi na prática como as aplicações se comportam sob estresse em ambientes reais de produção. Essa vivência moldou minha engenharia. Hoje, não busco apenas &quot;fazer funcionar&quot;; desenvolvo desde a primeira linha pensando em <span className="text-white font-semibold">resiliência, observabilidade e facilidade de manutenção</span>.
+                    Minha base na tecnologia começou sustentando <strong className="text-gray-100">operações de missão crítica</strong>, onde vi na prática como sistemas reais se comportam sob estresse. Essa vivência moldou minha engenharia: desenvolvo desde a primeira linha priorizando <span className="text-white font-semibold">resiliência, observabilidade e código limpo</span>.
                 </>
             ),
             description2: (
                 <>
-                    Atualmente, atuo como <strong className="text-gray-100">Desenvolvedor Full-Stack</strong> focado em construir soluções robustas de ponta a ponta. No Back-End, utilizo os ecossistemas <span className="text-white font-semibold">Java (Spring Boot) e Node.js</span> para arquitetar APIs escaláveis e regras de negócio complexas, apoiadas por um forte domínio analítico em modelagem de dados e <strong className="text-gray-100">otimização de queries SQL (Oracle / PostgreSQL)</strong>.
-                </>
-            ),
-            description3: (
-                <>
-                    Levo a qualidade estrutural muito a sério: meu processo de desenvolvimento é estritamente guiado por <strong className="text-gray-100">Clean Code, camadas sólidas de segurança e validação rigorosa através de testes automatizados e TDD</strong>. No Front-End, conecto toda essa lógica a interfaces rápidas e responsivas utilizando <span className="text-white font-semibold">Next.js, React e SvelteKit</span>. Gosto de ter o domínio sobre o ciclo completo do produto, entregando software que resolve problemas reais de negócio e que nasce pronto para escalar sem gargalos.
+                    Como <strong className="text-gray-100">Desenvolvedor Full-Stack</strong>, arquiteto APIs robustas em <span className="text-white font-semibold">Java (Spring Boot) e Node.js</span> integradas a interfaces modernas em <span className="text-white font-semibold">Next.js, React e SvelteKit</span>, com forte domínio em modelagem relacional, <strong className="text-gray-100">tuning de queries SQL (Oracle / PostgreSQL)</strong> e testes automatizados (TDD).
                 </>
             ),
             pillarsTitle: "Pilares de Engenharia",
@@ -52,19 +47,19 @@ export const dictionary = {
                     number: "01",
                     title: "Resiliência & Observabilidade",
                     description:
-                        "Visão forjada em sustentação de ambientes hospitalares de alta disponibilidade. Telemetria ativa (Datadog/Grafana), mitigação de gargalos e análise de causa raiz (RCA) para prevenção de incidentes em produção.",
+                        "Telemetria ativa (Datadog/Grafana), mitigação de gargalos e análise de causa raiz (RCA) para estabilidade em produção.",
                 },
                 {
                     number: "02",
-                    title: "Arquitetura Limpa & Clean Code",
+                    title: "Arquitetura Limpa & TDD",
                     description:
-                        "Separação rigorosa de responsabilidades, desacoplamento de regras de negócio e código altamente legível. Foco em segurança estrutural, facilidade de manutenção e testes automatizados contínuos.",
+                        "Regras de negócio desacopladas, segurança estrutural (JWT/RBAC) e qualidade validada por testes automatizados.",
                 },
                 {
                     number: "03",
                     title: "Engenharia de Dados & SQL Tuning",
                     description:
-                        "Domínio prático em Oracle SQL e PostgreSQL. Modelagem relacional consistente, refatoração de queries críticas com CTEs e integridade transacional para máxima performance em produção.",
+                        "Modelagem relacional consistente e refatoração de queries críticas com CTEs em Oracle SQL e PostgreSQL.",
                 },
             ],
         },
@@ -109,7 +104,7 @@ export const dictionary = {
             greeting: "Hello, I am",
             name: "Paulo Gomes",
             subtitle: "Full Stack Developer",
-            description: "Combining the robustness of Java 21, Spring Boot 3, and Node.js on the Back-End with the fluidity of Next.js and React on the Front-End. Prioritizing clean architecture, solid business rules, and end-to-end resilient software.",
+            description: "Building scalable applications combining Java 21, Spring Boot 3, and Node.js on the Back-End with Next.js and React on the Front-End — focused on clean architecture and production reliability.",
             console: {
                 systemStatus: "CORE ENGINE // RUNTIME",
                 runtimeBadge: "Java 21 • Node.js • Next.js",
@@ -126,17 +121,12 @@ export const dictionary = {
             me: "Me",
             description1: (
                 <>
-                    My tech journey didn&apos;t start merely writing code, but ensuring that <strong className="text-gray-100">mission-critical systems stayed online</strong>. Beginning my career focused on operations, infrastructure, and monitoring gave me a unique perspective: I saw firsthand how applications behave (and fail) under stress in real production environments. This experience shaped my engineering approach. Today, I don&apos;t just aim to &quot;make it work&quot;; I develop from line one prioritizing <span className="text-white font-semibold">resilience, observability, and maintainability</span>.
+                    My foundation in tech started supporting <strong className="text-gray-100">mission-critical operations</strong>, seeing firsthand how real systems behave under stress. That experience shaped my engineering mindset: I build from line one prioritizing <span className="text-white font-semibold">resilience, observability, and clean code</span>.
                 </>
             ),
             description2: (
                 <>
-                    Currently, I work as a <strong className="text-gray-100">Full-Stack Developer</strong> building robust end-to-end solutions. On the Back-End, I utilize the <span className="text-white font-semibold">Java (Spring Boot) and Node.js</span> ecosystems to architect scalable APIs and complex business logic, backed by strong analytical domain expertise in data modeling and <strong className="text-gray-100">SQL query optimization (Oracle / PostgreSQL)</strong>.
-                </>
-            ),
-            description3: (
-                <>
-                    I take structural quality seriously: my development workflow is strictly guided by <strong className="text-gray-100">Clean Code, solid security layers, and rigorous validation through automated testing and TDD</strong>. On the Front-End, I connect this logic to fast, responsive user interfaces with <span className="text-white font-semibold">Next.js, React, and SvelteKit</span>. I enjoy having full ownership over the product lifecycle, delivering software that solves real business problems and scales effortlessly.
+                    As a <strong className="text-gray-100">Full-Stack Developer</strong>, I architect scalable APIs in <span className="text-white font-semibold">Java (Spring Boot) and Node.js</span> paired with reactive interfaces in <span className="text-white font-semibold">Next.js, React, and SvelteKit</span>, backed by deep expertise in relational modeling, <strong className="text-gray-100">SQL query tuning (Oracle / PostgreSQL)</strong>, and automated testing (TDD).
                 </>
             ),
             pillarsTitle: "Engineering Pillars",
@@ -145,19 +135,19 @@ export const dictionary = {
                     number: "01",
                     title: "Resilience & Observability",
                     description:
-                        "Forged in mission-critical hospital ecosystems. Active telemetry (Datadog/Grafana), bottleneck mitigation, and structured root-cause analysis (RCA) to prevent production incidents.",
+                        "Active telemetry (Datadog/Grafana), bottleneck mitigation, and root-cause analysis (RCA) for production stability.",
                 },
                 {
                     number: "02",
-                    title: "Clean Architecture & Maintainability",
+                    title: "Clean Architecture & TDD",
                     description:
-                        "Strict separation of concerns, decoupled domain logic, and clean code. Structural security, long-term maintainability, and continuous automated testing.",
+                        "Decoupled domain logic, structural security (JWT/RBAC), and reliability validated by automated test suites.",
                 },
                 {
                     number: "03",
                     title: "Data Engineering & SQL Tuning",
                     description:
-                        "Hands-on expertise in Oracle SQL and PostgreSQL. Consistent relational modeling, critical query refactoring with CTEs, and transactional integrity for peak production performance.",
+                        "Consistent relational modeling and critical query refactoring with CTEs in Oracle SQL and PostgreSQL.",
                 },
             ],
         },
