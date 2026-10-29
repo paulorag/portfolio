@@ -29,8 +29,8 @@ export function ProjectListRow({ project, index }: ProjectListRowProps) {
                 aria-label={`Ver detalhes e estudo de caso de ${project.title}`}
             />
 
-            <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-6 flex-grow">
-                <div className="min-w-[200px]">
+            <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-6 grow">
+                <div className="min-w-50">
                     <h3 className="text-lg font-bold text-zinc-100 group-hover:text-white transition-colors">
                         {project.title}
                     </h3>
@@ -43,7 +43,7 @@ export function ProjectListRow({ project, index }: ProjectListRowProps) {
                     {project.tags.slice(0, 4).map((tag) => (
                         <span
                             key={tag}
-                            className="text-xs font-mono px-2 py-0.5 rounded bg-white/[0.04] text-zinc-300 border border-white/5"
+                            className="text-xs font-mono px-2 py-0.5 rounded bg-white/4 text-zinc-300 border border-white/5"
                         >
                             {tag}
                         </span>

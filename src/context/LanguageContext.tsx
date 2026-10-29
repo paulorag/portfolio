@@ -4,6 +4,7 @@ import React, {
     createContext,
     useContext,
     useCallback,
+    useEffect,
     useSyncExternalStore,
     ReactNode,
 } from "react";
@@ -48,6 +49,10 @@ function getServerSnapshot(): Language {
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
     const language = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
+
+    useEffect(() => {
+        document.documentElement.lang = language === "pt" ? "pt-BR" : "en";
+    }, [language]);
 
     const setLanguage = useCallback((lang: Language) => {
         try {

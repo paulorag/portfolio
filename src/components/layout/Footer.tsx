@@ -55,7 +55,7 @@ export function Footer() {
                 {/* Engineering Action Dock */}
                 <div className="relative rounded-3xl bg-[#181a24]/90 border border-white/10 p-7 sm:p-10 backdrop-blur-2xl shadow-2xl overflow-hidden">
                     {/* Subtle Ambient Glow Inside Dock */}
-                    <div className="absolute -top-24 right-0 w-96 h-96 bg-white/[0.02] rounded-full blur-[140px] pointer-events-none -z-10" />
+                    <div className="absolute -top-24 right-0 w-96 h-96 bg-white/2 rounded-full blur-[140px] pointer-events-none -z-10" />
 
                     <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
                         {/* Left Column: Identity & Direct Statement */}
@@ -79,7 +79,7 @@ export function Footer() {
                             {/* Row 1: Copy Email Button (Full Width of Right Column) */}
                             <button
                                 onClick={handleCopyEmail}
-                                className="group cursor-pointer select-none flex items-center justify-between gap-3 px-4 sm:px-5 py-3 rounded-xl bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 hover:border-white/20 transition-all duration-200 active:scale-[0.99] shadow-sm w-full"
+                                className="group cursor-pointer select-none flex items-center justify-between gap-3 px-4 sm:px-5 py-3 rounded-xl bg-white/4 hover:bg-white/8 border border-white/10 hover:border-white/20 transition-all duration-200 active:scale-[0.99] shadow-sm w-full"
                                 title={
                                     language === "pt"
                                         ? "Clique para copiar o e-mail"
@@ -121,7 +121,7 @@ export function Footer() {
                                     href={whatsappUrl}
                                     target="_blank"
                                     rel="noreferrer"
-                                    className="group flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-white/[0.04] hover:bg-emerald-500/10 border border-white/10 hover:border-emerald-500/40 text-zinc-200 hover:text-emerald-300 text-xs sm:text-sm font-medium transition-all duration-200 active:scale-[0.99]"
+                                    className="group flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-white/4 hover:bg-emerald-500/10 border border-white/10 hover:border-emerald-500/40 text-zinc-200 hover:text-emerald-300 text-xs sm:text-sm font-medium transition-all duration-200 active:scale-[0.99]"
                                     aria-label="WhatsApp de Paulo Gomes"
                                 >
                                     <div className="p-1 rounded-md bg-emerald-500/10 text-emerald-400 group-hover:bg-emerald-500/20 transition-colors">
@@ -137,7 +137,7 @@ export function Footer() {
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     download={cvFileName}
-                                    className="group flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 hover:border-white/20 text-zinc-200 hover:text-white text-xs sm:text-sm font-medium transition-all duration-200 active:scale-[0.99]"
+                                    className="group flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-white/4 hover:bg-white/8 border border-white/10 hover:border-white/20 text-zinc-200 hover:text-white text-xs sm:text-sm font-medium transition-all duration-200 active:scale-[0.99]"
                                 >
                                     <div className="p-1 rounded-md bg-white/5 text-zinc-300 border border-white/10 group-hover:text-white transition-colors">
                                         <FileDown size={14} />
@@ -152,7 +152,7 @@ export function Footer() {
                                     href="https://github.com/paulorag"
                                     target="_blank"
                                     rel="noreferrer"
-                                    className="group flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 hover:border-white/20 text-zinc-300 hover:text-white text-xs font-medium transition-all"
+                                    className="group flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-white/4 hover:bg-white/8 border border-white/10 hover:border-white/20 text-zinc-300 hover:text-white text-xs font-medium transition-all"
                                     aria-label="GitHub de Paulo Gomes"
                                 >
                                     <Github size={14} />
@@ -164,7 +164,7 @@ export function Footer() {
                                     href="https://linkedin.com/in/paulorag"
                                     target="_blank"
                                     rel="noreferrer"
-                                    className="group flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 hover:border-white/20 text-zinc-300 hover:text-white text-xs font-medium transition-all"
+                                    className="group flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-white/4 hover:bg-white/8 border border-white/10 hover:border-white/20 text-zinc-300 hover:text-white text-xs font-medium transition-all"
                                     aria-label="LinkedIn de Paulo Gomes"
                                 >
                                     <Linkedin size={14} />

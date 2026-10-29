@@ -148,7 +148,7 @@ export function Timeline() {
             id="trajetoria"
             className="py-12 sm:py-16 px-4 md:px-6 scroll-mt-28 relative overflow-hidden"
         >
-            <div className="absolute bottom-10 right-0 w-80 h-80 bg-white/[0.02] rounded-full blur-[150px] pointer-events-none -z-10" />
+            <div className="absolute bottom-10 right-0 w-80 h-80 bg-white/2 rounded-full blur-[150px] pointer-events-none -z-10" />
             <div className="container mx-auto max-w-5xl space-y-12">
                 {/* Section Header */}
                 <motion.div
@@ -162,7 +162,7 @@ export function Timeline() {
                     </span>
                     <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-white mt-1.5">
                         {language === "pt" ? "Trajetória" : "Professional"}{" "}
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-zinc-100 to-zinc-400">
+                        <span className="text-transparent bg-clip-text bg-linear-to-r from-white via-zinc-100 to-zinc-400">
                             {language === "pt" ? "Profissional" : "Journey"}
                         </span>
                     </h2>
@@ -180,7 +180,7 @@ export function Timeline() {
                             className="relative"
                         >
                             {/* Point Node on Timeline Line */}
-                            <div className="absolute -left-[31px] sm:-left-[39px] top-4 p-1.5 rounded-full bg-[#181a24] border border-white/20 text-zinc-300 shadow-sm">
+                            <div className="absolute -left-7.75 sm:-left-9.75 top-4 p-1.5 rounded-full bg-[#181a24] border border-white/20 text-zinc-300 shadow-sm">
                                 {item.icon}
                             </div>
 
@@ -213,7 +213,7 @@ export function Timeline() {
                                     {item.tags.map((tag) => (
                                         <span
                                             key={tag}
-                                            className="text-xs font-mono px-2 py-0.5 rounded bg-white/[0.04] text-zinc-400 border border-white/5"
+                                            className="text-xs font-mono px-2 py-0.5 rounded bg-white/4 text-zinc-400 border border-white/5"
                                         >
                                             {tag}
                                         </span>

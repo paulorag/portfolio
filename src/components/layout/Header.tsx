@@ -97,7 +97,7 @@ export function Header() {
                             >
                                 {item.name}
                                 <span
-                                    className={`absolute left-0 bottom-0 h-[2px] bg-gradient-to-r from-white via-zinc-200 to-zinc-400 transition-all duration-300 ${
+                                    className={`absolute left-0 bottom-0 h-0.5 bg-linear-to-r from-white via-zinc-200 to-zinc-400 transition-all duration-300 ${
                                         isActive
                                             ? "w-full"
                                             : "w-0 group-hover:w-full"
@@ -134,7 +134,7 @@ export function Header() {
                         {language === "pt" ? "EN" : "PT"}
                     </button>
 
-                    <div className="h-6 w-[1px] bg-white/10" />
+                    <div className="h-6 w-px bg-white/10" />
 
                     <button
                         className="cursor-pointer p-1.5 text-zinc-400 hover:text-white hover:bg-white/5 rounded-md transition-colors z-50 relative active:scale-95"
@@ -166,7 +166,7 @@ export function Header() {
                                     {item.name}
                                 </Link>
                             ))}
-                            <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent mt-2 shadow-sm" />
+                            <div className="w-full h-px bg-linear-to-r from-transparent via-white/10 to-transparent mt-2 shadow-sm" />
                         </div>
                     </motion.div>
                 )}

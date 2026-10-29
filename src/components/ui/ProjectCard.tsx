@@ -56,7 +56,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
 
             {/* Compact Project Image Thumbnail */}
             <div className="relative w-full h-48 sm:h-52 md:h-56 overflow-hidden bg-[#0d0d0d]">
-                <div className="absolute inset-0 bg-gradient-to-t from-[#181a24] via-transparent to-black/20 z-[1]" />
+                <div className="absolute inset-0 bg-linear-to-t from-[#181a24] via-transparent to-black/20 z-1" />
 
                 <Image
                     src={project.image}
@@ -69,7 +69,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
             </div>
 
             {/* Content Section: Focus on Stack & Direct Access */}
-            <div className="p-4 sm:p-5 flex flex-col justify-between flex-grow relative z-[2] gap-4">
+            <div className="p-4 sm:p-5 flex flex-col justify-between grow relative z-2 gap-4">
                 <div className="space-y-1">
                     <h3 className="text-base sm:text-lg font-bold text-zinc-100 group-hover:text-white transition-colors tracking-tight">
                         {project.title}
@@ -88,7 +88,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
                         {project.tags.map((tag) => (
                             <span
                                 key={tag}
-                                className="text-[11px] font-mono px-2 py-0.5 rounded-md bg-white/[0.04] text-zinc-300 border border-white/5 group-hover:border-white/15 transition-colors"
+                                className="text-[11px] font-mono px-2 py-0.5 rounded-md bg-white/4 text-zinc-300 border border-white/5 group-hover:border-white/15 transition-colors"
                             >
                                 {tag}
                             </span>

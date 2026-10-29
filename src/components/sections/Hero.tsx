@@ -14,8 +14,8 @@ export function Hero() {
             className="pt-28 pb-12 sm:pt-36 sm:pb-16 px-4 md:px-6 scroll-mt-28 relative overflow-hidden"
         >
             {/* Minimalist Titanium Luminescence */}
-            <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-[850px] h-[500px] bg-gradient-to-b from-white/[0.04] via-zinc-500/[0.02] to-transparent rounded-full blur-[140px] pointer-events-none -z-10" />
-            <div className="absolute top-20 right-[-10%] w-[500px] h-[500px] bg-white/[0.02] rounded-full blur-[160px] pointer-events-none -z-10" />
+            <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-212.5 h-125 bg-linear-to-b from-white/4 via-zinc-500/2 to-transparent rounded-full blur-[140px] pointer-events-none -z-10" />
+            <div className="absolute top-20 -right-[10%] w-125 h-125 bg-white/2 rounded-full blur-[160px] pointer-events-none -z-10" />
 
             <div className="container mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center max-w-5xl">
                 {/* Left Column: Direct, Simple & Elegant Bio */}
@@ -34,7 +34,7 @@ export function Hero() {
                     {/* Titulo: Olá, eu sou Paulo Gomes */}
                     <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-white leading-[1.15]">
                         {dict.hero.greeting} <br />
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-zinc-100 to-zinc-400">
+                        <span className="text-transparent bg-clip-text bg-linear-to-r from-white via-zinc-100 to-zinc-400">
                             {dict.hero.name}
                         </span>
                     </h1>
@@ -59,7 +59,7 @@ export function Hero() {
                 >
                     <div className="w-full max-w-md bg-[#181a24]/90 border border-white/10 rounded-3xl backdrop-blur-2xl p-5 sm:p-6 shadow-2xl space-y-3.5 relative overflow-hidden">
                         {/* Subtle Glow inside Console */}
-                        <div className="absolute -top-16 -right-16 w-48 h-48 bg-white/[0.03] rounded-full blur-[80px] pointer-events-none -z-10" />
+                        <div className="absolute -top-16 -right-16 w-48 h-48 bg-white/3 rounded-full blur-[80px] pointer-events-none -z-10" />
 
                         {/* Console Header Bar */}
                         <div className="flex items-center justify-between pb-3 border-b border-white/10">
@@ -78,7 +78,7 @@ export function Hero() {
                         </div>
 
                         {/* Module 1: Back-End Core */}
-                        <div className="p-3.5 rounded-2xl bg-white/[0.02] border border-white/5 space-y-2">
+                        <div className="p-3.5 rounded-2xl bg-white/2 border border-white/5 space-y-2">
                             <div className="flex items-center gap-2">
                                 <div className="p-1 rounded-md bg-white/5 text-zinc-300 border border-white/10">
                                     <Server size={13} />
@@ -92,7 +92,7 @@ export function Hero() {
                                 {consoleData.backendTechs.map((tech: string) => (
                                     <span
                                         key={tech}
-                                        className="px-2 py-0.5 text-[11px] font-mono rounded-md bg-white/[0.04] text-zinc-300 border border-white/5"
+                                        className="px-2 py-0.5 text-[11px] font-mono rounded-md bg-white/4 text-zinc-300 border border-white/5"
                                     >
                                         {tech}
                                     </span>
@@ -101,7 +101,7 @@ export function Hero() {
                         </div>
 
                         {/* Module 2: Front-End Core */}
-                        <div className="p-3.5 rounded-2xl bg-white/[0.02] border border-white/5 space-y-2">
+                        <div className="p-3.5 rounded-2xl bg-white/2 border border-white/5 space-y-2">
                             <div className="flex items-center gap-2">
                                 <div className="p-1 rounded-md bg-white/5 text-zinc-300 border border-white/10">
                                     <Layout size={13} />
@@ -115,7 +115,7 @@ export function Hero() {
                                 {consoleData.frontendTechs.map((tech: string) => (
                                     <span
                                         key={tech}
-                                        className="px-2 py-0.5 text-[11px] font-mono rounded-md bg-white/[0.04] text-zinc-300 border border-white/5"
+                                        className="px-2 py-0.5 text-[11px] font-mono rounded-md bg-white/4 text-zinc-300 border border-white/5"
                                     >
                                         {tech}
                                     </span>
@@ -124,7 +124,7 @@ export function Hero() {
                         </div>
 
                         {/* Module 3: Engineering & Resilience */}
-                        <div className="p-3.5 rounded-2xl bg-white/[0.02] border border-white/5 space-y-2">
+                        <div className="p-3.5 rounded-2xl bg-white/2 border border-white/5 space-y-2">
                             <div className="flex items-center gap-2">
                                 <div className="p-1 rounded-md bg-white/5 text-zinc-300 border border-white/10">
                                     <ShieldCheck size={13} />
@@ -138,7 +138,7 @@ export function Hero() {
                                 {consoleData.engineeringTechs.map((tech: string) => (
                                     <span
                                         key={tech}
-                                        className="px-2 py-0.5 text-[11px] font-mono rounded-md bg-white/[0.04] text-zinc-300 border border-white/5"
+                                        className="px-2 py-0.5 text-[11px] font-mono rounded-md bg-white/4 text-zinc-300 border border-white/5"
                                     >
                                         {tech}
                                     </span>

@@ -19,7 +19,7 @@ export function About() {
             id="sobre"
             className="py-12 sm:py-16 px-4 md:px-6 scroll-mt-28 relative overflow-hidden"
         >
-            <div className="absolute top-1/2 -right-24 w-80 h-80 bg-white/[0.02] rounded-full blur-[140px] pointer-events-none -z-10" />
+            <div className="absolute top-1/2 -right-24 w-80 h-80 bg-white/2 rounded-full blur-[140px] pointer-events-none -z-10" />
             <div className="container mx-auto max-w-5xl">
                 {/* Section Header */}
                 <motion.div
@@ -34,7 +34,7 @@ export function About() {
                     </span>
                     <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-white mt-1.5">
                         {dict.about.title}{" "}
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-zinc-100 to-zinc-400">
+                        <span className="text-transparent bg-clip-text bg-linear-to-r from-white via-zinc-100 to-zinc-400">
                             {dict.about.me}
                         </span>
                     </h2>
@@ -69,7 +69,7 @@ export function About() {
                                 className="group p-5 rounded-2xl border border-white/10 bg-[#181a24]/90 hover:border-white/20 transition-all duration-300 shadow-sm relative overflow-hidden backdrop-blur-xl"
                             >
                                 <div className="flex items-start gap-3.5">
-                                    <div className="p-2 rounded-xl bg-white/[0.04] border border-white/10 shrink-0 mt-0.5 text-zinc-300 group-hover:text-white transition-colors">
+                                    <div className="p-2 rounded-xl bg-white/4 border border-white/10 shrink-0 mt-0.5 text-zinc-300 group-hover:text-white transition-colors">
                                         {pillarIcons[index] || <Layers className="w-5 h-5 text-zinc-200" />}
                                     </div>
 

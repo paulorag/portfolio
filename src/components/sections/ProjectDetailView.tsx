@@ -28,6 +28,7 @@ import {
 } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 import { projectsData } from "@/lib/data";
+import { useLenis } from "lenis/react";
 
 interface ProjectDetailViewProps {
     slug: string;
@@ -35,6 +36,7 @@ interface ProjectDetailViewProps {
 
 export function ProjectDetailView({ slug }: ProjectDetailViewProps) {
     const { language } = useLanguage();
+    const lenis = useLenis();
 
     const projectList = projectsData[language] || projectsData.pt;
     const projectIndex = projectList.findIndex((p) => p.slug === slug);
@@ -74,15 +76,18 @@ export function ProjectDetailView({ slug }: ProjectDetailViewProps) {
     useEffect(() => {
         if (lightboxIndex !== null) {
             document.body.style.overflow = "hidden";
+            lenis?.stop();
             window.addEventListener("keydown", handleKeyDown);
         } else {
             document.body.style.overflow = "";
+            lenis?.start();
         }
         return () => {
             document.body.style.overflow = "";
+            lenis?.start();
             window.removeEventListener("keydown", handleKeyDown);
         };
-    }, [lightboxIndex, handleKeyDown]);
+    }, [lightboxIndex, handleKeyDown, lenis]);
 
     const t = useMemo(() => {
         if (language === "en") {
@@ -156,9 +161,9 @@ export function ProjectDetailView({ slug }: ProjectDetailViewProps) {
     return (
         <article className="min-h-screen bg-[#12131a] text-white pt-24 pb-14 sm:pb-18 px-4 md:px-6 relative overflow-hidden">
             {/* Ambient Background Glows */}
-            <div className="absolute top-20 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-white/[0.02] rounded-full blur-[160px] pointer-events-none -z-10" />
-            <div className="absolute top-[40%] -right-20 w-[500px] h-[450px] bg-white/[0.02] rounded-full blur-[170px] pointer-events-none -z-10" />
-            <div className="absolute top-[75%] -left-20 w-[450px] h-[450px] bg-white/[0.02] rounded-full blur-[160px] pointer-events-none -z-10" />
+            <div className="absolute top-20 left-1/2 -translate-x-1/2 w-175 h-87.5 bg-white/2 rounded-full blur-[160px] pointer-events-none -z-10" />
+            <div className="absolute top-2/5 -right-20 w-125 h-112.5 bg-white/2 rounded-full blur-[170px] pointer-events-none -z-10" />
+            <div className="absolute top-3/4 -left-20 w-112.5 h-112.5 bg-white/2 rounded-full blur-[160px] pointer-events-none -z-10" />
 
             <div className="container mx-auto max-w-5xl">
                 {/* Top Nav Bar & Action Links */}
@@ -185,7 +190,7 @@ export function ProjectDetailView({ slug }: ProjectDetailViewProps) {
                                 href={project.github}
                                 target="_blank"
                                 rel="noreferrer"
-                                className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 hover:border-white/20 text-zinc-300 hover:text-white text-sm font-medium transition-all active:scale-95 shadow-sm"
+                                className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-white/4 hover:bg-white/8 border border-white/10 hover:border-white/20 text-zinc-300 hover:text-white text-sm font-medium transition-all active:scale-95 shadow-sm"
                             >
                                 <Github size={18} />
                                 <span>{t.viewCode}</span>
@@ -248,7 +253,7 @@ export function ProjectDetailView({ slug }: ProjectDetailViewProps) {
                         </span>
                     </div>
 
-                    <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-white via-zinc-100 to-zinc-400">
+                    <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold tracking-tight text-transparent bg-clip-text bg-linear-to-r from-white via-zinc-100 to-zinc-400">
                         {project.title}
                     </h1>
 
@@ -267,7 +272,7 @@ export function ProjectDetailView({ slug }: ProjectDetailViewProps) {
                         {project.tags.map((tag) => (
                             <span
                                 key={tag}
-                                className="text-xs sm:text-sm font-mono px-3 py-1 rounded-lg bg-white/[0.04] text-zinc-300 border border-white/10"
+                                className="text-xs sm:text-sm font-mono px-3 py-1 rounded-lg bg-white/4 text-zinc-300 border border-white/10"
                             >
                                 {tag}
                             </span>
@@ -276,7 +281,7 @@ export function ProjectDetailView({ slug }: ProjectDetailViewProps) {
 
                     {/* Cold Start Notice Banner (Free Tier Cloud Hosting) */}
                     {project.coldStartNotice && (
-                        <div className="p-4 sm:p-5 rounded-2xl bg-amber-500/[0.06] border border-amber-500/20 text-zinc-300 backdrop-blur-xl shadow-sm flex items-start gap-3.5 mt-4">
+                        <div className="p-4 sm:p-5 rounded-2xl bg-amber-500/6 border border-amber-500/20 text-zinc-300 backdrop-blur-xl shadow-sm flex items-start gap-3.5 mt-4">
                             <div className="p-2 rounded-xl bg-amber-500/10 text-amber-400 shrink-0 mt-0.5">
                                 <Clock size={16} />
                             </div>
@@ -322,7 +327,7 @@ export function ProjectDetailView({ slug }: ProjectDetailViewProps) {
                     {/* Responsive Canvas with no cropping / zoom cut-off */}
                     <div
                         onClick={() => project.gallery && project.gallery.length > 0 && setLightboxIndex(0)}
-                        className="relative w-full aspect-[16/9] sm:aspect-[16/8] min-h-[260px] max-h-[520px] bg-[#0c0d14] flex items-center justify-center p-2 sm:p-4 cursor-pointer"
+                        className="relative w-full aspect-video sm:aspect-2/1 min-h-65 max-h-130 bg-[#0c0d14] flex items-center justify-center p-2 sm:p-4 cursor-pointer"
                     >
                         <div className="relative w-full h-full">
                             <Image
@@ -411,7 +416,7 @@ export function ProjectDetailView({ slug }: ProjectDetailViewProps) {
                                     className="group rounded-2xl bg-[#181a24]/90 border border-white/10 overflow-hidden hover:border-white/25 transition-all duration-300 flex flex-col cursor-pointer shadow-lg hover:shadow-2xl"
                                 >
                                     {/* Screen Canvas: aspect-ratio with object-contain so full UI is visible */}
-                                    <div className="relative w-full aspect-[16/9] sm:aspect-[16/10] bg-[#0c0d14] p-2.5 sm:p-3.5 flex items-center justify-center overflow-hidden border-b border-white/10">
+                                    <div className="relative w-full aspect-video sm:aspect-16/10 bg-[#0c0d14] p-2.5 sm:p-3.5 flex items-center justify-center overflow-hidden border-b border-white/10">
                                         <div className="relative w-full h-full">
                                             <Image
                                                 src={item.image}
@@ -468,7 +473,7 @@ export function ProjectDetailView({ slug }: ProjectDetailViewProps) {
                             {/* Frontend Quadrant */}
                             {project.architecture.frontend && (
                                 <div className="p-6 rounded-2xl bg-[#181a24]/90 border border-white/10 hover:border-white/20 transition-colors space-y-3">
-                                    <div className="p-2.5 rounded-xl bg-white/[0.04] border border-white/10 w-fit text-zinc-300">
+                                    <div className="p-2.5 rounded-xl bg-white/4 border border-white/10 w-fit text-zinc-300">
                                         <Cpu size={18} />
                                     </div>
                                     <div>
@@ -485,7 +490,7 @@ export function ProjectDetailView({ slug }: ProjectDetailViewProps) {
                             {/* Backend Quadrant */}
                             {project.architecture.backend && (
                                 <div className="p-6 rounded-2xl bg-[#181a24]/90 border border-white/10 hover:border-white/20 transition-colors space-y-3">
-                                    <div className="p-2.5 rounded-xl bg-white/[0.04] border border-white/10 w-fit text-zinc-300">
+                                    <div className="p-2.5 rounded-xl bg-white/4 border border-white/10 w-fit text-zinc-300">
                                         <Database size={18} />
                                     </div>
                                     <div>
@@ -502,7 +507,7 @@ export function ProjectDetailView({ slug }: ProjectDetailViewProps) {
                             {/* Database Quadrant */}
                             {project.architecture.database && (
                                 <div className="p-6 rounded-2xl bg-[#181a24]/90 border border-white/10 hover:border-white/20 transition-colors space-y-3">
-                                    <div className="p-2.5 rounded-xl bg-white/[0.04] border border-white/10 w-fit text-zinc-300">
+                                    <div className="p-2.5 rounded-xl bg-white/4 border border-white/10 w-fit text-zinc-300">
                                         <Database size={18} />
                                     </div>
                                     <div>
@@ -519,7 +524,7 @@ export function ProjectDetailView({ slug }: ProjectDetailViewProps) {
                             {/* DevOps & Testing Quadrant */}
                             {project.architecture.devops && (
                                 <div className="p-6 rounded-2xl bg-[#181a24]/90 border border-white/10 hover:border-white/20 transition-colors space-y-3">
-                                    <div className="p-2.5 rounded-xl bg-white/[0.04] border border-white/10 w-fit text-zinc-300">
+                                    <div className="p-2.5 rounded-xl bg-white/4 border border-white/10 w-fit text-zinc-300">
                                         <Cloud size={18} />
                                     </div>
                                     <div>
@@ -606,9 +611,9 @@ export function ProjectDetailView({ slug }: ProjectDetailViewProps) {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5 }}
-                    className="p-8 sm:p-12 rounded-3xl bg-gradient-to-b from-white/[0.04] to-[#181a24] border border-white/10 text-center space-y-6 mb-16 relative overflow-hidden"
+                    className="p-8 sm:p-12 rounded-3xl bg-linear-to-b from-white/4 to-[#181a24] border border-white/10 text-center space-y-6 mb-16 relative overflow-hidden"
                 >
-                    <div className="absolute inset-0 bg-white/[0.02] rounded-3xl pointer-events-none" />
+                    <div className="absolute inset-0 bg-white/2 rounded-3xl pointer-events-none" />
 
                     <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-white">
                         {t.ctaTitle}
@@ -696,6 +701,7 @@ export function ProjectDetailView({ slug }: ProjectDetailViewProps) {
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
                         transition={{ duration: 0.2 }}
+                        data-lenis-prevent
                         className="fixed inset-0 z-50 bg-black/95 backdrop-blur-xl flex flex-col justify-between p-3 sm:p-6"
                         onClick={() => setLightboxIndex(null)}
                     >
@@ -719,7 +725,7 @@ export function ProjectDetailView({ slug }: ProjectDetailViewProps) {
                                     type="button"
                                     onClick={() => setLightboxIndex(null)}
                                     className="p-2.5 rounded-xl bg-white/10 hover:bg-white/20 border border-white/15 text-white transition-all active:scale-95 shadow-lg cursor-pointer"
-                                    aria-label="Fechar"
+                                    aria-label={language === "pt" ? "Fechar" : "Close"}
                                 >
                                     <X size={20} />
                                 </button>
@@ -744,7 +750,7 @@ export function ProjectDetailView({ slug }: ProjectDetailViewProps) {
                                         );
                                     }}
                                     className="absolute left-2 sm:left-4 z-20 p-3 rounded-full bg-black/70 hover:bg-black/90 border border-white/20 text-white transition-all active:scale-90 shadow-2xl backdrop-blur-md cursor-pointer"
-                                    aria-label="Imagem anterior"
+                                    aria-label={language === "pt" ? "Imagem anterior" : "Previous image"}
                                 >
                                     <ChevronLeft size={24} />
                                 </button>
@@ -775,7 +781,7 @@ export function ProjectDetailView({ slug }: ProjectDetailViewProps) {
                                         );
                                     }}
                                     className="absolute right-2 sm:right-4 z-20 p-3 rounded-full bg-black/70 hover:bg-black/90 border border-white/20 text-white transition-all active:scale-90 shadow-2xl backdrop-blur-md cursor-pointer"
-                                    aria-label="Próxima imagem"
+                                    aria-label={language === "pt" ? "Próxima imagem" : "Next image"}
                                 >
                                     <ChevronRight size={24} />
                                 </button>
@@ -788,7 +794,7 @@ export function ProjectDetailView({ slug }: ProjectDetailViewProps) {
                                 className="w-full max-w-3xl mx-auto text-center z-10"
                                 onClick={(e) => e.stopPropagation()}
                             >
-                                <p className="text-xs sm:text-sm text-zinc-300 bg-white/[0.06] border border-white/10 px-4 py-2.5 rounded-xl backdrop-blur-md shadow-lg leading-relaxed">
+                                <p className="text-xs sm:text-sm text-zinc-300 bg-white/6 border border-white/10 px-4 py-2.5 rounded-xl backdrop-blur-md shadow-lg leading-relaxed">
                                     {project.gallery[lightboxIndex].description}
                                 </p>
                             </div>
