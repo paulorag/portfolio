@@ -15,9 +15,11 @@ interface ProjectCardProps {
 }
 
 export function ProjectCard({ project, index }: ProjectCardProps) {
-    const { dict } = useLanguage();
+    const { dict, language } = useLanguage();
     const cardRef = useRef<HTMLDivElement>(null);
     const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+    const visibleTags = project.tags.slice(0, 6);
+    const remainingTagsCount = project.tags.length - visibleTags.length;
 
     const handleMouseMove = (e: MouseEvent<HTMLDivElement>) => {
         if (!cardRef.current) return;
@@ -51,12 +53,23 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
             <Link
                 href={`/projetos/${project.slug}`}
                 className="absolute inset-0 z-10"
-                aria-label={`Ver estudo de caso do projeto ${project.title}`}
+                aria-label={
+                    language === "pt"
+                        ? `Ver estudo de caso do projeto ${project.title}`
+                        : `View case study for ${project.title}`
+                }
             />
 
             {/* Compact Project Image Thumbnail */}
             <div className="relative w-full h-48 sm:h-52 md:h-56 overflow-hidden bg-[#0d0d0d]">
                 <div className="absolute inset-0 bg-linear-to-t from-[#181a24] via-transparent to-black/20 z-1" />
+
+                {project.demo && (
+                    <div className="absolute top-3 right-3 z-2 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-black/70 border border-white/15 backdrop-blur-md text-[11px] font-mono font-medium text-zinc-200 shadow-sm">
+                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+                        <span>{language === "pt" ? "Deploy Online" : "Live Demo"}</span>
+                    </div>
+                )}
 
                 <Image
                     src={project.image}
@@ -83,9 +96,9 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
                 </div>
 
                 <div className="space-y-3 pt-1">
-                    {/* Full Stack Badges */}
-                    <div className="flex flex-wrap gap-1.5">
-                        {project.tags.map((tag) => (
+                    {/* Core Stack Badges (Top 6 + Counter) */}
+                    <div className="flex flex-wrap items-center gap-1.5">
+                        {visibleTags.map((tag) => (
                             <span
                                 key={tag}
                                 className="text-[11px] font-mono px-2 py-0.5 rounded-md bg-white/4 text-zinc-300 border border-white/5 group-hover:border-white/15 transition-colors"
@@ -93,6 +106,11 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
                                 {tag}
                             </span>
                         ))}
+                        {remainingTagsCount > 0 && (
+                            <span className="text-[11px] font-mono px-1.5 py-0.5 rounded-md text-zinc-400">
+                                +{remainingTagsCount}
+                            </span>
+                        )}
                     </div>
 
                     {/* View Case Study CTA Link */}

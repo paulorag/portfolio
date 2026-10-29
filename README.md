@@ -33,14 +33,14 @@ This portfolio is engineered to go beyond a standard visual showcase: it functio
 
 ## 🛠️ Technology Stack
 
-| Layer                        | Technologies                                                 |
-| :--------------------------- | :----------------------------------------------------------- |
-| **Core & Framework**         | Next.js 16 (App Router with Turbopack), React 19, TypeScript |
-| **Styling & UI**             | Tailwind CSS, Lucide React                                   |
-| **Animations & Transitions** | Framer Motion, Lenis Smooth Scroll                           |
-| **Data Visualization**       | Recharts (interactive time-series graphs in case studies)    |
-| **Quality & CI/CD**          | Automated integrity test suite, ESLint, GitHub Actions       |
-| **Infrastructure**           | Vercel Serverless Platform                                   |
+| Layer                        | Technologies                                                                |
+| :--------------------------- | :-------------------------------------------------------------------------- |
+| **Core & Framework**         | Next.js 16 (App Router with Turbopack), React 19, TypeScript                |
+| **Styling & UI**             | Tailwind CSS 4, Lucide React                                                |
+| **Animations & Transitions** | Framer Motion, Lenis Smooth Scroll                                          |
+| **SEO & Structured Data**    | Next.js Metadata API, Dynamic Sitemap/Robots, JSON-LD (`Schema.org`)        |
+| **Quality & CI/CD**          | Automated integrity test suite (`node:test`), ESLint, GitHub Actions        |
+| **Infrastructure**           | Vercel Serverless Platform                                                  |
 
 ---
 

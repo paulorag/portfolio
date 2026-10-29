@@ -1,12 +1,13 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Server, Layout, ShieldCheck, Cpu } from "lucide-react";
+import { Server, Layout, ShieldCheck, Cpu, FileDown, Github, Linkedin, ArrowUpRight } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 
 export function Hero() {
-    const { dict } = useLanguage();
+    const { dict, language } = useLanguage();
     const consoleData = dict.hero.console;
+    const cvFileName = language === "pt" ? "Paulo_Gomes_CV_PT.pdf" : "Paulo_Gomes_CV_EN.pdf";
 
     return (
         <section
@@ -48,6 +49,44 @@ export function Hero() {
                     <p className="text-base sm:text-lg text-zinc-400 max-w-xl leading-relaxed">
                         {dict.hero.description}
                     </p>
+
+                    {/* Quick External Actions: Resume + Social Links */}
+                    <div className="flex flex-wrap items-center gap-2.5 pt-2">
+                        <a
+                            href={`/documents/${cvFileName}`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            download={cvFileName}
+                            className="group inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white hover:bg-zinc-200 text-black text-xs sm:text-sm font-semibold transition-all duration-200 active:scale-[0.98] shadow-md"
+                        >
+                            <FileDown size={15} className="transition-transform duration-200 group-hover:translate-y-0.5" />
+                            <span>{dict.footer.btnCv}</span>
+                        </a>
+
+                        <a
+                            href="https://github.com/paulorag"
+                            target="_blank"
+                            rel="noreferrer"
+                            className="group inline-flex items-center gap-1.5 px-3.5 py-2.5 rounded-xl bg-white/4 hover:bg-white/8 border border-white/10 hover:border-white/20 text-zinc-300 hover:text-white text-xs sm:text-sm font-medium transition-all duration-200 active:scale-[0.98]"
+                            aria-label="GitHub de Paulo Gomes"
+                        >
+                            <Github size={15} />
+                            <span>GitHub</span>
+                            <ArrowUpRight size={13} className="text-zinc-500 group-hover:text-white transition-colors" />
+                        </a>
+
+                        <a
+                            href="https://linkedin.com/in/paulorag"
+                            target="_blank"
+                            rel="noreferrer"
+                            className="group inline-flex items-center gap-1.5 px-3.5 py-2.5 rounded-xl bg-white/4 hover:bg-white/8 border border-white/10 hover:border-white/20 text-zinc-300 hover:text-white text-xs sm:text-sm font-medium transition-all duration-200 active:scale-[0.98]"
+                            aria-label="LinkedIn de Paulo Gomes"
+                        >
+                            <Linkedin size={15} />
+                            <span>LinkedIn</span>
+                            <ArrowUpRight size={13} className="text-zinc-500 group-hover:text-white transition-colors" />
+                        </a>
+                    </div>
                 </motion.div>
 
                 {/* Right Column: Architecture & Core Stack Console */}

@@ -33,14 +33,14 @@ Este portfólio foi concebido para ir além de uma vitrine visual básica: ele f
 
 ## 🛠️ Stack Tecnológica
 
-| Camada                    | Tecnologias Utilizadas                                      |
-| :------------------------ | :---------------------------------------------------------- |
-| **Core & Framework**      | Next.js 16 (App Router com Turbopack), React 19, TypeScript |
-| **Estilização & UI**      | Tailwind CSS, Lucide React                                  |
-| **Animações & Efeitos**   | Framer Motion, Lenis Smooth Scroll                          |
-| **Visualização de Dados** | Recharts (gráficos interativos nos estudos de caso)         |
-| **Qualidade & CI/CD**     | Testes automatizados de integridade, ESLint, GitHub Actions |
-| **Infraestrutura**        | Vercel Serverless Platform                                  |
+| Camada                    | Tecnologias Utilizadas                                                  |
+| :------------------------ | :---------------------------------------------------------------------- |
+| **Core & Framework**      | Next.js 16 (App Router com Turbopack), React 19, TypeScript             |
+| **Estilização & UI**      | Tailwind CSS 4, Lucide React                                            |
+| **Animações & Efeitos**   | Framer Motion, Lenis Smooth Scroll                                      |
+| **SEO & Dados**           | Metadata API, Sitemap/Robots dinâmicos, JSON-LD (`Schema.org`)          |
+| **Qualidade & CI/CD**     | Testes automatizados de integridade (`node:test`), ESLint, GitHub Actions |
+| **Infraestrutura**        | Vercel Serverless Platform                                              |
 
 ---
 

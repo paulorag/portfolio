@@ -12,7 +12,7 @@ interface ProjectListRowProps {
 }
 
 export function ProjectListRow({ project, index }: ProjectListRowProps) {
-    const { dict } = useLanguage();
+    const { dict, language } = useLanguage();
 
     return (
         <motion.div
@@ -26,7 +26,11 @@ export function ProjectListRow({ project, index }: ProjectListRowProps) {
             <Link
                 href={`/projetos/${project.slug}`}
                 className="absolute inset-0 z-10"
-                aria-label={`Ver detalhes e estudo de caso de ${project.title}`}
+                aria-label={
+                    language === "pt"
+                        ? `Ver detalhes e estudo de caso de ${project.title}`
+                        : `View case study details for ${project.title}`
+                }
             />
 
             <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-6 grow">

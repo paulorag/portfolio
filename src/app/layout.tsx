@@ -88,11 +88,14 @@ const jsonLd = {
             knowsAbout: [
                 "Java",
                 "Spring Boot",
+                "Node.js",
                 "Next.js",
                 "React",
+                "SvelteKit",
                 "TypeScript",
                 "Oracle SQL",
                 "PostgreSQL",
+                "SQL Tuning",
                 "Docker",
             ],
             alumniOf: {
