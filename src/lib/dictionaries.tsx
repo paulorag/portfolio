@@ -16,14 +16,14 @@ export const dictionary = {
             greeting: "Olá, eu sou",
             name: "Paulo Gomes",
             subtitle: "Desenvolvedor Full Stack",
-            description: "Uno a robustez do Back-End em Java 21 e Spring Boot 3 com a fluidez do Front-End em Next.js 15. Priorizo arquitetura limpa, regras de negócio bem estruturadas e software de fácil manutenção.",
+            description: "Uno a robustez do Back-End em Java 21, Spring Boot 3 e Node.js com a fluidez do Front-End em Next.js e React. Priorizo arquitetura limpa, regras de negócio bem estruturadas e software resiliente de ponta a ponta.",
             console: {
                 systemStatus: "CORE ENGINE // RUNTIME",
-                runtimeBadge: "Java 21 & Next.js 15",
+                runtimeBadge: "Java 21 • Node.js • Next.js",
                 backendTitle: "Back-End & APIs Escaláveis",
-                backendTechs: ["Java 21", "Spring Boot 3", "PostgreSQL", "Oracle SQL", "Docker"],
+                backendTechs: ["Java 21", "Spring Boot 3", "Node.js", "PostgreSQL", "Oracle SQL", "Docker"],
                 frontendTitle: "Front-End & Interfaces Reativas",
-                frontendTechs: ["Next.js 15", "React", "TypeScript", "Tailwind CSS"],
+                frontendTechs: ["Next.js", "React", "TypeScript", "SvelteKit", "Tailwind CSS"],
                 engineeringTitle: "Engenharia, Resiliência & Qualidade",
                 engineeringTechs: ["Clean Architecture", "Testes / TDD", "Observabilidade & RCA"],
             },
@@ -38,12 +38,12 @@ export const dictionary = {
             ),
             description2: (
                 <>
-                    Atualmente, atuo como <strong className="text-gray-100">Desenvolvedor Full-Stack</strong> focado em construir soluções robustas de ponta a ponta. No Back-End, utilizo o ecossistema <span className="text-white font-semibold">Java e Spring Boot</span> para arquitetar APIs escaláveis, apoiadas por um forte domínio analítico em modelagem de dados e <strong className="text-gray-100">otimização de queries SQL (Oracle / PostgreSQL)</strong>.
+                    Atualmente, atuo como <strong className="text-gray-100">Desenvolvedor Full-Stack</strong> focado em construir soluções robustas de ponta a ponta. No Back-End, utilizo os ecossistemas <span className="text-white font-semibold">Java (Spring Boot) e Node.js</span> para arquitetar APIs escaláveis e regras de negócio complexas, apoiadas por um forte domínio analítico em modelagem de dados e <strong className="text-gray-100">otimização de queries SQL (Oracle / PostgreSQL)</strong>.
                 </>
             ),
             description3: (
                 <>
-                    Levo a qualidade estrutural muito a sério: meu processo de desenvolvimento é estritamente guiado por <strong className="text-gray-100">Clean Code, camadas sólidas de segurança e validação rigorosa através de testes de integração e TDD</strong>. No Front-End, conecto toda essa lógica a interfaces rápidas e reativas utilizando <span className="text-white font-semibold">Next.js e React</span>. Gosto de ter o domínio sobre o ciclo completo do produto, entregando software que resolve problemas complexos de negócio e que nasce pronto para crescer sem gargalos.
+                    Levo a qualidade estrutural muito a sério: meu processo de desenvolvimento é estritamente guiado por <strong className="text-gray-100">Clean Code, camadas sólidas de segurança e validação rigorosa através de testes automatizados e TDD</strong>. No Front-End, conecto toda essa lógica a interfaces rápidas e responsivas utilizando <span className="text-white font-semibold">Next.js, React e SvelteKit</span>. Gosto de ter o domínio sobre o ciclo completo do produto, entregando software que resolve problemas reais de negócio e que nasce pronto para escalar sem gargalos.
                 </>
             ),
             pillarsTitle: "Pilares de Engenharia",
@@ -58,13 +58,13 @@ export const dictionary = {
                     number: "02",
                     title: "Arquitetura Limpa & Clean Code",
                     description:
-                        "Separação rigorosa de responsabilidades, desacoplamento de regras de negócio e código altamente legível. Foco em segurança estrutural, facilidade de manutenção e testes de integração contínuos.",
+                        "Separação rigorosa de responsabilidades, desacoplamento de regras de negócio e código altamente legível. Foco em segurança estrutural, facilidade de manutenção e testes automatizados contínuos.",
                 },
                 {
                     number: "03",
                     title: "Engenharia de Dados & SQL Tuning",
                     description:
-                        "Domínio analítico avançado em Oracle SQL e PostgreSQL. Modelagem relacional consistente, integridade transacional e otimização de queries complexas para máxima performance.",
+                        "Domínio prático em Oracle SQL e PostgreSQL. Modelagem relacional consistente, refatoração de queries críticas com CTEs e integridade transacional para máxima performance em produção.",
                 },
             ],
         },
@@ -109,14 +109,14 @@ export const dictionary = {
             greeting: "Hello, I am",
             name: "Paulo Gomes",
             subtitle: "Full Stack Developer",
-            description: "Combining the robustness of Java 21 and Spring Boot 3 on the Back-End with the fluidity of Next.js 15 on the Front-End. Prioritizing clean architecture, solid business rules, and maintainable software.",
+            description: "Combining the robustness of Java 21, Spring Boot 3, and Node.js on the Back-End with the fluidity of Next.js and React on the Front-End. Prioritizing clean architecture, solid business rules, and end-to-end resilient software.",
             console: {
                 systemStatus: "CORE ENGINE // RUNTIME",
-                runtimeBadge: "Java 21 & Next.js 15",
+                runtimeBadge: "Java 21 • Node.js • Next.js",
                 backendTitle: "Back-End & Scalable APIs",
-                backendTechs: ["Java 21", "Spring Boot 3", "PostgreSQL", "Oracle SQL", "Docker"],
+                backendTechs: ["Java 21", "Spring Boot 3", "Node.js", "PostgreSQL", "Oracle SQL", "Docker"],
                 frontendTitle: "Front-End & Reactive Interfaces",
-                frontendTechs: ["Next.js 15", "React", "TypeScript", "Tailwind CSS"],
+                frontendTechs: ["Next.js", "React", "TypeScript", "SvelteKit", "Tailwind CSS"],
                 engineeringTitle: "Engineering, Resilience & Quality",
                 engineeringTechs: ["Clean Architecture", "Testing / TDD", "Observability & RCA"],
             },
@@ -131,12 +131,12 @@ export const dictionary = {
             ),
             description2: (
                 <>
-                    Currently, I work as a <strong className="text-gray-100">Full-Stack Developer</strong> building robust end-to-end solutions. On the Back-End, I utilize the <span className="text-white font-semibold">Java and Spring Boot</span> ecosystem to architect scalable APIs, backed by strong analytical domain expertise in data modeling and <strong className="text-gray-100">SQL query optimization (Oracle / PostgreSQL)</strong>.
+                    Currently, I work as a <strong className="text-gray-100">Full-Stack Developer</strong> building robust end-to-end solutions. On the Back-End, I utilize the <span className="text-white font-semibold">Java (Spring Boot) and Node.js</span> ecosystems to architect scalable APIs and complex business logic, backed by strong analytical domain expertise in data modeling and <strong className="text-gray-100">SQL query optimization (Oracle / PostgreSQL)</strong>.
                 </>
             ),
             description3: (
                 <>
-                    I take structural quality seriously: my development workflow is strictly guided by <strong className="text-gray-100">Clean Code, solid security layers, and rigorous validation through integration tests and TDD</strong>. On the Front-End, I connect this logic to fast, reactive user interfaces with <span className="text-white font-semibold">Next.js and React</span>. I enjoy having full ownership over the product lifecycle, delivering software that solves complex business problems and scales effortlessly.
+                    I take structural quality seriously: my development workflow is strictly guided by <strong className="text-gray-100">Clean Code, solid security layers, and rigorous validation through automated testing and TDD</strong>. On the Front-End, I connect this logic to fast, responsive user interfaces with <span className="text-white font-semibold">Next.js, React, and SvelteKit</span>. I enjoy having full ownership over the product lifecycle, delivering software that solves real business problems and scales effortlessly.
                 </>
             ),
             pillarsTitle: "Engineering Pillars",
@@ -151,13 +151,13 @@ export const dictionary = {
                     number: "02",
                     title: "Clean Architecture & Maintainability",
                     description:
-                        "Strict separation of concerns, decoupled domain logic, and clean code. Structural security, long-term maintainability, and continuous integration testing.",
+                        "Strict separation of concerns, decoupled domain logic, and clean code. Structural security, long-term maintainability, and continuous automated testing.",
                 },
                 {
                     number: "03",
                     title: "Data Engineering & SQL Tuning",
                     description:
-                        "Deep analytical expertise in Oracle SQL and PostgreSQL. Consistent relational modeling, transactional integrity, and complex query tuning for high-throughput performance.",
+                        "Hands-on expertise in Oracle SQL and PostgreSQL. Consistent relational modeling, critical query refactoring with CTEs, and transactional integrity for peak production performance.",
                 },
             ],
         },

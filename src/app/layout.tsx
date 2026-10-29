@@ -18,13 +18,13 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-    metadataBase: new URL("https://pauloragdev.vercel.app"),
+    metadataBase: new URL("https://devpaulorag.com.br"),
     title: {
         default: "Paulo Gomes | Full-Stack Software Engineer",
         template: "%s | Paulo Gomes",
     },
     description:
-        "Desenvolvedor Full Stack com forte foco em arquitetura Back-End (Java 21 e Spring Boot 3) e interfaces dinâmicas e responsivas no Front-End (Next.js 15 e React). Sólida vivência em Oracle SQL e operações de missão crítica.",
+        "Desenvolvedor Full Stack com forte foco em arquitetura Back-End (Java 21, Spring Boot 3 e Node.js) e interfaces dinâmicas e responsivas no Front-End (Next.js, React e SvelteKit). Sólida vivência em Oracle SQL, PostgreSQL e operações de missão crítica.",
     keywords: [
         "Paulo Roberto A. Gomes",
         "Paulo Gomes",
@@ -32,8 +32,10 @@ export const metadata: Metadata = {
         "Engenheiro de Software",
         "Java 21",
         "Spring Boot 3",
-        "Next.js 15",
+        "Node.js",
+        "Next.js",
         "React",
+        "SvelteKit",
         "Oracle SQL",
         "PostgreSQL",
         "Docker",
@@ -44,17 +46,17 @@ export const metadata: Metadata = {
     openGraph: {
         type: "website",
         locale: "pt_BR",
-        url: "https://pauloragdev.vercel.app",
+        url: "https://devpaulorag.com.br",
         title: "Paulo Gomes | Full-Stack Software Engineer",
         description:
-            "Portfólio de Engenharia de Software Full-Stack: Java 21, Spring Boot 3, Next.js 15, Oracle SQL e PostgreSQL.",
+            "Portfólio de Engenharia de Software Full-Stack: Java 21, Spring Boot 3, Node.js, Next.js, React, SvelteKit, Oracle SQL e PostgreSQL.",
         siteName: "Paulo Gomes Portfolio",
     },
     twitter: {
         card: "summary_large_image",
         title: "Paulo Gomes | Full-Stack Software Engineer",
         description:
-            "Desenvolvedor Full Stack: Java 21, Spring Boot 3, Next.js 15, Oracle SQL e PostgreSQL.",
+            "Desenvolvedor Full Stack: Java 21, Spring Boot 3, Node.js, Next.js, React, SvelteKit, Oracle SQL e PostgreSQL.",
     },
     robots: {
         index: true,
@@ -74,11 +76,11 @@ const jsonLd = {
     "@graph": [
         {
             "@type": "Person",
-            "@id": "https://pauloragdev.vercel.app/#person",
+            "@id": "https://devpaulorag.com.br/#person",
             name: "Paulo Roberto A. Gomes",
             alternateName: "Paulo Gomes",
             jobTitle: "Desenvolvedor de Software Full Stack",
-            url: "https://pauloragdev.vercel.app",
+            url: "https://devpaulorag.com.br",
             sameAs: [
                 "https://github.com/paulorag",
                 "https://linkedin.com/in/paulorag",
@@ -100,11 +102,11 @@ const jsonLd = {
         },
         {
             "@type": "WebSite",
-            "@id": "https://pauloragdev.vercel.app/#website",
-            url: "https://pauloragdev.vercel.app",
+            "@id": "https://devpaulorag.com.br/#website",
+            url: "https://devpaulorag.com.br",
             name: "Paulo Gomes Portfolio",
             publisher: {
-                "@id": "https://pauloragdev.vercel.app/#person",
+                "@id": "https://devpaulorag.com.br/#person",
             },
             inLanguage: ["pt-BR", "en-US"],
         },

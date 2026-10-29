@@ -16,34 +16,40 @@ export function Timeline() {
 
     const experiences = [
         {
-            period: language === "pt" ? "Dez. 2025 — Presente" : "Dec. 2025 — Present",
+            period: language === "pt" ? "Fev. 2022 — Presente" : "Feb. 2022 — Present",
             role:
                 language === "pt"
                     ? "Desenvolvedor Full Stack"
                     : "Full Stack Developer",
-            institution: "Game Deals Radar (Projeto Independente)",
+            institution:
+                language === "pt"
+                    ? "Projetos Independentes e Produtos SaaS"
+                    : "Independent Projects & SaaS Products",
             icon: <Code2 className="w-4 h-4 text-zinc-300" />,
-            badge: language === "pt" ? "Projeto Ativo" : "Active Project",
+            badge: language === "pt" ? "Projetos & SaaS" : "Projects & SaaS",
             description:
                 language === "pt"
-                    ? "Construção de arquitetura RESTful com Java 21 e Spring Boot 3. Web scraping automatizado (Jsoup) e agendamento em background (Spring Scheduler). Modelagem e persistência em PostgreSQL (Neon Serverless), dashboard no Next.js 15 com Recharts, Docker e autenticação segura com JWT."
-                    : "RESTful architecture with Java 21 and Spring Boot 3. Automated web scraping (Jsoup) and background cron routines (Spring Scheduler). PostgreSQL persistence (Neon Serverless), Next.js 15 dashboard with Recharts, Docker, and JWT security.",
-            tags: ["Java 21", "Spring Boot 3", "Next.js 15", "TypeScript", "PostgreSQL", "Recharts", "Docker"],
+                    ? "Arquitetura e desenvolvimento de APIs RESTful escaláveis com Java (Spring Boot) e Node.js (Express), implementando regras de negócio complexas como motores de cupons, web scraping e processamento assíncrono. Construção de aplicações web modernas e painéis administrativos com Next.js, React, SvelteKit e Tailwind CSS. Modelagem relacional e otimização de consultas em PostgreSQL (Prisma ORM), padronização de ambientes com Docker e estruturação de segurança com autenticação JWT e proteção de rotas."
+                    : "Architecting and developing scalable RESTful APIs using Java (Spring Boot) and Node.js (Express), implementing complex business logic such as coupon engines, web scraping, and asynchronous processing. Engineering modern web applications and administrative dashboards with Next.js, React, SvelteKit, and Tailwind CSS. Relational data modeling and query optimization in PostgreSQL (Prisma ORM), environment standardization with Docker, and robust JWT authentication and route protection.",
+            tags: ["Java 21", "Spring Boot 3", "Node.js", "Next.js 15", "React", "SvelteKit", "PostgreSQL", "Prisma", "Docker", "JWT"],
         },
         {
             period: language === "pt" ? "Ago. 2024 — Presente" : "Aug. 2024 — Present",
             role:
                 language === "pt"
                     ? "Analista Desenvolvedor (Consultor de Sistemas)"
-                    : "Systems Developer Analyst",
+                    : "Developer Analyst (Systems Consultant)",
             institution: "NOXTEC",
             icon: <Building2 className="w-4 h-4 text-zinc-300" />,
             badge: language === "pt" ? "Atuação Corporativa" : "Corporate Role",
             description:
                 language === "pt"
-                    ? "Desenvolvimento de automações com fluxos condicionais complexos (validações de status, gatilhos e preenchimento de dados na interface). Atuação avançada em Oracle SQL para relatórios customizados, otimização de queries e manipulação segura de registros em produção (DML). Implantação e suporte técnico on-site."
-                    : "Building workflow automations with complex conditional logic. Advanced Oracle SQL database development for custom analytics, query performance tuning, and safe production DML. On-site deployments and technical operations support.",
-            tags: ["Oracle SQL", "Automação de Processos", "Regras de Negócio", "Deploy On-Site"],
+                    ? "Desenvolvimento de automações e documentos dinâmicos com fluxos condicionais complexos, gatilhos e integrações (como geração de códigos de barras para rastreabilidade de pacientes). Otimização de consultas críticas em Oracle SQL via refatoração e CTEs, reduzindo o tempo de processamento de relatórios em até 80%, além da estruturação de censos e KPIs clínicos. Depuração de erros web inspecionando tráfego de rede via DevTools (Network) para diagnóstico técnico junto aos fabricantes e condução de implantações on-site com validação de integridade e manipulação segura em produção (DML)."
+                    : "Developing workflow automations and dynamic documents with complex conditional flows, triggers, and integrations (such as barcode generation for patient traceability). Optimizing critical Oracle SQL queries through refactoring and CTEs—reducing report processing time by up to 80%—and structuring tabular clinical KPI reports and hospital censuses. Debugging web application errors by inspecting network traffic via DevTools (Network tab) to provide precise technical diagnostics to vendors, and leading on-site deployments with data integrity validation and safe production DML.",
+            tags:
+                language === "pt"
+                    ? ["Oracle SQL", "Tuning & CTEs", "Automação de Processos", "KPIs Clínicos", "Debugging Web", "Deploy On-Site"]
+                    : ["Oracle SQL", "Query Tuning & CTEs", "Process Automation", "Clinical KPIs", "Web Debugging", "On-Site Deploy"],
         },
         {
             period: language === "pt" ? "Jan. 2023 — Ago. 2024" : "Jan. 2023 — Aug. 2024",
@@ -56,45 +62,84 @@ export function Timeline() {
             badge: language === "pt" ? "Missão Crítica" : "Mission Critical",
             description:
                 language === "pt"
-                    ? "Observabilidade e sustentação ativa em ecossistema hospitalar de alta disponibilidade, atuando em telemetria, identificação de gargalos e mitigação de incidentes com Datadog, Grafana e Zabbix. Troubleshooting avançado em infraestrutura e redes, análise de logs/evidências e condução técnica de resolução junto a equipes N2/N3. Liderança na investigação de causa raiz (RCA) de incidentes complexos e elaboração de documentação técnica para fabricantes."
-                    : "Active observability and reliability for high-availability healthcare ecosystems, conducting telemetry analysis, bottleneck identification, and incident mitigation with Datadog, Grafana, and Zabbix. Advanced troubleshooting across infrastructure and networks, log analysis, and resolution with N2/N3 teams. Technical leadership in Root Cause Analysis (RCA) for complex failures and vendor documentation.",
-            tags: ["Observabilidade", "Datadog / Grafana", "Zabbix", "Troubleshooting", "Causa Raiz (RCA)", "Telemetria"],
+                    ? "Monitoramento de ecossistema hospitalar de alta disponibilidade, atuando na análise de telemetria, identificação de gargalos e mitigação ágil de incidentes utilizando Datadog, Grafana e Zabbix. Investigação de anomalias em infraestrutura e redes, realizando mapeamento técnico de problemas e análise de logs para escalar resoluções estruturadas às equipes de engenharia (N2/N3). Liderança na investigação de causa raiz (RCA) na depuração de incidentes sistêmicos complexos, orquestrando testes multidisciplinares e elaborando documentação técnica para melhoria contínua."
+                    : "Monitoring a high-availability hospital ecosystem, analyzing telemetry, identifying bottlenecks, and performing agile incident mitigation using Datadog, Grafana, and Zabbix. Investigating infrastructure and network anomalies, conducting technical problem mapping and log analysis to escalate structured resolutions to engineering teams (L2/L3). Leading Root Cause Analysis (RCA) for complex systemic incidents, orchestrating multidisciplinary tests and creating technical documentation for continuous improvement.",
+            tags:
+                language === "pt"
+                    ? ["Observabilidade", "Datadog / Grafana", "Zabbix", "Análise de Logs", "Causa Raiz (RCA)", "Telemetria"]
+                    : ["Observability", "Datadog / Grafana", "Zabbix", "Log Analysis", "Root Cause (RCA)", "Telemetry"],
         },
     ];
 
     const academicEducation = [
         {
-            title: language === "pt" ? "Pós-graduação em Engenharia de Software" : "Postgrad in Software Engineering",
-            institution: "Estácio",
-            status: language === "pt" ? "Concluído em Dez. 2025" : "Completed in Dec. 2025",
-            type: language === "pt" ? "Pós-Graduação" : "Postgraduate",
-        },
-        {
             title: language === "pt" ? "Bacharelado em Engenharia de Software" : "B.Sc. in Software Engineering",
             institution: "Estácio",
-            status: language === "pt" ? "Previsão de conclusão: Jul. 2027" : "Expected: Jul. 2027",
-            type: language === "pt" ? "Bacharelado" : "Bachelor",
+            status: language === "pt" ? "Previsão de conclusão: Dez. 2027" : "Expected completion: Dec. 2027",
+            type: language === "pt" ? "Bacharelado" : "Bachelor's Degree",
         },
         {
-            title: language === "pt" ? "Tecnólogo em Análise e Desenvolvimento de Sistemas" : "Associate in Systems Analysis & Dev",
+            title: language === "pt" ? "Pós-graduação em Engenharia de Software" : "Postgraduate in Software Engineering",
+            institution: "Estácio",
+            status: language === "pt" ? "Concluído em Dez. 2025" : "Completed in Dec. 2025",
+            type: language === "pt" ? "Pós-Graduação" : "Postgraduate Certificate",
+        },
+        {
+            title: language === "pt" ? "Tecnólogo em Análise e Desenvolvimento de Sistemas" : "Associate in Systems Analysis & Development",
             institution: "Estácio",
             status: language === "pt" ? "Concluído em Jan. 2025" : "Completed in Jan. 2025",
             type: language === "pt" ? "Tecnólogo" : "Associate Degree",
+        },
+        {
+            title: language === "pt" ? "Técnico em Informática" : "IT Technician",
+            institution: "Escola Técnica de Brasília",
+            status: language === "pt" ? "Concluído em Fev. 2020" : "Completed in Feb. 2020",
+            type: language === "pt" ? "Curso Técnico" : "Technical Diploma",
         },
     ];
 
     const complementaryCourses = [
         {
+            title:
+                language === "pt"
+                    ? "Formação curso.dev: Engenharia de Software e Full Stack"
+                    : "curso.dev Training: Software Engineering & Full Stack",
+            institution: "Filipe Deschamps (2026)",
+            status:
+                language === "pt"
+                    ? "Foco em fundamentos de engenharia, arquitetura, Next.js, Node.js, PostgreSQL, Docker, CI/CD e Testes Automatizados (TDD)."
+                    : "Focus on engineering fundamentals, architecture, Next.js, Node.js, PostgreSQL, Docker, CI/CD, and Automated Testing (TDD).",
+            type: language === "pt" ? "Formação • 81h" : "Training Track • 81h",
+        },
+        {
             title: "Oracle Next Education (ONE)",
-            institution: "Alura & Oracle (2023)",
-            status: language === "pt" ? "Lógica, Java & Ecossistema Web" : "Logic, Java & Web Ecosystem",
-            type: language === "pt" ? "Curso de Formação" : "Training Track",
+            institution: "Alura & Oracle (Jan. 2023)",
+            status:
+                language === "pt"
+                    ? "Programa intensivo focado em lógica de programação, ecossistema Java, Orientação a Objetos e desenvolvimento Web."
+                    : "Intensive program focused on programming logic, Java ecosystem, Object-Oriented Programming, and Web development.",
+            type: language === "pt" ? "Programa Intensivo • 290h" : "Intensive Track • 290h",
+        },
+        {
+            title:
+                language === "pt"
+                    ? "Fundamentos de Front-End Development"
+                    : "Front-End Development Fundamentals",
+            institution: "Faculdade Descomplica (Jan. 2023)",
+            status:
+                language === "pt"
+                    ? "Especialização em estruturação de interfaces modernas e desenvolvimento web."
+                    : "Specialization in modern interface structuring and web development.",
+            type: language === "pt" ? "Especialização • 220h" : "Specialization • 220h",
         },
         {
             title: language === "pt" ? "Desenvolvedor Front-End" : "Front-End Developer",
-            institution: "SENAI / DF (2022)",
-            status: "HTML5, CSS3, JavaScript & React",
-            type: language === "pt" ? "Curso de Formação" : "Professional Course",
+            institution: language === "pt" ? "SENAI/DF (Ago. 2022)" : "SENAI/DF (Aug. 2022)",
+            status:
+                language === "pt"
+                    ? "Foco prático em Lógica de Programação, JavaScript, HTML5, CSS3, Bootstrap e manipulação de DOM."
+                    : "Practical focus on Programming Logic, JavaScript, HTML5, CSS3, Bootstrap, and DOM manipulation.",
+            type: language === "pt" ? "Curso de Formação • 200h" : "Professional Course • 200h",
         },
     ];
 
@@ -194,7 +239,7 @@ export function Timeline() {
                         </h3>
                     </div>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         {academicEducation.map((edu, idx) => (
                             <div
                                 key={idx}
@@ -253,9 +298,9 @@ export function Timeline() {
                                     </p>
                                 </div>
 
-                                <span className="text-xs text-zinc-500 font-mono border-t border-white/5 pt-2">
+                                <p className="text-xs text-zinc-400 leading-relaxed border-t border-white/5 pt-2.5">
                                     {course.status}
-                                </span>
+                                </p>
                             </div>
                         ))}
                     </div>

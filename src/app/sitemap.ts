@@ -2,7 +2,7 @@ import { MetadataRoute } from "next";
 import { getAllProjectSlugs } from "@/lib/data";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-    const baseUrl = "https://pauloragdev.vercel.app";
+    const baseUrl = "https://devpaulorag.com.br";
     const projectSlugs = getAllProjectSlugs();
 
     const projectUrls: MetadataRoute.Sitemap = projectSlugs.map((slug) => ({
